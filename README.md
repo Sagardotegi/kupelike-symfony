@@ -1,5 +1,7 @@
 ![logo](web/img/logo.png)
 
-# Documentación de Kupelike
+# Documentación
+
+La documentación de la aplicación se encuentra en el siguiente enlace:
 
 https://drive.google.com/open?id=1gUv1bgvK19tk7V1D2WhkFNlRwadqjHFe-jdtmSTGbFE
