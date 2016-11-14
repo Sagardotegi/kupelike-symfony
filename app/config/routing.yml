@@ -1,3 +1,9 @@
-app:
-    resource: "@AppBundle/Controller/"
+default:
+    resource: "@KupelikeBundle/Controller/IndexController.php"
     type:     annotation
+    prefix:   /
+    
+kupelike:
+    resource: "@KupelikeBundle/Resources/config/routing.yml"
+    prefix:   /
+

@@ -1,0 +1,4 @@
+services:
+#    kupelike.example:
+#        class: KupelikeBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
