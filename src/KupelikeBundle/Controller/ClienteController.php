@@ -4,11 +4,12 @@ namespace KupelikeBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use KupelikeBundle\Entity\Cliente;
 
-class IndexController extends Controller
+class ClienteController extends Controller
 {
-    public function indexAction()
+    public function newAction()
     {
-        return $this->render('KupelikeBundle:Index:index.html.twig');
+        
     }
 }

@@ -4,10 +4,99 @@
         <meta charset="UTF-8" />
         <title>{% block title %}Kupelike{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/estilo.css') }}" />
+        <link href="{{ asset('/css/font-awesome.min.css') }}" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Roboto|Lobster" rel="stylesheet">
+        
     </head>
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        
+        <div class="container-fluid">
+            
+            <div class="row">
+                <div class="col-xs-12">
+                
+                <nav class="navbar navbar-light bg-faded row">
+                  <a id="navbar-ham" class="navbar-ham col-xs-2 col-md-1 toggle-button"><i class="fa fa-bars fa-2x" aria-hidden="true"></i></a>
+                  <a id="navbar-logo" class="navbar-logo col-xs-2 col-md-1 hidden-md hidden-lg" href="#"><i class="fa fa-apple fa-2x" aria-hidden="true"></i></a>
+                  <a id="navbar-title" class="navbar-title col-md-4 hidden-xs hidden-sm" href="/">Kupelike</a>
+                  <form id="navbar-search" class="col-xs-8 col-md-6 navbar-search form-inline pull-right">
+                    <input class="form-control searchBox" type="text" placeholder="Search">
+                    <button class="btn search-btn" type="submit"><i class="fa fa-search fa-flip-horizontal fa-1x" aria-hidden="true"></i></button>
+                  </form>
+                </nav>
+                
+                </div>
+                
+                <div class="col-xs-12 searchResults">
+                    <span class="closeButton"><i><i class="fa fa-times fa-3" aria-hidden="true"></i></i></span>
+                </div>
+                
+                <div class="menu">
+                    <span><i class="fa fa-times fa-2x pull-right close-menu" aria-hidden="true"></i></span>
+                    <ul class="menu-links">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="map">Map</a></li>
+                        <li><a href="sagardotegiak">Sagardotegiak</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">About</a></li>
+                    </ul>
+               </div>
+                
+            </div>
+        
+       </div><!-- .container-fluid -->
+        
+        <div id="contenido" class="container-fluid">
+            {% block body %}{% endblock %}
+        </div>
+        
+    
+            <footer class="footer container-fluid">
+                <div class="row text-center">
+                    
+                    <div class="col-md-4 col-xs-4 font-face-primary p-20"> 
+                        <a href="http://www.facebook.com/kupelike"><i class="fa fa-facebook btn-social fa-5x" aria-hidden="true"></i></a>
+                    </div>
+                    <div class="col-md-4 col-xs-4 font-face-primary p-20"> 
+                        <a href="http://www.twitter.com/kupelike"><i class="fa fa-twitter btn-social fa-5x" aria-hidden="true"></i></a>
+                    </div>
+                    <div class="col-md-4 col-xs-4 font-face-primary p-20"> 
+                        <a href="http://www.instagram.com/kupelike"><i class="fa fa-instagram btn-social fa-5x" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 col-md-offset-3 col-xs-3 col-xs-offset-3 font-face-primary pc-footer"> 
+                        <h3 class="ftitle">PAGE</h3>
+                        <ul class="list-unstyled ftitle">
+                            <li><a href="" class="green-color">First item</a></li>
+                            <li><a href="" class="green-color">Second item</a></li>
+                            <li><a href="" class="green-color">Third item</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-5 col-md-offset-1 col-xs-5 col-xs-offset-1 font-face-primary pc-footer"> 
+                        <h3 class="ftitle">CONTACT</h3>
+                        <ul class="list-unstyled ftitle">
+                            <li><a href="tel:655555555" class="green-color"><i class="fa fa-phone-square" aria-hidden="true"></i> +34 655 55 55 55</a></li>
+                            <li><a href="mailto:kupelike@kupelike.com" class="green-color"><i class="fa fa-envelope" aria-hidden="true"></i> kupelike@kupelike.com</a></li>
+                            <li><a href="https://maps.google.com/" class="green-color"><i class="fa fa-map-marker" aria-hidden="true"></i> Helbidea 56, Donostia</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <hr class="fline"/>
+                <footer class="subfooter">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xl-12 text-xl-center col-xs-12 text-xs-center"> 
+                            Copyright © 2016 KupeLike - All Rights Reserved - <a href="/privacy" class="subfooter ">Privacy</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </footer>
+        <script src="{{ asset('js/jquery.min.js') }}"></script>
+        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+        
     </body>
 </html>

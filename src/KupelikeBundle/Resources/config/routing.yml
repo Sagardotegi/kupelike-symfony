@@ -1,3 +1,11 @@
 index:
     path: /
     defaults: { _controller: KupelikeBundle:Index:index }
+    
+Sagardotegis_index:
+    path: /sagardotegiak
+    defaults: { _controller: KupelikeBundle:Sagardotegi:lista }
+    
+kupelak_index:
+    path: /kupelak
+    defaults: { _controller: KupelikeBundle:Kupela:index }
