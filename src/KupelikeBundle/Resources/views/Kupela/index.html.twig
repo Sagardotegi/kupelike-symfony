@@ -2,6 +2,10 @@
 
 {% block body %}
 
-    <h1>Kupelak!!</h1>
+    <h1>{{ sagardotegi.nombre }}</h1>
+    <h3>Kupelas de la sagardotegi</h3>
+    {% for kupela in kupelas %}
+        <h5>{{ kupela.nombre }}</h5>
+    {% endfor %}
 
 {% endblock %}

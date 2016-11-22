@@ -20,6 +20,14 @@ class Kupela
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+    
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id_sagardotegi", type="integer")
+     * @ORM\OneToMany(targetEntity="Sagardotegi", mappedBy="kupela")
+     */
+    private $idSagardotegi;
 
     /**
      * @var int
@@ -63,13 +71,22 @@ class Kupela
      */
     private $url;
 
-
     /**
      * Get id
      *
      * @return int
      */
     public function getId()
+    {
+        return $this->id;
+    }
+    
+    /**
+     * Get idSagardotegi
+     * 
+     * @return int
+     */ 
+    public function getIdSagardotegi()
     {
         return $this->id;
     }

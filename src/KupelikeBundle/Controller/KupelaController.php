@@ -8,8 +8,5 @@ use KupelikeBundle\Entity\Kupela;
 
 class KupelaController extends Controller
 {
-    public function indexAction()
-    {
-        return $this->render('KupelikeBundle:Kupela:index.html.twig');
-    }
+    
 }

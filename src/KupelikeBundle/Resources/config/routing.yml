@@ -7,5 +7,5 @@ Sagardotegis_index:
     defaults: { _controller: KupelikeBundle:Sagardotegi:lista }
     
 kupelak_index:
-    path: /kupelak
-    defaults: { _controller: KupelikeBundle:Kupela:index }
+    path: /sagardotegiak/{idSagardotegi}
+    defaults: { _controller: KupelikeBundle:Sagardotegi:view }
