@@ -253,7 +253,7 @@ body {
 }
 
 .footer {
-    position: static;
+    position: relative;
     width: 100%;
     font-family: 'Basic',sans-serif;
     font-size: 14px;
@@ -396,5 +396,21 @@ body {
 }
 
 #contenido{
-    margin-top:600px;
+    margin-top: 120px;
+}
+
+.parallax-sagardotegi {
+    height: 300px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.nombre-sagardotegi {
+    font-family: 'Fjalla One', sans-serif;
+    text-align: center;
+    color: #f9f9f9;
+    font-size: 86px;
+    padding-top: 90px;
 }

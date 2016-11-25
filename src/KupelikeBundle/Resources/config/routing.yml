@@ -2,10 +2,17 @@ index:
     path: /
     defaults: { _controller: KupelikeBundle:Index:index }
     
-Sagardotegis_index:
+sagardotegis_index:
     path: /sagardotegiak
     defaults: { _controller: KupelikeBundle:Sagardotegi:lista }
+    methods: [GET]
     
 kupelak_index:
     path: /sagardotegiak/{idSagardotegi}
     defaults: { _controller: KupelikeBundle:Sagardotegi:view }
+    methods: [GET]
+    
+sagardotegis_mapa:
+    path: /sagardotegiak/{idSagardotegi}/mapa
+    defaults: { _controller: KupelikeBundle:Sagardotegi:mapa }
+    methods: [GET]
