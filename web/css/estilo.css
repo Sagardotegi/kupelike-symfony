@@ -10,7 +10,7 @@ font-family: 'Lobster', cursive;
 body {
     
     width: 100%;
-    background-image: url('../img/slide1.jpg');
+    background-image: url('../img/txotx.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -39,6 +39,7 @@ body {
     padding: 15px 30px !important;
     line-height: 70px;
     color: #629c44;
+    cursor: pointer;
 }
 
 .navbar-ham:hover, .navbar-ham:active, .navbar-ham:focus, navbar-ham:visited {
@@ -413,4 +414,39 @@ body {
     color: #f9f9f9;
     font-size: 86px;
     padding-top: 90px;
+}
+
+
+/** Sagardotegiak Cards **/
+
+.card {
+    
+    height: 500px;
+    width: 100%;
+    padding: 15px 120px;
+}
+
+.card-image {
+    
+    width: inherit;
+}
+
+.card-title {
+    
+    font-family: 'Roboto', sans-serif;
+    color: #629c44;
+    letter-spacing: 1px;
+}
+
+.card-direction {
+    
+    background-color: #629c44;
+    color: white;
+    height: 50px;
+    width: 175px;
+    position: absolute;
+    top: 40px;
+    left: 80px;
+    letter-spacing: 2px;
+    padding: 5px;
 }
