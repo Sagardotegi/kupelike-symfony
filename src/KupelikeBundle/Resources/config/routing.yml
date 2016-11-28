@@ -7,7 +7,7 @@ sagardotegis_index:
     defaults: { _controller: KupelikeBundle:Sagardotegi:lista }
     methods: [GET]
     
-kupelak_index:
+sagardotegi_view:
     path: /sagardotegiak/{idSagardotegi}
     defaults: { _controller: KupelikeBundle:Sagardotegi:view }
     methods: [GET]

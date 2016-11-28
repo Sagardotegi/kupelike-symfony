@@ -24,4 +24,10 @@ composer install
 ```
 Ésto nos instalará los paquetes de Symfony quefaltan (principalmente los **vendor**).
 
+<<<<<<< HEAD
 Nos pedirá configurar la base de datos, lo haremos con nuestros datos del MySQL que tengamos instalado en nuestra máquina.
+=======
+Nos pedirá configurar la base de datos, lo haremos con nuestros datos del MySQL que tengamos instalado en nuestra máquina. 
+
+El archivo SQL de la base de datos creada hasta el momento se encuentra en la carpeta compartida de **DRIVE**
+>>>>>>> f81bfbe21cbd0f5724feca50db805f7cc0fab4a6
