@@ -41,4 +41,17 @@ class SagardotegiController extends Controller
             'sagardotegi' => $sagardotegi
         ));
     }
+    
+    /**
+     * Muestra el mapa con la locaclización de la sagardotegi
+     */
+    public function mapaAction($idSagardotegi)
+    {
+        // carga el Entity Manager (manejamos los datos con Doctrine (ORM))
+        $em = $this->getDoctrine()->getManager();
+        // obtenemos la sagardotegi que queremos visualizar
+        $sagardotegi = $em->getRepository('KupelikeBundle:Sagardotegi')->find($idSagardotegi);
+        
+        return $this->render('KupelikeBundle:Sagardotegi:mapa.html.twig', array('sagardotegi' => $sagardotegi));
+    }
 }
