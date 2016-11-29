@@ -40,8 +40,8 @@
                     <span><i class="fa fa-times fa-2x pull-right close-menu" aria-hidden="true"></i></span>
                     <ul class="menu-links">
                         <li><a href="{{ path('index') }}">Home</a></li>
-                        <li><a href="{{ path('sagardotegien_mapak') }}">Map</a></li>
-                        <li><a href="{{ path('sagardotegis_index') }}">Sagardotegiak</a></li>
+                        <li><a href="mapak">Map</a></li>
+                        <li><a href="sagardotegiak">Sagardotegiak</a></li>
                         <li><a href="#">Contact</a></li>
                         <li><a href="#">About</a></li>
                     </ul>
@@ -49,14 +49,18 @@
                 
             </div>
         
-       </div><!-- .container-fluid -->
+        </div><!-- .container-fluid -->
         
         <div id="contenido" class="container-fluid">
             {% block body %}{% endblock %}
-        </div>
+        </div><!-- .container-fluid -->
         
-    
-            <footer class="footer container-fluid">
+        
+        <div class="container-fluid footer">
+            
+            <div class="row">
+                <div class="col-xs-12">
+            <footer>
                 <div class="row text-center">
                     
                     <div class="col-md-4 col-xs-4 font-face-primary p-20"> 
@@ -98,7 +102,12 @@
                     </div>
                 </footer>
             </footer>
+            </div>
+                
+            </div>
         
+        </div><!-- .container-fluid -->
+
         <script src="{{ asset('js/jquery.min.js') }}"></script>
         <script src="{{ asset('js/bootstrap.min.js') }}"></script>
         <script src="{{ asset('js/script.js') }}"></script>
