@@ -286,6 +286,7 @@ font-family: 'Lobster', cursive;
     letter-spacing: 1px;
     background-color: #232323;
     bottom: 0px;
+    z-index: 3;
 }
 
 .fline {
@@ -353,7 +354,7 @@ font-family: 'Lobster', cursive;
 .caja {
     padding: 10px 50px 50px 50px;
     margin: 20px 20px; 
-    margin-top: 120px;
+    /*margin-top: 120px;*/
     background-color: white;
     /*min-height: 850px;
     max-height: 850px;*/
