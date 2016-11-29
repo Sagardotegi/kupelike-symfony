@@ -10,7 +10,7 @@ font-family: 'Lobster', cursive;
 body {
     
     width: 100%;
-    background-image: url('../img/txotx.jpg');
+    background-image: url('https://j.gifs.com/wj2KqM.gif');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -200,7 +200,7 @@ body {
 .welcome-text {
     
     font-family: 'Lobster', cursive;
-    color: white;
+    color: black;
     padding-top: 150px;
 }
 
