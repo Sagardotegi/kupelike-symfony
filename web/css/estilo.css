@@ -421,9 +421,10 @@ body {
 
 .card {
     
-    height: 500px;
     width: 100%;
-    padding: 15px 120px;
+    padding: 15px 60px;
+    max-width: 500px;
+    margin: 0 auto;
 }
 
 .card-image {
@@ -438,15 +439,28 @@ body {
     letter-spacing: 1px;
 }
 
+.card-description {
+    
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 2px;
+    font-size: medium;
+}
+
 .card-direction {
     
     background-color: #629c44;
     color: white;
     height: 50px;
     width: 175px;
-    position: absolute;
-    top: 40px;
-    left: 80px;
+    position: relative;
+    top: 80px;
+    left: -50px;
     letter-spacing: 2px;
     padding: 5px;
+}
+
+.card-link, .card-link:hover, .card-link:active, .card-link:focus, .card-link:visited {
+    
+    text-decoration: none;
+    color: black;
 }
