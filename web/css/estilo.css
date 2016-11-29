@@ -7,7 +7,7 @@ font-family: 'Lobster', cursive;
 /* Bootstrap Override */
 
 
-body {
+/*body {
     
     width: 100%;
     background-image: url('https://j.gifs.com/wj2KqM.gif');
@@ -19,7 +19,7 @@ body {
     overflow-x: hidden;
     position:fixed;
   
-}
+}*/
 
 /* Menu */
 
@@ -205,6 +205,15 @@ body {
     height: 100vh;
     display: flex;
     align-items: center;
+    width: 100%;
+    background-image: url('https://j.gifs.com/wj2KqM.gif');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    /*height: 100%;*/
+    overflow-x: hidden;
+    position:fixed;
 }
 
 .welcome-text {
@@ -263,7 +272,7 @@ body {
 }
 
 .footer {
-    position: relative;
+    position: absolute;
     width: 100%;
     font-family: 'Basic',sans-serif;
     font-size: 14px;
