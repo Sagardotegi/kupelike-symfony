@@ -210,12 +210,8 @@ body {
 .welcome-text {
     
     font-family: 'Lobster', cursive;
-<<<<<<< HEAD
-    color: black;
-    padding-top: 150px;
-=======
     color: white;
->>>>>>> dfd78fa34dec4495cac7a3e3ced67f4030b17fe7
+    padding-top: 150px;
 }
 
 .welcome-subtext {
@@ -299,6 +295,11 @@ body {
     color: #629c44;
 }
 
+.title-padding {
+    
+    padding-top: 120px;
+}
+
 .pc-footer {
     padding: 20px 0px;
     color: #629c44;
@@ -344,6 +345,7 @@ body {
     max-height: 850px;*/
 }
  .mtitle {
+     
     font-family: 'Lobster', cursive;
     color: #629c44;
  }
@@ -480,9 +482,23 @@ body {
     
 }
 
-/** titulo index **/
+/** titulo index 
 
-.content {
+<div class='title-carrusel'>
+              <div class='visible'>
+                <p>
+                  Disfruta de la Sidra con
+                </p>
+                <ul>
+                  <li>Amigos !</li>
+                  <li>Familia !</li>
+                  <li>Pareja !</li>
+                  <li>KupeLike !</li>
+                </ul>
+              </div>
+            </div>
+
+.title-carrusel {
   position: absolute;
   top: 50%;
   
@@ -496,24 +512,24 @@ body {
   overflow: hidden;
 }
 
-.visible {
+.title-carrusel > .visible {
   font-weight: 600;
   overflow: hidden;
-  height: 40px;
+  height: 50px;
   padding: 0 40px;
 }
-.visible:before {
+.title-carrusel > .visible:before {
   content: '[';
   left: 0;
   line-height: 40px;
 }
-.visible:after {
+.title-carrusel > .visible:after {
   content: ']';
   position: absolute;
   right: 0;
   line-height: 40px;
 }
-.visible:after, .visible:before {
+.title-carrusel > .visible:after, .visible:before {
   position: absolute;
   top: 0;
   color: #16a085;
@@ -529,15 +545,15 @@ body {
           animation-iteration-count: infinite;
 }
 
-p {
+.title-carrusel > .visible > p {
   display: inline;
   float: left;
   margin: 0;
 }
 
-ul {
+.title-carrusel > .visible > ul {
   margin-top: 0;
-  padding-left: 110px;
+  padding-left: 350px;
   text-align: left;
   list-style: none;
   -webkit-animation-name: change;
@@ -551,9 +567,9 @@ ul {
           animation-iteration-count: infinite;
 }
 
-ul li {
-  line-height: 40px;
-  margin: 30px;
+.title-carrusel > .visible > ul > li {
+  line-height: 45px;
+  margin-left: 20px;
 }
 
 @-webkit-keyframes opacity {
@@ -570,24 +586,24 @@ ul li {
             transform: translateY(0);
   }
   17%,29% {
-    -webkit-transform: translateY(-25%);
-            transform: translateY(-25%);
+    -webkit-transform: translateY(-50px);
+            transform: translateY(-50px);
   }
   34%,46% {
-    -webkit-transform: translateY(-50%);
-            transform: translateY(-50%);
+    -webkit-transform: translateY(-100px);
+            transform: translateY(-100px);
   }
   51%,63% {
-    -webkit-transform: translateY(-75%);
-            transform: translateY(-75%);
+    -webkit-transform: translateY(-150px);
+            transform: translateY(-150px);
   }
   68%,80% {
-    -webkit-transform: translateY(-50%);
-            transform: translateY(-50%);
+    -webkit-transform: translateY(-100px);
+            transform: translateY(-100px);
   }
   85%,97% {
-    -webkit-transform: translateY(-25%);
-            transform: translateY(-25%);
+    -webkit-transform: translateY(-50px);
+            transform: translateY(-50px);
   }
 }
 @keyframes opacity {
@@ -624,3 +640,5 @@ ul li {
             transform: translateY(-25%);
   }
 }
+
+*/
