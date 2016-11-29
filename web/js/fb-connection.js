@@ -10,14 +10,6 @@ window.fbAsyncInit = function() {
 
     FB.AppEvents.logPageView();
     
-    FB.getLoginStatus(function(response) {
-        if(response.status === 'connected'){
-            console.log("Estás conectado con Facebook");
-        } else if(response.status === 'not_authorized') {
-            console.log("No estás conectado con Facebook");
-        }
-    });
-    
 };
     
 (function(d, s, id){
@@ -27,5 +19,25 @@ window.fbAsyncInit = function() {
     js.src = "//connect.facebook.net/en_US/sdk.js";
     fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
+
+function login()
+{
+    FB.login(function(response){
+        if(response.status === 'connected'){
+            // cuando está conectado a Facebook
+            document.getElementById("login-btn").innerHTML = getDatos();
+        } else if(response.status === 'not_authorized') {
+            // cuando no lo está
+        }
+    });
+}
+
+function getDatos()
+{
+    return FB.api('/me', 'GET', { fields: 'first_name, last_name, picture' }, function(response){
+        console.log(response);
+        document.getElementById("login-btn").innerHTML = "<img src='" + response.picture.data.url + "' />";
+    });
+}
     
  
