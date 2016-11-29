@@ -219,6 +219,7 @@ font-family: 'Lobster', cursive;
     /*height: 100%;*/
     overflow-x: hidden;
     position:fixed;
+    padding-bottom: inherit;
 }
 
 .welcome-text {
@@ -287,6 +288,7 @@ font-family: 'Lobster', cursive;
     background-color: #232323;
     bottom: 0px;
     z-index: 3;
+    height: 376px;
 }
 
 .fline {
@@ -495,6 +497,11 @@ font-family: 'Lobster', cursive;
 #Kupela{
     color: white;
     
+}
+
+#contenido {
+    padding-top: 0px;
+    padding-bottom: 376px;
 }
 
 /** titulo index 
