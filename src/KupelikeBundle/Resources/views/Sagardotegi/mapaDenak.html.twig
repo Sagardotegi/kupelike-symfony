@@ -37,16 +37,37 @@
     			size: new google.maps.Size(35, 35)
     		};
 		
-		    //Colocando marcadores
-		    {% for sagardotegi in sagardotegis %}
-        var sagarPos = {lat: {{ sagardotegi.latitud }}, lng: {{ sagardotegi.longitud }}};
-        var sagardotegi = new google.maps.Marker({
-          position: sagarPos,
-          map: map,
-          title: '{{ sagardotegi.nombre }}',
-          icon: sagarImg
-        });
+		
+		    //Centrando el mapa////////////////////////////////////////////////////////
+		
+		    //create empty LatLngBounds object
+        var bounds = new google.maps.LatLngBounds();
+        var infowindow = new google.maps.InfoWindow();  
+		
+        {% for sagardotegi in sagardotegis %}
+          var marker = new google.maps.Marker({
+            position: new google.maps.LatLng({{ sagardotegi.latitud }}, {{ sagardotegi.longitud }}),
+            map: map,
+            title: '{{ sagardotegi.nombre }}',
+            icon: sagarImg
+          });
+        
+          bounds.extend(marker.position);
+        
+          google.maps.event.addListener(marker, 'click', (function(marker) {
+            return function() {
+              infowindow.setContent({{ sagardotegi.nombre }});
+              infowindow.open(map, marker);
+            }
+          })(marker));
+        //}
         {% endfor %}
+        
+        //now fit the map to the newly inclusive bounds
+        map.fitBounds(bounds);
+        
+        ///////////////////////////////////////////////////////////////////////////
+        
         
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function(position) {

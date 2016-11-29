@@ -20,7 +20,11 @@
                 <nav class="navbar navbar-light bg-faded row">
                   <a id="navbar-ham" class="navbar-ham col-xs-2 col-md-1 toggle-button"><i class="fa fa-bars fa-2x" aria-hidden="true"></i></a>
                   <a id="navbar-logo" class="navbar-logo col-xs-2 col-md-1 hidden-md hidden-lg" href="#"><i class="fa fa-apple fa-2x" aria-hidden="true"></i></a>
+<<<<<<< HEAD
                   <a id="navbar-title" class="navbar-title col-md-4 hidden-xs hidden-sm" href="{{ path('index') }}">Kupelike</a>
+=======
+                  <a id="navbar-title" class="navbar-title col-md-4 hidden-xs hidden-sm" href="/">Kupelike</a>
+>>>>>>> bc25a191efc38878637b5a3d5ee2b8cf2160d28d
                   <form id="navbar-search" class="col-xs-8 col-md-6 navbar-search form-inline pull-right">
                     <input class="form-control searchBox" type="text" placeholder="Search">
                     <button class="btn search-btn" type="submit"><i class="fa fa-search fa-flip-horizontal fa-1x" aria-hidden="true"></i></button>
@@ -29,15 +33,15 @@
                 
                 </div>
                 
-                <div class="col-xs-12 searchResults" id="searchResults">
-                    <span><i class="fa fa-times fa-3x closeSearch pull-right" aria-hidden="true"></i></span>
+                <div class="col-xs-12 searchResults">
+                    <span class="closeButton"><i><i class="fa fa-times fa-3" aria-hidden="true"></i></i></span>
                 </div>
                 
                 <div class="menu">
                     <span><i class="fa fa-times fa-2x pull-right close-menu" aria-hidden="true"></i></span>
                     <ul class="menu-links">
-                        <li><a href="{{ path('index') }}">Home</a></li>
-                        <li><a href="map">Map</a></li>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="mapak">Map</a></li>
                         <li><a href="sagardotegiak">Sagardotegiak</a></li>
                         <li><a href="#">Contact</a></li>
                         <li><a href="#">About</a></li>
@@ -48,7 +52,7 @@
         
        </div><!-- .container-fluid -->
         
-        <div class="container-fluid">
+        <div id="contenido" class="container-fluid">
             {% block body %}{% endblock %}
         </div>
         
@@ -98,7 +102,7 @@
         
         <script src="{{ asset('js/jquery.min.js') }}"></script>
         <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-        <script src="{{ asset('js/script.js') }}"></script>
+        <script src="{{ asset('js/scripts.js') }}"></script>
         
     </body>
 </html>
