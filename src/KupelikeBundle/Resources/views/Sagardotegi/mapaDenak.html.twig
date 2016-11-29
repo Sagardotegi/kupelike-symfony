@@ -16,7 +16,7 @@
         //Creando el mapa
         var mapCanvas = document.getElementById("map");
         var mapOptions = {
-          //center: new google.maps.LatLng({{ sagardotegi.latitud }},{{ sagardotegi.longitud }}), 
+          center: new google.maps.LatLng(43.323832,-1.9768633), 
           zoom: 17,
           scrollwheel: false
         };
@@ -38,15 +38,15 @@
     		};
 		
 		    //Colocando marcadores
-		    //{% for sagardotegi in sagardotegis %}
-        //var sagarPos = {lat: {{ sagardotegi.latitud }}, lng: {{ sagardotegi.longitud }}};
-        //var sagardotegi = new google.maps.Marker({
-        //  position: sagarPos,
-        //  map: map,
-        //  title: '{{ sagardotegi.nombre }}',
-        //  icon: sagarImg
-        //});
-        //{% endfor %}
+		    {% for sagardotegi in sagardotegis %}
+        var sagarPos = {lat: {{ sagardotegi.latitud }}, lng: {{ sagardotegi.longitud }}};
+        var sagardotegi = new google.maps.Marker({
+          position: sagarPos,
+          map: map,
+          title: '{{ sagardotegi.nombre }}',
+          icon: sagarImg
+        });
+        {% endfor %}
         
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function(position) {
