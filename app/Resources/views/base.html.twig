@@ -47,13 +47,18 @@
                 
             </div>
         
-       </div><!-- .container-fluid -->
+        </div><!-- .container-fluid -->
         
         <div id="contenido" class="container-fluid">
             {% block body %}{% endblock %}
-        </div>
+        </div><!-- .container-fluid -->
         
-            <footer class="footer container-fluid">
+        
+        <div class="container-fluid footer">
+            
+            <div class="row">
+                <div class="col-xs-12">
+            <footer>
                 <div class="row text-center">
                     
                     <div class="col-md-4 col-xs-4 font-face-primary p-20"> 
@@ -95,6 +100,11 @@
                     </div>
                 </footer>
             </footer>
+            </div>
+                
+            </div>
+        
+        </div><!-- .container-fluid -->
 
         <script src="{{ asset('js/jquery.min.js') }}"></script>
         <script src="{{ asset('js/bootstrap.min.js') }}"></script>
