@@ -292,6 +292,11 @@ body {
     color: #629c44;
 }
 
+.title-padding {
+    
+    padding-top: 120px;
+}
+
 .pc-footer {
     padding: 20px 0px;
     color: #629c44;
@@ -337,6 +342,7 @@ body {
     max-height: 850px;*/
 }
  .mtitle {
+     
     font-family: 'Lobster', cursive;
     color: #629c44;
  }
