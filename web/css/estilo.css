@@ -10,16 +10,21 @@ font-family: 'Lobster', cursive;
 /*body {
     
     width: 100%;
-    background-image: url('https://j.gifs.com/wj2KqM.gif');
+    background-image: url('../img/fondo.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center center;
     height: 100%;
     overflow-x: hidden;
+<<<<<<< HEAD
     position:fixed;
   
 }*/
+=======
+   
+}
+>>>>>>> 9fb9f8b34b4983b4c940f6e984863719c62befa3
 
 /* Menu */
 
