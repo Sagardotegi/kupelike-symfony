@@ -189,6 +189,14 @@ body {
     display: none;
 }
 
+.closeSearch {
+    
+    color: black;
+    cursor: pointer;
+    z-index: 1;
+    margin-top: 120px;
+}
+
 /* Fin Menu*/
 
 /* Welcome */
@@ -202,18 +210,21 @@ body {
 .welcome-text {
     
     font-family: 'Lobster', cursive;
+<<<<<<< HEAD
     color: black;
     padding-top: 150px;
+=======
+    color: white;
+>>>>>>> dfd78fa34dec4495cac7a3e3ced67f4030b17fe7
 }
 
-.blockquote-title {
+.welcome-subtext {
     
     font-family: 'Roboto', sans-serif;
     color: #629c44;
     padding: 10px 15px;
     margin: 0 50px 20px;
     font-size: 16px;
-    border-left: 3px solid #629c44 !important;
     letter-spacing: 1px;
 }
 
@@ -327,6 +338,7 @@ body {
 .caja {
     padding: 10px 50px 50px 50px;
     margin: 20px 20px; 
+    margin-top: 120px;
     background-color: white;
     /*min-height: 850px;
     max-height: 850px;*/
@@ -396,10 +408,6 @@ body {
 .estadisticas-titulo {
     font-family: 'Roboto', sans-serif;
     color: #629c44 !important;
-}
-
-#contenido{
-    margin-top: 120px;
 }
 
 .parallax-sagardotegi {

@@ -16,3 +16,8 @@ sagardotegi_mapa:
     path: /sagardotegiak/{idSagardotegi}/mapa
     defaults: { _controller: KupelikeBundle:Sagardotegi:mapa }
     methods: [GET]
+    
+sagardotegien_mapak:
+    path: /mapak
+    defaults: { _controller: KupelikeBundle:Sagardotegi:mapak }
+    methods: [GET]
