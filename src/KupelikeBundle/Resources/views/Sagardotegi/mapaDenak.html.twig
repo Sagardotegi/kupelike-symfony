@@ -6,11 +6,7 @@
       <h1 class="text-center mtitle">Mapa</h1>
   </div>
   <div class="col-md-12">
-      <div id="map" class="mapa"></div>
-      
-    
-    
-    
+    <div id="map" class="mapa"></div>
 
         <script>
       function myMap() {
@@ -73,7 +69,8 @@
           });
           (function(marker, nombre) {
             google.maps.event.addListener(marker, 'click', function() {
-              infowindow.setContent(nombre+"<br>"+direccion);
+              //infowindow.setContent('<a href="google.navigation:q='+marcadores[i].position.lat+','+marcadores[i].position.lng+'">'+nombre+'<br>'+direccion+'</a>');
+              infowindow.setContent(nombre+'<br>'+direccion);
               infowindow.open(map, marker);
               map.panTo(marker.position);
               //map.setCenter(marker.position);

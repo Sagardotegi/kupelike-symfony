@@ -50,7 +50,7 @@
           icon: sagarImg
         });
         
-        infowindow.setContent('{{ sagardotegi.nombre }}<br>{{sagardotegi.direccion}}');
+        infowindow.setContent('<a href="google.navigation:q={{ sagardotegi.latitud }},{{ sagardotegi.longitud }}">{{ sagardotegi.nombre }}<br>{{sagardotegi.direccion}}</a>');
         sagardotegi.addListener('click', function() {
           infowindow.open(map, sagardotegi);
           map.panTo(sagardotegi.position);
@@ -100,7 +100,6 @@
       }
         </script>
         <script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
-
   </div>
 </div>
     
