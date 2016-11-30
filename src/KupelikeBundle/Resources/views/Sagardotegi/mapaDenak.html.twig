@@ -38,31 +38,49 @@
     		};
 		
 		
-		    //Centrando el mapa////////////////////////////////////////////////////////
+		    // Añadiendo marcadores y Centrando el mapa//////////////////////////////////
 		
 		    //create empty LatLngBounds object
         var bounds = new google.maps.LatLngBounds();
         var infowindow = new google.maps.InfoWindow();  
+		    var marcadores = [];
 		
         {% for sagardotegi in sagardotegis %}
-          var marker = new google.maps.Marker({
-            position: new google.maps.LatLng({{ sagardotegi.latitud }}, {{ sagardotegi.longitud }}),
-            map: map,
-            title: '{{ sagardotegi.nombre }}',
-            icon: sagarImg
-          });
         
-          bounds.extend(marker.position);
-        
-          google.maps.event.addListener(marker, 'click', (function(marker) {
-            return function() {
-              infowindow.setContent({{ sagardotegi.nombre }});
-              infowindow.open(map, marker);
-            }
-          })(marker));
-        //}
+          var mas = {  
+            position: {
+              lat: {{ sagardotegi.latitud }},
+              lng: {{ sagardotegi.longitud }}
+            },
+            nombre: "{{ sagardotegi.nombre }}",
+            direccion: "{{ sagardotegi.direccion }}"
+          };
+          marcadores.push(mas);
+
         {% endfor %}
         
+        
+        for (var i = 0; i < marcadores.length; i++){
+
+          var nombre = marcadores[i].nombre;
+          var direccion = marcadores[i].direccion;
+          var marker = new google.maps.Marker({
+            position: new google.maps.LatLng(marcadores[i].position.lat, marcadores[i].position.lng),
+            map: map,
+            title: nombre,
+            icon: sagarImg
+          });
+          (function(marker, nombre) {
+            google.maps.event.addListener(marker, 'click', function() {
+              infowindow.setContent(nombre+"<br>"+direccion);
+              infowindow.open(map, marker);
+              map.setCenter(marker.position);
+              //map.setZoom(17);
+            });
+          })(marker, nombre);
+
+          bounds.extend(marker.position);
+        }
         //now fit the map to the newly inclusive bounds
         map.fitBounds(bounds);
         
