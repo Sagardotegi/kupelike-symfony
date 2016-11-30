@@ -53,7 +53,8 @@
         infowindow.setContent('{{ sagardotegi.nombre }}<br>{{sagardotegi.direccion}}');
         sagardotegi.addListener('click', function() {
           infowindow.open(map, sagardotegi);
-          map.setCenter(sagardotegi.position);
+          map.panTo(sagardotegi.position);
+          //map.setCenter(sagardotegi.position);
         });
         
         if (navigator.geolocation) {
