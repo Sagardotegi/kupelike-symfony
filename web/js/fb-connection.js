@@ -4,11 +4,11 @@
 window.fbAsyncInit = function() {
     FB.init({
       appId      : '238649363223511',
-      xfbml      : true,
+      cookie     : true,
       version    : 'v2.8'
     });
 
-    FB.AppEvents.logPageView();
+    return false;
     
 };
     
@@ -23,20 +23,13 @@ window.fbAsyncInit = function() {
 function login()
 {
     FB.login(function(response){
-        if(response.status === 'connected'){
+        if(response.authResponse){
             // cuando está conectado a Facebook
-            document.getElementById("login-btn").innerHTML = getDatos();
-        } else if(response.status === 'not_authorized') {
+            console.log("Cookie");
+        } else {
             // cuando no lo está
+            console.log("no cookie");
         }
-    });
-}
-
-function getDatos()
-{
-    return FB.api('/me', 'GET', { fields: 'first_name, last_name, picture' }, function(response){
-        console.log(response);
-        document.getElementById("login-btn").innerHTML = "<img src='" + response.picture.data.url + "' />";
     });
 }
     

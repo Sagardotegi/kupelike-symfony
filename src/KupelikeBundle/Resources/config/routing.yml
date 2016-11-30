@@ -21,3 +21,11 @@ sagardotegien_mapak:
     path: /mapak
     defaults: { _controller: KupelikeBundle:Sagardotegi:mapak }
     methods: [GET]
+    
+login:
+    path: /login
+    defaults: { _controller: KupelikeBundle:Cliente:login }
+
+login_check:
+    path: /check
+    defaults: { _controller: KupelikeBundle:Cliente:check }
