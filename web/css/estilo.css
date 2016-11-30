@@ -66,7 +66,7 @@ font-family: 'Lobster', cursive;
     
     float: left;
     height: inherit;
-    padding: 15px 100px;
+    padding: 15px;
     font-size: 40px;
     line-height: 55px;
     letter-spacing: 2px;
@@ -82,19 +82,35 @@ font-family: 'Lobster', cursive;
 
 .navbar-search {
     
-    line-height: 100px;
+    padding-left: 50%;
+    -moz-transition: padding-left 1s ease-in;
+     -o-transition: padding-left  1s ease-in;
+     -webkit-transition: padding-left  1s ease-in;
+     transition: padding-left  1s ease-in;
+    line-height: 90px;
     height: inherit;
     margin-top: 0px !important;
     margin-bottom: 0px !important;
 }
 
+.navbar-search-widen {
+    
+    padding-left: 0%;
+    -moz-transition: padding-left 1s ease-in;
+     -o-transition: padding-left  1s ease-in;
+     -webkit-transition: padding-left  1s ease-in;
+     transition: padding-left  1s ease-in;
+    line-height: 90px;
+    height: inherit;
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+    
+}
+
 .form-control {
     
-    width: 300px !important;
-    -webkit-transition: width 1s ease-in-out !important;
-    -moz-transition:width 1s ease-in-out !important;
-    -o-transition: width 1s ease-in-out !important;
-    transition: width 1s ease-in-out !important;
+    min-width: 230px !important;
+    width: 95% !important;
     height: 34px;
     padding: 6px 12px;
     font-size: 14px;
@@ -108,11 +124,6 @@ font-family: 'Lobster', cursive;
 
 .form-control-widen {
     
-    width: 95% !important;
-    -webkit-transition: width 1s ease-in-out !important;
-    -moz-transition:width 1s ease-in-out !important;
-    -o-transition: width 1s ease-in-out !important;
-    transition: width 1s ease-in-out !important;
     height: 34px;
     padding: 6px 12px;
     font-size: 14px;
@@ -122,6 +133,7 @@ font-family: 'Lobster', cursive;
     background-image: none;
     border: 1px solid #ccc;
     border-radius: 4px;
+    width: 95%;
 }
 
 .search-btn {
@@ -129,6 +141,7 @@ font-family: 'Lobster', cursive;
     background: none;
     line-height: 1.42857143;
     margin-left: -40px;
+    float: none;
 }
 
 .menu {
@@ -187,6 +200,7 @@ font-family: 'Lobster', cursive;
     background-color: rgba(255, 255, 255, 0.75);
     z-index: 1;
     display: none;
+    margin-top: 70px;
 }
 
 .closeSearch {
@@ -273,7 +287,7 @@ font-family: 'Lobster', cursive;
 }
 
 .footer {
-    position: absolute;
+    
     width: 100%;
     font-family: 'Basic',sans-serif;
     font-size: 14px;
@@ -351,7 +365,7 @@ font-family: 'Lobster', cursive;
 .caja {
     padding: 120px 50px 50px 50px;
     margin: 20px 20px; 
-    /*margin-top: 120px;*/
+    margin-top: 120px;
     background-color: white;
     /*min-height: 850px;
     max-height: 850px;*/
