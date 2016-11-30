@@ -19,13 +19,15 @@
                 
                 <nav class="navbar navbar-light bg-faded row">
                   <a id="navbar-ham" class="navbar-ham col-xs-2 col-md-1 toggle-button"><i class="fa fa-bars fa-2x" aria-hidden="true"></i></a>
-                  <a id="navbar-logo" class="navbar-logo col-xs-2 col-md-1 hidden-md hidden-lg" href="#"><i class="fa fa-apple fa-2x" aria-hidden="true"></i></a>
                   <a id="navbar-title" class="navbar-title col-md-4 hidden-xs hidden-sm" href="{{ path('index') }}">Kupelike</a>
                   <form id="navbar-search" class="col-xs-8 col-md-6 navbar-search form-inline pull-right">
 
                     <input class="form-control searchBox" type="text" placeholder="Search">
                     <button class="btn search-btn" type="submit"><i class="fa fa-search fa-flip-horizontal fa-1x" aria-hidden="true"></i></button>
                   </form>
+                
+                <button id="login-btn" class="btn btn-success" onclick="login()">Conectate</button>
+                    
                 </nav>
                 
                 </div>
@@ -47,14 +49,18 @@
                 
             </div>
         
-       </div><!-- .container-fluid -->
+        </div><!-- .container-fluid -->
         
         <div id="contenido" class="container-fluid">
             {% block body %}{% endblock %}
-        </div>
+        </div><!-- .container-fluid -->
         
-    
-            <footer class="footer container-fluid">
+        
+        <div class="container-fluid footer">
+            
+            <div class="row">
+                <div class="col-xs-12">
+            <footer>
                 <div class="row text-center">
                     
                     <div class="col-md-4 col-xs-4 font-face-primary p-20"> 
@@ -96,10 +102,16 @@
                     </div>
                 </footer>
             </footer>
+            </div>
+                
+            </div>
         
+        </div><!-- .container-fluid -->
+
         <script src="{{ asset('js/jquery.min.js') }}"></script>
         <script src="{{ asset('js/bootstrap.min.js') }}"></script>
         <script src="{{ asset('js/script.js') }}"></script>
+        <script src="{{ asset('js/fb-connection.js') }}"></script>
         
     </body>
 </html>

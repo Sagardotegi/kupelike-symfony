@@ -7,7 +7,7 @@ font-family: 'Lobster', cursive;
 /* Bootstrap Override */
 
 
-body {
+/*body {
     
     width: 100%;
     background-image: url('../img/fondo.jpg');
@@ -17,8 +17,9 @@ body {
     background-position: center center;
     height: 100%;
     overflow-x: hidden;
-   
-}
+    position:fixed;
+  
+}*/
 
 /* Menu */
 
@@ -204,6 +205,16 @@ body {
     height: 100vh;
     display: flex;
     align-items: center;
+    width: 100%;
+    background-image: url('https://j.gifs.com/wj2KqM.gif');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    /*height: 100%;*/
+    overflow-x: hidden;
+    position:fixed;
+    /*padding-bottom: inherit;*/
 }
 
 .welcome-text {
@@ -262,7 +273,7 @@ body {
 }
 
 .footer {
-    position: relative;
+    position: absolute;
     width: 100%;
     font-family: 'Basic',sans-serif;
     font-size: 14px;
@@ -271,6 +282,8 @@ body {
     letter-spacing: 1px;
     background-color: #232323;
     bottom: 0px;
+    z-index: 3;
+    /*height: 376px;*/
 }
 
 .fline {
@@ -338,7 +351,7 @@ body {
 .caja {
     padding: 10px 50px 50px 50px;
     margin: 20px 20px; 
-    margin-top: 120px;
+    /*margin-top: 120px;*/
     background-color: white;
     /*min-height: 850px;
     max-height: 850px;*/
@@ -481,6 +494,7 @@ body {
     
 }
 
+<<<<<<< HEAD
 /** Formulario contacto **/
 
 .contact_form{
@@ -527,6 +541,12 @@ body {
 textarea{
     resize: none;
 }
+=======
+/*#contenido {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}*/
+>>>>>>> 4ba750d1ba6d23f23cf87623145d68af6812502f
 
 /** titulo index 
 
