@@ -287,7 +287,7 @@ font-family: 'Lobster', cursive;
 }
 
 .footer {
-    position: absolute;
+    
     width: 100%;
     font-family: 'Basic',sans-serif;
     font-size: 14px;
@@ -365,7 +365,7 @@ font-family: 'Lobster', cursive;
 .caja {
     padding: 10px 50px 50px 50px;
     margin: 20px 20px; 
-    /*margin-top: 120px;*/
+    margin-top: 120px;
     background-color: white;
     /*min-height: 850px;
     max-height: 850px;*/
