@@ -13,6 +13,7 @@
         
         var directionsService = new google.maps.DirectionsService;
         var directionsDisplay = new google.maps.DirectionsRenderer;
+        var infowindow = new google.maps.InfoWindow(); 
         //Creando el mapa
         var mapCanvas = document.getElementById("map");
         var mapOptions = {
@@ -47,6 +48,12 @@
           map: map,
           title: '{{ sagardotegi.nombre }}',
           icon: sagarImg
+        });
+        
+        infowindow.setContent('{{ sagardotegi.nombre }}<br>{{sagardotegi.direccion}}');
+        sagardotegi.addListener('click', function() {
+          infowindow.open(map, sagardotegi);
+          map.setCenter(sagardotegi.position);
         });
         
         if (navigator.geolocation) {
