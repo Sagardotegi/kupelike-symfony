@@ -216,19 +216,14 @@ font-family: 'Lobster', cursive;
 /* Welcome */
 
 .welcome {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    width: 100%;
-    background-image: url('https://j.gifs.com/wj2KqM.gif');
+    
+    height: 100vh !important;
+    background-image: url(https://j.gifs.com/wj2KqM.gif);
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center center;
-    /*height: 100%;*/
     overflow-x: hidden;
-    position:fixed;
-    /*padding-bottom: inherit;*/
 }
 
 .welcome-text {
