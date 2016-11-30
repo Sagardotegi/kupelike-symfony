@@ -21,3 +21,8 @@ sagardotegien_mapak:
     path: /mapak
     defaults: { _controller: KupelikeBundle:Sagardotegi:mapak }
     methods: [GET]
+    
+contacto:
+    path: /contacto
+    defaults: { _controller: KupelikeBundle:Index:contacto }
+    methods: [GET]
