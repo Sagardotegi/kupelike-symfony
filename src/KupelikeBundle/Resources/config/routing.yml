@@ -21,3 +21,8 @@ sagardotegien_mapak:
     path: /mapak
     defaults: { _controller: KupelikeBundle:Sagardotegi:mapak }
     methods: [GET]
+    
+prueba:
+    path: /prueba
+    defaults: { _controller: KupelikeBundle:Kupela:new }
+    methods: [GET]
