@@ -75,7 +75,8 @@
             google.maps.event.addListener(marker, 'click', function() {
               infowindow.setContent(nombre+"<br>"+direccion);
               infowindow.open(map, marker);
-              map.setCenter(marker.position);
+              map.panTo(marker.position);
+              //map.setCenter(marker.position);
               //map.setZoom(17);
             });
           })(marker, nombre);
@@ -107,7 +108,6 @@
         </script>
         <script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
     </div>
-  </div>
 </div>
     
 {% endblock %}
