@@ -1,10 +1,14 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-
-    <h1 id="Kupela">{{ sagardotegi.nombre }}</h1>
-    <div class="row">
+  
+   
+    <div class="row kupela">
+      <div class="col-sm-12">
+            <h1 class="mtitle title-padding text-center">{{sagardotegi.nombre}}</h1>
+       </div>
     {% for kupela in kupelas %}
+       
           <div class="col-sm-6 col-md-4">
             <div class="thumbnail">
               <img src="{{asset(kupela.foto)}}" alt="kupela">

@@ -7,7 +7,7 @@ font-family: 'Lobster', cursive;
 /* Bootstrap Override */
 
 
-/*body {
+body {
     
     width: 100%;
     background-image: url('../img/fondo.jpg');
@@ -19,7 +19,7 @@ font-family: 'Lobster', cursive;
     overflow-x: hidden;
     position:fixed;
   
-}*/
+}
 
 /* Menu */
 
@@ -220,11 +220,7 @@ font-family: 'Lobster', cursive;
     display: flex;
     align-items: center;
     width: 100%;
-    background-image: url('https://j.gifs.com/wj2KqM.gif');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center center;
+    
     /*height: 100%;*/
     overflow-x: hidden;
     position:fixed;
@@ -503,17 +499,28 @@ font-family: 'Lobster', cursive;
     color: black;
 }
 
-#Kupela{
-    color: white;
+
+
+
+/** Aspecto general paginas **/
+
+.conocenos,.kupela, .sidreria, .contacto, .mapa{
+    background-color: white;
+    
+
+   
+
     
 }
 
-<<<<<<< HEAD
+
+
 /** Formulario contacto **/
+
 
 .contact_form{
     font: 100% Arial, Helvetica, sans-serif;
-    max-width: 600px;
+    max-width: 800px;
     margin: 10px auto;
     padding: 16px;
     background: #F7F7F7;
@@ -555,12 +562,14 @@ font-family: 'Lobster', cursive;
 textarea{
     resize: none;
 }
-=======
-/*#contenido {
-    padding-top: 0px;
-    padding-bottom: 0px;
-}*/
->>>>>>> 4ba750d1ba6d23f23cf87623145d68af6812502f
+
+#contenido {
+    margin: 200px auto; 
+}
+
+/** FIN ! Formulario contacto **/
+/**/
+
 
 /** titulo index 
 
