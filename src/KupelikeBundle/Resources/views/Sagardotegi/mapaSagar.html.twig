@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<div class="row">
+<div class="row caja">
   <div class="col-md-12">
-    <div class="caja">
       <h1 class="text-center mtitle">{{ sagardotegi.nombre }}</h1>
-    
+  </div>
+  <div class="col-md-12">
     <div id="map" class="mapa"></div>
 
         <script>
@@ -50,10 +50,11 @@
           icon: sagarImg
         });
         
-        infowindow.setContent('{{ sagardotegi.nombre }}<br>{{sagardotegi.direccion}}');
+        infowindow.setContent('<a href="google.navigation:q={{ sagardotegi.latitud }},{{ sagardotegi.longitud }}">{{ sagardotegi.nombre }}<br>{{sagardotegi.direccion}}</a>');
         sagardotegi.addListener('click', function() {
           infowindow.open(map, sagardotegi);
-          map.setCenter(sagardotegi.position);
+          map.panTo(sagardotegi.position);
+          //map.setCenter(sagardotegi.position);
         });
         
         if (navigator.geolocation) {
@@ -99,7 +100,6 @@
       }
         </script>
         <script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
-    </div>
   </div>
 </div>
     

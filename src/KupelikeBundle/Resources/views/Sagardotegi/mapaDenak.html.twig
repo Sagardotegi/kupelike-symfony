@@ -1,15 +1,12 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<div class="row">
+<div class="row caja">
   <div class="col-md-12">
-    <div class="caja">
-      <h1 class="text-center mtitle"></h1>
-      <div id="map" class="mapa"></div>
-      
-    
-    
-    
+      <h1 class="text-center mtitle">Mapa</h1>
+  </div>
+  <div class="col-md-12">
+    <div id="map" class="mapa"></div>
 
         <script>
       function myMap() {
@@ -64,17 +61,22 @@
 
           var nombre = marcadores[i].nombre;
           var direccion = marcadores[i].direccion;
+          var lati = marcadores[i].position.lat;
+          var longi = marcadores[i].position.lng;
           var marker = new google.maps.Marker({
-            position: new google.maps.LatLng(marcadores[i].position.lat, marcadores[i].position.lng),
+            position: new google.maps.LatLng(lati, longi),
             map: map,
             title: nombre,
             icon: sagarImg
           });
           (function(marker, nombre) {
             google.maps.event.addListener(marker, 'click', function() {
-              infowindow.setContent(nombre+"<br>"+direccion);
+              //infowindow.setContent('<a href="google.navigation:q='+marcadores[i].position.lat+','+marcadores[i].position.lng+'">'+nombre+'<br>'+direccion+'</a>');
+              infowindow.setContent('<a href="google.navigation:q='+lati+', '+longi+'">'+nombre+'<br>'+direccion+'</a>');
+              //infowindow.setContent(nombre+'<br>'+direccion);
               infowindow.open(map, marker);
-              map.setCenter(marker.position);
+              map.panTo(marker.position);
+              //map.setCenter(marker.position);
               //map.setZoom(17);
             });
           })(marker, nombre);
@@ -106,7 +108,6 @@
         </script>
         <script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
     </div>
-  </div>
 </div>
     
 {% endblock %}
