@@ -26,8 +26,20 @@ $(document).ready(function($) {
         });
     });
     
+//* Search zoom disable *//    
     
-//* Search Script *//
+$(".searchBox").mouseover(zoomDisable).mousedown(zoomEnable);
+function zoomDisable(){
+  $('head meta[name=viewport]').remove();
+  $('head').prepend('<meta name="viewport" content="user-scalable=0" />');
+}
+function zoomEnable(){
+  $('head meta[name=viewport]').remove();
+  $('head').prepend('<meta name="viewport" content="user-scalable=1" />');
+}
+    
+    
+
 
 function showResult(str) {
   if (str.length==0) { 
@@ -50,3 +62,5 @@ function showResult(str) {
   xmlhttp.open("GET","searchResults.php?q="+str,true);
   xmlhttp.send();
 }
+
+
