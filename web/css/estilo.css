@@ -532,10 +532,10 @@ body {
     margin: 10px auto;
     padding: 16px;
     background: #F7F7F7;
-    margin-top:200px;
+    
     border-radius: 33px 33px 33px 33px;
     border-top-left-radius: 33px;
-     border-top-right-radius: 33px;
+    border-top-right-radius: 33px;
     border: 10px solid black;
  
 }
@@ -572,8 +572,19 @@ textarea{
 }
 
 #contenido {
-    margin: 200px auto; 
+    margin: 150px auto; 
 }
+#nosotros{
+    background-color: #629c44;
+    color: white;
+    text-align: center;
+    font: 150% Arial, Helvetica, sans-serif;
+    
+}
+.panel-body{
+     font: 150% sans-serif;
+}
+
 
 /** FIN ! Formulario contacto **/
 /**/
