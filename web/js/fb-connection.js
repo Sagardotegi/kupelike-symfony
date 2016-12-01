@@ -32,13 +32,5 @@ function login()
         }
     });
 }
-
-function getDatos()
-{
-    return FB.api('/me', 'GET', { fields: 'first_name, last_name, picture' }, function(response){
-        console.log(response);
-        document.getElementById("login-btn").innerHTML = "<img src='" + response.picture.data.url + "' />";
-    });
-}
     
  

@@ -22,7 +22,10 @@ sagardotegien_mapak:
     defaults: { _controller: KupelikeBundle:Sagardotegi:mapak }
     methods: [GET]
     
-prueba:
-    path: /prueba
-    defaults: { _controller: KupelikeBundle:Kupela:new }
-    methods: [GET]
+login:
+    path: /login
+    defaults: { _controller: KupelikeBundle:Cliente:login }
+
+login_check:
+    path: /check
+    defaults: { _controller: KupelikeBundle:Cliente:check }
