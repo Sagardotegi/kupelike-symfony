@@ -12,6 +12,7 @@
         var map;
         var user;
         var centerControlDiv = document.createElement('div');
+        var centerControlDiv2 = document.createElement('div');
 
 
       function CenterControl(controlDiv, map, persona) {
@@ -47,6 +48,43 @@
         firstChild.addEventListener('click', function() {
           map.setZoom(17);
           map.panTo(persona);
+        });
+      
+      }
+      
+      function CenterControl2(controlDiv2, map, sagar) {
+      
+        // Set CSS for the control border.
+        var firstChild2 = document.createElement('button');
+          firstChild2.style.backgroundColor = '#fff';
+          firstChild2.style.border = 'none';
+          firstChild2.style.outline = 'none';
+          firstChild2.style.width = '28px';
+          firstChild2.style.height = '28px';
+          firstChild2.style.borderRadius = '2px';
+          firstChild2.style.boxShadow = '0 1px 4px rgba(0,0,0,0.3)';
+          firstChild2.style.cursor = 'pointer';
+          firstChild2.style.marginRight = '10px';
+          firstChild2.style.padding = '0px';
+          firstChild2.title = 'Sidreria';
+          controlDiv2.appendChild(firstChild2);
+      
+          var secondChild2 = document.createElement('div');
+          secondChild2.style.margin = '5px';
+          secondChild2.style.width = '18px';
+          secondChild2.style.height = '18px';
+          secondChild2.style.backgroundImage = 'url(../../../../../web/img/logo_transp18.png)';
+          secondChild2.style.backgroundSize = '18px 18px';
+          secondChild2.style.backgroundPosition = '0px 0px';
+          secondChild2.style.backgroundRepeat = 'no-repeat';
+          secondChild2.id = 'cider_location_img';
+          firstChild2.appendChild(secondChild2);
+      
+      
+        // Setup the click event listeners: simply set the map to Chicago.
+        firstChild2.addEventListener('click', function() {
+          map.setZoom(17);
+          map.panTo(sagar);
         });
       
       }
@@ -95,6 +133,7 @@
           title: '{{ sagardotegi.nombre }}',
           icon: sagarImg
         });
+        var centerControl2 = new CenterControl2(centerControlDiv2, map, sagarPos);
         
         infowindow.setContent('<a href="google.navigation:q={{ sagardotegi.latitud }},{{ sagardotegi.longitud }}">{{ sagardotegi.nombre }}<br>{{sagardotegi.direccion}}</a>');
         sagardotegi.addListener('click', function() {
@@ -122,6 +161,8 @@
         calculateAndDisplayRoute(directionsService, directionsDisplay);
         centerControlDiv.index = 1;
         map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(centerControlDiv);
+        centerControlDiv2.index = 1;
+        map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(centerControlDiv2);
       }
       
       function calculateAndDisplayRoute(directionsService, directionsDisplay) {
