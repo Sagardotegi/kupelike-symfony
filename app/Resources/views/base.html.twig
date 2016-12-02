@@ -29,6 +29,7 @@
                           </form>
                         </div>
                     </nav>
+
                 </div>
                 
                 <div class="col-xs-12 searchResults">
@@ -39,10 +40,10 @@
                     <span><i class="fa fa-times fa-2x pull-right close-menu" aria-hidden="true"></i></span>
                     <ul class="menu-links">
                         <li><a href="{{ path('index') }}">Home</a></li>
-                        <li><a href="{{ path('sagardotegien_mapak') }}">Map</a></li>
-                        <li><a href="{{ path('sagardotegis_index') }}">Sagardotegiak</a></li>
+                        <li><a href="{{ path('sagardotegien_mapak') }}">Mapa</a></li>
+                        <li><a href="{{ path('sagardotegis_index') }}">Sidrerias</a></li>
                         <li><a href="{{ path('contacto') }}">Contact</a></li>
-                        <li><a href="#">About</a></li>
+                        <li><a href="{{ path('nosotros') }}">Nosotros</a></li>
                     </ul>
                </div>
                 
@@ -50,7 +51,7 @@
         
         </div><!-- .container-fluid -->
         
-        <div id="contenido" class="container-fluid">
+        <div id="contenido" class="container">
             {% block body %}{% endblock %}
         </div><!-- .container-fluid -->
         
