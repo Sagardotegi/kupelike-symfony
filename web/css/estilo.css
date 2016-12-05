@@ -522,15 +522,7 @@ body {
 
 /** Aspecto general paginas **/
 
-.contenido{
-    background-color: white;
-   
-    margin: 10px 50px;
-    text-align: center;
-  
 
-    
-}
 .panel-success{
     width: 70%;
     
@@ -587,17 +579,22 @@ textarea{
 
 #contenido {
     margin: 150px auto; 
+    background-color: white;
 }
+
 #nosotros{
-    background-color: #629c44;
-    color: white;
+    color: #629c44;
+    background-color: white;
     text-align: center;
-    font: 150% Arial, Helvetica, sans-serif;
+    font-family: 'Lobster', cursive;
     
 }
-.panel-body{
-     font: 150% sans-serif;
+
+#texto-contacto{
+    font-family: 'Roboto', sans-serif, 160%;
+     
 }
+
 
 
 /** FIN ! Formulario contacto **/
