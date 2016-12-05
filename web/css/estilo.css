@@ -317,11 +317,6 @@ body {
     color: #629c44;
 }
 
-.title-padding {
-    
-    padding-top: 120px;
-}
-
 .pc-footer {
     padding: 20px 0px;
     color: #629c44;
@@ -473,6 +468,7 @@ body {
 .card-image {
     
     width: inherit;
+    min-width: 300px;
 }
 
 .card-title {
