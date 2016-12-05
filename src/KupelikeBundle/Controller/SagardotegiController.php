@@ -67,4 +67,17 @@ class SagardotegiController extends Controller
         
         return $this->render('KupelikeBundle:Sagardotegi:mapaDenak.html.twig', array('sagardotegis' => $sagardotegis));
     }
+    
+    /**
+     * Redirecciona con la locaclización de la persona y todas las sagardotegis
+     */
+    public function gpsAction()
+    {
+        // carga el Entity Manager (manejamos los datos con Doctrine (ORM))
+        $em = $this->getDoctrine()->getManager();
+        // obtenemos la sagardotegi que queremos visualizar
+        $sagardotegis = $em->getRepository('KupelikeBundle:Sagardotegi')->findAll();
+        
+        return $this->render('KupelikeBundle:Sagardotegi:gps.html.twig', array('sagardotegis' => $sagardotegis));
+    }
 }
