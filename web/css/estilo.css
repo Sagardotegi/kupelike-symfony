@@ -216,22 +216,12 @@ body {
 /* Welcome */
 
 .welcome {
-<<<<<<< HEAD
     height: 100vh;
     display: flex;
     align-items: center;
     width: 100%;
     
     /*height: 100%;*/
-=======
-    
-    height: 100vh !important;
-    background-image: url(https://j.gifs.com/wj2KqM.gif);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center center;
->>>>>>> 4c284f74bc827ff0182ee6a4e7cf53642b382236
     overflow-x: hidden;
 }
 
@@ -512,15 +502,19 @@ body {
 
 /** Aspecto general paginas **/
 
-.conocenos,.kupela, .sidreria, .contacto, .mapa{
+.contenido{
     background-color: white;
-    
-
    
+    margin: 10px 50px;
+    text-align: center;
+  
 
     
 }
-
+.panel-success{
+    width: 70%;
+    
+}
 
 
 /** Formulario contacto **/
