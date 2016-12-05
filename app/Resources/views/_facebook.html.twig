@@ -3,7 +3,9 @@
 
     <div id="fb-root"></div>
     
-    <a href="#" onclick="fb_login()" id="btn-facebook" class="btn btn-success">Inicia sesión</a>
+    <div id="connection">
+        <a href="#" onclick="fb_login()" id="btn-facebook" class="btn btn-success">Inicia sesión</a>
+    </div>
     
     <script>
     
@@ -20,8 +22,7 @@
             
             FB.getLoginStatus(function(response) {
                 if (response.status === 'connected') {
-                    // document.location = "{{ url("hwi_oauth_service_redirect", {service: "facebook"}) }}";
-                    btn.innerHTML = "Conectado";
+                    getAPI();
                 }
             });
             
@@ -37,8 +38,6 @@
 
         function fb_login()
         {
-            
-                    
             FB.login(function(response) {
                 if (response.authResponse) {
                     document.location = "{{ url("index") }}";
@@ -49,6 +48,10 @@
         
         function getAPI()
         {
+            FB.api("/me?fields=picture,name", function(response){
+                btn.style.display = "none";
+                document.getElementById('connection').innerHTML = "<img src='" + response.picture.data.url + "' title='Has iniciado sesión como " + response.name + "' class='img-responsive' />";
+            });
         }
     </script>
     
