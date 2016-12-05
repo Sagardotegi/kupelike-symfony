@@ -3,16 +3,18 @@
 
     <div id="fb-root"></div>
     <script>
+    
+        var btn = document.getElementById("btn-facebook");
+    
         window.fbAsyncInit = function() {
-            // init the FB JS SDK
+            // iniciamos la aplicación de Facebook
             FB.init({
-                appId      : '12345678910',                       
-                status     : true,                                 
-                xfbml      : true                                  
+                appId      : '238649363223511',
+                status     : true,
+                xfbml      : true
             });
         };
-
-        // Load the SDK asynchronously
+        
         (function(d, s, id){
             var js, fjs = d.getElementsByTagName(s)[0];
             if (d.getElementById(id)) {return;}
@@ -24,7 +26,8 @@
         function fb_login() {
             FB.getLoginStatus(function(response) {
                 if (response.status === 'connected') {
-                    document.location = "{{ url("hwi_oauth_service_redirect", {service: "facebook"}) }}";
+                    // document.location = "{{ url("hwi_oauth_service_redirect", {service: "facebook"}) }}";
+                    btn.innerHTML = "Kaixo";
                 } else {
                     // not_authorized
                     FB.login(function(response) {
@@ -37,10 +40,13 @@
                 }
             });
         }
+        
+        function getAPI()
+        {
+            
+        }
     </script>
-
-    <p>
-        <a href="#" onclick="fb_login();">Facebook Connect Button (Dialog)</a>
-    </p>
+    
+        <a href="#" onclick="fb_login();" id="btn-facebook"></a>
     
 {% endblock %}
