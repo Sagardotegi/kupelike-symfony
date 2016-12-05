@@ -2,51 +2,56 @@
 {% block facebook %}
 
     <div id="fb-root"></div>
+    
+    <a href="#" onclick="fb_login()" id="btn-facebook" class="btn btn-success">Inicia sesión</a>
+    
     <script>
     
-        var btn = document.getElementById("btn-facebook");
+    var btn = document.getElementById("btn-facebook");
     
         window.fbAsyncInit = function() {
             // iniciamos la aplicación de Facebook
             FB.init({
                 appId      : '238649363223511',
                 status     : true,
-                xfbml      : true
+                xfbml      : true,
+                cookie     : true
             });
+            
+            FB.getLoginStatus(function(response) {
+                if (response.status === 'connected') {
+                    // document.location = "{{ url("hwi_oauth_service_redirect", {service: "facebook"}) }}";
+                    btn.innerHTML = "Conectado";
+                }
+            });
+            
         };
         
         (function(d, s, id){
             var js, fjs = d.getElementsByTagName(s)[0];
             if (d.getElementById(id)) {return;}
             js = d.createElement(s); js.id = id;
-            js.src = "//connect.facebook.net/en_US/all.js";
+            js.src = "//connect.facebook.net/es_LA/all.js";
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
 
-        function fb_login() {
-            FB.getLoginStatus(function(response) {
-                if (response.status === 'connected') {
-                    // document.location = "{{ url("hwi_oauth_service_redirect", {service: "facebook"}) }}";
-                    btn.innerHTML = "Kaixo";
-                } else {
-                    // not_authorized
-                    FB.login(function(response) {
-                        if (response.authResponse) {
-                            document.location = "{{ url("hwi_oauth_service_redirect", {service: "facebook"}) }}";
-                        } else {
-                            alert('Cancelled.');
-                        }
-                    }, {scope: 'email'});
+        function fb_login()
+        {
+            
+                    
+            FB.login(function(response) {
+                if (response.authResponse) {
+                    document.location = "{{ url("index") }}";
+                    btn.innerHTML = "Inicia seción";
                 }
             });
         }
         
         function getAPI()
         {
-            
         }
     </script>
     
-        <a href="#" onclick="fb_login();" id="btn-facebook"></a>
+        
     
 {% endblock %}
