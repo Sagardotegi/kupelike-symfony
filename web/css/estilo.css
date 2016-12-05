@@ -17,8 +17,14 @@ body {
     background-position: center center;
     height: 100%;
     overflow-x: hidden;
-    position:fixed;
   
+}
+
+/* Content */
+
+.content {
+    
+    margin-top: 120px;
 }
 
 /* Menu */
@@ -216,22 +222,8 @@ body {
 /* Welcome */
 
 .welcome {
-<<<<<<< HEAD
+
     height: 100vh;
-    display: flex;
-    align-items: center;
-    width: 100%;
-    
-    /*height: 100%;*/
-=======
-    
-    height: 100vh !important;
-    background-image: url(https://j.gifs.com/wj2KqM.gif);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center center;
->>>>>>> 4c284f74bc827ff0182ee6a4e7cf53642b382236
     overflow-x: hidden;
 }
 
@@ -339,6 +331,12 @@ body {
     padding: 20px 0px;
 }
 
+.p-x-0 {
+    
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
 /*.parallax-container {
     height: 500px;
 }*/
@@ -359,21 +357,18 @@ body {
 }
 
 .mapa {
+    
     height: 700px;
     background: transparent;
-    /*height: 100vh;
-    display: flex;
-    align-items: center;*/
 }
 
 .caja {
-    padding: 20px 50px 50px 50px;
-    margin: 20px 20px; 
-    margin-top: 120px;
+    
+    padding: 0px 0px;
+    margin: 20px 0px;
     background-color: white;
-    /*min-height: 850px;
-    max-height: 850px;*/
 }
+
  .mtitle {
      
     font-family: 'Lobster', cursive;
@@ -381,28 +376,34 @@ body {
  }
  
 .carousel-indicators .active {
+    
     background-color: #629c44 !important;
 }
 
 .carousel-indicators li {
+    
     border: 1px solid #629c44 !important;
 }
 
 .carousel-inner > .item > img,
-  .carousel-inner > .item > a > img {
+.carousel-inner > .item > a > img {
+      
       width: 70%;
       margin: auto;
 }
   
 .carousel {
+    
       height: 700px;
 }
  
 .item {
+    
       height: 600px
 }
   
 .carousel-control {
+    
     color: #629c44 !important;
 }
 
