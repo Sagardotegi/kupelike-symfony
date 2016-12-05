@@ -26,7 +26,7 @@
                     <button class="btn search-btn" type="submit"><i class="fa fa-search fa-flip-horizontal fa-1x" aria-hidden="true"></i></button>
                   </form>
                 
-                <a href="{{ path('login') }}" id="login-btn" class="btn btn-success">Conectate</a>
+                {{ include('_facebook.html.twig') }}
                     
                 </nav>
                 
@@ -111,7 +111,6 @@
         <script src="{{ asset('js/jquery.min.js') }}"></script>
         <script src="{{ asset('js/bootstrap.min.js') }}"></script>
         <script src="{{ asset('js/script.js') }}"></script>
-        <script src="{{ asset('js/fb-connection.js') }}"></script>
         
     </body>
 </html>

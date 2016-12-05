@@ -13,7 +13,7 @@ class ClienteController extends Controller
 {
     /**
      * Conectamos con Facebook
-     */ 
+     
     public function loginAction()
     {
         $appId = $this->container->getParameter('facebook_app_id');
@@ -109,5 +109,5 @@ class ClienteController extends Controller
         }
         
         $_SESSION['fb_access_token'] = (string) $accessToken;
-    }
+    }*/
 }
