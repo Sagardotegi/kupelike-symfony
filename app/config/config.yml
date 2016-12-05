@@ -67,3 +67,18 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+    
+hwi_oauth:
+    firewall_names:        [secured_area]
+    resource_owners:
+        facebook:
+            type:          facebook
+            client_id:     "%facebook_id%"
+            client_secret: "%facebook_secret%"
+            scope:         "email"
+            options:
+                display: popup 
+
+services:
+    hwi_oauth.user.provider.entity:
+        class: HWI\Bundle\OAuthBundle\Security\Core\User\OAuthUserProvider

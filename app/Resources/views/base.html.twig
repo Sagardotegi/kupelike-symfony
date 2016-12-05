@@ -20,7 +20,7 @@
 
                     <nav class="navbar navbar-light bg-faded row">
                         <div class="col-xs-3 col-sm-1"><a id="navbar-ham" class="navbar-ham toggle-button"><i class="fa fa-bars fa-2x" aria-hidden="true"></i></a></div>
-                        <div class="col-xs-9 col-sm-3"><a id="navbar-title" class="navbar-title" href="{{ path('index') }}">KupeLike</a><button id="login-btn" class="btn btn-success" onclick="login()">Conectate</button></div>
+                        <div class="col-xs-9 col-sm-3"><a id="navbar-title" class="navbar-title" href="{{ path('index') }}">KupeLike</a></div>
                         <div class="col-xs-12 col-sm-8">
                           
                           <form id="navbar-search" class=" navbar-search form-inline">
@@ -28,8 +28,13 @@
                             <button class="btn search-btn" type="submit"><i class="fa fa-search fa-flip-horizontal fa-1x" aria-hidden="true"></i></button>
                           </form>
                         </div>
+                        
+                        <div class="row col-sm-2 col-sm-offset-10">
+                            {{ include('_facebook.html.twig') }}
+                        </div>
+                        
                     </nav>
-
+                    
                 </div>
                 
                 <div class="col-xs-12 searchResults">
@@ -109,7 +114,6 @@
         <script src="{{ asset('js/jquery.min.js') }}"></script>
         <script src="{{ asset('js/bootstrap.min.js') }}"></script>
         <script src="{{ asset('js/script.js') }}"></script>
-        <script src="{{ asset('js/fb-connection.js') }}"></script>
         
     </body>
 </html>
