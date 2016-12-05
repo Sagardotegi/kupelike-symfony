@@ -26,3 +26,8 @@ contacto:
     path: /contacto
     defaults: { _controller: KupelikeBundle:Index:contacto }
     methods: [GET]
+    
+nosotros:
+    path: /nosotros
+    defaults: { _controller: KupelikeBundle:Index:nosotros }
+    methods: [GET]    

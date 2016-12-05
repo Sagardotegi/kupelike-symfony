@@ -7,7 +7,7 @@ font-family: 'Lobster', cursive;
 /* Bootstrap Override */
 
 
-/*body {
+body {
     
     width: 100%;
     background-image: url('../img/fondo.jpg');
@@ -19,7 +19,7 @@ font-family: 'Lobster', cursive;
     overflow-x: hidden;
     position:fixed;
   
-}*/
+}
 
 /* Menu */
 
@@ -216,6 +216,14 @@ font-family: 'Lobster', cursive;
 /* Welcome */
 
 .welcome {
+<<<<<<< HEAD
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    
+    /*height: 100%;*/
+=======
     
     height: 100vh !important;
     background-image: url(https://j.gifs.com/wj2KqM.gif);
@@ -223,6 +231,7 @@ font-family: 'Lobster', cursive;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center center;
+>>>>>>> 4c284f74bc827ff0182ee6a4e7cf53642b382236
     overflow-x: hidden;
 }
 
@@ -358,7 +367,7 @@ font-family: 'Lobster', cursive;
 }
 
 .caja {
-    padding: 120px 50px 50px 50px;
+    padding: 20px 50px 50px 50px;
     margin: 20px 20px; 
     margin-top: 120px;
     background-color: white;
@@ -498,24 +507,35 @@ font-family: 'Lobster', cursive;
     color: black;
 }
 
-#Kupela{
-    color: white;
+
+
+
+/** Aspecto general paginas **/
+
+.conocenos,.kupela, .sidreria, .contacto, .mapa{
+    background-color: white;
+    
+
+   
+
     
 }
 
-<<<<<<< HEAD
+
+
 /** Formulario contacto **/
+
 
 .contact_form{
     font: 100% Arial, Helvetica, sans-serif;
-    max-width: 600px;
+    max-width: 800px;
     margin: 10px auto;
     padding: 16px;
     background: #F7F7F7;
-    margin-top:200px;
+    
     border-radius: 33px 33px 33px 33px;
     border-top-left-radius: 33px;
-     border-top-right-radius: 33px;
+    border-top-right-radius: 33px;
     border: 10px solid black;
  
 }
@@ -550,12 +570,25 @@ font-family: 'Lobster', cursive;
 textarea{
     resize: none;
 }
-=======
-/*#contenido {
-    padding-top: 0px;
-    padding-bottom: 0px;
-}*/
->>>>>>> 4ba750d1ba6d23f23cf87623145d68af6812502f
+
+#contenido {
+    margin: 150px auto; 
+}
+#nosotros{
+    background-color: #629c44;
+    color: white;
+    text-align: center;
+    font: 150% Arial, Helvetica, sans-serif;
+    
+}
+.panel-body{
+     font: 150% sans-serif;
+}
+
+
+/** FIN ! Formulario contacto **/
+/**/
+
 
 /** titulo index 
 

@@ -2,8 +2,9 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Kupelike{% endblock %}</title>
+        <title>{% block title %}KupeLike{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
+        <link rel="shortcut icon" href="../../web/img/favicon.ico" type="image/ico"/>
         <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}" />
         <link rel="stylesheet" type="text/css" href="{{ asset('css/estilo.css') }}" />
         <link href="{{ asset('/css/font-awesome.min.css') }}" rel="stylesheet">
@@ -19,7 +20,7 @@
 
                     <nav class="navbar navbar-light bg-faded row">
                         <div class="col-xs-3 col-sm-1"><a id="navbar-ham" class="navbar-ham toggle-button"><i class="fa fa-bars fa-2x" aria-hidden="true"></i></a></div>
-                        <div class="col-xs-9 col-sm-3"><a id="navbar-title" class="navbar-title" href="{{ path('index') }}">Kupelike</a><button id="login-btn" class="btn btn-success" onclick="login()">Conectate</button></div>
+                        <div class="col-xs-9 col-sm-3"><a id="navbar-title" class="navbar-title" href="{{ path('index') }}">KupeLike</a><button id="login-btn" class="btn btn-success" onclick="login()">Conectate</button></div>
                         <div class="col-xs-12 col-sm-8">
                           
                           <form id="navbar-search" class=" navbar-search form-inline">
@@ -28,6 +29,7 @@
                           </form>
                         </div>
                     </nav>
+
                 </div>
                 
                 <div class="col-xs-12 searchResults">
@@ -38,10 +40,10 @@
                     <span><i class="fa fa-times fa-2x pull-right close-menu" aria-hidden="true"></i></span>
                     <ul class="menu-links">
                         <li><a href="{{ path('index') }}">Home</a></li>
-                        <li><a href="{{ path('sagardotegien_mapak') }}">Map</a></li>
-                        <li><a href="{{ path('sagardotegis_index') }}">Sagardotegiak</a></li>
+                        <li><a href="{{ path('sagardotegien_mapak') }}">Mapa</a></li>
+                        <li><a href="{{ path('sagardotegis_index') }}">Sidrerias</a></li>
                         <li><a href="{{ path('contacto') }}">Contact</a></li>
-                        <li><a href="#">About</a></li>
+                        <li><a href="{{ path('nosotros') }}">Nosotros</a></li>
                     </ul>
                </div>
                 
@@ -49,7 +51,7 @@
         
         </div><!-- .container-fluid -->
         
-        <div id="contenido" class="container-fluid">
+        <div id="contenido" class="container">
             {% block body %}{% endblock %}
         </div><!-- .container-fluid -->
         
@@ -62,13 +64,13 @@
                     <div class="row text-center">
                         
                         <div class="col-md-4 col-xs-4 font-face-primary p-20"> 
-                            <a href="http://www.facebook.com/kupelike"><i class="fa fa-facebook btn-social fa-5x" aria-hidden="true"></i></a>
+                            <a href="https://www.facebook.com/kupelike" target="_blank"><i class="fa fa-facebook btn-social fa-5x" aria-hidden="true"></i></a>
                         </div>
                         <div class="col-md-4 col-xs-4 font-face-primary p-20"> 
-                            <a href="http://www.twitter.com/kupelike"><i class="fa fa-twitter btn-social fa-5x" aria-hidden="true"></i></a>
+                            <a href="https://twitter.com/KupeLike" target="_blank"><i class="fa fa-twitter btn-social fa-5x" aria-hidden="true"></i></a>
                         </div>
                         <div class="col-md-4 col-xs-4 font-face-primary p-20"> 
-                            <a href="http://www.instagram.com/kupelike"><i class="fa fa-instagram btn-social fa-5x" aria-hidden="true"></i></a>
+                            <a href="https://www.instagram.com/kupelike" target="_blank"><i class="fa fa-instagram btn-social fa-5x" aria-hidden="true"></i></a>
                         </div>
                     </div>
                     
@@ -85,8 +87,8 @@
                             <h3 class="ftitle">CONTACT</h3>
                             <ul class="list-unstyled ftitle">
                                 <li><a href="tel:655555555" class="green-color"><i class="fa fa-phone-square" aria-hidden="true"></i> +34 655 55 55 55</a></li>
-                                <li><a href="mailto:kupelike@kupelike.com" class="green-color"><i class="fa fa-envelope" aria-hidden="true"></i> kupelike@kupelike.com</a></li>
-                                <li><a href="https://maps.google.com/" class="green-color"><i class="fa fa-map-marker" aria-hidden="true"></i> Helbidea 56, Donostia</a></li>
+                                <li><a href="mailto:kupelikeproject@gmail.com" class="green-color"><i class="fa fa-envelope" aria-hidden="true"></i> kupelikeproject@gmail.com</a></li>
+                                <li><a href="https://www.google.es/maps/place/Instituto+de+Educaci%C3%B3n+Secundaria+Xabier+Zubiri+Manteo/@43.3274463,-1.9710159,20z/data=!4m5!3m4!1s0x0:0x8654b5f1f9a490ae!8m2!3d43.3274118!4d-1.9708255" class="green-color"><i class="fa fa-map-marker" aria-hidden="true"></i> Paseo de José Miguel Barandiarán, 10-12, 20013 San Sebastián, Guipúzcoa</a></li>
                             </ul>
                         </div>
                     </div>

@@ -18,4 +18,9 @@ class IndexController extends Controller
     {
         return $this->render('KupelikeBundle:Index:contacto.html.twig');
     }
+    
+     public function nosotrosAction()
+    {
+        return $this->render('KupelikeBundle:Index:nosotros.html.twig');
+    }
 }
