@@ -8,5 +8,12 @@ use KupelikeBundle\Entity\Kupela;
 
 class KupelaController extends Controller
 {
+    /**
+     * Inserta un objeto en la tabla 'Kupela'
+     */ 
+    function newAction()
+    {
+        
+    }
     
 }
