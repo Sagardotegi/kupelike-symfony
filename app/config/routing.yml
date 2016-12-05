@@ -1,3 +1,11 @@
+hwi_oauth_login:
+    resource: "@HWIOAuthBundle/Resources/config/routing/login.xml"	
+    prefix:   /login_facebook
+
+hwi_oauth_redirect:
+    resource: "@HWIOAuthBundle/Resources/config/routing/redirect.xml"
+    prefix:   /connect
+
 default:
     resource: "@KupelikeBundle/Controller/IndexController.php"
     type:     annotation

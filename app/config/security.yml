@@ -22,3 +22,16 @@ security:
 
             # form_login: ~
             # http://symfony.com/doc/current/cookbook/security/form_login_setup.html
+        
+        secured_area:
+            pattern:    ^/login
+            oauth:
+                resource_owners:
+                    facebook:      /login_facebook
+                login_path:        /demo/secured/login
+                failure_path:      /demo/secured/login
+                oauth_user_provider:
+                    service: hwi_oauth.user.provider.entity
+    
+            # Turn on anonymous for testings need.
+            anonymous: ~
