@@ -402,8 +402,27 @@ body {
  .mtitle {
      
     font-family: 'Lobster', cursive;
-    color: #629c44;
+    color: #629c44 !important;
  }
+ 
+h1.a-sagar a:link {
+    color: #629c44 !important;
+}
+
+/* visited link */
+h1.a-sagar a:visited {
+    color: #629c44 !important;
+}
+
+/* mouse over link */
+h1.a-sagar a:hover {
+    color: #629c44 !important;
+}
+
+/* selected link */
+h1.a-sagar a:active {
+    color: #629c44 !important;
+}
  
 .carousel-indicators .active {
     

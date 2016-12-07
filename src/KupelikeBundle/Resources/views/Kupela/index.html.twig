@@ -7,7 +7,7 @@
       <div class="col-sm-6">
             <h1>{{sagardotegi.nombre}}</h1>
             <p>{{sagardotegi.descripcion}}</p>
-            <a href="">Como Llegar</a>
+            <a href="{{ path("sagardotegi_mapa", {idSagardotegi:sagardotegi.id}) }}">Como Llegar</a>
             <a href="">Contacto</a>
      </div>
      <div class="col-sm-6">
