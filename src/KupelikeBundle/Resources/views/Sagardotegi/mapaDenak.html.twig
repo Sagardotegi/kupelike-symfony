@@ -12,6 +12,48 @@
         var map;
         var user;
         var centerControlDiv = document.createElement('div');
+        var mv = 0;
+        
+/*var panPath = [];   // An array of points the current panning action will use
+var panQueue = [];  // An array of subsequent panTo actions to take
+var STEPS = 50;     // The number of steps that each panTo action will undergo
+
+function panTo(newLat, newLng) {
+  if (panPath.length > 0) {
+    // We are already panning...queue this up for next move
+    panQueue.push(newLat);
+    panQueue.push(newLng);
+  } else {
+    // Lets compute the points we'll use
+    panPath.push("LAZY SYNCRONIZED LOCK");  // make length non-zero - 'release' this before calling setTimeout
+    var curLat = map.getCenter().lat();
+    var curLng = map.getCenter().lng();
+    var dLat = (newLat - curLat)/STEPS;
+    var dLng = (newLng - curLng)/STEPS;
+
+    for (var i=0; i < STEPS; i++) {
+      panPath.push([curLat + dLat * i, curLng + dLng * i]);
+    }
+    panPath.push([newLat, newLng]);
+    panPath.shift();      // LAZY SYNCRONIZED LOCK
+    setTimeout(doPan, 20);
+  }
+}
+
+function doPan() {
+  var next = panPath.shift();
+  if (next != null) {
+    // Continue our current pan action
+    map.panTo( new google.maps.LatLng(next[0], next[1]));
+    setTimeout(doPan, 20 );
+  } else {
+    // We are finished with this pan - check if there are any queue'd up locations to pan to 
+    var queued = panQueue.shift();
+    if (queued != null) {
+      panTo(queued[0], queued[1]);
+    }
+  }
+}*/
 
 
       function CenterControl(controlDiv, map, persona) {
@@ -44,10 +86,59 @@
       
       
         // Setup the click event listeners: simply set the map to Chicago.
-        firstChild.addEventListener('click', function() {
+        /*firstChild.addEventListener('click', function() {
           map.setZoom(17);
           map.panTo(persona);
-        });
+        });*/
+        
+          firstChild.addEventListener('click', function() {
+            map.setZoom(17);
+            map.panTo(persona);
+            //map.CameraUpdateFactory.newLatLngZoom(persona, 17);
+            if (mv == 0) {
+              $('#you_location_img').css('background-position', '-144px 0px');
+            } else {
+              $('#you_location_img').css('background-position', '-162px 0px');
+            }
+            mv = 1;
+          });
+          
+          firstChild.addEventListener('mouseover', function() {
+            if (mv == 0) {
+              $('#you_location_img').css('background-position', '-36px 0px');
+            } else {
+              $('#you_location_img').css('background-position', '-162px 0px');
+            }
+          });
+          
+          firstChild.addEventListener('mouseout', function() {
+            if (mv == 0) {
+              $('#you_location_img').css('background-position', '0px 0px');
+            } else {
+              $('#you_location_img').css('background-position', '-144px 0px');
+            }
+          });
+          
+          firstChild.addEventListener('mousedown', function() {
+            if (mv == 0) {
+              $('#you_location_img').css('background-position', '-54px 0px');
+            } else {
+              $('#you_location_img').css('background-position', '-162px 0px');
+            }
+          });
+          
+          firstChild.addEventListener('mouseup', function() {
+            if (mv == 0) {
+              $('#you_location_img').css('background-position', '-36px 0px');
+            } else {
+              $('#you_location_img').css('background-position', '-162px 0px');
+            }
+          });
+          
+          google.maps.event.addListener(map, 'dragend', function() {
+              $('#you_location_img').css('background-position', '0px 0px');
+              mv = 0;
+          });
       
       }
 
@@ -59,6 +150,9 @@
         var mapOptions = {
           streetViewControl: true,
           mapTypeControl: true,
+          zoomControl: true,
+          //scaleControl: true,
+          //rotateControl: true,
           center: new google.maps.LatLng(43.323832,-1.9768633), 
           zoom: 17,
           scrollwheel: false
@@ -112,6 +206,7 @@
           var longi = marcadores[i].position.lng;
           var marker = new google.maps.Marker({
             position: new google.maps.LatLng(lati, longi),
+            animation: google.maps.Animation.DROP,
             map: map,
             title: nombre,
             icon: sagarImg
@@ -144,6 +239,7 @@
             };
             var persona = new google.maps.Marker({
               position: perPos,
+              animation: google.maps.Animation.DROP,
               map: map,
               title: 'Tu posición.',
               icon: persImg
