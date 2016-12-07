@@ -32,6 +32,21 @@ body {
     overflow-x: hidden;
     /*background-color: #f9f9f9;*/
 }
+
+.img-logo{
+    height: 66px;
+    padding-bottom: 10px;
+}
+
+.nombre-kup {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.menu-kup {
+    /*margin-right: -30px;*/
+}
+
 /* Content */
 
 .content {
