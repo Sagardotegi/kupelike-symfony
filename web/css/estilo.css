@@ -234,17 +234,11 @@ body {
 /* Welcome */
 
 .welcome {
-<<<<<<< HEAD
     height: 100vh;
     display: flex;
     align-items: center;
     width: 100%;
-    
     /*height: 100%;*/
-=======
-
-    height: 100vh;
->>>>>>> 21f403ad514a1603c24b38bb27e0d24d00bc0326
     overflow-x: hidden;
 }
 
@@ -252,7 +246,7 @@ body {
     
     font-family: 'Lobster', cursive;
     color: white;
-    padding-top: 300px;
+    /*padding-top: 300px;*/
 }
 
 .welcome-subtext {
