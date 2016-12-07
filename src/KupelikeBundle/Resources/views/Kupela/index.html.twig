@@ -4,20 +4,35 @@
   
    
     <div class="row kupela">
-      <div class="col-sm-12">
-            <h1 class="mtitle title-padding text-center">{{sagardotegi.nombre}}</h1>
+      <div class="col-sm-6">
+            <h1>{{sagardotegi.nombre}}</h1>
+            <p>{{sagardotegi.descripcion}}</p>
+            <a href="">Como Llegar</a>
+            <a href="">Contacto</a>
+     </div>
+     <div class="col-sm-6">
+         <div class="card-direction text-uppercase text-center"><h4>{{ sagardotegi.direccion }}</h4></div>
+         <img src= "{{asset(sagardotegi.foto)}}" class="img-responsive">
+            
+    </div>        
+          
        </div>
+    </div>   
     {% for kupela in kupelas %}
-       
-          <div class="col-sm-6 col-md-4">
+     <div class="row kupela">   
+          <div class="col-sm-12">
             <div class="thumbnail">
-              <img src="{{asset(kupela.foto)}}" alt="kupela">
+            <div class="col-sm-4">   
+              <h3>{{kupela.nombre}}</h3>
+              <p>{{kupela.descripcion}}</p>   
+            </div> 
+             <div class="col-sm-4">   
+              <img src="{{asset(kupela.foto)}}" alt="kupela" class="img-responsive">
+            </div>
+            <div class="col-sm-4">
               <h1>{{kupela.numVotos}}</h1>
               <img src= "{{asset("/uploads/kupelas/like.png")}}">
-              <div class="caption">
-                <h3>{{kupela.nombre}}</h3>
-                <p>{{kupela.descripcion}}</p>
-                    <p><a href="{{path("sagardotegis_index")}}" class="btn btn-primary" role="button">Todas las Sidrerias</a></p>
+            </div>        
               </div>
             </div>
           </div>

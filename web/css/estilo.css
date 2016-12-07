@@ -234,8 +234,17 @@ body {
 /* Welcome */
 
 .welcome {
+<<<<<<< HEAD
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    
+    /*height: 100%;*/
+=======
 
     height: 100vh;
+>>>>>>> 21f403ad514a1603c24b38bb27e0d24d00bc0326
     overflow-x: hidden;
 }
 
@@ -525,15 +534,11 @@ body {
 
 /** Aspecto general paginas **/
 
-.conocenos,.kupela, .sidreria, .contacto, .mapa{
-    background-color: white;
-    
 
-   
-
+.panel-success{
+    width: 70%;
     
 }
-
 
 
 /** Formulario contacto **/
@@ -586,21 +591,26 @@ textarea{
 
 #contenido {
     margin: 150px auto; 
+    background-color: white;
 }
+
 #nosotros{
-    background-color: #629c44;
-    color: white;
+    color: #629c44;
+    background-color: white;
     text-align: center;
-    font: 150% Arial, Helvetica, sans-serif;
+    font-family: 'Lobster', cursive;
     
 }
-.panel-body{
-     font: 150% sans-serif;
+
+#texto-contacto{
+    font-family: 'Roboto', sans-serif, 160%;
+     
 }
 
 .like {
     width: 200px !important;
 }
+
 
 
 /** FIN ! Formulario contacto **/
