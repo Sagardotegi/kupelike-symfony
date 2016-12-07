@@ -6,19 +6,25 @@
     <div class="row kupela">
       <div class="col-sm-12">
             <h1 class="mtitle title-padding text-center">{{sagardotegi.nombre}}</h1>
+            <img src= "{{asset(sagardotegi.foto)}}" class="img-responsive">
+            <p class="mtitle title-padding text-center">{{sagardotegi.descripcion}}</p>
        </div>
     </div>   
     {% for kupela in kupelas %}
      <div class="row kupela">   
-          <div class="col-sm-6 col-md-4">
+          <div class="col-sm-12">
             <div class="thumbnail">
-              <img src="{{asset(kupela.foto)}}" alt="kupela">
+            <div class="col-sm-4">   
+              <img src="{{asset(kupela.foto)}}" alt="kupela" class="img-responsive">
+            </div> 
+            <div class="col-sm-8">
               <h1>{{kupela.numVotos}}</h1>
               <img src= "{{asset("/uploads/kupelas/like.png")}}">
               <div class="caption">
                 <h3>{{kupela.nombre}}</h3>
                 <p>{{kupela.descripcion}}</p>
                     <p><a href="{{path("sagardotegis_index")}}" class="btn btn-primary" role="button">Todas las Sidrerias</a></p>
+            </div>        
               </div>
             </div>
           </div>
