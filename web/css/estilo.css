@@ -10,7 +10,20 @@ font-family: 'Lobster', cursive;
 body {
     
     width: 100%;
-    background-image: url('../img/fondo.jpg');
+    /*background-image: url('../img/fondo.jpg');*/
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    height: 100%;
+    overflow-x: hidden;
+    background-color: #f9f9f9;
+  
+}
+
+.landing {
+    width: 100%;
+    background-image: url('../img/fondo.jpg') !important;
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -18,9 +31,7 @@ body {
     height: 100%;
     overflow-x: hidden;
     /*background-color: #f9f9f9;*/
-  
 }
-
 /* Content */
 
 .content {
@@ -585,6 +596,10 @@ textarea{
 }
 .panel-body{
      font: 150% sans-serif;
+}
+
+.like {
+    width: 200px !important;
 }
 
 
