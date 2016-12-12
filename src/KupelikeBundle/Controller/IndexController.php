@@ -11,7 +11,14 @@ class IndexController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('KupelikeBundle:Index:index.html.twig');
+        // carga el Entity Manager (manejamos los datos con Doctrine (ORM))
+        $em = $this->getDoctrine()->getManager();
+        // obtiene todas las sagardotegis
+        $sagardotegis = $em->getRepository('KupelikeBundle:Sagardotegi')->findAll();
+        
+        // renderiza la vista index de Sagardotegis y pasa la lista de sagardotegis como variable
+        return $this->render('KupelikeBundle:Index:index.html.twig', array('sagardotegis' => $sagardotegis));
+        //return $this->render('KupelikeBundle:Index:index.html.twig');
     }
     
     public function contactoAction()
