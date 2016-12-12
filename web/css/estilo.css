@@ -34,6 +34,8 @@ body {
 }
 
 .img-logo{
+    
+    content:url("/web/img/logo_transp.png");
     height: 66px;
     padding-bottom: 10px;
 }
@@ -300,36 +302,31 @@ body {
     z-index: 1;
 }
 
+.btn-social-inner {
+    color: #232323 !important;
+    z-index: 1;
+}
+
 .subfooter {
-    width: 100%;
-    height: 60px;
-    text-align: center;
-    font-family: 'Basic',sans-serif;
-    font-size: 14px;
-    font-weight: normal;
+
+    font-family: 'Roboto', sans-serif;
     color: #fff;
-    letter-spacing: 1px;
-    background-color: #232323;
+    letter-spacing: 2px;
+    background-color: #629c44;
+    padding: 20px 0px;
+}
+
+.subfooter > a {
+    color: #ffffff;
+    text-decoration: none;
 }
 
 .footer {
-    
-    width: 100%;
-    font-family: 'Basic',sans-serif;
-    font-size: 14px;
-    font-weight: normal;
-    color: #fff;
-    letter-spacing: 1px;
+
+    padding-top: 40px;
     background-color: #232323;
-    bottom: 0px;
-    z-index: 3;
-    /*height: 376px;*/
 }
 
-.fline {
-    width: 90%;
-    border-top: solid black;
-}
 
 .thumbnail {
     text-align: center;
@@ -339,21 +336,26 @@ body {
     padding-left: 10px !important;
 }
 
-.ftitle {
-    font-family: 'Fjalla One', sans-serif;
+.list-unstyled > li {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.footer-menu {
+    
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    letter-spacing: 3px;
+    padding-bottom: 20px;
+}
+
+
+.footer-menu > li > a, a:focus, a:hover, a:visited, a:active {
+    color: inherit;
+    text-decoration: none;
 }
 
 .green-color {
-    color: #629c44;
-}
-
-.title-padding {
-    
-    padding-top: 120px;
-}
-
-.pc-footer {
-    padding: 20px 0px;
     color: #629c44;
 }
 
@@ -522,6 +524,7 @@ h1.a-sagar a:active {
 .card-image {
     
     width: inherit;
+    min-width: 300px;
 }
 
 .card-title {
@@ -579,11 +582,6 @@ h1.a-sagar a:active {
     padding: 16px;
     background: #F7F7F7;
     
-    border-radius: 33px 33px 33px 33px;
-    border-top-left-radius: 33px;
-    border-top-right-radius: 33px;
-    border: 10px solid black;
- 
 }
 
 .formulario{
@@ -631,13 +629,31 @@ textarea{
 }
 
 #texto-contacto{
-    font-family: 'Roboto', sans-serif, 160%;
+    font-family: 'Roboto', sans-serif, 200%;
      
 }
 
 .like {
     width: 200px !important;
 }
+
+.portada_sidreria{
+    width: inherit;
+    min-width: 500px;
+    
+}
+
+#decripcion{
+    text-align: justify;
+}
+
+.btn-default {
+    font-weight: 400;
+    color: #629c44;
+    border-radius: 1px;
+    margin-right: 30px;
+    margin-top: 10px;
+}    
 
 
 
