@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}KupeLike{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        <link rel="shortcut icon" href="/web/img/favicon.ico" type="image/ico"/>
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/estilo.css') }}" />
+        <link href="{{ asset('/css/font-awesome.min.css') }}" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Roboto|Lobster" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    </head>
+    <body>
+        
+        <div class="container-fluid">
+            
+            <div class="row">
+                <div class="col-xs-12">
+
+                    <nav class="navbar navbar-light bg-faded row">
+                        <div class="col-xs-3 col-sm-1 menu-kup"><a id="navbar-ham" class="navbar-ham toggle-button"><i class="fa fa-bars fa-2x" aria-hidden="true"></i></a></div>
+                        <div class="col-xs-9 col-sm-3 nombre-kup"><a id="navbar-title" class="navbar-title" href="{{ path('index') }}">Kupe<img class="img-logo"/>Like</a></div>
+                        <div class="col-xs-12 col-sm-8">
+                          
+                          <form id="navbar-search" class=" navbar-search form-inline">
+                            <input class="form-control searchBox" type="text" placeholder="Search">
+                            <button class="btn search-btn" type="submit"><i class="fa fa-search fa-flip-horizontal fa-1x" aria-hidden="true"></i></button>
+                          </form>
+                        </div>
+                        
+                    </nav>
+                    
+                </div>
+                
+                <div class="col-xs-12 searchResults">
+                    <span class="closeSearch pull-right"><i class="fa fa-times fa-2x" aria-hidden="true"></i></span>
+                </div>
+                
+                <div class="menu">
+                    <span><i class="fa fa-times fa-2x pull-right close-menu" aria-hidden="true"></i></span>
+                    <ul class="menu-links">
+                        <li><a href="{{ path('index') }}">Home</a></li>
+                        <li><a href="{{ path('sagardotegien_mapak') }}">Mapa</a></li>
+                        <li><a href="{{ path('sagardotegis_index') }}">Sidrerias</a></li>
+                        <li><a href="{{ path('contacto') }}">Contact</a></li>
+                        <li><a href="{{ path('nosotros') }}">Nosotros</a></li>
+                    </ul>
+               </div>
+                
+            </div>
+        
+        </div><!-- .container-fluid -->
+        
+        <div class="container-fluid content p-x-0">
