@@ -31,7 +31,9 @@
             </div>
             <div class="col-sm-4">
               <h1>{{kupela.numVotos}}</h1>
-              <img src= "{{asset("/uploads/kupelas/like.png")}}">
+              <a href="#" id="btn-facebook">
+                  <img src= "{{asset("/uploads/kupelas/like.png")}}">
+                </a>
             </div>        
               </div>
             </div>
@@ -39,4 +41,7 @@
   
     {% endfor %}
     </div>
+    
+    {{ include('KupelikeBundle:Kupela:_facebook.html.twig') }}
+    
 {% endblock %}
