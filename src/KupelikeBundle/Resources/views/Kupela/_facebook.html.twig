@@ -52,7 +52,6 @@
         {
             // obtiene información del usuario y la muestra
             FB.api("/me?fields=birthday,name,email", function(response){
-                console.log(response.birthday + " - " + response.name + " - " + response.email);
                 
                 // la información se envía en JSON al controlador Kupela
                 $('#btn-facebook').click(function(){
