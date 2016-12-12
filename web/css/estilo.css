@@ -632,6 +632,24 @@ textarea{
     width: 200px !important;
 }
 
+.portada_sidreria{
+    width: inherit;
+    min-width: 500px;
+    
+}
+
+#decripcion{
+    text-align: justify;
+}
+
+.btn-default {
+    font-weight: 400;
+    color: #629c44;
+    border-radius: 1px;
+    margin-right: 30px;
+    margin-top: 10px;
+}    
+
 
 
 /** FIN ! Formulario contacto **/
