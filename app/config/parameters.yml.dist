@@ -17,3 +17,6 @@ parameters:
 
     # A secret key that's used to generate certain security-related tokens
     secret:            ThisTokenIsNotSoSecretChangeIt
+    
+    facebook_id: 238649363223511
+    facebook_secret: 42b7ae25f21439cfcf10af9c3a88ac08

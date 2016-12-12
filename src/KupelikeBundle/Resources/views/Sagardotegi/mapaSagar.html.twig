@@ -3,16 +3,23 @@
 {% block body %}
 <div class="row caja">
   <div class="col-md-12">
-      <h1 class="text-center mtitle">{{ sagardotegi.nombre }}</h1>
+      <h1 class="text-center mtitle a-sagar"><a href="{{ path("sagardotegi_view", {idSagardotegi:sagardotegi.id}) }}">{{ sagardotegi.nombre }}</a></h1>
   </div>
   <div class="col-md-12">
     <div id="map" class="mapa"></div>
 
         <script>
+        window.onload = function(){
+          if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
+            window.location = "google.navigation:q={{ sagardotegi.latitud }},{{ sagardotegi.longitud }}";
+          }
+        }
+        
         var map;
         var user;
         var centerControlDiv = document.createElement('div');
         var centerControlDiv2 = document.createElement('div');
+        var mv = 0;
 
 
       function CenterControl(controlDiv, map, persona) {
@@ -45,9 +52,56 @@
       
       
         // Setup the click event listeners: simply set the map to Chicago.
+        /*firstChild.addEventListener('click', function() {
+          map.setZoom(17);
+          map.panTo(persona);
+        });*/
         firstChild.addEventListener('click', function() {
           map.setZoom(17);
           map.panTo(persona);
+          if (mv == 0) {
+            $('#you_location_img').css('background-position', '-144px 0px');
+          } else {
+            $('#you_location_img').css('background-position', '-162px 0px');
+          }
+          mv = 1;
+        });
+        
+        firstChild.addEventListener('mouseover', function() {
+          if (mv == 0) {
+            $('#you_location_img').css('background-position', '-36px 0px');
+          } else {
+            $('#you_location_img').css('background-position', '-162px 0px');
+          }
+        });
+        
+        firstChild.addEventListener('mouseout', function() {
+          if (mv == 0) {
+            $('#you_location_img').css('background-position', '0px 0px');
+          } else {
+            $('#you_location_img').css('background-position', '-144px 0px');
+          }
+        });
+        
+        firstChild.addEventListener('mousedown', function() {
+          if (mv == 0) {
+            $('#you_location_img').css('background-position', '-54px 0px');
+          } else {
+            $('#you_location_img').css('background-position', '-162px 0px');
+          }
+        });
+        
+        firstChild.addEventListener('mouseup', function() {
+          if (mv == 0) {
+            $('#you_location_img').css('background-position', '-36px 0px');
+          } else {
+            $('#you_location_img').css('background-position', '-162px 0px');
+          }
+        });
+        
+        google.maps.event.addListener(map, 'dragend', function() {
+            $('#you_location_img').css('background-position', '0px 0px');
+            mv = 0;
         });
       
       }
@@ -101,6 +155,9 @@
         var mapOptions = {
           streetViewControl: true,
           mapTypeControl: true,
+          zoomControl: true,
+          //scaleControl: true,
+          //rotateControl: true,
           center: new google.maps.LatLng({{ sagardotegi.latitud }},{{ sagardotegi.longitud }}), 
           zoom: 17,
           scrollwheel: false
@@ -129,6 +186,7 @@
         var sagarPos = {lat: {{ sagardotegi.latitud }}, lng: {{ sagardotegi.longitud }}};
         var sagardotegi = new google.maps.Marker({
           position: sagarPos,
+          animation: google.maps.Animation.DROP,
           map: map,
           title: '{{ sagardotegi.nombre }}',
           icon: sagarImg
@@ -150,6 +208,7 @@
             };
             var persona = new google.maps.Marker({
               position: perPos,
+              animation: google.maps.Animation.DROP,
               map: map,
               title: 'Tu posición.',
               icon: persImg

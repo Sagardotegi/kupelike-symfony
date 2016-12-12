@@ -10,14 +10,41 @@ font-family: 'Lobster', cursive;
 body {
     
     width: 100%;
-    background-image: url('../img/fondo.jpg');
+    /*background-image: url('../img/fondo.jpg');*/
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center center;
     height: 100%;
     overflow-x: hidden;
+    background-color: #f9f9f9;
   
+}
+
+.landing {
+    width: 100%;
+    background-image: url('../img/fondo.jpg') !important;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    height: 100%;
+    overflow-x: hidden;
+    /*background-color: #f9f9f9;*/
+}
+
+.img-logo{
+    height: 66px;
+    padding-bottom: 10px;
+}
+
+.nombre-kup {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.menu-kup {
+    /*margin-right: -30px;*/
 }
 
 /* Content */
@@ -222,8 +249,11 @@ body {
 /* Welcome */
 
 .welcome {
-
     height: 100vh;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    /*height: 100%;*/
     overflow-x: hidden;
 }
 
@@ -231,7 +261,7 @@ body {
     
     font-family: 'Lobster', cursive;
     color: white;
-    padding-top: 300px;
+    /*padding-top: 300px;*/
 }
 
 .welcome-subtext {
@@ -367,8 +397,27 @@ body {
  .mtitle {
      
     font-family: 'Lobster', cursive;
-    color: #629c44;
+    color: #629c44 !important;
  }
+ 
+h1.a-sagar a:link {
+    color: #629c44 !important;
+}
+
+/* visited link */
+h1.a-sagar a:visited {
+    color: #629c44 !important;
+}
+
+/* mouse over link */
+h1.a-sagar a:hover {
+    color: #629c44 !important;
+}
+
+/* selected link */
+h1.a-sagar a:active {
+    color: #629c44 !important;
+}
  
 .carousel-indicators .active {
     
@@ -509,15 +558,11 @@ body {
 
 /** Aspecto general paginas **/
 
-.conocenos,.kupela, .sidreria, .contacto, .mapa{
-    background-color: white;
-    
 
-   
-
+.panel-success{
+    width: 70%;
     
 }
-
 
 
 /** Formulario contacto **/
@@ -570,17 +615,26 @@ textarea{
 
 #contenido {
     margin: 150px auto; 
+    background-color: white;
 }
+
 #nosotros{
-    background-color: #629c44;
-    color: white;
+    color: #629c44;
+    background-color: white;
     text-align: center;
-    font: 150% Arial, Helvetica, sans-serif;
+    font-family: 'Lobster', cursive;
     
 }
-.panel-body{
-     font: 150% sans-serif;
+
+#texto-contacto{
+    font-family: 'Roboto', sans-serif, 160%;
+     
 }
+
+.like {
+    width: 200px !important;
+}
+
 
 
 /** FIN ! Formulario contacto **/
