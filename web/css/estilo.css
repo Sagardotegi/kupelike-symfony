@@ -34,6 +34,8 @@ body {
 }
 
 .img-logo{
+    
+    content:url("/web/img/logo_transp.png");
     height: 66px;
     padding-bottom: 10px;
 }
