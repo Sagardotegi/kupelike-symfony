@@ -20,6 +20,7 @@
                 cookie     : true
             });
             
+            // una vez está conectado, llama a la función getAPI
             FB.getLoginStatus(function(response) {
                 if (response.status === 'connected') {
                     getAPI();
@@ -48,9 +49,12 @@
         
         function getAPI()
         {
+            // obtiene información del usuario y la muestra
             FB.api("/me?fields=picture,name", function(response){
                 btn.style.display = "none";
                 document.getElementById('connection').innerHTML = "<img src='" + response.picture.data.url + "' title='Has iniciado sesión como " + response.name + "' class='img-responsive' />";
+                
+                // envía a nuestro servidor información del usuario
             });
         }
     </script>
