@@ -9,6 +9,12 @@
     <div id="map" class="mapa"></div>
 
         <script>
+        window.onload = function(){
+          if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
+            window.location = "google.navigation:q={{ sagardotegi.latitud }},{{ sagardotegi.longitud }}";
+          }
+        }
+        
         var map;
         var user;
         var centerControlDiv = document.createElement('div');
