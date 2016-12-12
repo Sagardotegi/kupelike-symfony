@@ -6,31 +6,14 @@ font-family: 'Lobster', cursive;
 
 /* Bootstrap Override */
 
-
-body {
-    
-    width: 100%;
-    /*background-image: url('../img/fondo.jpg');*/
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center center;
-    height: 100%;
-    overflow-x: hidden;
-    background-color: #f9f9f9;
-  
-}
-
 .landing {
-    width: 100%;
+
     background-image: url('../img/fondo.jpg') !important;
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center center;
-    height: 100%;
-    overflow-x: hidden;
-    /*background-color: #f9f9f9;*/
+    height: 100vh;
 }
 
 .img-logo{
