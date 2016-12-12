@@ -31,10 +31,10 @@ class KupelaController extends Controller
         
         // Entity Manager
         $em = $this->getDoctrine()->getManager();
-        $emailCliente = $em->getRepository('KupelikeBundle:Cliente')->find('email');
+        $emailCliente = $em->getRepository('KupelikeBundle:Cliente')->find($email);
         
         // si el email no existe almacena el usuario
-        if($email != $emailCliente){
+        if(!$emailCliente){
         
             // almacenamos en la tabla cliente
             $cliente = new Cliente();
