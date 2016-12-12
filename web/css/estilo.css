@@ -34,6 +34,8 @@ body {
 }
 
 .img-logo{
+    
+    content:url("/web/img/logo_transp.png");
     height: 66px;
     padding-bottom: 10px;
 }
@@ -347,11 +349,6 @@ body {
     color: #629c44;
 }
 
-.title-padding {
-    
-    padding-top: 120px;
-}
-
 .pc-footer {
     padding: 20px 0px;
     color: #629c44;
@@ -522,6 +519,7 @@ h1.a-sagar a:active {
 .card-image {
     
     width: inherit;
+    min-width: 300px;
 }
 
 .card-title {
