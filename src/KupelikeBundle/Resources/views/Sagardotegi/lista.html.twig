@@ -1,0 +1,18 @@
+<div class="row caja">
+    <div class="col-sm-12">
+        <h1 class="mtitle text-center">Sidrerias</h1>
+    </div>
+    {% for sagardotegi in sagardotegis %}
+    
+    <div class="col-sm-6 col-md-4">
+        <div class="card">
+            <a class="card-link"name="{{ sagardotegi.nombre }}" href="{{ path("sagardotegi_view", {idSagardotegi:sagardotegi.id}) }}">
+            <div class="card-direction text-uppercase text-center"><h4>{{ sagardotegi.direccion }}</h4></div>
+            <img class="card-image img-responsive" src="/web/{{ sagardotegi.foto }}"></img>
+            <h2 class="card-title text-uppercase">{{ sagardotegi.nombre }}</h2>
+            <p class="card-description">{{ sagardotegi.descripcion }}</p>
+            </a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
