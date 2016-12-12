@@ -577,11 +577,6 @@ h1.a-sagar a:active {
     padding: 16px;
     background: #F7F7F7;
     
-    border-radius: 33px 33px 33px 33px;
-    border-top-left-radius: 33px;
-    border-top-right-radius: 33px;
-    border: 10px solid black;
- 
 }
 
 .formulario{
@@ -629,7 +624,7 @@ textarea{
 }
 
 #texto-contacto{
-    font-family: 'Roboto', sans-serif, 160%;
+    font-family: 'Roboto', sans-serif, 200%;
      
 }
 
