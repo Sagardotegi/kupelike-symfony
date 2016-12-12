@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <title>{% block title %}KupeLike{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
-        <link rel="shortcut icon" href="../../web/img/favicon.ico" type="image/ico"/>
+        <link rel="shortcut icon" href="/web/img/favicon.ico" type="image/ico"/>
         <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}" />
         <link rel="stylesheet" type="text/css" href="{{ asset('css/estilo.css') }}" />
         <link href="{{ asset('/css/font-awesome.min.css') }}" rel="stylesheet">
@@ -57,26 +57,40 @@
         </div><!-- .container-fluid -->
         
         
-        <div class="container-fluid footer">
+        <div class="container-fluid">
             
-            <div class="row">
-                <div class="col-xs-12 text-center">
+            <div class="row footer text-center">
+                <div class="col-xs-12">
                     
                     <div class="row">
                         <div class="col-xs-12 font-face-primary p-20"> 
                         
                             <ul class="list-inline ftitle">
-                                <li><a href="https://www.facebook.com/kupelike" target="_blank"><i class="fa fa-facebook btn-social fa-5x" aria-hidden="true"></i></a></li>
-                                <li><a href="https://twitter.com/KupeLike" target="_blank"><i class="fa fa-twitter btn-social fa-5x" aria-hidden="true"></i></a></li>
-                                <li><a href="https://www.instagram.com/kupelike" target="_blank"><i class="fa fa-instagram btn-social fa-5x" aria-hidden="true"></i></a></li>
+                                
+                                <li><a href="https://www.facebook.com/kupelike" target="_blank">
+                                    <span class="fa-stack fa-2x">
+                                      <i class="fa fa-circle fa-stack-2x btn-social"></i>
+                                      <i class="fa fa-facebook fa-stack-1x fa-inverse btn-social-inner" aria-hidden="true"></i>
+                                    </span>
+                                </a></li>
+                                <li><a href="https://twitter.com/KupeLike" target="_blank"><span class="fa-stack fa-2x">
+                                      <i class="fa fa-circle fa-stack-2x btn-social"></i>
+                                      <i class="fa fa-twitter fa-stack-1x fa-inverse btn-social-inner" aria-hidden="true"></i>
+                                    </span>
+                                </a></li>
+                                <li><a href="https://www.instagram.com/kupelike" target="_blank"><span class="fa-stack fa-2x">
+                                      <i class="fa fa-circle fa-stack-2x btn-social"></i>
+                                      <i class="fa fa-instagram fa-stack-1x fa-inverse btn-social-inner" aria-hidden="true"></i>
+                                    </span>
+                                </a></li>
                             </ul>
                             
                         </div>
                     </div>
                     
                     <div class="row">
-                        <div class="col-xs-12 font-face-primary pc-footer"> 
-                            <ul class="list-inline ftitle">
+                        <div class="col-xs-12 font-face-primary"> 
+                            <ul class="list-inline footer-menu text-uppercase">
                                 <li><a href="{{ path('index') }}">Home</a></li>
                                 <li><a href="{{ path('sagardotegien_mapak') }}">Mapa</a></li>
                                 <li><a href="{{ path('sagardotegis_index') }}">Sidrerias</a></li>
@@ -84,22 +98,17 @@
                                 <li><a href="{{ path('nosotros') }}">Nosotros</a></li>
                             </ul>
                         </div>
-                        <div class="col-xs-12 font-face-primary pc-footer"> 
-                            <ul class="list-inline ftitle">
-                                <li><a href="tel:655555555" class="green-color"><i class="fa fa-phone-square" aria-hidden="true"></i> +34 655 55 55 55</a></li>
-                                <li><a href="mailto:kupelikeproject@gmail.com" class="green-color"><i class="fa fa-envelope" aria-hidden="true"></i> kupelikeproject@gmail.com</a></li>
-                                <li><a href="https://www.google.es/maps/place/Instituto+de+Educaci%C3%B3n+Secundaria+Xabier+Zubiri+Manteo/@43.3274463,-1.9710159,20z/data=!4m5!3m4!1s0x0:0x8654b5f1f9a490ae!8m2!3d43.3274118!4d-1.9708255" class="green-color"><i class="fa fa-map-marker" aria-hidden="true"></i> Paseo de José Miguel Barandiarán, 10-12, 20013 San Sebastián, Guipúzcoa</a></li>
+                        <div class="col-xs-12 font-face-primary"> 
+                            <ul class="list-unstyled footer-menu green-color">
+                                <li><a href="tel:655555555"><i class="fa fa-phone-square" aria-hidden="true"></i> +34 655 55 55 55</a></li>
+                                <li><a href="mailto:kupelikeproject@gmail.com"><i class="fa fa-envelope" aria-hidden="true"></i> kupelikeproject@gmail.com</a></li>
+                                <li><a href="https://www.google.es/maps/place/Instituto+de+Educaci%C3%B3n+Secundaria+Xabier+Zubiri+Manteo/@43.3274463,-1.9710159,20z/data=!4m5!3m4!1s0x0:0x8654b5f1f9a490ae!8m2!3d43.3274118!4d-1.9708255"><i class="fa fa-map-marker" aria-hidden="true"></i> Paseo de José Miguel Barandiarán, 10-12, 20013 San Sebastián, Guipúzcoa</a></li>
                             </ul>
                         </div>
                     </div>
-                    
-                    <hr class="fline"/>
-                    
-                    <div class="row subfooter">
-                        <div class="col-xl-12 text-xl-center col-xs-12 text-xs-center"> 
-                        Copyright © 2016 KupeLike - All Rights Reserved - <a href="/privacy" class="subfooter ">Privacy</a>
-                        </div>
-                    </div>
+                </div>
+                <div class="col-xs-12 subfooter">   
+                    Copyright © 2016 KupeLike - All Rights Reserved - <a href="/privacy" class="">Privacy</a>
                 </div>
                 
             </div>
