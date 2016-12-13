@@ -51,8 +51,7 @@
         function getAPI()
         {
             // obtiene información del usuario y la muestra
-            FB.api("/me?fields=birthday,name,email", function(response){
-                
+            FB.api("/me?fields=birthday,name,email,id", function(response){
                 // la información se envía en JSON al controlador Kupela
                 $('#btn-facebook').click(function(){
                     $.ajax({
@@ -61,7 +60,7 @@
                         url: "{{ path('kupela_like') }}",
                         data: response,
                         success: function(data){
-                            console.log("LIKE");
+                            console.log(data);
                         }
                     });
                 });

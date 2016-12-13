@@ -13,13 +13,11 @@ use Doctrine\ORM\Mapping as ORM;
 class Cliente
 {
     /**
-     * @var int
-     *
-     * @ORM\Column(name="id", type="integer")
+     * @var string
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\Column(name="id_facebook", type="string", unique=true)
      */
-    private $id;
+    private $idFacebook;
 
     /**
      * @var string
@@ -31,34 +29,23 @@ class Cliente
     /**
      * @var string
      *
-     * @ORM\Column(name="direccion", type="string", length=255)
+     * @ORM\Column(name="direccion", type="string", length=255, nullable=true)
      */
     private $direccion;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="fecha_nacimiento", type="string", length=255)
+     * @ORM\Column(name="fecha_nacimiento", type="string", length=255, nullable=true)
      */
     private $fechaNacimiento;
     
     /**
      * @var string
      *
-     * @ORM\Column(name="email", type="string", length=255)
+     * @ORM\Column(name="email", type="string", length=255, nullable=true)
      */
     private $email;
-
-
-    /**
-     * Get id
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set nombre
@@ -154,6 +141,30 @@ class Cliente
     public function getEmail()
     {
         return $this->email;
+    }
+    
+    /**
+     * Set idFacebook
+     *
+     * @param string $idFacebook
+     *
+     * @return Cliente
+     */
+    public function setIdFacebook($idFacebook)
+    {
+        $this->idFacebook = $idFacebook;
+
+        return $this;
+    }
+
+    /**
+     * Get idFacebook
+     *
+     * @return string
+     */
+    public function getIdFacebook()
+    {
+        return $this->idFacebook;
     }
 }
 
