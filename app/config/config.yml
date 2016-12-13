@@ -62,11 +62,12 @@ doctrine:
 
 # Swiftmailer Configuration
 swiftmailer:
-    transport: "%mailer_transport%"
-    host:      "%mailer_host%"
-    username:  "%mailer_user%"
-    password:  "%mailer_password%"
-    spool:     { type: memory }
+    transport: gmail
+    username:  "kupelikeproject@gmail.com"
+    password:  "Abcd_1234"
+    spool:     { type: file }
+
+  
     
 hwi_oauth:
     firewall_names:        [secured_area]
