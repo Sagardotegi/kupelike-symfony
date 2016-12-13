@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use KupelikeBundle\Entity\Sagardotegi;
 use KupelikeBundle\Entity\Kupela;
+use Symfony\Component\HttpFoundation\Request;
 
 class IndexController extends Controller
 {
@@ -30,4 +31,32 @@ class IndexController extends Controller
     {
         return $this->render('KupelikeBundle:Index:nosotros.html.twig');
     }
+    
+    
+    
+    public function emailAction(Request $respuesta)
+    {
+        //cogemos los datos del formulario
+        
+        $nombre = $respuesta->request->get('nombre-apellidos');
+        $email = $respuesta->request->get('email');
+        $contenido= $respuesta->request->get('contenido');
+        
+        $this->enviarEmail($nombre, $email, $contenido);
+        return $this->render('KupelikeBundle:Index:contacto.html.twig');
+    }
+
+    private function enviarEmail($nombre, $email, $contenido){
+        
+         $mail = \Swift_Message::newInstance()
+            ->setSubject('KupeLike - Contacto - ')
+            ->setFrom("kupelikeproject@gmail.com")
+            ->setTo('kupelikeproject@gmail.com')
+            ->setBody('')
+            ->addPart('<h1>Nombre Cliente</h1>'.$nombre .'<h2>Mensaje del cliente</h2> <br><p>' . $contenido . '</h2> <p>Email Cliente</h2>' .$email, 'text/html');
+            
+            $this->get('mailer')->send($mail);
+        
+    }
 }
+
