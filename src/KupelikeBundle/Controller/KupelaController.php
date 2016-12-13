@@ -19,38 +19,40 @@ class KupelaController extends Controller
     public function likeAction(Request $request)
     {
         // obtenemos los datos enviados por ajax
-        $id = $request->request->get('id');
-        $nombre = $request->request->get('name');
-        $birthday = $request->request->get('birthday');
-        $email = $request->request->get('email');
+        $datos = $request->request->get('response');
+        $idCliente = $datos['id'];
+        $nombre = $datos['name'];
+        
+        $idKupela = $request->request->get('idKupela');
+        
+        
         
         // Entity Manager
         $em = $this->getDoctrine()->getManager();
         // busca el id de facebook en la tabla Cliente
-        $idFacebook = $em->getRepository('KupelikeBundle:Cliente')->findBy(array('idFacebook' => $id));
+        $clienteExists = $em->getRepository('KupelikeBundle:Cliente')->find($idCliente);
         
         // si el id de facebook no existe
-        if($idFacebook != $id){
-            // crea un nuevo cliente
-            crearCliente($id, $nombre, $birthday, $email);
-            // incrementa en uno el número de votos de la kupela
-            incrementarVoto($cliente, $kupela);
-        } else {
-            // incrementa en uno el número de votos de la kupela
+        if($clienteExists){
             
+            // añade un nuevo voto
+            $this->nuevoVoto($em, $idCliente, $idKupela);
+        } else {
+            // crea un nuevo cliente
+            $this->crearCliente($em, $idCliente, $nombre);
+            // añade un nuevo voto
+            $this->nuevoVoto($em, $idCliente, $idKupela);
         }
         
         
         return new Response();
     }
     
-    private function crearCliente($id, $nombre, $birthday, $email)
+    private function crearCliente($em, $id, $nombre)
     {
         // almacenamos en la tabla cliente
             $cliente = new Cliente();
-            $cliente->setFechaNacimiento($birthday);
             $cliente->setNombre($nombre);
-            $cliente->setEmail($email);
             $cliente->setIdFacebook($id);
             
             
@@ -58,6 +60,17 @@ class KupelaController extends Controller
             $em->flush();
             
             return $cliente;
+    }
+    
+    private function nuevoVoto($em, $idCliente, $idKupela)
+    {
+        $voto = new Voto();
+        $voto->setClienteId($idCliente);
+        $voto->setKupelaId($idKupela);
+        $voto->setFecha(date('d/m/Y H:m'));
+        
+        $em->persist($voto);
+        $em->flush();
     }
     
 }

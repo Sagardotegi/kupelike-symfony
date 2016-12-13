@@ -15,7 +15,7 @@ class Cliente
     /**
      * @var string
      * @ORM\Id
-     * @ORM\Column(name="id_facebook", type="string", unique=true)
+     * @ORM\Column(name="id_facebook", type="string")
      */
     private $idFacebook;
 
