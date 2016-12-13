@@ -39,7 +39,7 @@ class IndexController extends Controller
         //cogemos los datos del formulario
         
         $nombre = $respuesta->request->get('nombre-apellidos');
-        $email = $respuesta->request->get('emails');
+        $email = $respuesta->request->get('email');
         $contenido= $respuesta->request->get('contenido');
         
         $this->enviarEmail($nombre, $email, $contenido);
@@ -53,7 +53,7 @@ class IndexController extends Controller
             ->setFrom("kupelikeproject@gmail.com")
             ->setTo('kupelikeproject@gmail.com')
             ->setBody('')
-            ->addPart('<h3>Mensaje del cliente</h3> <br><p>' . $contenido . '</p>', 'text/html');
+            ->addPart('<h1>Nombre Cliente</h1>'.$nombre .'<h2>Mensaje del cliente</h2> <br><p>' . $contenido . '</h2> <p>Email Cliente</h2>' .$email, 'text/html');
             
             $this->get('mailer')->send($mail);
         
