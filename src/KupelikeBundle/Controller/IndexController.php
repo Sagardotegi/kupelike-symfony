@@ -50,7 +50,7 @@ class IndexController extends Controller
         
          $mail = \Swift_Message::newInstance()
             ->setSubject('KupeLike - Contacto - ')
-            ->setFrom($email)
+            ->setFrom("kupelikeproject@gmail.com")
             ->setTo('kupelikeproject@gmail.com')
             ->setBody('')
             ->addPart('<h3>Mensaje del cliente</h3> <br><p>' . $contenido . '</p>', 'text/html');

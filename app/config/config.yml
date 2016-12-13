@@ -65,7 +65,7 @@ swiftmailer:
     transport: gmail
     username:  "kupelikeproject@gmail.com"
     password:  "Abcd_1234"
-    spool:     { type: file }
+  
 
   
     
