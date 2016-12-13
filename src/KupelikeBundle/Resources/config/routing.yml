@@ -41,3 +41,9 @@ kupela_like:
     path: /kupela-like
     defaults: { _controller: KupelikeBundle:Kupela:like }
     methods: [POST]
+
+enviar_correo:
+    path: /enviar-correo
+    defaults: { _controller: KupelikeBundle:Index:email }
+    methods: [POST]    
+    
