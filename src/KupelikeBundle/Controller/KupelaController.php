@@ -27,15 +27,25 @@ class KupelaController extends Controller
         // obtenemos los datos enviados por ajax
         $nombre = $request->request->get('name');
         $birthday = $request->request->get('birthday');
+        $email = $request->request->get('email');
         
-        // almacenamos en la tabla cliente
-        $cliente = new Cliente();
-        $cliente->setFechaNacimiento($birthday);
-        $cliente->setNombre($nombre);
-        
+        // Entity Manager
         $em = $this->getDoctrine()->getManager();
-        $em->persist($cliente);
-        $em->flush();
+        $emailCliente = $em->getRepository('KupelikeBundle:Cliente')->find($email);
+        
+        // si el email no existe almacena el usuario
+        if(!$emailCliente){
+        
+            // almacenamos en la tabla cliente
+            $cliente = new Cliente();
+            $cliente->setFechaNacimiento($birthday);
+            $cliente->setNombre($nombre);
+            $cliente->setEmail($email);
+            
+            
+            $em->persist($cliente);
+            $em->flush();
+        }
         
         
         return new Response("Kaixo");
