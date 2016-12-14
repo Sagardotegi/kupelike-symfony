@@ -80,4 +80,12 @@ class SagardotegiController extends Controller
         
         return $this->render('KupelikeBundle:Sagardotegi:gps.html.twig', array('sagardotegis' => $sagardotegis));
     }
+    
+    /**
+     * Obtiene las sagardotegis de las páginas de Facebook con una llamada a la API y las almacena en la BD
+     */
+    public function saveAction()
+    {
+        
+    }
 }
