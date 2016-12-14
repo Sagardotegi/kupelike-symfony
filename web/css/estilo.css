@@ -724,6 +724,30 @@ textarea{
     margin-bottom: 50px;
 }
 
+ 
+hr.separador_nosotros {
+	border-top: 4px double #6ca250;
+	text-align: center;
+}
+hr.separador_nosotros:after {
+	content: '\002665';
+	display: inline-block;
+	position: relative;
+	top: -15px;
+	padding: 0 10px;
+	background: white;
+	color: #6ca250;
+	font-size: 18px;
+}
+
+.img-rounded{
+    width: 10%;
+    height: 10%;
+    margin-bottom: 20px;
+    margin-left: 40px;
+}
+
+
 
 
 
