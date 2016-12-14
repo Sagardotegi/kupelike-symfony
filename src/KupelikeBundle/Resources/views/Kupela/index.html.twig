@@ -2,7 +2,8 @@
 
 {% block body %}
   
-   
+ 
+<div class="container-fluid">  
     <div class="row kupela col-sm-12">
       <div class="col-sm-3 col-sm-offset-2">
             <h1 class="card-title">{{sagardotegi.nombre}}</h1>
@@ -30,10 +31,12 @@
              <div class="col-sm-4">   
               <img src="{{asset(kupela.foto)}}" class="img-responsive" alt="Responsive image">
              </div>
-             <div class="col-sm-4">
-              <h1>{{kupela.numVotos}}</h1>
+             <div class="col-sm-3 col-sm-offset-1 text-center">
               <a href="#" id="btn-facebook">
-                  <img src= "{{asset("/uploads/kupelas/like.png")}}" class="img-responsive" alt="Responsive image">
+                 <div class="like">
+                  <h1 id="numVotos">{{kupela.numVotos}}</h1>     
+                  <img src= "{{asset("/uploads/kupelas/like.png")}}" class="img-responsive like" alt="Responsive image" id="corazon-like">
+                 </div>  
               </a>
              </div>        
             </div>
@@ -41,7 +44,8 @@
   
     {% endfor %}
     </div>
-    
+ 
     {{ include('KupelikeBundle:Kupela:_facebook.html.twig') }}
     
 {% endblock %}
+
