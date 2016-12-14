@@ -743,7 +743,7 @@ hr.separador_nosotros:after {
     width: 10%;
     height: 10%;
     margin-bottom: 20px;
-    margin-left: 40px;
+    /*margin-left: 40px;*/
 }
 
 .card-description.nosotros{
