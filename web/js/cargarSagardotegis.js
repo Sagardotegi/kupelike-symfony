@@ -1,28 +1,20 @@
 $(document).ready(function(){
     
     var listaSagardotegis = [];
-    
+    var accesToken;
     /**
      * Llamamos a la API de Facebook
      */
-        window.fbAsyncInit = function() {
-            // iniciamos la aplicación de Facebook
-            FB.init({
-                appId      : '238649363223511',
-                status     : true,
-                xfbml      : true,
-                cookie     : true
-            });
+        
             
             /**
              * Generamos un access token de app
              */
-            var accesToken;
-             
-            FB.api('https://graph.facebook.com/oauth/access_token?client_id=238649363223511&client_secret=42b7ae25f21439cfcf10af9c3a88ac08&grant_type=client_credentials ', function(response){
-                accesToken = response.accessToken;
-                console.log(accesToken);
-            });
+            FB.api('/oauth/access_token', 'GET', {"client_id":"238649363223511","client_secret":"42b7ae25f21439cfcf10af9c3a88ac08","grant_type":"client_credentials"}, function(response) {
+                  accesToken = response.accessToken;
+              }
+            );
+            
             
             
             /**
@@ -33,7 +25,16 @@ $(document).ready(function(){
                 var kupelikeSagardotegia = response;
                 listaSagardotegis.push(kupelikeSagardotegia);
             });
-        };
+        
+        window.fbAsyncInit = function() {
+            // iniciamos la aplicación de Facebook
+            FB.init({
+                appId      : '238649363223511',
+                status     : true,
+                xfbml      : true,
+                cookie     : true
+            });
+        }
         
         (function(d, s, id){
             var js, fjs = d.getElementsByTagName(s)[0];
@@ -47,9 +48,9 @@ $(document).ready(function(){
     * Llamamos a la función que obtiene las sagardotegis
     *
     $.ajax({
-        type: "POST",
-        url: '/save-sagardotegis',
-        data: listaSagardotegis
+        url: '/web/app_dev.php/save-sagardotegis'
     });*/
+    
+    console.log(accesToken);
     
 });
