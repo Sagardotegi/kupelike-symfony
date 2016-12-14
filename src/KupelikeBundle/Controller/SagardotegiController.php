@@ -33,13 +33,16 @@ class SagardotegiController extends Controller
         $em = $this->getDoctrine()->getManager();
         // obtenemos la sagardotegi que queremos visualizar
         $sagardotegi = $em->getRepository('KupelikeBundle:Sagardotegi')->find($idSagardotegi);
+        // obtenemos los datos para la busqueda de sagardotegis
+        //$sagardotegis = $em->getRepository('KupelikeBundle:Sagardotegi')->findAll();
         // obtenemos las kupelas de la sagardotegi
         $kupelas = $em->getRepository('KupelikeBundle:Kupela')->findBy(array('idSagardotegi' => $idSagardotegi));
         
-        return $this->render('KupelikeBundle:Kupela:index.html.twig', array(
+        return $this->render('KupelikeBundle:Kupela:index2.html.twig', array(
             'kupelas' => $kupelas,
             'sagardotegi' => $sagardotegi
         ));
+        
     }
     
     /**
