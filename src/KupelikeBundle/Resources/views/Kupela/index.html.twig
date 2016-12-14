@@ -2,20 +2,20 @@
 
 {% block body %}
   
-   
+<div class="container-fluid content"> 
     <div class="row kupela col-sm-12">
-      <div class="col-sm-3 col-sm-offset-2">
+        <div class="col-sm-3 col-sm-offset-2">
             <h1 class="card-title">{{sagardotegi.nombre}}</h1>
             <p class="card-description" id="descripcion">{{sagardotegi.descripcion}}</p>
             <a href="{{ path("sagardotegi_mapa", {idSagardotegi:sagardotegi.id}) }}"><button type="button" class="btn btn-default">Como llegar</button></a>
             <a href="http://www.petritegi.com/es/contacto"><button type="button" class="btn btn-default">Contacto</button></a>
-     </div>
-     <div class="col-sm-6 col-sm-offset-1">
-         <div class="card-direction text-uppercase text-center"><h4>{{ sagardotegi.direccion }}</h4></div>
-         <img src= "{{asset(sagardotegi.foto)}}" class="portada_sidreria">
-            
-    </div>   
- </div>    
+         </div>
+         <div class="col-sm-6 col-sm-offset-1">
+             <div class="card-direction text-uppercase text-center"><h4>{{ sagardotegi.direccion }}</h4></div>
+             <img src= "{{asset(sagardotegi.foto)}}" class="portada_sidreria">
+                
+        </div>   
+     </div>    
           
 
 

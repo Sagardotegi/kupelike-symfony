@@ -1,39 +1,31 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-  <div class="container-fluid content">
+  <div class="container content">
    
-    <div class="row">
-        <div class="col-xs-offset-1 col-xs-6">
+    <div class="row single-sagardotegi">
+        <div class="col-xs-6">
             <h2 class="card-title text-uppercase">{{ sagardotegi.nombre }}</h2>
-            <div class="card-margen-20">
-                <p class="card-description" id="descripcion">{{ sagardotegi.descripcion }}</p>
+                <p class="single-description" id="descripcion">{{ sagardotegi.descripcion }}</p>
                 <a href="{{ path("sagardotegi_mapa", {idSagardotegi:sagardotegi.id}) }}"><button type="button" class="btn btn-default">Como llegar</button></a>
                 <a href="http://www.petritegi.com/es/contacto"><button type="button" class="btn btn-default">Contacto</button></a>
-            </div>
         </div>
-        <div class="col-xs-5">
-            <div class="card-sidreria">
-                <a class="card-link" name="{{ sagardotegi.nombre }}" href="{{ path("sagardotegi_view", {idSagardotegi:sagardotegi.id}) }}">
-                <div class="card-direction text-uppercase text-center"><h4>{{ sagardotegi.direccion }}</h4></div>
-                <img class="img-responsive" src="{{asset(sagardotegi.foto)}}"></img>
-                
-                </a>
-            </div>
+        <div class="col-xs-6">
+            <div class="card-direction text-uppercase text-center"><h4>{{ sagardotegi.direccion }}</h4></div>
+            <img class="single-img img-responsive" src="{{asset(sagardotegi.foto)}}"></img>
         </div>
     </div>
-    <div class="row p-x-1">
-        <div class="col-xs-offset-2 col-xs-10">
+        
+    <div class="row p-x-1 kupela-list">
+        <div class="col-xs-offset-1 col-xs-10">
     {% for kupela in kupelas %}
         
       
-        <div class="row left-line vertical-center">
+        <div class="row left-line">
             <div class="col-xs-6">
                 <div class="caption">
                     <h3 class="card-title text-uppercase">{{kupela.nombre}}</h3>
-                    <div class="card-margen-20">
-                        <p class="card-description">{{kupela.descripcion}}</p>
-                    </div>
+                    <p class="single-description">{{kupela.descripcion}}</p>
                 </div>
             </div>
             <div class="col-xs-4">
