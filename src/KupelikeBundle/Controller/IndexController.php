@@ -48,7 +48,7 @@ class IndexController extends Controller
     public function searchAction(Request $request)
     {
         $string = $request->request->get('textoBusqueda');
-        $users = $this->getDoctrine()
+        $sagardotegis = $this->getDoctrine()
                      ->getRepository('KupelikeBundle:Sagardotegi')
                      ->findByLetters($string);
                      
@@ -56,10 +56,10 @@ class IndexController extends Controller
         $encoders = array(new JsonEncoder());
         $normalizers = array(new GetSetMethodNormalizer());
         $serializer = new Serializer($normalizers, $encoders);
-        $jsonContent = $serializer->serialize($users, 'json');
+        $jsonContent = $serializer->serialize($sagardotegis, 'json');
         $response = new Response($jsonContent);
         return $response;
-    }    
+    }
     
     public function emailAction(Request $respuesta)
     {
