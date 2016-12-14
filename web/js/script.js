@@ -63,4 +63,51 @@ function showResult(str) {
   xmlhttp.send();
 }
 
+$(document).ready(function(){
+    $("#search").keyup(function(){
+        var txtBusqueda = $("#search").val();
+        
+        if(txtBusqueda != ""){
+            $.ajax({
+                type: "POST",
+                url: $("#navbar-search").attr("action"),
+                dataType: "json",
+                data: {textoBusqueda : txtBusqueda},
+                success : function(response) 
+                  {
+                      console.log(response);
+                        //$("#sagardotegies-table").hide();
+                        //$(".pagination").hide();
+                        $("#searchResults").show();
+                        $("#searchResults").html("");
+                        $.each(response, function(index, sagardotegi){
+                            var path_ver = "sagardotegiak/" + sagardotegi.id;
+                            var llegar = "sagardotegiak/" + sagardotegi.id + "/mapa";
+
+                            $("#searchResults").append("<div class='row'>"+
+                                                "<div class='col-xs-offset-1 col-xs-6'>"+
+                                                    "<h2 class='card-title text-uppercase'>"+sagardotegi.nombre+"</h2>"+
+                                                    "<div class='card-margen-20'>"+
+                                                        "<p class='card-description' id='descripcion'>"+sagardotegi.descripcion+"</p>"+
+                                                        "<a href='"+llegar+"'><button type='button' class='btn btn-default'>Como llegar</button></a>"+
+                                                        "<a href='http://www.petritegi.com/es/contacto'><button type='button' class='btn btn-default'>Contacto</button></a>"+
+                                                    "</div>"+
+                                                "</div>"+
+                                                "<div class='col-xs-5'>"+
+                                                    "<div class='card-sidreria'>"+
+                                                        "<a class='card-link' name='"+sagardotegi.nombre+"' href='"+path_ver+"'>"+
+                                                        "<div class='card-direction text-uppercase text-center'><h4>"+sagardotegi.direccion+"</h4></div>"+
+                                                        "<img class='img-responsive' src='"+sagardotegi.foto+"'></img>"+
+                                                        
+                                                        "</a>"+
+                                                    "</div>"+
+                                                "</div>"+
+                                            "</div>");
+                        });
+                  }
+            });
+        }
+    });
+});
+
 
