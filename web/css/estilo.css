@@ -6,6 +6,22 @@ font-family: 'Lobster', cursive;
 
 /* Bootstrap Override */
 
+/* Scrollbar */
+body::-webkit-scrollbar {
+    width: .5em;
+}
+ 
+body::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 3px rgba(0,0,0,0.3);
+}
+ 
+body::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+}
+
+/* Scrollbar */
+
 .landing {
 
     background-image: url('../img/fondo.jpg') !important;
@@ -13,6 +29,7 @@ font-family: 'Lobster', cursive;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center center;
+    padding-bottom: 1px;
 }
 
 .img-logo{
@@ -36,7 +53,6 @@ font-family: 'Lobster', cursive;
 .content {
     
     margin-top: 100px;
-    margin-bottom: -10px;
 }
 
 /* Menu */
@@ -352,6 +368,12 @@ font-family: 'Lobster', cursive;
     
     padding-left: 0px !important;
     padding-right: 0px !important;
+}
+
+.p-x-1 {
+    
+    padding-left: 15px !important;
+    padding-right: 15px !important;
 }
 
 /*.parallax-container {
@@ -704,6 +726,35 @@ hr.separador_nosotros:after {
 
 /** FIN ! Formulario contacto **/
 /**/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /** titulo index 
