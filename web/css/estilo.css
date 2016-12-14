@@ -100,7 +100,7 @@ body::-webkit-scrollbar-thumb {
     float: left;
     height: inherit;
     padding: 15px;
-    font-size: 40px;
+    font-size: 35px;
     line-height: 55px;
     letter-spacing: 2px;
     color: #629c44;
@@ -553,9 +553,9 @@ h1.a-sagar a:active {
     color: white;
     height: 50px;
     width: 175px;
-    position: relative;
-    top: 80px;
-    left: -50px;
+    position: absolute;
+    top: 40px;
+    left: 25px;
     letter-spacing: 2px;
     padding: 5px;
 }
@@ -639,18 +639,46 @@ textarea{
      
 }
 
+/** FIN ! Formulario contacto **/
+/**/
+
+/** Single Sagardotegi ta bere kupelak **/
+
+.single-sagardotegi {
+    
+    position: fixed;
+    height: 320px;
+    padding-top: 50px;
+    background-color: white;
+    z-index: 2;
+}
+
+.single-img {
+    
+    width: 100%;
+    height: 100%;
+    max-width: 450px;
+    margin: 0 auto;
+}
+
+.single-description {
+    
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 2px;
+    font-size: medium;
+    text-align: justify;
+    margin-left: 20px;
+}
+
 .like {
+    
     width: 200px !important;
 }
 
 .portada_sidreria{
+    
     width: inherit;
     min-width: 500px;
-    
-}
-
-#decripcion{
-    text-align: justify;
 }
 
 .btn-default {
@@ -667,34 +695,31 @@ textarea{
     margin: 0 auto;
 }
 
-.vertical-center {
-  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
-  /*min-height: 100vh;*/ /* These two lines are counted as one :-)       */
-
-  display: flex;
-  align-items: center;
-  /*margin-top: -50px;*/
-  padding: 0px 0px 25px 0px;
-}
-
-.card-margen-20 {
-    margin-left: 20px;
-}
-
 .left-line {
   border-left: 2px solid #629c44;
 }
 
-.like-kupela {
-    /*width: 75px !important;*/
+.kupela-list {
+    
+    padding-top: 360px;
+    padding-bottom: 50px;
 }
+
 
 .votos {
     text-align: center;
 }
 
+.img-kupela {
+    
+    width: 100%;
+    height: 100%;
+    max-width: 450px;
+    margin: 0 auto;
+}
 
 #mapa_todas{
+    
     margin-bottom: 50px;
 }
 
@@ -778,10 +803,6 @@ hr.separador_nosotros:after {
 
 
 
-
-
-/** FIN ! Formulario contacto **/
-/**/
 
 
 
