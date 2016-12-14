@@ -1,35 +1,44 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<div class="landing">
-    <div class="row welcome">
-        <div class="col-sm-12 text-center">
-            <h1 class="welcome-text">Una buena conversación se abre siempre con un Txotx!</h1>
-            <p class="welcome-subtext">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-            <button class="btn btn-ghost btn-lg">Encuentra tu sagardotegi</button>
+<div class="container-fluid content p-x-0">
+    <div class="landing">
+        <div class="row welcome">
+            <div class="col-sm-12 text-center">
+                <h1 class="welcome-text">Una buena conversación se abre siempre con un Txotx!</h1>
+                <p class="welcome-subtext">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                <button class="btn btn-ghost btn-lg">Encuentra tu sagardotegi</button>
+            </div>
         </div>
+<<<<<<< HEAD
     </div>
 
     <div class="row caja">    
         <div class="col-md-12">
             {% include('KupelikeBundle:Sagardotegi:mapaDenakMapa.html.twig') %} 
         </div>
+    </div>    
+    <div class="row caja">  
        <div class="col-md-12">
         {% include('KupelikeBundle:Sagardotegi:lista.html.twig') %} 
        </div>
     </div>       
-
+=======
+>>>>>>> f6363c8ec0fc62e49bfeffcf66a090af516247f3
     
-    <div class="row caja">
-        <div class="col-md-12">
-            <h1 class="text-center mtitle"></h1>
+        <div class="row caja">    
+            <div class="col-md-12">
+                {% include('KupelikeBundle:Sagardotegi:mapaDenakMapa.html.twig') %} 
+            </div>
         </div>
-        <div class="col-md-12">
-            <div class=""></div>
+        
+        <div class="row caja">
+           <div class="col-md-12">
+            {% include('KupelikeBundle:Sagardotegi:lista.html.twig') %} 
+           </div>
         </div>
-    </div>
-
-</div>   
+    
+    </div>   
 
 {% endblock %}
 

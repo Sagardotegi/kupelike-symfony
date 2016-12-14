@@ -45,7 +45,7 @@
                         <li><a href="{{ path('index') }}">Home</a></li>
                         <li><a href="{{ path('sagardotegien_mapak') }}">Mapa</a></li>
                         <li><a href="{{ path('sagardotegis_index') }}">Sidrerias</a></li>
-                        <li><a href="{{ path('contacto') }}">Contact</a></li>
+                        <li><a href="{{ path('contacto') }}">Contacto</a></li>
                         <li><a href="{{ path('nosotros') }}">Nosotros</a></li>
                     </ul>
                </div>
@@ -54,7 +54,8 @@
         
         </div><!-- .container-fluid -->
         
-        <div class="container-fluid content p-x-0">
+        <!-- IMPORTANTE -> Todos los ficheros que se cargen en el block body deben empezar con un div container-fluid!!!!
+        PERO SU ETIQUETA DE CIERRE CORRESPONDIENTE NO HACE FALTA!!!-->
             {% block body %}{% endblock %}
         </div><!-- .container-fluid -->
         
@@ -96,7 +97,7 @@
                                 <li><a href="{{ path('index') }}">Home</a></li>
                                 <li><a href="{{ path('sagardotegien_mapak') }}">Mapa</a></li>
                                 <li><a href="{{ path('sagardotegis_index') }}">Sidrerias</a></li>
-                                <li><a href="{{ path('contacto') }}">Contact</a></li>
+                                <li><a href="{{ path('contacto') }}">Contacto</a></li>
                                 <li><a href="{{ path('nosotros') }}">Nosotros</a></li>
                             </ul>
                         </div>

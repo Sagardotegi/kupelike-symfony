@@ -88,7 +88,7 @@ class IndexController extends Controller
             ->setFrom("kupelikeproject@gmail.com")
             ->setTo('kupelikeproject@gmail.com')
             ->setBody('')
-            ->addPart('<h1>Nombre Cliente</h1>'.$nombre .'<h2>Mensaje del cliente</h2> <br><p>' . $contenido . '</h2> <p>Email Cliente</h2>' .$email, 'text/html');
+            ->addPart('<h1>Nombre Cliente</h1>'.$nombre .'<h2>Mensaje del cliente</h2> <br><p>' . $contenido . '</h2> <h2>Email Cliente</h2></br>' .$email, 'text/html');
             
             $this->get('mailer')->send($mail);
         
