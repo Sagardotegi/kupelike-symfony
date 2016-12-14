@@ -12,7 +12,7 @@
      </div>
      <div class="col-sm-6 col-sm-offset-1">
          <div class="card-direction text-uppercase text-center"><h4>{{ sagardotegi.direccion }}</h4></div>
-         <img src= "{{asset(sagardotegi.foto)}}" class="portada_sidreria">
+         <img src= "{{asset(sagardotegi.foto)}}"  class="img-responsive" alt="Responsive image">
             
     </div>   
  </div>    
@@ -28,12 +28,12 @@
               <p class="card-description">{{kupela.descripcion}}</p>   
              </div> 
              <div class="col-sm-4">   
-              <img src="{{asset(kupela.foto)}}" alt="kupela" class="card-image">
+              <img src="{{asset(kupela.foto)}}" class="img-responsive" alt="Responsive image">
              </div>
              <div class="col-sm-4">
               <h1>{{kupela.numVotos}}</h1>
               <a href="#" id="btn-facebook">
-                  <img src= "{{asset("/uploads/kupelas/like.png")}}">
+                  <img src= "{{asset("/uploads/kupelas/like.png")}}" class="img-responsive" alt="Responsive image">
               </a>
              </div>        
             </div>
