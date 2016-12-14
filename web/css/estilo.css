@@ -6,6 +6,22 @@ font-family: 'Lobster', cursive;
 
 /* Bootstrap Override */
 
+/* Scrollbar */
+body::-webkit-scrollbar {
+    width: .5em;
+}
+ 
+body::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 3px rgba(0,0,0,0.3);
+}
+ 
+body::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+}
+
+/* Scrollbar */
+
 .landing {
 
     background-image: url('../img/fondo.jpg') !important;
