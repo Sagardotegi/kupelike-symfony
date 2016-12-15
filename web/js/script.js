@@ -10,10 +10,10 @@ $(document).ready(function($) {
             overflow: 'hidden',
             height: '100%'
         });
-        $('.searchResults').css({
+        /*$('.searchResults').css({
             overflow: 'auto !important',
             height: '1000px'
-        });
+        });*/
     });
     
    $('.closeSearch').on('click', function(){
@@ -27,10 +27,10 @@ $(document).ready(function($) {
             overflow: 'auto',
             height: 'auto'
         });
-        $('.searchResults').css({
+        /*$('.searchResults').css({
             overflow: 'hidden',
             height: '100%'
-        });
+        });*/
     });
             
 });
