@@ -744,7 +744,7 @@ hr.separador_nosotros:after {
     width: 10%;
     height: 10%;
     margin-bottom: 20px;
-    margin-left: 40px;
+    /*margin-left: 40px;*/
 }
 
 .card-description.nosotros{
@@ -760,7 +760,7 @@ hr.separador_nosotros:after {
         -moz-border-radius: 35px 0px 35px 0px;
         -webkit-border-radius: 35px 0px 35px 0px;
     border: 2px solid #6ca250;
-    height: 30%;
+    
     
     
 }
