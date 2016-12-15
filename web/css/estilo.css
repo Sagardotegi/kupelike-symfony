@@ -20,7 +20,7 @@ body::-webkit-scrollbar-thumb {
   outline: 1px solid slategrey;
 }
 
-/* Scrollbar */
+/* Fin Scrollbar */
 
 .landing {
 
@@ -59,6 +59,7 @@ body::-webkit-scrollbar-thumb {
 
 .navbar {
     
+    position: fixed;
     min-height: 100px !important;
     margin-bottom: 0px !important;
     border: 0px !important;
