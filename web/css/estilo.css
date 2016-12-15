@@ -173,7 +173,7 @@ body::-webkit-scrollbar-thumb {
     background-image: none;
     border: 1px solid #ccc;
     border-radius: 4px;
-    width: 95%;
+    width: 90%;
 }
 
 .search-btn {
@@ -241,6 +241,7 @@ body::-webkit-scrollbar-thumb {
     z-index: 2;
     display: none;
     overflow-y: auto;
+    padding-bottom: 100px;
 }
 
 .closeSearch {
@@ -746,6 +747,13 @@ hr.separador_nosotros:after {
 	background: white;
 	color: #6ca250;
 	font-size: 18px;
+}
+
+hr.search-hr {
+    width: 70%;
+    height: 3px;
+    color: #6ca250;
+    background-color: #6ca250;
 }
 
 .img-rounded{
