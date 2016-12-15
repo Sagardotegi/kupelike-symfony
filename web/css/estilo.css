@@ -24,12 +24,11 @@ body::-webkit-scrollbar-thumb {
 
 .landing {
 
-    background-image: url('../img/fondo.jpg') !important;
+    background: url('../img/fondo.jpg') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
     background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center center;
-    padding-bottom: 1px;
 }
 
 .img-logo{
