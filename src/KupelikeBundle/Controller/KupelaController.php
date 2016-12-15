@@ -32,9 +32,8 @@ class KupelaController extends Controller
         // busca el id de facebook en la tabla Cliente
         $clienteExists = $em->getRepository('KupelikeBundle:Cliente')->find($idCliente);
         
-        // si el id de facebook no existe
+        // si el id de facebook existe
         if($clienteExists){
-            
             // añade un nuevo voto
             $this->nuevoVoto($em, $idCliente, $idKupela);
         } else {

@@ -3,16 +3,6 @@ $(document).ready(function(){
     var listaSagardotegis = [];
     var accesToken;
     
-        window.fbAsyncInit = function() {
-            // iniciamos la aplicación de Facebook
-            FB.init({
-                appId      : '238649363223511',
-                status     : true,
-                xfbml      : true,
-                cookie     : true
-            });
-        }
-        
         (function(d, s, id){
             var js, fjs = d.getElementsByTagName(s)[0];
             if (d.getElementById(id)) {return;}
@@ -21,28 +11,43 @@ $(document).ready(function(){
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
     
+        window.fbAsyncInit = function() {
+            // iniciamos la aplicación de Facebook
+            FB.init({
+                appId      : '238649363223511',
+                status     : true,
+                xfbml      : true,
+                cookie     : true
+            });
+            
             /**
              * Obtenemos una sagardotegi
              */
             FB.api(
-                '/1704315726496042',
+                '/1704315726496042', // Para más sagardotegis, copiar la función y cambiar el ID de la página
                 'GET',
                 {
-                    "fields":"posts,phone", 
+                    "fields":"name,picture,location,description", 
                     "access_token":"238649363223511|42b7ae25f21439cfcf10af9c3a88ac08"
                 },
                 function(response) {
                     console.log(response);
+                    // envia los datos al servidor
+                    $.ajax({
+                        url: "/web/app_dev.php/save-sagardotegis",
+                        action: "POST",
+                        dataType: "json",
+                        data: response,
+                        success: function(data){
+                            console.log("Sagardotegi guardada");
+                        }
+                    });
                 }
             );
+        }
         
         
     
-   /**
-    * Llamamos a la función que obtiene las sagardotegis
-    *
-    $.ajax({
-        url: '/web/app_dev.php/save-sagardotegis'
-    });*/
+            
     
 });
