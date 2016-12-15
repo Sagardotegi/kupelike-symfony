@@ -264,6 +264,7 @@ body::-webkit-scrollbar-thumb {
     width: 100%;
     margin-right: 0px;
     margin-left: 0px;
+    margin-top: -100px !important;
     overflow-x: hidden;
 }
 

@@ -6,6 +6,14 @@ $(document).ready(function($) {
        // $('#navbar-search').removeClass('col-xs-6 pull-right').addClass('col-xs-8 col-xs-offset-2 col-md-6 col-md-offset-0');
         $('.searchResults').slideDown(1000);
         $('.closeSearch').show(1100);
+        $('body').css({
+            overflow: 'hidden',
+            height: '100%'
+        });
+        $('.searchResults').css({
+            overflow: 'auto !important',
+            height: '1000px'
+        });
     });
     
    $('.closeSearch').on('click', function(){
@@ -14,6 +22,15 @@ $(document).ready(function($) {
         //$('#navbar-search').removeClass('col-xs-8 col-xs-offset-2 col-md-6 col-md-offset-0').addClass('col-xs-6 pull-right');
         $('.searchResults').slideUp(1000);
         $('.closeSearch').hide(900);
+        $('.searchBox').val("");
+        $('body').css({
+            overflow: 'auto',
+            height: 'auto'
+        });
+        $('.searchResults').css({
+            overflow: 'hidden',
+            height: '100%'
+        });
     });
             
 });
