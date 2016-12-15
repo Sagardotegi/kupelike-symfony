@@ -5,6 +5,7 @@ $(document).ready(function($) {
         $('#navbar-search').removeClass('navbar-search').addClass('navbar-search-widen');
        // $('#navbar-search').removeClass('col-xs-6 pull-right').addClass('col-xs-8 col-xs-offset-2 col-md-6 col-md-offset-0');
         $('.searchResults').slideDown(1000);
+        $('.closeSearch').show(1100);
     });
     
    $('.closeSearch').on('click', function(){
@@ -12,6 +13,7 @@ $(document).ready(function($) {
         $('#navbar-search').removeClass('navbar-search-widen').addClass('navbar-search');
         //$('#navbar-search').removeClass('col-xs-8 col-xs-offset-2 col-md-6 col-md-offset-0').addClass('col-xs-6 pull-right');
         $('.searchResults').slideUp(1000);
+        $('.closeSearch').hide(900);
     });
             
 });

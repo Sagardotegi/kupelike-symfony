@@ -5,6 +5,9 @@ font-family: 'Lobster', cursive;
 */
 
 /* Bootstrap Override */
+body {
+    padding-top: 100px;
+}
 
 /* Scrollbar */
 body::-webkit-scrollbar {
@@ -52,7 +55,7 @@ body::-webkit-scrollbar-thumb {
 
 .content {
     
-    margin-top: 100px;
+    /*margin-top: 100px;*/
 }
 
 /* Menu */
@@ -64,7 +67,7 @@ body::-webkit-scrollbar-thumb {
     border: 0px !important;
     border-radius: 0px !important;
     background-color: white;
-    width: 100%;
+    /*width: 100%;*/
     z-index: 2;
 }
 
@@ -138,6 +141,10 @@ body::-webkit-scrollbar-thumb {
     margin-top: 0px !important;
     margin-bottom: 0px !important;
     
+}
+
+.searchPadding {
+    padding-right: 40px;
 }
 
 .form-control {
@@ -233,7 +240,7 @@ body::-webkit-scrollbar-thumb {
     background-color: rgba(255, 255, 255, 0.75);
     z-index: 1;
     display: none;
-    margin-top: 70px;
+    /*margin-top: 70px;*/
 }
 
 .closeSearch {
@@ -241,7 +248,8 @@ body::-webkit-scrollbar-thumb {
     color: black;
     cursor: pointer;
     z-index: 1;
-    margin-top: 120px;
+    display: none;
+    margin-top: 5px;
 }
 
 /* Fin Menu*/
