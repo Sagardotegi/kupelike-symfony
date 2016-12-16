@@ -64,10 +64,7 @@ body::-webkit-scrollbar-thumb {
     position: fixed;
     min-height: 100px !important;
     margin-bottom: 0px !important;
-    border: 0px !important;
-    border-radius: 0px !important;
     background-color: white;
-    /*width: 100%;*/
     z-index: 3;
 }
 
@@ -149,8 +146,8 @@ body::-webkit-scrollbar-thumb {
 
 .form-control {
     
-    min-width: 230px !important;
-    width: 95% !important;
+    min-width: 200px !important;
+    width: 90% !important;
     height: 34px;
     padding: 6px 12px;
     font-size: 14px;
@@ -173,7 +170,7 @@ body::-webkit-scrollbar-thumb {
     background-image: none;
     border: 1px solid #ccc;
     border-radius: 4px;
-    width: 95%;
+    width: 90%;
 }
 
 .search-btn {
@@ -307,13 +304,13 @@ body::-webkit-scrollbar-thumb {
 
 
 .btn-social {
+    
     color: #629c44 !important;
-    z-index: 1;
 }
 
 .btn-social-inner {
+    
     color: #232323 !important;
-    z-index: 1;
 }
 
 .subfooter {
@@ -412,8 +409,9 @@ body::-webkit-scrollbar-thumb {
 .caja {
     
     padding: 0px 0px;
-    margin: 10px 5px;
+    margin: 3px 5px;
     background-color: white;
+    border-bottom: #629c44 solid 5px;
 }
 
  .mtitle {
@@ -654,12 +652,10 @@ textarea{
 /** Single Sagardotegi ta bere kupelak **/
 
 .single-sagardotegi {
-    
-    position: fixed;
-    height: 320px;
-    padding-top: 50px;
+
+    padding-bottom: 50px;
     background-color: white;
-    z-index: 2;
+    z-index: 1;
 }
 
 .single-img {
@@ -704,15 +700,19 @@ textarea{
     margin: 0 auto;
 }
 
-.left-line {
+.single-kupela {
+    
   border-left: 2px solid #629c44;
+  padding: 25px 0px;
 }
 
 .kupela-list {
     
-    padding-top: 360px;
-    padding-bottom: 50px;
+    height: 500px;
+    overflow-y: auto;
 }
+
+.kupela-list::-webkit-scrollbar { width: 0 !important }
 
 
 .votos {
