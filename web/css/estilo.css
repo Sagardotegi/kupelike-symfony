@@ -1,3 +1,16 @@
+html, body {
+    height: 100%;
+}
+.wrapper {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -372px; /* the bottom margin is the negative value of the footer's height */
+}
+.footer, .push {
+    height: 372px; /* .push must be the same height as .footer */
+}
+
 /* Fonts
 font-family: 'Roboto', sans-serif;
 font-family: 'Fjalla One', sans-serif;
@@ -144,9 +157,12 @@ body::-webkit-scrollbar-thumb {
     padding-right: 40px;
 }
 
+.img-search {
+    height: 200px;
+}
+
 .form-control {
     
-    min-width: 200px !important;
     width: 90% !important;
     height: 34px;
     padding: 6px 12px;
@@ -238,6 +254,7 @@ body::-webkit-scrollbar-thumb {
     z-index: 2;
     display: none;
     overflow-y: auto;
+    padding-bottom: 100px;
 }
 
 .closeSearch {
@@ -328,9 +345,9 @@ body::-webkit-scrollbar-thumb {
 }
 
 .footer {
-
-    padding-top: 40px;
+    padding-top: 36px;
     background-color: #232323;
+    height: 372px;
 }
 
 
@@ -636,7 +653,7 @@ textarea{
 #nosotros{
     color: #629c44;
     background-color: white;
-    text-align: center;
+    text-align: justify;
     font-family: 'Lobster', cursive;
     
 }
@@ -732,7 +749,6 @@ textarea{
     margin-bottom: 50px;
 }
 
- 
 hr.separador_nosotros {
 	border-top: 4px double #6ca250;
 	text-align: center;
@@ -748,6 +764,13 @@ hr.separador_nosotros:after {
 	font-size: 18px;
 }
 
+hr.search-hr {
+    width: 70%;
+    height: 3px;
+    color: #6ca250;
+    background-color: #6ca250;
+}
+
 .img-rounded{
     width: 10%;
     height: 10%;
@@ -759,7 +782,8 @@ hr.separador_nosotros:after {
     color: black;
     font-size: 18px;
     font-weight: 500;
-    text-align: center;
+    text-align: justify;
+    letter-spacing: 1px !important;
     background: white;
     margin: 0 0 25px;
     overflow: hidden;

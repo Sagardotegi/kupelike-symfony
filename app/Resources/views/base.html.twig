@@ -34,23 +34,24 @@ $(document).ready(function(){
                         var foto = "{{asset("change")}}".replace("change", sfoto);
                         
                         $("#searchResults").append(
-    "<div class='row'>"+
-        "<div class='col-xs-offset-1 col-xs-6'>"+
-            "<h2 class='card-title text-uppercase'>"+sagardotegi.nombre+"</h2>"+
-            "<div class='card-margen-20'>"+
-                "<p class='card-description' id='descripcion'>"+sagardotegi.descripcion+"</p>"+
-                "<a href='"+llegar+"'><button type='button' class='btn btn-default'>Como llegar</button></a>"+
-                "<a href='#'><button type='button' class='btn btn-default'>Contacto</button></a>"+
+    "<hr class='search-hr'><div class='row'>"+
+        "<a name='"+sagardotegi.nombre+"' href='"+route+"'>"+
+            "<div class='col-xs-offset-2 col-xs-5'>"+
+                "<h2 class='card-title text-uppercase'>"+sagardotegi.nombre+"</h2>"+
+                "<div class='card-margen-20'>"+
+                    "<p class='card-description' id='descripcion'>"+sagardotegi.descripcion+"</p>"+
+                    "<a href='"+llegar+"'><button type='button' class='btn btn-default'>Como llegar</button></a>"+
+                    "<a href='#'><button type='button' class='btn btn-default'>Contacto</button></a>"+
+                "</div>"+
             "</div>"+
-        "</div>"+
-        "<div class='col-xs-5'>"+
-            "<div class='card-sidreria'>"+
-                "<a class='card-link' name='"+sagardotegi.nombre+"' href='"+route+"'>"+
-                "<div class='card-direction text-uppercase text-center'><h4>"+sagardotegi.direccion+"</h4></div>"+
-                "<img class='img-responsive' src='"+foto+"'></img>"+
-                "</a>"+
+        "</a>"+
+        "<a name='"+sagardotegi.nombre+"' href='"+route+"'>"+
+            "<div class='col-xs-4'>"+
+                "<div class='card-sidreria'>"+
+                    "<img class='img-responsive img-search' src='"+foto+"'></img>"+
+                "</div>"+
             "</div>"+
-        "</div>"+
+        "</a>"+
     "</div>"
                         );
                     
@@ -63,11 +64,10 @@ $(document).ready(function(){
         </script>
     </head>
     <body>
+        <div class="wrapper">
         <div class="container-fluid">
-            
             <div class="row">
                 <div class="col-xs-12">
-
                     <nav class="navbar navbar-light bg-faded row navbar-fixed-top">
                         <div class="col-xs-3 col-sm-1"><a id="navbar-ham" class="navbar-ham toggle-button"><i class="fa fa-bars fa-2x" aria-hidden="true"></i></a></div>
                         <div class="col-xs-9 col-sm-4"><a id="navbar-title" class="navbar-title" href="{{ path('index') }}">Kupe<img class="img-logo"/>Like</a></div>
@@ -107,8 +107,8 @@ $(document).ready(function(){
         PERO SU ETIQUETA DE CIERRE CORRESPONDIENTE NO HACE FALTA!!!-->
             {% block body %}{% endblock %}
         </div><!-- .container-fluid -->
-        
-        
+        <div class="push"></div>
+        </div>
         <div class="container-fluid">
             
             <div class="row footer text-center">
