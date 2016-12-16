@@ -74,12 +74,12 @@ class KupelaController extends Controller
     
     public function extraerVotos(Request $request){
         
-            $mostrarVotos = $this -> getDoctrine()-> getRepository('KupelikeBundle:Kupela')-> find('id');
+            $mostrarVotos = $this->getDoctrine()->getRepository('KupelikeBundle:Kupela')->find('id');
             
             if(!$mostrarVotos){
-                throw $this -> createNotFoundException('No se ha encontrado la kupepela con el ID'+$id);
+                throw $this->createNotFoundException('No se ha encontrado la kupepela con el ID'+$id);
             }
-            return $this-> render('../views/kupela/index.html.twig', array('kupela' => $mostrarVotos));
+            
         }
         
     public function updateVotos($id)
@@ -89,7 +89,7 @@ class KupelaController extends Controller
     
         if(!$mostrarVotos) {
             throw $this->createNotFoundException(
-              'No product found for id'.$id
+              'No se ha encontrado la kupepela con el ID'.$id
             );
         }
     
