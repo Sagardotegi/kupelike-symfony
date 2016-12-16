@@ -16,50 +16,46 @@
 $(document).ready(function(){
     $("#search").keyup(function(){
         var txtBusqueda = $("#search").val();
-        
         if(txtBusqueda != ""){
             $.ajax({
                 type: "POST",
                 url: $("#navbar-search").attr("action"),
                 dataType: "json",
                 data: {textoBusqueda : txtBusqueda},
-                success : function(response) 
-                  {
-                      console.log(response);
-                        //$("#sagardotegies-table").hide();
-                        //$(".pagination").hide();
-                        $("#searchResults").show();
-                        $("#searchResults").html("");
-                        $.each(response, function(index, sagardotegi){
-                            var ida = sagardotegi.id;
-                            var sfoto = sagardotegi.foto;
-                            var route = "{{ path('sagardotegi_view', { 'idSagardotegi': "change" }) }}".replace("change", ida);
-                            var llegar = "{{ path("sagardotegi_mapa", { 'idSagardotegi': "change" }) }}".replace("change", ida);
-                            var foto = "{{asset("change")}}".replace("change", sfoto);
-                            
-
-                            $("#searchResults").append("<div class='row'>"+
-                                                "<div class='col-xs-offset-1 col-xs-6'>"+
-                                                    "<h2 class='card-title text-uppercase'>"+sagardotegi.nombre+"</h2>"+
-                                                    "<div class='card-margen-20'>"+
-                                                        "<p class='card-description' id='descripcion'>"+sagardotegi.descripcion+"</p>"+
-                                                        "<a href='"+llegar+"'><button type='button' class='btn btn-default'>Como llegar</button></a>"+
-                                                        "<a href='#'><button type='button' class='btn btn-default'>Contacto</button></a>"+
-                                                    "</div>"+
-                                                "</div>"+
-                                                "<div class='col-xs-5'>"+
-                                                    "<div class='card-sidreria'>"+
-                                                        "<a class='card-link' name='"+sagardotegi.nombre+"' href='"+route+"'>"+
-                                                        "<div class='card-direction text-uppercase text-center'><h4>"+sagardotegi.direccion+"</h4></div>"+
-                                                        "<img class='img-responsive' src='"+foto+"'></img>"+
-                                                        
-                                                        "</a>"+
-                                                    "</div>"+
-                                                "</div>"+
-                                            "</div>");
+                success : function(response) {
+                    //console.log(response);
+                    $("#searchResults").show();
+                    $("#searchResults").html("");
+                    $.each(response, function(index, sagardotegi){
+                        var ida = sagardotegi.id;
+                        var sfoto = sagardotegi.foto;
+                        var route = "{{ path('sagardotegi_view', { 'idSagardotegi': "change" }) }}".replace("change", ida);
+                        var llegar = "{{ path("sagardotegi_mapa", { 'idSagardotegi': "change" }) }}".replace("change", ida);
+                        var foto = "{{asset("change")}}".replace("change", sfoto);
                         
-                        });
-                  }
+                        $("#searchResults").append(
+    "<div class='row'>"+
+        "<div class='col-xs-offset-1 col-xs-6'>"+
+            "<h2 class='card-title text-uppercase'>"+sagardotegi.nombre+"</h2>"+
+            "<div class='card-margen-20'>"+
+                "<p class='card-description' id='descripcion'>"+sagardotegi.descripcion+"</p>"+
+                "<a href='"+llegar+"'><button type='button' class='btn btn-default'>Como llegar</button></a>"+
+                "<a href='#'><button type='button' class='btn btn-default'>Contacto</button></a>"+
+            "</div>"+
+        "</div>"+
+        "<div class='col-xs-5'>"+
+            "<div class='card-sidreria'>"+
+                "<a class='card-link' name='"+sagardotegi.nombre+"' href='"+route+"'>"+
+                "<div class='card-direction text-uppercase text-center'><h4>"+sagardotegi.direccion+"</h4></div>"+
+                "<img class='img-responsive' src='"+foto+"'></img>"+
+                "</a>"+
+            "</div>"+
+        "</div>"+
+    "</div><hr class='search-hr'>"
+                        );
+                    
+                    });
+                }
             });
         }
     });
@@ -72,14 +68,15 @@ $(document).ready(function(){
             <div class="row">
                 <div class="col-xs-12">
 
-                    <nav class="navbar navbar-light bg-faded row">
+                    <nav class="navbar navbar-light bg-faded row navbar-fixed-top">
                         <div class="col-xs-3 col-sm-1"><a id="navbar-ham" class="navbar-ham toggle-button"><i class="fa fa-bars fa-2x" aria-hidden="true"></i></a></div>
                         <div class="col-xs-9 col-sm-4"><a id="navbar-title" class="navbar-title" href="{{ path('index') }}">Kupe<img class="img-logo"/>Like</a></div>
-                        <div class="col-xs-12 col-sm-7">
+                        <div class="col-xs-12 col-sm-7 searchPadding">
                           
                           <form id="navbar-search" class="navbar-search form-inline" action="{{ path('sagardotegis_buscar') }}">
                             <input class="form-control searchBox" id="search" type="text" placeholder="Search">
                             <i class="fa fa-search fa-flip-horizontal fa-1x" aria-hidden="true"></i>
+                            <span class="closeSearch pull-right"><i class="fa fa-times fa-2x" aria-hidden="true"></i></span>
                           </form>
                         </div>
                         
@@ -88,13 +85,13 @@ $(document).ready(function(){
                 </div>
                 
                 <div class="col-xs-12 searchResults" id="searchResults">
-                    <span class="closeSearch pull-right"><i class="fa fa-times fa-2x" aria-hidden="true"></i></span>
+                    
                 </div>
                 
                 <div class="menu">
                     <span><i class="fa fa-times fa-2x pull-right close-menu" aria-hidden="true"></i></span>
                     <ul class="menu-links">
-                        <li><a href="{{ path('index') }}">Home</a></li>
+                        <li><a href="{{ path('index') }}">Inicio</a></li>
                         <li><a href="{{ path('sagardotegien_mapak') }}">Mapa</a></li>
                         <li><a href="{{ path('sagardotegis_index') }}">Sidrerias</a></li>
                         <li><a href="{{ path('contacto') }}">Contacto</a></li>
