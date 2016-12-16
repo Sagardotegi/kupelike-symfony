@@ -1,3 +1,16 @@
+html, body {
+    height: 100%;
+}
+.wrapper {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -372px; /* the bottom margin is the negative value of the footer's height */
+}
+.footer, .push {
+    height: 372px; /* .push must be the same height as .footer */
+}
+
 /* Fonts
 font-family: 'Roboto', sans-serif;
 font-family: 'Fjalla One', sans-serif;
@@ -336,9 +349,9 @@ body::-webkit-scrollbar-thumb {
 }
 
 .footer {
-
-    padding-top: 40px;
+    padding-top: 36px;
     background-color: #232323;
+    height: 372px;
 }
 
 
