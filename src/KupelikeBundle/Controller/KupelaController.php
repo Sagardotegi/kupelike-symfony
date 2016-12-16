@@ -51,4 +51,24 @@ class KupelaController extends Controller
         return new Response("Kaixo");
     }
     
+    public function votosUsuarios(){
+        
+                
+        $sql="SELECT COUNT(nick) from voto WHERE nick='".$_cookie[usuario]."'";
+        $result=mysql_query($sql) or die (mysql_error());
+         
+        if (mysql_result($result,0) == 0){
+        $sql="INSERT INTO voto (nick) VALUES ('".$_cookie[usuario]."')";
+        mysql_query($sql);
+         
+        $up_votos = "UPDATE voto SET votos=votos+1 WHERE id=".$id;
+        	mysql_query($up_votos);
+         
+         echo "Gracias por su voto.";
+        } else {
+         
+         echo "Usted ya ha votado.";
+        }
+}
+    
 }
