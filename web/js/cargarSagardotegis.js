@@ -27,27 +27,18 @@ $(document).ready(function(){
                 '/1704315726496042', // Para más sagardotegis, copiar la función y cambiar el ID de la página
                 'GET',
                 {
-                    "fields":"name,picture.type(large),location,description,posts", 
+                    "fields":"name,picture.type(large),location,description,posts{id,full_picture,created_time,message}", 
                     "access_token":"238649363223511|42b7ae25f21439cfcf10af9c3a88ac08"
                 },
                 function(response) {
-                    console.log(response);
                     // envia los datos al servidor
                     $.ajax({
                         url: "/web/app_dev.php/save-sagardotegis",
                         action: "POST",
                         dataType: "json",
-                        data: response,
-                        success: function(data){
-                            console.log("Sagardotegi guardada");
-                        }
+                        data: response
                     });
                 }
             );
         }
-        
-        
-    
-            
-    
 });

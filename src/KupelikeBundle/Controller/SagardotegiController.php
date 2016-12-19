@@ -29,12 +29,11 @@ class SagardotegiController extends Controller
     /**
      * Muestra una sagardotegi y sus kupelas
      */
-    public function viewAction($idSagardotegi)
-    {
+    public function viewAction($idSagardotegi){
         // carga el Entity Manager (manejamos los datos con Doctrine (ORM))
         $em = $this->getDoctrine()->getManager();
         // obtenemos la sagardotegi que queremos visualizar
-        $sagardotegi = $em->getRepository('KupelikeBundle:Sagardotegi')->find($idSagardotegi);
+        $sagardotegi = $em->getRepository('KupelikeBundle:Sagardotegi')->findOneBy(array("idSagardotegiFacebook" => $idSagardotegi));
         // obtenemos las kupelas de la sagardotegi
         $kupelas = $em->getRepository('KupelikeBundle:Kupela')->findBy(array('idSagardotegi' => $idSagardotegi));
         
@@ -121,16 +120,26 @@ class SagardotegiController extends Controller
         
         foreach($posts['data'] as $kupela){
             $idKupela = $kupela['id'];
-            $nombre = $kupela['message'];
+            $message = $kupela['message'];
+            // separamos el atributo message en dos, para que la primera palabra sea el titulo
+            $message = explode("/", $message);
+            $nombre = $message[0];
+            $descripcion = $message[1];
             $year = $kupela['created_time'];
+            $foto = $kupela['full_picture'];
             // la primera parte del id de la kupela es igual al id de la sagardotegi, lo separamos
             $idSagardotegi = explode("_", $idKupela);
             $idSagardotegi = $idSagardotegi[0];
             
+            // busca si existe la kupela
+            $kupelaExists = $em->getRepository('KupelikeBundle:Kupela')->findOneBy(array('idKupelaFacebook' => $idKupela));
             
-            $data = [$idKupela, $nombre, $year, $idSagardotegi];
             
-            $this->newKupela($data);
+            $data = [$idKupela, $nombre, $year, $foto, $idSagardotegi, $descripcion];
+            
+            if(!$kupelaExists){
+                $this->newKupela($data);
+            }
       
         }
         
@@ -170,7 +179,9 @@ class SagardotegiController extends Controller
         $kupela->setIdKupelaFacebook($datos[0]);
         $kupela->setNombre($datos[1]);
         $kupela->setYear($datos[2]);
-        $kupela->setIdSagardotegi($datos[3]);
+        $kupela->setFoto($datos[3]);
+        $kupela->setIdSagardotegi($datos[4]);
+        $kupela->setDescripcion($datos[5]);
         
         $em->persist($kupela);
         $em->flush();
