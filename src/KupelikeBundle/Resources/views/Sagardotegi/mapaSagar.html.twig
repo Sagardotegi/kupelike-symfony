@@ -58,8 +58,11 @@
             map.panTo(persona);
           });*/
           firstChild.addEventListener('click', function() {
-            map.setZoom(17);
+            //map.setZoom(17);
             map.panTo(persona);
+            google.maps.event.addListenerOnce(map, 'idle', function() {
+              map.setZoom(17);
+            });
             if (mv == 0) {
               $('#you_location_img').css('background-position', '-144px 0px');
             } else {
@@ -138,8 +141,11 @@
         
           // Setup the click event listeners: simply set the map to Chicago.
           firstChild2.addEventListener('click', function() {
-            map.setZoom(17);
+            //map.setZoom(17);
             map.panTo(sagar);
+            google.maps.event.addListenerOnce(map, 'idle', function() {
+              map.setZoom(17);
+            });
           });
         
         }
