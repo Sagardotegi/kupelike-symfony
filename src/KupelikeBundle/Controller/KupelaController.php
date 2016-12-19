@@ -72,4 +72,30 @@ class KupelaController extends Controller
         $em->flush();
     }
     
+    public function extraerVotos(Request $request){
+        
+            $mostrarVotos = $this->getDoctrine()->getRepository('KupelikeBundle:Kupela')->find('id');
+            
+            if(!$mostrarVotos){
+                throw $this->createNotFoundException('No se ha encontrado la kupepela con el ID'+$id);
+            }
+            
+        }
+        
+    public function updateVotos($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $mostrarVotos = $em->getRepository('KupelikeBundle:Kupela')->find($id);
+    
+        if(!$mostrarVotos) {
+            throw $this->createNotFoundException(
+              'No se ha encontrado la kupepela con el ID'.$id
+            );
+        }
+    
+        $mostrarVotos->setName('');
+        $em->flush();
+    
+        
+    }    
 }
