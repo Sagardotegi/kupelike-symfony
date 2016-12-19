@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-   <div class="container content">
+   <div class="container">
    
         <div class="row single-sagardotegi">
             <div class="col-xs-6">
@@ -11,8 +11,8 @@
                     <a href="http://www.petritegi.com/es/contacto"><button type="button" class="btn btn-default">Contacto</button></a>
             </div>
             <div class="col-xs-6">
-                <div class="card-direction text-uppercase text-center"><h4>{{ sagardotegi.direccion }}</h4></div>
-                <img class="single-img img-responsive" src="{{asset(sagardotegi.foto)}}"></img>
+                <div class="card-single-direction text-uppercase text-center"><h4>{{ sagardotegi.direccion }}</h4></div>
+                <img class="single-img img-responsive img-rounded" src="{{asset(sagardotegi.foto)}}"></img>
             </div>
         </div>
     </div>
@@ -32,11 +32,17 @@
                 </div>
             </div>
             <div class="col-xs-4">
-                <img src="{{asset(kupela.foto)}}" alt="kupela" class="img-circle img-responsive">
+                <img src="{{asset(kupela.foto)}}" alt="kupela" class="single-kupela-img img-circle img-responsive pull-right">
             </div>
-            <div class="col-xs-1 votos">
-                <h1>{{kupela.numVotos}}</h1>
-                <img class="like-kupela img-responsive" src= "/web/img/logo_transp.png">
+            <div class="col-xs-2 votos">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h3>{{kupela.numVotos}}</h3>
+                    </div>
+                    <div class="col-xs-12">
+                        <button class="vote-button"><img class="like-kupela img-responsive" src= "/web/img/logo_reverse.jpg"></button>
+                    </div>
+                </div>
             </div>
         </div>
       

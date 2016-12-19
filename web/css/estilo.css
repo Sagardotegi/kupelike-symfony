@@ -141,7 +141,7 @@ body::-webkit-scrollbar-thumb {
 
 .navbar-search-widen {
     
-    padding-left: 0%;
+    padding-left: 5%;
     -moz-transition: padding-left 1s ease-in;
      -o-transition: padding-left  1s ease-in;
      -webkit-transition: padding-left  1s ease-in;
@@ -670,6 +670,7 @@ textarea{
 
 .single-sagardotegi {
 
+    padding-top: 20px;
     padding-bottom: 50px;
     background-color: white;
     z-index: 1;
@@ -683,6 +684,11 @@ textarea{
     margin: 0 auto;
 }
 
+.single-kupela-img {
+   
+   max-width: 200px;
+}
+
 .single-description {
     
     font-family: 'Roboto', sans-serif;
@@ -690,6 +696,19 @@ textarea{
     font-size: medium;
     text-align: justify;
     margin-left: 20px;
+}
+
+.card-single-direction {
+    
+    background-color: #629c44;
+    color: white;
+    height: 50px;
+    width: 175px;
+    position: absolute;
+    top: 20px;
+    left: 25px;
+    letter-spacing: 2px;
+    padding: 5px;
 }
 
 .like {
@@ -725,15 +744,15 @@ textarea{
 
 .kupela-list {
     
-    height: 500px;
-    overflow-y: auto;
 }
-
-.kupela-list::-webkit-scrollbar { width: 0 !important }
-
 
 .votos {
     text-align: center;
+}
+
+.vote-button {
+    
+    background-color: #629c44;
 }
 
 .img-kupela {
@@ -769,13 +788,6 @@ hr.search-hr {
     height: 3px;
     color: #6ca250;
     background-color: #6ca250;
-}
-
-.img-rounded{
-    width: 10%;
-    height: 10%;
-    margin-bottom: 20px;
-    /*margin-left: 40px;*/
 }
 
 .card-description.nosotros{
