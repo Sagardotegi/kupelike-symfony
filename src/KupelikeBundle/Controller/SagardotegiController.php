@@ -84,19 +84,22 @@ class SagardotegiController extends Controller
     }
     
     /**
-     * Obtiene las sagardotegis de las páginas de Facebook con una llamada a la API desde JavaScript y las almacena en la BD
+     * Obtiene las sagardotegis y sus kupelas de las páginas de Facebook con una llamada a la API desde JavaScript y las almacena en la BD
      */
     public function saveAction(Request $request)
     {
         // obtenemos los datos enviados por ajax
         $nombre = $request->query->get('name');
         $idSagardotegiFacebook = $request->query->get('id');
-        $objPicture = $request->query->get('picture');
-        $foto = $objPicture['data']['url'];
+        
+        $foto = $request->query->get('picture');
+        $foto = $foto['data']['url'];
+        
         $location = $request->query->get('location');
         $direccion = $location['street'];
         $latitud = $location['latitude'];
         $longitud = $location['longitude'];
+        
         $descripcion = $request->query->get('description');
         
         // pasamos los datos a un array
@@ -109,7 +112,26 @@ class SagardotegiController extends Controller
         
         if(!$sagardotegiExists){
             // crea una nueva sagardotegi si no existe
-            $this->newSagardotegi($em, $datos);
+            $this->newSagardotegi($datos);
+        }
+        
+        $posts = $request->query->get('posts');
+        
+        // comprueba las kupelas (posts)
+        
+        foreach($posts['data'] as $kupela){
+            $idKupela = $kupela['id'];
+            $nombre = $kupela['message'];
+            $year = $kupela['created_time'];
+            // la primera parte del id de la kupela es igual al id de la sagardotegi, lo separamos
+            $idSagardotegi = explode("_", $idKupela);
+            $idSagardotegi = $idSagardotegi[0];
+            
+            
+            $data = [$idKupela, $nombre, $year, $idSagardotegi];
+            
+            $this->newKupela($data);
+      
         }
         
         return new Response();
@@ -118,8 +140,10 @@ class SagardotegiController extends Controller
     /**
      * Crea una nueva sagardotegi con los datos obtenidos de Facebook
      */
-    private function newSagardotegi($em, $datos)
+    private function newSagardotegi($datos)
     {
+        $em = $this->getDoctrine()->getManager();
+        // creamos la sagardotegi
         $sagardotegi = new Sagardotegi();
         $sagardotegi->setNombre($datos[0]);
         $sagardotegi->setIdSagardotegiFacebook($datos[1]);
@@ -133,5 +157,24 @@ class SagardotegiController extends Controller
         $em->flush();
         
         return $sagardotegi;
+    }
+    
+    /**
+     * Crea una nueva kupela con los datos obtenidos de Facebook
+     */
+    private function newKupela($datos)
+    {
+        $em = $this->getDoctrine()->getManager();
+        
+        $kupela = new Kupela();
+        $kupela->setIdKupelaFacebook($datos[0]);
+        $kupela->setNombre($datos[1]);
+        $kupela->setYear($datos[2]);
+        $kupela->setIdSagardotegi($datos[3]);
+        
+        $em->persist($kupela);
+        $em->flush();
+        
+        return $kupela;
     }
 }

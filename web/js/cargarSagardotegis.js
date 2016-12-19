@@ -27,7 +27,7 @@ $(document).ready(function(){
                 '/1704315726496042', // Para más sagardotegis, copiar la función y cambiar el ID de la página
                 'GET',
                 {
-                    "fields":"name,picture,location,description", 
+                    "fields":"name,picture.type(large),location,description,posts", 
                     "access_token":"238649363223511|42b7ae25f21439cfcf10af9c3a88ac08"
                 },
                 function(response) {
