@@ -236,7 +236,7 @@ class Sagardotegi
      */
     public function setIdSagardotegiFacebook($idSagardotegiFacebook)
     {
-        $this->idSagardotegiFacebook = $idSagardotegiFacebook;
+        $this->id_sagardotegi_facebook = $idSagardotegiFacebook;
 
         return $this;
     }
@@ -248,7 +248,7 @@ class Sagardotegi
      */
     public function getIdSagardotegiFacebook()
     {
-        return $this->idSagardotegiFacebook;
+        return $this->id_sagardotegi_facebook;
     }
 }
 
