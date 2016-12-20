@@ -46,3 +46,8 @@ cargar_sagardotegis:
     path: /save-sagardotegis
     defaults: { _controller: KupelikeBundle:Sagardotegi:save }
     methods: [GET]
+    
+mostrar_votos:
+    path: /mostrar-votos/{id}
+    defaults: { _controller: KupelikeBundle:Kupela:mostrar }
+    methods: [GET]
