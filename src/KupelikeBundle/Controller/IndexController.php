@@ -24,7 +24,6 @@ class IndexController extends Controller
         
         // renderiza la vista index de Sagardotegis y pasa la lista de sagardotegis como variable
         return $this->render('KupelikeBundle:Index:index.html.twig', array('sagardotegis' => $sagardotegis));
-        //return $this->render('KupelikeBundle:Index:index.html.twig');
     }
     
     public function contactoAction()
