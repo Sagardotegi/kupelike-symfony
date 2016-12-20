@@ -24,7 +24,6 @@
                     });
                 }
             });
-            
         };
         
         (function(d, s, id){
@@ -51,20 +50,30 @@
         function getAPI()
         {
             // obtiene información del usuario y la muestra
-            FB.api("/me?fields=birthday,name,email", function(response){
-                
+            FB.api("/me?fields=birthday,name,email,id", function(response){
                 // la información se envía en JSON al controlador Kupela
                 $('#btn-facebook').click(function(){
+                    
+                    // obtenemos el id de la kupela
+                    var idKupela = $(this).attr('class');
+                    console.log(idKupela);
+                    
+                    // Hace la llamada AJAX
                     $.ajax({
                         type: "POST",
                         dataType: "json",
                         url: "{{ path('kupela_like') }}",
-                        data: response,
+                        data: {response, idKupela},
                         success: function(data){
-                            console.log("LIKE");
+                            console.log(data);
                         }
                     });
                 });
             });
+        }
+        
+        function getPageData()
+        {
+            
         }
     </script>

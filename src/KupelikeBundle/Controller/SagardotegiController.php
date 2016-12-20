@@ -6,6 +6,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use KupelikeBundle\Entity\Sagardotegi;
 use KupelikeBundle\Entity\Kupela;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 
 class SagardotegiController extends Controller
 {
@@ -82,5 +84,57 @@ class SagardotegiController extends Controller
         $sagardotegis = $em->getRepository('KupelikeBundle:Sagardotegi')->findAll();
         
         return $this->render('KupelikeBundle:Sagardotegi:gps.html.twig', array('sagardotegis' => $sagardotegis));
+    }
+    
+    /**
+     * Obtiene las sagardotegis de las páginas de Facebook con una llamada a la API desde JavaScript y las almacena en la BD
+     */
+    public function saveAction(Request $request)
+    {
+        // obtenemos los datos enviados por ajax
+        $nombre = $request->query->get('name');
+        $idSagardotegiFacebook = $request->query->get('id');
+        $objPicture = $request->query->get('picture');
+        $foto = $objPicture['data']['url'];
+        $location = $request->query->get('location');
+        $direccion = $location['street'];
+        $latitud = $location['latitude'];
+        $longitud = $location['longitude'];
+        $descripcion = $request->query->get('description');
+        
+        // pasamos los datos a un array
+        $datos = [$nombre, $idSagardotegiFacebook, $foto, $direccion, $latitud, $longitud, $descripcion];
+        
+        // Entity Manager
+        $em = $this->getDoctrine()->getManager();
+        // busca si existe alguna sagardotegi con el ID de Facebook
+        $sagardotegiExists = $em->getRepository('KupelikeBundle:Sagardotegi')->findOneBy(array('idSagardotegiFacebook' => $idSagardotegiFacebook));
+        
+        if(!$sagardotegiExists){
+            // crea una nueva sagardotegi si no existe
+            $this->newSagardotegi($em, $datos);
+        }
+        
+        return new Response();
+    }
+    
+    /**
+     * Crea una nueva sagardotegi con los datos obtenidos de Facebook
+     */
+    private function newSagardotegi($em, $datos)
+    {
+        $sagardotegi = new Sagardotegi();
+        $sagardotegi->setNombre($datos[0]);
+        $sagardotegi->setIdSagardotegiFacebook($datos[1]);
+        $sagardotegi->setFoto($datos[2]);
+        $sagardotegi->setDireccion($datos[3]);
+        $sagardotegi->setLatitud($datos[4]);
+        $sagardotegi->setLongitud($datos[5]);
+        $sagardotegi->setDescripcion($datos[6]);
+        
+        $em->persist($sagardotegi);
+        $em->flush();
+        
+        return $sagardotegi;
     }
 }

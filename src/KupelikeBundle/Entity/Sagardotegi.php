@@ -64,6 +64,13 @@ class Sagardotegi
      * @ORM\Column(name="foto", type="string", length=255)
      */
     private $foto;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="id_sagardotegi_facebook", type="string", length=255, unique=true)
+     */
+    private $idSagardotegiFacebook;
 
 
     /**
@@ -218,6 +225,30 @@ class Sagardotegi
     public function getFoto()
     {
         return $this->foto;
+    }
+    
+    /**
+     * Set idSagardotegiFacebook
+     *
+     * @param string $idSagardotegiFacebook
+     *
+     * @return Sagardotegi
+     */
+    public function setIdSagardotegiFacebook($idSagardotegiFacebook)
+    {
+        $this->idSagardotegiFacebook = $idSagardotegiFacebook;
+
+        return $this;
+    }
+
+    /**
+     * Get idSagardotegiFacebook
+     *
+     * @return string
+     */
+    public function getIdSagardotegiFacebook()
+    {
+        return $this->idSagardotegiFacebook;
     }
 }
 

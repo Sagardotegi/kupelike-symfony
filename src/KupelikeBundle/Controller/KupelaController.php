@@ -8,16 +8,10 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use KupelikeBundle\Entity\Kupela;
 use KupelikeBundle\Entity\Cliente;
+use KupelikeBundle\Entity\Voto;
 
 class KupelaController extends Controller
 {
-    /**
-     * Inserta un objeto en la tabla 'Kupela'
-     */ 
-    public function newAction()
-    {
-        
-    }
     
     /**
      * Almacena un like en la kupela
@@ -25,30 +19,83 @@ class KupelaController extends Controller
     public function likeAction(Request $request)
     {
         // obtenemos los datos enviados por ajax
-        $nombre = $request->request->get('name');
-        $birthday = $request->request->get('birthday');
-        $email = $request->request->get('email');
+        $datos = $request->request->get('response');
+        $idCliente = $datos['id'];
+        $nombre = $datos['name'];
+        
+        $idKupela = $request->request->get('idKupela');
+        
+        
         
         // Entity Manager
         $em = $this->getDoctrine()->getManager();
-        $emailCliente = $em->getRepository('KupelikeBundle:Cliente')->find($email);
+        // busca el id de facebook en la tabla Cliente
+        $clienteExists = $em->getRepository('KupelikeBundle:Cliente')->find($idCliente);
         
-        // si el email no existe almacena el usuario
-        if(!$emailCliente){
+        // si el id de facebook existe
+        if($clienteExists){
+            // añade un nuevo voto
+            $this->nuevoVoto($em, $idCliente, $idKupela);
+        } else {
+            // crea un nuevo cliente
+            $this->crearCliente($em, $idCliente, $nombre);
+            // añade un nuevo voto
+            $this->nuevoVoto($em, $idCliente, $idKupela);
+        }
         
-            // almacenamos en la tabla cliente
+        
+        return new Response();
+    }
+    
+    private function crearCliente($em, $id, $nombre)
+    {
+        // almacenamos en la tabla cliente
             $cliente = new Cliente();
-            $cliente->setFechaNacimiento($birthday);
             $cliente->setNombre($nombre);
-            $cliente->setEmail($email);
+            $cliente->setIdFacebook($id);
             
             
             $em->persist($cliente);
             $em->flush();
-        }
-        
-        
-        return new Response("Kaixo");
+            
+            return $cliente;
     }
     
+    private function nuevoVoto($em, $idCliente, $idKupela)
+    {
+        $voto = new Voto();
+        $voto->setClienteId($idCliente);
+        $voto->setKupelaId($idKupela);
+        $voto->setFecha(date('d/m/Y H:m'));
+        
+        $em->persist($voto);
+        $em->flush();
+    }
+    
+    public function extraerVotos(Request $request){
+        
+            $mostrarVotos = $this->getDoctrine()->getRepository('KupelikeBundle:Kupela')->find('id');
+            
+            if(!$mostrarVotos){
+                throw $this->createNotFoundException('No se ha encontrado la kupepela con el ID'+$id);
+            }
+            
+        }
+        
+    public function updateVotos($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $mostrarVotos = $em->getRepository('KupelikeBundle:Kupela')->find($id);
+    
+        if(!$mostrarVotos) {
+            throw $this->createNotFoundException(
+              'No se ha encontrado la kupepela con el ID'.$id
+            );
+        }
+    
+        $mostrarVotos->setName('');
+        $em->flush();
+    
+        
+    }    
 }
