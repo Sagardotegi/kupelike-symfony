@@ -6,9 +6,13 @@
     
     <div class="col-xs-6 col-md-4">
         <div class="card">
-            <a class="card-link"name="{{ sagardotegi.nombre }}" href="{{ path("sagardotegi_view", {idSagardotegi:sagardotegi.id}) }}">
+            <a class="card-link"name="{{ sagardotegi.nombre }}" href="{{ path("sagardotegi_view", {idSagardotegi:sagardotegi.idSagardotegiFacebook}) }}">
             <div class="card-direction text-uppercase text-center"><h4>{{ sagardotegi.direccion }}</h4></div>
+<<<<<<< HEAD
             <img class="card-image img-responsive" src="{{asset(sagardotegi.foto)}}"></img>
+=======
+            <img class="card-image img-responsive" src="{{ sagardotegi.foto }}"></img>
+>>>>>>> cf525ae849e427d4bd1caf309320e5766b7858fa
             <h2 class="card-title text-uppercase">{{ sagardotegi.nombre }}</h2>
             <p class="card-description">{{ sagardotegi.descripcion }}</p>
             </a>
