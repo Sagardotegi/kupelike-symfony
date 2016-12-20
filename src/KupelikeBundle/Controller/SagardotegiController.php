@@ -46,12 +46,12 @@ class SagardotegiController extends Controller
     /**
      * Muestra el mapa con la locaclización de la sagardotegi
      */
-    public function mapaAction($idSagardotegi)
+    public function mapaAction($idSagardotegiFacebook)
     {
         // carga el Entity Manager (manejamos los datos con Doctrine (ORM))
         $em = $this->getDoctrine()->getManager();
         // obtenemos la sagardotegi que queremos visualizar
-        $sagardotegi = $em->getRepository('KupelikeBundle:Sagardotegi')->find($idSagardotegi);
+        $sagardotegi = $em->getRepository('KupelikeBundle:Sagardotegi')->findOneBy(array('idSagardotegiFacebook' => $idSagardotegiFacebook));
         
         return $this->render('KupelikeBundle:Sagardotegi:mapaSagar.html.twig', array('sagardotegi' => $sagardotegi));
     }
@@ -87,7 +87,7 @@ class SagardotegiController extends Controller
      */
     public function saveAction(Request $request)
     {
-        // obtenemos los datos enviados por ajax
+        // obtenemos los datos de la sagardotegi enviados por ajax
         $nombre = $request->query->get('name');
         $idSagardotegiFacebook = $request->query->get('id');
         

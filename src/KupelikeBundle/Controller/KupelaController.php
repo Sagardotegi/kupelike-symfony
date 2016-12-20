@@ -97,5 +97,5 @@ class KupelaController extends Controller
         $em->flush();
     
         
-    }    
+    }
 }
