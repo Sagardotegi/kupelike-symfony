@@ -475,12 +475,12 @@ h1.a-sagar a:active {
   
 .carousel {
     
-      height: 700px;
+      height: 600px;
 }
  
 .item {
     
-      height: 600px
+      height: 500px
 }
   
 .carousel-control {
@@ -851,6 +851,23 @@ hr.search-hr {
 
 
 
+
+
+/* slider */
+.imagen-about {
+  width: 173px;
+  height: 173px;
+  margin-top: 5%;
+  margin-left: auto;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  border-radius: 300px;
+  box-shadow: black -2px -4px 50px -2px;
+  text-align: left;
+}
+
+
+/**************** lider new ***********************/
 
 
 
