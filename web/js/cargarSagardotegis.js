@@ -12,24 +12,24 @@ $(document).ready(function(){
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
     
-        window.fbAsyncInit = function() {
+        /*window.fbAsyncInit = function() {
             // iniciamos la aplicación de Facebook
             FB.init({
-                appId      : '238649363223511',
+                appId      : '765683296917544',
                 status     : true,
                 xfbml      : true,
                 cookie     : true
-            });
+            });*/
             
             /**
              * Obtenemos una sagardotegi
              */
-            FB.api(
+            /*FB.api(
                 '/1704315726496042', // Para más sagardotegis, copiar la función y cambiar el ID de la página
                 'GET',
                 {
-                    "fields":"name,picture.type(large),location,description,posts{id,full_picture,created_time,message}", 
-                    "access_token":"238649363223511|42b7ae25f21439cfcf10af9c3a88ac08"
+                    "fields":"name,id,picture.type(large),location,description,posts{id,full_picture,created_time,message}", 
+                    "access_token":"765683296917544|31ad4ff7d32353f15149a55b4b965596"
                 },
                 function(response) {
                     // envia los datos al servidor
@@ -41,5 +41,5 @@ $(document).ready(function(){
                     });
                 }
             );
-        }
+        }*/
 });
