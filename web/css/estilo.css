@@ -607,7 +607,7 @@ h1.a-sagar a:active {
 
 .contact_form{
     font: 100% Arial, Helvetica, sans-serif;
-    max-width: 800px;
+    /*max-width: 800px;*/
     margin: 10px auto;
     padding: 16px;
     background: #F7F7F7;
