@@ -13,7 +13,7 @@ session_start();
 
 
 
-require_once('vendor/Facebook/src/Facebook/autoload.php');
+require_once('../vendor/Facebook/src/Facebook/autoload.php');
 $fb = new Facebook\Facebook([
   'app_id' => Credentials::$appId,
   'app_secret' => Credentials::$appSecret,
