@@ -1,15 +1,39 @@
 html, body {
+    
     height: 100%;
 }
+
 .wrapper {
+    
     min-height: 100%;
     height: auto !important;
     height: 100%;
     margin: 0 auto -372px; /* the bottom margin is the negative value of the footer's height */
 }
+
 .footer, .push {
+    
     height: 372px; /* .push must be the same height as .footer */
 }
+
+
+/* Video Background 
+
+video {
+    
+    background: url('../img/back.mp4') no-repeat center center fixed; 
+     min-width: 100%;
+    min-height: 100%;
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    z-index: 0;
+    position: fixed;
+  transition: 1s opacity;
+}
+
+*/
 
 /* Fonts
 font-family: 'Roboto', sans-serif;
@@ -40,7 +64,7 @@ body::-webkit-scrollbar-thumb {
 
 .landing {
 
-    background: url('../img/fondo.jpg') no-repeat center center fixed; 
+    background: url('../img/slide.jpg') no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -85,7 +109,7 @@ body::-webkit-scrollbar-thumb {
     
     float: left;
     padding: 15px 30px !important;
-    line-height: 70px;
+    line-height: 100px;
     color: #629c44;
     cursor: pointer;
 }
@@ -113,8 +137,8 @@ body::-webkit-scrollbar-thumb {
     float: left;
     height: inherit;
     padding: 15px;
-    font-size: 35px;
-    line-height: 55px;
+    font-size: 50px;
+    line-height: 90px;
     letter-spacing: 2px;
     color: #629c44;
     font-family: 'Lobster', cursive;
@@ -309,7 +333,7 @@ body::-webkit-scrollbar-thumb {
     font-weight: 100 !important;
 }
 
-.btn-ghost:hover, .btn-ghost:active, .btn-ghost:focus {
+.btn-ghost:hover, .btn-ghost:active, .btn-ghost:focus, .btn-ghost:visited {
     
     color: #ffffff !important;
     background-color: transparent !important;
@@ -425,7 +449,7 @@ body::-webkit-scrollbar-thumb {
 
 .caja {
     
-    padding: 0px 0px;
+    padding: 18px 0px 0px 0px;
     margin: 3px 5px;
     background-color: white;
     border-bottom: #629c44 solid 5px;
@@ -686,14 +710,17 @@ textarea{
 
 .single-kupela-img {
    
-   max-width: 200px;
+    max-width: 350px;
+    margin: 0px auto;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
 }
 
 .single-description {
     
     font-family: 'Roboto', sans-serif;
     letter-spacing: 2px;
-    font-size: medium;
+    font-size: x-large;
     text-align: justify;
     margin-left: 20px;
 }
@@ -705,8 +732,8 @@ textarea{
     height: 50px;
     width: 175px;
     position: absolute;
-    top: 20px;
-    left: 25px;
+    top: 15px;
+    left: 0px;
     letter-spacing: 2px;
     padding: 5px;
 }
@@ -744,6 +771,7 @@ textarea{
 
 .kupela-list {
     
+    padding-bottom: 20px;
 }
 
 .votos {
@@ -752,7 +780,30 @@ textarea{
 
 .vote-button {
     
-    background-color: #629c44;
+    background: none;
+    border-radius: 70px;
+    border: none;
+}
+
+.vote-overlay {
+    
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    opacity: 0.5;
+}
+
+.vote-count {
+    
+    font-family: 'Roboto', sans-serif;
+    border: 1px solid #ddd;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    width: 350px;
+    margin: -2px auto;
 }
 
 .img-kupela {
