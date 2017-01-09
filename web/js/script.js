@@ -25,7 +25,7 @@ $(document).ready(function($) {
         $('.searchBox').val("");
         $('body').css({
             overflow: 'auto',
-            height: 'auto'
+            height: '100%'
         });
         /*$('.searchResults').css({
             overflow: 'hidden',

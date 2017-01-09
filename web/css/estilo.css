@@ -834,6 +834,10 @@ hr.separador_nosotros:after {
 	font-size: 18px;
 }
 
+.ikastolak {
+    width: 100%;
+}
+
 hr.search-hr {
     width: 70%;
     height: 3px;
