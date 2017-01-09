@@ -1,7 +1,7 @@
 <?php
 // https://developers.facebook.com/docs/graph-api/reference/v2.8/object/likes
 include 'credentials.php';
-session_start();
+//session_start();
 //use Facebook\Facebook;
 //require_once 'src/Facebook/autoload.php';
 // include composer autoload
