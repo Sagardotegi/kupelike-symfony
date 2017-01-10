@@ -862,7 +862,7 @@ hr.search-hr {
   padding-bottom: 0px;
   padding-left: 0px;
   border-radius: 300px;
-  box-shadow: black -2px -4px 50px -2px;
+  /*box-shadow: black -2px -4px 50px -2px;*/
   text-align: left;
 }
 

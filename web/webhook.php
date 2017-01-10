@@ -28,6 +28,6 @@ $input = json_decode(file_get_contents('php://input'), true);
 error_log(print_r($input, true));
 
 //$content = "some text here";
-$fp = fopen($_SERVER['DOCUMENT_ROOT'] . "/borratzeko.txt","wb");
+/*$fp = fopen($_SERVER['DOCUMENT_ROOT'] . "/borratzeko.txt","wb");
 fwrite($fp,$input);
-fclose($fp);
+fclose($fp);*/
