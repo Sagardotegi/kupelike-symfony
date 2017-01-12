@@ -8,6 +8,7 @@ use KupelikeBundle\Entity\Sagardotegi;
 use KupelikeBundle\Entity\Kupela;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
+use Facebook;
 
 class SagardotegiController extends Controller
 {
@@ -80,6 +81,22 @@ class SagardotegiController extends Controller
         $sagardotegis = $em->getRepository('KupelikeBundle:Sagardotegi')->findAll();
         
         return $this->render('KupelikeBundle:Sagardotegi:gps.html.twig', array('sagardotegis' => $sagardotegis));
+    }
+    
+    /**
+     * Obtenemos las sagardotegis desde la API de Facebook
+     */
+    public function getSagardotegisAction()
+    {
+        $fb = new Facebook\Facebook([
+          'app_id' => $this->getParameter('facebook_id'),
+          'app_secret' => $this->getParameter('facebook_secret'),
+          'default_graph_version' => 'v2.2',
+        ]);
+        
+        $fb->request('GET', '/1704315726496042');
+        
+        return new Response($fb);
     }
     
     /**

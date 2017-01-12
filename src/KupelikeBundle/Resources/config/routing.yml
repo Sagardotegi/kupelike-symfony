@@ -44,5 +44,5 @@ kupela_like:
     
 cargar_sagardotegis:
     path: /save-sagardotegis
-    defaults: { _controller: KupelikeBundle:Sagardotegi:save }
+    defaults: { _controller: KupelikeBundle:Sagardotegi:getSagardotegis }
     methods: [GET]
