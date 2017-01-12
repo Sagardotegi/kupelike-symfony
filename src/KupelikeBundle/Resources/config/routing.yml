@@ -13,7 +13,7 @@ sagardotegi_view:
     methods: [GET]
     
 sagardotegi_mapa:
-    path: /sagardotegiak/{idSagardotegiFacebook}/mapa
+    path: /sagardotegiak/{idSagardotegi}/mapa
     defaults: { _controller: KupelikeBundle:Sagardotegi:mapa }
     methods: [GET]
     
