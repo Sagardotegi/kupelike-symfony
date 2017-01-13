@@ -29,12 +29,11 @@ class SagardotegiController extends Controller
     /**
      * Muestra una sagardotegi y sus kupelas
      */
-    public function viewAction($idSagardotegi)
-    {
+    public function viewAction($idSagardotegi){
         // carga el Entity Manager (manejamos los datos con Doctrine (ORM))
         $em = $this->getDoctrine()->getManager();
         // obtenemos la sagardotegi que queremos visualizar
-        $sagardotegi = $em->getRepository('KupelikeBundle:Sagardotegi')->find($idSagardotegi);
+        $sagardotegi = $em->getRepository('KupelikeBundle:Sagardotegi')->findOneBy(array("idSagardotegiFacebook" => $idSagardotegi));
         // obtenemos las kupelas de la sagardotegi
         $kupelas = $em->getRepository('KupelikeBundle:Kupela')->findBy(array('idSagardotegi' => $idSagardotegi));
         
@@ -47,12 +46,12 @@ class SagardotegiController extends Controller
     /**
      * Muestra el mapa con la locaclización de la sagardotegi
      */
-    public function mapaAction($idSagardotegi)
+    public function mapaAction($idSagardotegiFacebook)
     {
         // carga el Entity Manager (manejamos los datos con Doctrine (ORM))
         $em = $this->getDoctrine()->getManager();
         // obtenemos la sagardotegi que queremos visualizar
-        $sagardotegi = $em->getRepository('KupelikeBundle:Sagardotegi')->find($idSagardotegi);
+        $sagardotegi = $em->getRepository('KupelikeBundle:Sagardotegi')->findOneBy(array('idSagardotegiFacebook' => $idSagardotegiFacebook));
         
         return $this->render('KupelikeBundle:Sagardotegi:mapaSagar.html.twig', array('sagardotegi' => $sagardotegi));
     }
@@ -84,19 +83,22 @@ class SagardotegiController extends Controller
     }
     
     /**
-     * Obtiene las sagardotegis de las páginas de Facebook con una llamada a la API desde JavaScript y las almacena en la BD
+     * Obtiene las sagardotegis y sus kupelas de las páginas de Facebook con una llamada a la API desde JavaScript y las almacena en la BD
      */
     public function saveAction(Request $request)
     {
-        // obtenemos los datos enviados por ajax
+        // obtenemos los datos de la sagardotegi enviados por ajax
         $nombre = $request->query->get('name');
         $idSagardotegiFacebook = $request->query->get('id');
-        $objPicture = $request->query->get('picture');
-        $foto = $objPicture['data']['url'];
+        
+        $foto = $request->query->get('picture');
+        $foto = $foto['data']['url'];
+        
         $location = $request->query->get('location');
         $direccion = $location['street'];
         $latitud = $location['latitude'];
         $longitud = $location['longitude'];
+        
         $descripcion = $request->query->get('description');
         
         // pasamos los datos a un array
@@ -109,7 +111,36 @@ class SagardotegiController extends Controller
         
         if(!$sagardotegiExists){
             // crea una nueva sagardotegi si no existe
-            $this->newSagardotegi($em, $datos);
+            $this->newSagardotegi($datos);
+        }
+        
+        $posts = $request->query->get('posts');
+        
+        // comprueba las kupelas (posts)
+        
+        foreach($posts['data'] as $kupela){
+            $idKupela = $kupela['id'];
+            $message = $kupela['message'];
+            // separamos el atributo message en dos, para que la primera palabra sea el titulo
+            $message = explode("/", $message);
+            $nombre = $message[0];
+            $descripcion = $message[1];
+            $year = $kupela['created_time'];
+            $foto = $kupela['full_picture'];
+            // la primera parte del id de la kupela es igual al id de la sagardotegi, lo separamos
+            $idSagardotegi = explode("_", $idKupela);
+            $idSagardotegi = $idSagardotegi[0];
+            
+            // busca si existe la kupela
+            $kupelaExists = $em->getRepository('KupelikeBundle:Kupela')->findOneBy(array('idKupelaFacebook' => $idKupela));
+            
+            
+            $data = [$idKupela, $nombre, $year, $foto, $idSagardotegi, $descripcion];
+            
+            if(!$kupelaExists){
+                $this->newKupela($data);
+            }
+      
         }
         
         return new Response();
@@ -118,8 +149,10 @@ class SagardotegiController extends Controller
     /**
      * Crea una nueva sagardotegi con los datos obtenidos de Facebook
      */
-    private function newSagardotegi($em, $datos)
+    private function newSagardotegi($datos)
     {
+        $em = $this->getDoctrine()->getManager();
+        // creamos la sagardotegi
         $sagardotegi = new Sagardotegi();
         $sagardotegi->setNombre($datos[0]);
         $sagardotegi->setIdSagardotegiFacebook($datos[1]);
@@ -133,5 +166,26 @@ class SagardotegiController extends Controller
         $em->flush();
         
         return $sagardotegi;
+    }
+    
+    /**
+     * Crea una nueva kupela con los datos obtenidos de Facebook
+     */
+    private function newKupela($datos)
+    {
+        $em = $this->getDoctrine()->getManager();
+        
+        $kupela = new Kupela();
+        $kupela->setIdKupelaFacebook($datos[0]);
+        $kupela->setNombre($datos[1]);
+        $kupela->setYear($datos[2]);
+        $kupela->setFoto($datos[3]);
+        $kupela->setIdSagardotegi($datos[4]);
+        $kupela->setDescripcion($datos[5]);
+        
+        $em->persist($kupela);
+        $em->flush();
+        
+        return $kupela;
     }
 }

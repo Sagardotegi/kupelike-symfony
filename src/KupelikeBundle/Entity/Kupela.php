@@ -22,9 +22,9 @@ class Kupela
     private $id;
     
     /**
-     * @var int
+     * @var string
      *
-     * @ORM\Column(name="id_sagardotegi", type="integer")
+     * @ORM\Column(name="id_sagardotegi", type="string", length=255)
      * @ORM\OneToMany(targetEntity="Sagardotegi", mappedBy="kupela")
      */
     private $idSagardotegi;
@@ -32,7 +32,7 @@ class Kupela
     /**
      * @var int
      *
-     * @ORM\Column(name="num_votos", type="integer")
+     * @ORM\Column(name="num_votos", type="integer", nullable=true)
      */
     private $numVotos;
 
@@ -46,7 +46,7 @@ class Kupela
     /**
      * @var string
      *
-     * @ORM\Column(name="descripcion", type="string", length=255)
+     * @ORM\Column(name="descripcion", type="string", length=255, nullable=true)
      */
     private $descripcion;
 
@@ -60,16 +60,23 @@ class Kupela
     /**
      * @var string
      *
-     * @ORM\Column(name="foto", type="string", length=255)
+     * @ORM\Column(name="foto", type="string", length=255, nullable=true)
      */
     private $foto;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="url", type="string", length=255)
+     * @ORM\Column(name="url", type="string", length=255, nullable=true)
      */
     private $url;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="id_kupela_facebook", type="string", length=255)
+     */
+    private $idKupelaFacebook;
 
     /**
      * Get id
@@ -82,13 +89,27 @@ class Kupela
     }
     
     /**
+     * Set idSagardotegi
+     * 
+     * @param string $idSagardotegi
+     *
+     * @return Kupela
+     */ 
+    public function setIdSagardotegi($idSagardotegi)
+    {
+        $this->idSagardotegi = $idSagardotegi;
+        
+        return $this;
+    }
+    
+    /**
      * Get idSagardotegi
      * 
-     * @return int
+     * @return string
      */ 
     public function getIdSagardotegi()
     {
-        return $this->id;
+        return $this->idSagardotegi;
     }
 
     /**
@@ -233,6 +254,30 @@ class Kupela
     public function getUrl()
     {
         return $this->url;
+    }
+    
+    /**
+     * Set idKupelaFacebook
+     *
+     * @param string $idKupelaFacebook
+     *
+     * @return Kupela
+     */
+    public function setIdKupelaFacebook($idKupelaFacebook)
+    {
+        $this->idKupelaFacebook = $idKupelaFacebook;
+
+        return $this;
+    }
+
+    /**
+     * Get idKupelaFacebook
+     *
+     * @return string
+     */
+    public function getIdKupelaFacebook()
+    {
+        return $this->idKupelaFacebook;
     }
 }
 

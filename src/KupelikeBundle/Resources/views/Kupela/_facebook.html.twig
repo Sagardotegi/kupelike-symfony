@@ -56,24 +56,15 @@
                     
                     // obtenemos el id de la kupela
                     var idKupela = $(this).attr('class');
-                    console.log(idKupela);
                     
                     // Hace la llamada AJAX
                     $.ajax({
                         type: "POST",
                         dataType: "json",
                         url: "{{ path('kupela_like') }}",
-                        data: {response, idKupela},
-                        success: function(data){
-                            console.log(data);
-                        }
+                        data: {response, idKupela}
                     });
                 });
             });
-        }
-        
-        function getPageData()
-        {
-            
         }
     </script>
