@@ -9,8 +9,52 @@
           var map;
           var user;
           var centerControlDiv = document.createElement('div');
+          var centerControlDiv2 = document.createElement('div');
           var mv = 0;
-  
+          
+          
+        function CenterControl2(controlDiv2, map, bounds) {
+        
+          // Set CSS for the control border.
+          var firstChild2 = document.createElement('button');
+            firstChild2.style.backgroundColor = '#fff';
+            firstChild2.style.border = 'none';
+            firstChild2.style.outline = 'none';
+            firstChild2.style.width = '28px';
+            firstChild2.style.height = '28px';
+            firstChild2.style.borderRadius = '2px';
+            firstChild2.style.boxShadow = '0 1px 4px rgba(0,0,0,0.3)';
+            firstChild2.style.cursor = 'pointer';
+            firstChild2.style.marginRight = '10px';
+            firstChild2.style.padding = '0px';
+            firstChild2.title = 'Mostrar todas.';
+            controlDiv2.appendChild(firstChild2);
+        
+            var secondChild2 = document.createElement('div');
+            secondChild2.style.margin = '5px';
+            secondChild2.style.width = '18px';
+            secondChild2.style.height = '18px';
+            secondChild2.style.backgroundImage = 'url(/web/img/logo_transp18.png)';
+            secondChild2.style.backgroundSize = '18px 18px';
+            secondChild2.style.backgroundPosition = '0px 0px';
+            secondChild2.style.backgroundRepeat = 'no-repeat';
+            secondChild2.id = 'cider_location_img';
+            firstChild2.appendChild(secondChild2);
+        
+        
+          // Setup the click event listeners: simply set the map to Chicago.
+          firstChild2.addEventListener('click', function() {
+            //map.panTo(bounds.getCenter());
+            //map.fitBounds(bounds);
+            map.panTo(bounds.getCenter());
+            google.maps.event.addListenerOnce(map, 'idle', function() {
+              map.fitBounds(bounds);
+            });
+          });
+        
+        }
+        
+        
         function CenterControl(controlDiv, map, persona) {
         
           // Set CSS for the control border.
@@ -47,8 +91,12 @@
           });*/
           
             firstChild.addEventListener('click', function() {
-              map.setZoom(17);
+              //map.setZoom(17);
               map.panTo(persona);
+              google.maps.event.addListenerOnce(map, 'idle', function() {
+                map.setZoom(17);
+              });
+              
               //map.CameraUpdateFactory.newLatLngZoom(persona, 17);
               if (mv == 0) {
                 $('#you_location_img').css('background-position', '-144px 0px');
@@ -182,6 +230,7 @@
           }
           //now fit the map to the newly inclusive bounds
           map.fitBounds(bounds);
+          var centerControl2 = new CenterControl2(centerControlDiv2, map, bounds);
           
           ///////////////////////////////////////////////////////////////////////////
           
@@ -204,6 +253,8 @@
           }
           centerControlDiv.index = 1;
           map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(centerControlDiv);
+          centerControlDiv2.index = 1;
+          map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(centerControlDiv2);
         }
         
         

@@ -25,7 +25,7 @@ $(document).ready(function($) {
         $('.searchBox').val("");
         $('body').css({
             overflow: 'auto',
-            height: 'auto'
+            height: '100%'
         });
         /*$('.searchResults').css({
             overflow: 'hidden',
@@ -35,7 +35,7 @@ $(document).ready(function($) {
             
 });
 
-$(document).ready(function($) {
+/*$(document).ready(function($) {
         $('.toggle-button').click(function() {
             $('.menu').addClass('visible-menu');
         });
@@ -43,7 +43,15 @@ $(document).ready(function($) {
         $('.close-menu').click(function() {
             $('.menu').removeClass('visible-menu');
         });
-    });
+    });*/
+    
+$(document).on('click', function(e) {
+  if($(e.target).is('.navbar-ham2 *')) {
+    $('.menu').addClass('visible-menu');
+  } else {
+    $('.menu').removeClass('visible-menu');
+  }
+});
     
 //* Search zoom disable *//    
     

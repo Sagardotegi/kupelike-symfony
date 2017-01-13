@@ -1,3 +1,16 @@
+html, body {
+    height: 100%;
+}
+.wrapper {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -372px; /* the bottom margin is the negative value of the footer's height */
+}
+.footer, .push {
+    height: 372px; /* .push must be the same height as .footer */
+}
+
 /* Fonts
 font-family: 'Roboto', sans-serif;
 font-family: 'Fjalla One', sans-serif;
@@ -64,10 +77,7 @@ body::-webkit-scrollbar-thumb {
     position: fixed;
     min-height: 100px !important;
     margin-bottom: 0px !important;
-    border: 0px !important;
-    border-radius: 0px !important;
     background-color: white;
-    /*width: 100%;*/
     z-index: 3;
 }
 
@@ -131,7 +141,7 @@ body::-webkit-scrollbar-thumb {
 
 .navbar-search-widen {
     
-    padding-left: 0%;
+    padding-left: 5%;
     -moz-transition: padding-left 1s ease-in;
      -o-transition: padding-left  1s ease-in;
      -webkit-transition: padding-left  1s ease-in;
@@ -147,10 +157,13 @@ body::-webkit-scrollbar-thumb {
     padding-right: 40px;
 }
 
+.img-search {
+    height: 200px;
+}
+
 .form-control {
     
-    min-width: 230px !important;
-    width: 95% !important;
+    width: 90% !important;
     height: 34px;
     padding: 6px 12px;
     font-size: 14px;
@@ -308,13 +321,13 @@ body::-webkit-scrollbar-thumb {
 
 
 .btn-social {
+    
     color: #629c44 !important;
-    z-index: 1;
 }
 
 .btn-social-inner {
+    
     color: #232323 !important;
-    z-index: 1;
 }
 
 .subfooter {
@@ -332,9 +345,9 @@ body::-webkit-scrollbar-thumb {
 }
 
 .footer {
-
-    padding-top: 40px;
+    padding-top: 36px;
     background-color: #232323;
+    height: 372px;
 }
 
 
@@ -413,8 +426,9 @@ body::-webkit-scrollbar-thumb {
 .caja {
     
     padding: 0px 0px;
-    margin: 10px 5px;
+    margin: 3px 5px;
     background-color: white;
+    border-bottom: #629c44 solid 5px;
 }
 
  .mtitle {
@@ -624,7 +638,7 @@ h1.a-sagar a:active {
 
 #enviar:hover {
  background: rgba(0,0,0,0);
- box-shadow: inset 0 0 0 3px #43d1af;
+ box-shadow: inset 0 0 0 3px #629c44 /*#43d1af*/;
 }
 
 textarea{
@@ -639,7 +653,7 @@ textarea{
 #nosotros{
     color: #629c44;
     background-color: white;
-    text-align: center;
+    text-align: justify;
     font-family: 'Lobster', cursive;
     
 }
@@ -655,12 +669,11 @@ textarea{
 /** Single Sagardotegi ta bere kupelak **/
 
 .single-sagardotegi {
-    
-    position: fixed;
-    height: 320px;
-    padding-top: 50px;
+
+    padding-top: 20px;
+    padding-bottom: 50px;
     background-color: white;
-    z-index: 2;
+    z-index: 1;
 }
 
 .single-img {
@@ -671,6 +684,11 @@ textarea{
     margin: 0 auto;
 }
 
+.single-kupela-img {
+   
+   max-width: 200px;
+}
+
 .single-description {
     
     font-family: 'Roboto', sans-serif;
@@ -678,6 +696,19 @@ textarea{
     font-size: medium;
     text-align: justify;
     margin-left: 20px;
+}
+
+.card-single-direction {
+    
+    background-color: #629c44;
+    color: white;
+    height: 50px;
+    width: 175px;
+    position: absolute;
+    top: 20px;
+    left: 25px;
+    letter-spacing: 2px;
+    padding: 5px;
 }
 
 .like {
@@ -705,19 +736,23 @@ textarea{
     margin: 0 auto;
 }
 
-.left-line {
+.single-kupela {
+    
   border-left: 2px solid #629c44;
+  padding: 25px 0px;
 }
 
 .kupela-list {
     
-    padding-top: 360px;
-    padding-bottom: 50px;
 }
-
 
 .votos {
     text-align: center;
+}
+
+.vote-button {
+    
+    background-color: #629c44;
 }
 
 .img-kupela {
@@ -733,7 +768,6 @@ textarea{
     margin-bottom: 50px;
 }
 
- 
 hr.separador_nosotros {
 	border-top: 4px double #6ca250;
 	text-align: center;
@@ -749,6 +783,10 @@ hr.separador_nosotros:after {
 	font-size: 18px;
 }
 
+.ikastolak {
+    width: 100%;
+}
+
 hr.search-hr {
     width: 70%;
     height: 3px;
@@ -756,18 +794,12 @@ hr.search-hr {
     background-color: #6ca250;
 }
 
-.img-rounded{
-    width: 10%;
-    height: 10%;
-    margin-bottom: 20px;
-    /*margin-left: 40px;*/
-}
-
 .card-description.nosotros{
     color: black;
     font-size: 18px;
     font-weight: 500;
-    text-align: center;
+    text-align: justify;
+    letter-spacing: 1px !important;
     background: white;
     margin: 0 0 25px;
     overflow: hidden;
