@@ -8,7 +8,9 @@ use KupelikeBundle\Entity\Sagardotegi;
 use KupelikeBundle\Entity\Kupela;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
-use Facebook;
+use Facebook\Facebook;
+use Facebook\FacebookRequest;
+use Facebook\FacebookSession;
 
 class SagardotegiController extends Controller
 {
@@ -88,15 +90,27 @@ class SagardotegiController extends Controller
      */
     public function getSagardotegisAction()
     {
-        $fb = new Facebook\Facebook([
+        $fb = new Facebook([
           'app_id' => $this->getParameter('facebook_id'),
           'app_secret' => $this->getParameter('facebook_secret'),
           'default_graph_version' => 'v2.2',
         ]);
         
-        $fb->request('GET', '/1704315726496042');
+        $session = new FacebookSession();
         
-        return new Response($fb);
+        $request = new FacebookRequest(
+          $session,
+          'GET',
+          '/me',
+          array(
+            'fields' => 'id, name'
+          )
+        );
+
+        $response = $request->execute();
+        $graphObject = $response->getGraphObject();
+        
+        return new Response($graphObject);
     }
     
     /**

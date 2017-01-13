@@ -24,7 +24,7 @@
         "incenteev/composer-parameter-handler": "^2.0",
         "phpunit/phpunit": "4.8.21",
         "hwi/oauth-bundle": "^0.5.1",
-        "facebook/graph-sdk" : "~5.0"
+        "facebook/graph-sdk" : "^5.0"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
