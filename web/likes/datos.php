@@ -58,13 +58,13 @@ try {
   echo 'Hometown: '.$fbhometown.'<br>';
   echo 'Actual town: '.$fblocation.'<br>';
   
-  $request = new Facebook\FacebookRequest(
+  /*$request = new Facebook\FacebookRequest(
     $session,
     'POST',
     '/1704315726496042_1710432339217714/likes'
   );
   $response2 = $request->execute();
-  $graphObject = $response2->getGraphObject();
+  $graphObject = $response2->getGraphObject();*/
   
 } catch(Facebook\Exceptions\FacebookResponseException $e) {
   // When Graph returns an error

@@ -49,7 +49,7 @@ $response = $request->execute();
 $graphObject = $response->getGraphObject();*/
   
   //$response = $fb->api("/1704315726496042_1710432339217714/likes", 'post', array('access_token' => "EAACEdEose0cBAFvZB9UZAF8hEEurZApxUOVhGBBgZAkjFSZCz0NHkpvb3eimEE0ZAE1rrDIXOGuXZAOO8Gwty2h4ZA62ZBPc7qZAGlPGS3Aw8YR9J5eFZAXtD8lkZBLN7FJ3UdtJGXjSdim9QIMAnkytrRoxe9DxP5wn2KYdvanZB4x8zzQZDZD"));
-  $response = $fb->post('/1704315726496042_1710432339217714/likes');
+  $response = $fb->get('/1704315726496042_1710432339217714/likes');
   
   //$response = $fb->getClient()->sendRequest($request);
   //$response = $fb->post('/1704315726496042/likes');
