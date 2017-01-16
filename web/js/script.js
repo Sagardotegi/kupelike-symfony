@@ -32,7 +32,7 @@ $(document).ready(function($) {
             height: '100%'
         });*/
     });
-            
+           
 });
 
 /*$(document).ready(function($) {
@@ -46,12 +46,13 @@ $(document).ready(function($) {
     });*/
     
 $(document).on('click', function(e) {
-  if($(e.target).is('.navbar-ham2 *')) {
+  if($(e.target).is('.navbar-ham *')) {
     $('.menu').addClass('visible-menu');
   } else {
     $('.menu').removeClass('visible-menu');
   }
 });
+
     
 //* Search zoom disable *//    
     
@@ -65,7 +66,27 @@ function zoomEnable(){
   $('head').prepend('<meta name="viewport" content="user-scalable=1" />');
 }
     
-    
+/* APP info script */
+
+$(document).ready(function($) {
+  
+      $('.info-icon').hover(function(){
+          $(this).slideToggle(1000);
+          $(this).siblings('.info-textarea').slideToggle(1000);
+       
+    });
+});
+
+
+/* APP info script */
+
+$(document).ready(function($) {
+  
+      $('.single-kupela').hover(function(){
+          $(this).find('.single-kupela-info').slideToggle(1000);
+       
+    });
+});
 
 
 /*function showResult(str) {

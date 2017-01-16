@@ -43,7 +43,7 @@ font-family: 'Lobster', cursive;
 
 /* Bootstrap Override */
 body {
-    padding-top: 100px;
+    padding-top: 120px;
 }
 
 /* Scrollbar */
@@ -108,8 +108,8 @@ body::-webkit-scrollbar-thumb {
 .navbar-ham {
     
     float: left;
-    padding: 15px 30px !important;
-    line-height: 100px;
+    padding: 10px 30px !important;
+    line-height: 120px;
     color: #629c44;
     cursor: pointer;
 }
@@ -137,7 +137,7 @@ body::-webkit-scrollbar-thumb {
     float: left;
     height: inherit;
     padding: 15px;
-    font-size: 50px;
+    font-size: 30px;
     line-height: 90px;
     letter-spacing: 2px;
     color: #629c44;
@@ -157,7 +157,7 @@ body::-webkit-scrollbar-thumb {
      -o-transition: padding-left  1s ease-in;
      -webkit-transition: padding-left  1s ease-in;
      transition: padding-left  1s ease-in;
-    line-height: 90px;
+    line-height: 120px;
     height: inherit;
     margin-top: 0px !important;
     margin-bottom: 0px !important;
@@ -170,7 +170,7 @@ body::-webkit-scrollbar-thumb {
      -o-transition: padding-left  1s ease-in;
      -webkit-transition: padding-left  1s ease-in;
      transition: padding-left  1s ease-in;
-    line-height: 90px;
+    line-height: 120px;
     height: inherit;
     margin-top: 0px !important;
     margin-bottom: 0px !important;
@@ -224,11 +224,11 @@ body::-webkit-scrollbar-thumb {
 .menu {
     
   background: rgba(98, 156, 68, 0.90);
-  width: 200px;
+  width: 300px;
   height: 100%;
   display: block;
   position: absolute;
-  left: -200px;
+  left: -300px;
   top: 0;
   transition: left 0.3s linear;
   z-index: 3;
@@ -266,7 +266,7 @@ body::-webkit-scrollbar-thumb {
     text-decoration: none;
     letter-spacing: 2px;
     font-family: 'Roboto', sans-serif;
-    font-size: large;
+    font-size: xx-large;
     color: white;
 }
 
@@ -310,7 +310,7 @@ body::-webkit-scrollbar-thumb {
     
     font-family: 'Lobster', cursive;
     color: white;
-    /*padding-top: 300px;*/
+    font-size: 50px;
 }
 
 .welcome-subtext {
@@ -319,7 +319,7 @@ body::-webkit-scrollbar-thumb {
     color: #629c44;
     padding: 10px 15px;
     margin: 0 50px 20px;
-    font-size: 16px;
+    font-size: 30px;
     letter-spacing: 1px;
 }
 
@@ -331,6 +331,7 @@ body::-webkit-scrollbar-thumb {
     font-family: 'Roboto', sans-serif;
     letter-spacing: 1px;
     font-weight: 100 !important;
+    font-size: 40px;
 }
 
 .btn-ghost:hover, .btn-ghost:active, .btn-ghost:focus, .btn-ghost:visited {
@@ -342,6 +343,28 @@ body::-webkit-scrollbar-thumb {
 }
 
 /* Fin Welcome */
+
+/* APP info */
+
+.info-wrapper {
+    
+    height: 150px;
+}
+
+.info-textarea {
+    
+    display: none;
+}
+
+.info-text {
+    font-family: 'Roboto', sans-serif;
+    color: #232323;;
+    letter-spacing: 2px;
+    padding: 20px 30px;
+    font-size: larger;
+}
+
+/* Fin APP info */
 
 
 .btn-social {
@@ -716,6 +739,14 @@ textarea{
     border-bottom-right-radius: 0px;
 }
 
+.single-kupela-info {
+   
+   display: none;
+   width: 348px;
+    margin: -215px auto;
+    background-color: white;
+}
+
 .single-description {
     
     font-family: 'Roboto', sans-serif;
@@ -765,8 +796,6 @@ textarea{
 
 .single-kupela {
     
-  border-left: 2px solid #629c44;
-  padding: 25px 0px;
 }
 
 .kupela-list {
@@ -793,7 +822,7 @@ textarea{
     width: 100%;
     height: 100%;
     background: white;
-    opacity: 0.5;
+    opacity: 1;
 }
 
 .vote-count {
@@ -803,7 +832,8 @@ textarea{
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
     width: 350px;
-    margin: -2px auto;
+    margin: -30px auto;
+    background-color: white;
 }
 
 .img-kupela {
