@@ -77,7 +77,7 @@ class KupelaController extends Controller
             $mostrarVotos = $this->getDoctrine()->getRepository('KupelikeBundle:Kupela')->find('id');
             
             if(!$mostrarVotos){
-                throw $this->createNotFoundException('No se ha encontrado la kupepela con el ID'+$id);
+                throw $this->createNotFoundException('No se ha encontrado la kupela con el ID'+$id);
             }
             
         }
@@ -89,7 +89,7 @@ class KupelaController extends Controller
     
         if(!$mostrarVotos) {
             throw $this->createNotFoundException(
-              'No se ha encontrado la kupepela con el ID'.$id
+              'No se ha encontrado la kupela con el ID'.$id
             );
         }
     

@@ -1,6 +1,6 @@
 <?php
 
-require_once('../vendor/autoload.php');
+require_once('../../vendor/autoload.php');
 //require_once('../vendor/Facebook/src/Facebook/autoload.php');
 //use Facebook\FacebookRequest;
 session_start();

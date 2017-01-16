@@ -41,7 +41,9 @@
                     </div>
                     <div class="col-xs-12">
                         <button class="vote-button">
-					        <img class="like-kupela img-responsive" src= "/web/img/logo_reverse.jpg">
+                            <a href="{{ path("kupela_like", {idKupela:kupela.id}) }}">
+					            <img class="like-kupela img-responsive" src= "/web/img/logo_reverse.jpg">
+					        </a>
 					    </button>
                     </div>
                 </div>

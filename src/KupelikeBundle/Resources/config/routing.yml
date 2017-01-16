@@ -38,7 +38,7 @@ nosotros:
     methods: [GET]    
 
 kupela_like:
-    path: /kupela-like
+    path: /kupela_like/{idKupela}
     defaults: { _controller: KupelikeBundle:Kupela:like }
     methods: [POST]
     

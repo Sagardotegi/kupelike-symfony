@@ -9,12 +9,9 @@ session_start();
 
 //require_once 'src/Facebook/autoload.php';
 //require_once __DIR__ . '/vendor/autoload.php';
-require_once('../vendor/autoload.php');
+require_once('../../vendor/autoload.php');
 //require_once __DIR__ . '../vendor/autoload.php';
 
-require_once('../vendor/php-graph-sdk-5.0.0/src/Facebook/autoload.php');
-
-require_once('../vendor/Facebook/src/Facebook/autoload.php');
 
 $fb = new Facebook\Facebook([
   'app_id' => Credentials::$appId,
