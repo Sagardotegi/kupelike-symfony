@@ -5,7 +5,7 @@ require_once('../../vendor/autoload.php');
 $fb = new Facebook\Facebook([
   'app_id' => '765683296917544', // Replace {app-id} with your app id
   'app_secret' => '31ad4ff7d32353f15149a55b4b965596',
-  //'default_graph_version' => 'v2.2',
+  //'default_access_token' => 'EAACEdEose0cBANSE3qFJrcfZCRxZBNAAe8UBwHezZBPkT44AylzLmZC4Wmnb3U9IB53eR6DPWJiVNsWZCJH8jnZA4ZCFm5kHp1os8h0gn5Vf5Xs2DeiTtRI2adq6ogA9iWryh4kiZBN03LvI0wn5vtXGNT3twrqq7Kvk1LjzPPgJuLscnAClo37K',
   'default_graph_version' => 'v2.8',
   ]);
 
@@ -58,6 +58,14 @@ try {
   echo 'Hometown: '.$fbhometown.'<br>';
   echo 'Actual town: '.$fblocation.'<br>';
   
+  $request = new Facebook\FacebookRequest(
+    $session,
+    'POST',
+    '/1704315726496042_1710432339217714/likes'
+  );
+  $response2 = $request->execute();
+  $graphObject = $response2->getGraphObject();
+  
 } catch(Facebook\Exceptions\FacebookResponseException $e) {
   // When Graph returns an error
   echo 'Graph returned an error: ' . $e->getMessage();
@@ -68,7 +76,7 @@ try {
   exit;
 }
 
-if (! isset($accessToken)) {
+/*if (! isset($accessToken)) {
   if ($helper->getError()) {
     header('HTTP/1.0 401 Unauthorized');
     echo "Error: " . $helper->getError() . "\n";
@@ -98,9 +106,9 @@ var_dump($tokenMetadata);
 $tokenMetadata->validateAppId('765683296917544'); // Replace {app-id} with your app id
 // If you know the user ID this access token belongs to, you can validate it here
 //$tokenMetadata->validateUserId('123');
-$tokenMetadata->validateExpiration();
+$tokenMetadata->validateExpiration();*/
 
-if (! $accessToken->isLongLived()) {
+/*if (! $accessToken->isLongLived()) {
   // Exchanges a short-lived access token for a long-lived one
   try {
     $accessToken = $oAuth2Client->getLongLivedAccessToken($accessToken);
@@ -111,7 +119,7 @@ if (! $accessToken->isLongLived()) {
 
   echo '<h3>Long-lived</h3>';
   var_dump($accessToken->getValue());
-}
+}*/
 
 $_SESSION['fb_access_token'] = (string) $accessToken;
 

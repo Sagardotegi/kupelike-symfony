@@ -12,7 +12,61 @@
         <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script src="{{ asset('js/jquery.min.js') }}"></script>
+	    <div id="fb-root"></div>
         <script>
+        window.fbAsyncInit = function() {
+            FB.init({
+              appId      : '765683296917544',
+              xfbml      : true,
+              version    : 'v2.8'
+            });
+            FB.AppEvents.logPageView();
+          };
+
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v2.8&appId=765683296917544";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+        
+        function sendLike() {
+            //FB.login(function(){
+                //FB.login(function(){
+                  // Note: The call will only work if you accept the permission request
+                  /*FB.api('/me/feed', 'post', {message: 'Hello, world!'});
+                    }, {scope: 'publish_actions'});*/
+            /*FB.api(
+                "/me/likes",
+                "POST",
+                {
+                    "object": "https://www.facebook.com/kupelike/posts/1710432339217714"
+                },
+                function (response) {
+                  if (response && !response.error) {
+                    alert("error");
+                  }
+                }
+            );*/
+            /*FB.api(
+                "/1704315726496042_1710432339217714/likes",
+                "POST",
+                function (response) {
+                  if (response && !response.error) {
+                    
+                  }
+                }
+            );*/
+            //}, {scope: 'publish_actions'});
+        }
+        </script>
+        <script>
+
+        function likeado() {
+            document.getElementById("1710432339217714").click();
+        }
+
 $(document).ready(function(){
     $("#search").keyup(function(){
         var txtBusqueda = $("#search").val();

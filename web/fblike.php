@@ -1,7 +1,7 @@
 <?php
 
 require_once('../vendor/autoload.php');
-require_once('../vendor/Facebook/src/Facebook/autoload.php');
+//require_once('../vendor/Facebook/src/Facebook/autoload.php');
 //use Facebook\FacebookRequest;
 session_start();
 $fb = new Facebook\Facebook([
@@ -15,9 +15,12 @@ $helper = $fb->getRedirectLoginHelper();
 $request = new Facebook\FacebookRequest(
   $session,
   'POST',
-  '/{object-id}/likes'
+  '/me/og.likes',
+  'https://www.facebook.com/kupelike/photos/a.1709568489304099.1073741827.1704315726496042/1710432339217714/?type=3'
 );
-
-$request->getFacebook()->api("/".$id."/likes", 'post');
 $response = $request->execute();
 $graphObject = $response->getGraphObject();
+
+/*$request->getFacebook()->api("/".$id."/likes", 'post');
+$response = $request->execute();
+$graphObject = $response->getGraphObject();*/

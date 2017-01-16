@@ -16,11 +16,14 @@ $permissions = [
 'user_birthday',
 //'gender',
 'user_location',
-'user_hometown'
+'user_hometown',
+'publish_pages'
 ]; // Optional permissions
 $loginUrl = $helper->getLoginUrl('https://kupelike-oalba.c9users.io/web/likes/datos.php', $permissions);
 
 echo '<a href="' . htmlspecialchars($loginUrl) . '">Log in with Facebook!</a>';
+
+//header('Location: '. htmlspecialchars($loginUrl));
 
 
 

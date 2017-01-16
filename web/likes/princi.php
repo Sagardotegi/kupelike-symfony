@@ -3,11 +3,11 @@
 		<title>Your Website Title</title>
 	    <!-- You can use open graph tags to customize link previews.
 	    Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
-		<meta property="og:url"           content="https://c9.io/jauzmendiji" />
+		<!--<meta property="og:url"           content="https://c9.io/jauzmendiji" />
 		<meta property="og:type"          content="website" />
 		<meta property="og:title"         content="Facebook proba" />
 		<meta property="og:description"   content="Your description" />
-		<meta property="og:image"         content="http://www.your-domain.com/path/image.jpg" />
+		<meta property="og:image"         content="http://www.your-domain.com/path/image.jpg" />-->
 		
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
 		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
