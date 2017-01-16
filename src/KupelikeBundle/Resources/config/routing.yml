@@ -42,7 +42,7 @@ kupela_like:
     defaults: { _controller: KupelikeBundle:Kupela:like }
     methods: [POST]
     
-cargar_sagardotegis:
-    path: /get-sagardotegis
-    defaults: { _controller: KupelikeBundle:Sagardotegi:getSagardotegis }
+obtener_kupelas:
+    path: /get-kupelas
+    defaults: { _controller: KupelikeBundle:Sagardotegi:getKupelas }
     methods: [GET]

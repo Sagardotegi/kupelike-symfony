@@ -10,7 +10,6 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Facebook\Facebook;
 use Facebook\FacebookRequest;
-use Facebook\FacebookSession;
 
 class SagardotegiController extends Controller
 {
@@ -83,34 +82,6 @@ class SagardotegiController extends Controller
         $sagardotegis = $em->getRepository('KupelikeBundle:Sagardotegi')->findAll();
         
         return $this->render('KupelikeBundle:Sagardotegi:gps.html.twig', array('sagardotegis' => $sagardotegis));
-    }
-    
-    /**
-     * Obtenemos las sagardotegis desde la API de Facebook
-     */
-    public function getSagardotegisAction()
-    {
-        $fb = new Facebook([
-          'app_id' => $this->getParameter('facebook_id'),
-          'app_secret' => $this->getParameter('facebook_secret'),
-          'default_graph_version' => 'v2.2',
-        ]);
-        
-        $session = new FacebookSession();
-        
-        $request = new FacebookRequest(
-          $session,
-          'GET',
-          '/me',
-          array(
-            'fields' => 'id, name'
-          )
-        );
-
-        $response = $request->execute();
-        $graphObject = $response->getGraphObject();
-        
-        return new Response($graphObject);
     }
     
     /**
@@ -218,5 +189,51 @@ class SagardotegiController extends Controller
         $em->flush();
         
         return $kupela;
+    }
+    
+    /**
+     * REST API
+     */
+    
+    /**
+     * Crea el objeto Facebook requerido para cada llamada a la API de Facebook
+     */ 
+    private function facebookObject()
+    {
+        // Creamos un nuevo objeto Facebook
+        $fb = new Facebook([
+          'app_id' => $this->getParameter('facebook_id'),
+          'app_secret' => $this->getParameter('facebook_secret'),
+          'default_access_token' => '238649363223511|42b7ae25f21439cfcf10af9c3a88ac08',
+          'default_graph_version' => 'v2.2',
+          'http_client_handler' => 'stream',
+          'cookie' => true
+        ]);
+        
+        return $fb;
+    }
+    
+    /**
+     * Obtenemos las kupelas de una sagardotegi desde la API de Facebook
+     * URL: /get-kupelas
+     */
+    public function getKupelasAction()
+    {
+        // Llamamos a la función que devuelve el objeto Facebook
+        $fb = $this->facebookObject();
+        
+        // Creamos la solicitud
+        $request = $fb->request(
+            'GET', // Método
+            '/1704315726496042', // ID de la página de Facebook
+            array('fields' => 'posts') // Campos que queremos obtener
+        );
+        
+        // Obtenemos la respuesta
+        $response = $fb->getClient()->sendRequest($request);
+        $graphNode = $response->getGraphNode();
+        
+        // Devolvemos la respuesta
+        return new Response($graphNode);
     }
 }
