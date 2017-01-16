@@ -42,7 +42,14 @@ kupela_like:
     defaults: { _controller: KupelikeBundle:Kupela:like }
     methods: [POST]
     
+# API REST URL
+
 obtener_kupelas:
-    path: /get-kupelas
+    path: /api/get-kupelas/{idPagina}
     defaults: { _controller: KupelikeBundle:Sagardotegi:getKupelas }
+    methods: [GET]
+    
+obtener_likes:
+    path: /api/get-likes/{idKupela}
+    defaults: { _controller: KupelikeBundle:Sagardotegi:getLikes }
     methods: [GET]

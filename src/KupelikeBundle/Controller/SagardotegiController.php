@@ -196,28 +196,10 @@ class SagardotegiController extends Controller
      */
     
     /**
-     * Crea el objeto Facebook requerido para cada llamada a la API de Facebook
-     */ 
-    private function facebookObject()
-    {
-        // Creamos un nuevo objeto Facebook
-        $fb = new Facebook([
-          'app_id' => $this->getParameter('facebook_id'),
-          'app_secret' => $this->getParameter('facebook_secret'),
-          'default_access_token' => '238649363223511|42b7ae25f21439cfcf10af9c3a88ac08',
-          'default_graph_version' => 'v2.2',
-          'http_client_handler' => 'stream',
-          'cookie' => true
-        ]);
-        
-        return $fb;
-    }
-    
-    /**
      * Obtenemos las kupelas de una sagardotegi desde la API de Facebook
-     * URL: /get-kupelas
+     * URL: /api/get-kupelas/{idPagina}
      */
-    public function getKupelasAction()
+    public function getKupelasAction($idPagina)
     {
         // Llamamos a la función que devuelve el objeto Facebook
         $fb = $this->facebookObject();
@@ -225,7 +207,7 @@ class SagardotegiController extends Controller
         // Creamos la solicitud
         $request = $fb->request(
             'GET', // Método
-            '/1704315726496042', // ID de la página de Facebook
+            $idPagina, // ID de la página de Facebook
             array('fields' => 'posts') // Campos que queremos obtener
         );
         
@@ -235,5 +217,47 @@ class SagardotegiController extends Controller
         
         // Devolvemos la respuesta
         return new Response($graphNode);
+    }
+    
+    /**
+     * Obtenemos el número de likes de una kupela
+     * URL: /api/get-likes/{idKupela}
+     */
+    public function getLikesAction($idKupela)
+    {
+        $fb = $this->facebookObject();
+        
+        $request = $fb->request(
+            'GET',
+            $idKupela, 
+            array('fields' => 'likes')
+        );
+        
+        $response = $fb->getClient()->sendRequest($request);
+        $graphNode = $response->getGraphNode();
+        
+        return new Response($graphNode);
+    }
+    
+    /**
+     * Crea el objeto Facebook requerido para cada llamada a la API de Facebook
+     */ 
+    private function facebookObject()
+    {
+        // Obtiene los parámetros ID de la aplicación y Secret desde el archivo app/config/parameters.yml
+        $faceID = $this->getParameter('facebook_id');
+        $faceSecret = $this->getParameter('facebook_secret');
+        
+        // Creamos un nuevo objeto Facebook
+        $fb = new Facebook([
+          'app_id' => $faceID,
+          'app_secret' => $faceSecret,
+          'default_access_token' => $faceID . '|' . $faceSecret, // Utiliza un access token de aplicación - https://developers.facebook.com/docs/facebook-login/access-tokens#apptokens
+          'default_graph_version' => 'v2.2',
+          'http_client_handler' => 'stream',
+          'cookie' => true
+        ]);
+        
+        return $fb;
     }
 }
