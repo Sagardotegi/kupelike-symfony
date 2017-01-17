@@ -2,7 +2,7 @@
     
     <script>
     
-    var btn = document.getElementById("btn-facebook");
+    var btn = $('#btn-facebook');
     
         window.fbAsyncInit = function() {
             // iniciamos la aplicación de Facebook
@@ -19,7 +19,7 @@
                     getAPI();
                 } else {
                     // si no está conectado, muestra la ventana de conexión
-                    $('#btn-facebook').click(function(){
+                    btn.click(function(){
                         fb_login();
                     });
                 }

@@ -13,7 +13,7 @@ sagardotegi_view:
     methods: [GET]
     
 sagardotegi_mapa:
-    path: /sagardotegiak/{idSagardotegiFacebook}/mapa
+    path: /sagardotegiak/{idSagardotegi}/mapa
     defaults: { _controller: KupelikeBundle:Sagardotegi:mapa }
     methods: [GET]
     
@@ -42,6 +42,7 @@ kupela_like:
     defaults: { _controller: KupelikeBundle:Kupela:like }
     methods: [POST]
     
+<<<<<<< HEAD
 cargar_sagardotegis:
     path: /save-sagardotegis
     defaults: { _controller: KupelikeBundle:Sagardotegi:save }
@@ -50,4 +51,16 @@ cargar_sagardotegis:
 mostrar_votos:
     path: /mostrar-votos/{id}
     defaults: { _controller: KupelikeBundle:Kupela:mostrar }
+=======
+# API REST URL
+
+obtener_kupelas:
+    path: /api/get-kupelas/{idPagina}
+    defaults: { _controller: KupelikeBundle:Sagardotegi:getKupelas }
+    methods: [GET]
+    
+obtener_likes:
+    path: /api/get-likes/{idKupela}
+    defaults: { _controller: KupelikeBundle:Sagardotegi:getLikes }
+>>>>>>> 440f61d34b6cf47ab8e33c929d239c9786cab96f
     methods: [GET]
