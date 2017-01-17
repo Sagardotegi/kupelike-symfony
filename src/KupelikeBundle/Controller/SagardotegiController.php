@@ -230,7 +230,7 @@ class SagardotegiController extends Controller
         $request = $fb->request(
             'GET',
             $idKupela, 
-            array('fields' => 'likes')
+            array('fields' => 'likes,picture')
         );
         
         $response = $fb->getClient()->sendRequest($request);
@@ -239,6 +239,23 @@ class SagardotegiController extends Controller
         return new Response($graphNode);
     }
     
+    
+    
+           
+     public function getSagardotegiAction($nameSagardotegi)
+    {    
+         $fb = $this->facebookObject();
+        $request = $fb->request(
+            'GET',
+           $nameSagardotegi, 
+            array('fields' => 'name,picture.type(large),location,description,posts{id,full_picture,created_time,message}')
+        );
+        
+        $response = $fb->getClient()->sendRequest($request);
+        $graphNode = $response->getGraphNode();        
+        return new Response($graphNode);
+            
+    }
     /**
      * Crea el objeto Facebook requerido para cada llamada a la API de Facebook
      */ 
