@@ -238,9 +238,6 @@ class SagardotegiController extends Controller
         
         return new Response($graphNode);
     }
-    
-    
-    
            
      public function getSagardotegiAction($nameSagardotegi)
     {    
