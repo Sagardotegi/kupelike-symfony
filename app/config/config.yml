@@ -62,10 +62,13 @@ doctrine:
 
 # Swiftmailer Configuration
 swiftmailer:
-    transport: gmail
-    username:  "kupelikeproject@gmail.com"
+    transport:  smtp
+    encryption: ssl
+    auth_mode:  login
+    host:       smtp.gmail.com
+    username:  "kupelikeproject"
     password:  "Abcd_1234"
-  
+
 
   
     
