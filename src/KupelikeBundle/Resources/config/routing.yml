@@ -53,3 +53,9 @@ obtener_likes:
     path: /api/get-likes/{idKupela}
     defaults: { _controller: KupelikeBundle:Sagardotegi:getLikes }
     methods: [GET]
+    
+# WebHook Facebook
+
+facebook_webhook:
+    path: /api/webhook
+    defaults: { _controller: KupelikeBundle:Sagardotegi:webhook }

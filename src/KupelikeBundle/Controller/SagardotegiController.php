@@ -260,4 +260,20 @@ class SagardotegiController extends Controller
         
         return $fb;
     }
+    
+    /**
+     * Suscripción a página (WebHook)
+     */ 
+    public function webhookAction(Request $request)
+    {
+        $challenge = $request->get('hub_challenge');
+        $verify_token = $request->get('hub_verify_token');
+        
+        if($verify_token === 'abc123'){
+            return new Response($challenge);
+        }
+        
+        $input = json_decode(file_get_contents('php://input'), true);
+        return new Response($input);
+    }
 }
