@@ -40,10 +40,14 @@ class SagardotegiController extends Controller
         // obtenemos las kupelas de la sagardotegi
         $kupelas = $em->getRepository('KupelikeBundle:Kupela')->findBy(array('idSagardotegi' => $idSagardotegi));
         
+        //$kupelaN = $em->getRepository('KupelikeBundle:Voto')->sumKupelas();
+        
         return $this->render('KupelikeBundle:Kupela:index2.html.twig', array(
             'kupelas' => $kupelas,
-            'sagardotegi' => $sagardotegi
+            'sagardotegi' => $sagardotegi//,
+            //'kupelaN' => $kupelaN
         ));
+        
         
     }
     
