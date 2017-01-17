@@ -82,7 +82,7 @@ $(document).ready(function($) {
 
 $(document).ready(function($) {
   
-      $('.single-kupela').hover(function(){
+      $('.single-kupela').onClick(function(){
           $(this).find('.single-kupela-info').slideToggle(1000);
        
     });
