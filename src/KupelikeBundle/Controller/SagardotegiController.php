@@ -230,13 +230,19 @@ class SagardotegiController extends Controller
         $request = $fb->request(
             'GET',
             $idKupela, 
-            array('fields' => 'likes')
+            array('fields' => 'likes{username}')
         );
         
         $response = $fb->getClient()->sendRequest($request);
         $graphNode = $response->getGraphNode();
         
-        return new Response($graphNode);
+        // Añadimos a la respuesta la cuenta del número de likes
+        $numLikes = 'num-likes: ' . count($graphNode['likes']) . '}';
+        $json = json_decode($graphNode, true);
+        array_push($json, $numLikes);
+        $resJson = json_encode($json);
+        
+        return new Response($resJson);
     }
     
     /**
