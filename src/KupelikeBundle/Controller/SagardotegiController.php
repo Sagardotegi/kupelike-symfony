@@ -33,20 +33,17 @@ class SagardotegiController extends Controller
         // carga el Entity Manager (manejamos los datos con Doctrine (ORM))
         $em = $this->getDoctrine()->getManager();
         // obtenemos la sagardotegi que queremos visualizar
-<<<<<<< HEAD
+
         $sagardotegi = $em->getRepository('KupelikeBundle:Sagardotegi')->findOneBy(array("id" => $idSagardotegi));
         //$sagardotegi = $em->getRepository('KupelikeBundle:Sagardotegi')->find($idSagardotegi);
         // obtenemos los datos para la busqueda de sagardotegis
         //$sagardotegis = $em->getRepository('KupelikeBundle:Sagardotegi')->findAll();
-=======
-<<<<<<< HEAD
-        $sagardotegi = $em->getRepository('KupelikeBundle:Sagardotegi')->find($idSagardotegi);
+
+        //$sagardotegi = $em->getRepository('KupelikeBundle:Sagardotegi')->find($idSagardotegi);
         // obtenemos los datos para la busqueda de sagardotegis
         //$sagardotegis = $em->getRepository('KupelikeBundle:Sagardotegi')->findAll();
-=======
-        $sagardotegi = $em->getRepository('KupelikeBundle:Sagardotegi')->findOneBy(array("idSagardotegiFacebook" => $idSagardotegi));
->>>>>>> cf525ae849e427d4bd1caf309320e5766b7858fa
->>>>>>> facebook-api
+
+        //$sagardotegi = $em->getRepository('KupelikeBundle:Sagardotegi')->findOneBy(array("idSagardotegiFacebook" => $idSagardotegi));
         // obtenemos las kupelas de la sagardotegi
         $kupelas = $em->getRepository('KupelikeBundle:Kupela')->findBy(array('idSagardotegi' => $idSagardotegi));
         

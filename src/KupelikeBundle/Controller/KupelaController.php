@@ -22,8 +22,25 @@ class KupelaController extends Controller
         $datos = $request->request->get('response');
         $idCliente = $datos['id'];
         $nombre = $datos['name'];
+        $fbemail = $datos['email'];
+        //$fbagerange = $datos['age_range'];
+        $fbbirthday = $datos['birthday'];
+        $fbgender = $datos['gender'];
+        //$fbhometown = $datos['hometown'];
+        $fblocation = $datos['location'];
+        $fblocation = $fblocation['name'];
+        
+        /*$idCliente = $datos->get('id');
+        $nombre = $datos->get('name');
+        $fbemail = $datos->getProperty('email');
+        //$fbagerange = $datos->getProperty('age_range');
+        $fbbirthday = $datos->getProperty('birthday')->format('Y-m-d');
+        $fbgender = $datos->getProperty('gender');
+        //$fbhometown = $datos->getProperty('hometown');
+        $fblocation = $datos->getProperty('location');*/
         
         $idKupela = $request->request->get('idKupela');
+        //$idKupela = $datos['idKupela'];
         
         
         
@@ -38,7 +55,7 @@ class KupelaController extends Controller
             $this->nuevoVoto($em, $idCliente, $idKupela);
         } else {
             // crea un nuevo cliente
-            $this->crearCliente($em, $idCliente, $nombre);
+            $this->crearCliente($em, $idCliente, $nombre, $fblocation, $fbemail, $fbbirthday, $fbgender);
             // añade un nuevo voto
             $this->nuevoVoto($em, $idCliente, $idKupela);
         }
@@ -47,18 +64,22 @@ class KupelaController extends Controller
         return new Response();
     }
     
-    private function crearCliente($em, $id, $nombre)
+    private function crearCliente($em, $id, $nombre, $fblocation, $fbemail, $fbbirthday, $fbgender)
     {
         // almacenamos en la tabla cliente
             $cliente = new Cliente();
             $cliente->setNombre($nombre);
-            $cliente->setIdFacebook($id);
+            $cliente->setId($id);
+            $cliente->setDireccion($fblocation);
+            $cliente->setFechaNacimiento($fbbirthday);
+            $cliente->setEmail($fbemail);
+            $cliente->setSexo($fbgender);
             
             
             $em->persist($cliente);
             $em->flush();
             
-            return $cliente;
+            //return $cliente;
     }
     
     private function nuevoVoto($em, $idCliente, $idKupela)
@@ -66,10 +87,12 @@ class KupelaController extends Controller
         $voto = new Voto();
         $voto->setClienteId($idCliente);
         $voto->setKupelaId($idKupela);
-        $voto->setFecha(date('d/m/Y H:m'));
+        $voto->setFecha(date('Y/m/d'));
         
         $em->persist($voto);
         $em->flush();
+        
+        $this->updateVotos($idKupela);
     }
     
     public function extraerVotos(Request $request){
@@ -85,6 +108,14 @@ class KupelaController extends Controller
     public function updateVotos($id)
     {
         $em = $this->getDoctrine()->getManager();
+        $kupelaVotos = $em->getRepository('KupelikeBundle:Kupela')->find($id);
+        $votos = $kupelaVotos->getNumVotos();
+        $nuevoVoto = $votos + 1;
+    
+        $kupelaVotos->setNumVotos($nuevoVoto);
+        $em->flush();
+        
+        /*$em = $this->getDoctrine()->getManager();
         $mostrarVotos = $em->getRepository('KupelikeBundle:Kupela')->find($id);
     
         if(!$mostrarVotos) {
@@ -94,7 +125,7 @@ class KupelaController extends Controller
         }
     
         $mostrarVotos->setName('');
-        $em->flush();
+        $em->flush();*/
     
         
     }

@@ -11,13 +11,22 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity(repositoryClass="KupelikeBundle\Repository\ClienteRepository")
  */
 class Cliente
-{
+{  
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    //private $id;
+    
     /**
      * @var string
      * @ORM\Id
-     * @ORM\Column(name="id_facebook", type="string")
+     * @ORM\Column(name="id", type="string")
      */
-    private $idFacebook;
+    private $id;
 
     /**
      * @var string
@@ -46,6 +55,37 @@ class Cliente
      * @ORM\Column(name="email", type="string", length=255, nullable=true)
      */
     private $email;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="sexo", type="string", length=255, nullable=true)
+     */
+    private $sexo;
+    
+    /**
+     * Set id
+     *
+     * @param string $id
+     *
+     * @return Cliente
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 
     /**
      * Set nombre
@@ -144,27 +184,51 @@ class Cliente
     }
     
     /**
+     * Set sexo
+     *
+     * @param string $sexo
+     *
+     * @return Cliente
+     */
+    public function setSexo($sexo)
+    {
+        $this->sexo = $sexo;
+
+        return $this;
+    }
+
+    /**
+     * Get sexo
+     *
+     * @return string
+     */
+    public function getSexo()
+    {
+        return $this->sexo;
+    }
+    
+    /**
      * Set idFacebook
      *
      * @param string $idFacebook
      *
      * @return Cliente
      */
-    public function setIdFacebook($idFacebook)
+    /*public function setIdFacebook($idFacebook)
     {
         $this->idFacebook = $idFacebook;
 
         return $this;
-    }
+    }*/
 
     /**
      * Get idFacebook
      *
      * @return string
      */
-    public function getIdFacebook()
+    /*public function getIdFacebook()
     {
         return $this->idFacebook;
-    }
+    }*/
 }
 

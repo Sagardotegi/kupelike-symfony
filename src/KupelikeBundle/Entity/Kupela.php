@@ -97,7 +97,7 @@ class Kupela
      */ 
     public function setIdSagardotegi($idSagardotegi)
     {
-        $this->id_sagardotegi = $idSagardotegi;
+        $this->idSagardotegi = $idSagardotegi;
         
         return $this;
     }
@@ -109,7 +109,7 @@ class Kupela
      */ 
     public function getIdSagardotegi()
     {
-        return $this->id_sagardotegi;
+        return $this->idSagardotegi;
     }
 
     /**
