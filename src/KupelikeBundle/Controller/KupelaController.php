@@ -135,8 +135,8 @@ class KupelaController extends Controller
         }
     
         $mostrarVotos->setName('');
-        $em->flush();*/
+        $em->flush();
     
         
-    }    */
+    }*/
 }
