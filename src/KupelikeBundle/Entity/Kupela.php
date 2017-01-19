@@ -32,9 +32,9 @@ class Kupela
     /**
      * @var int
      *
-     * @ORM\Column(name="num_votos", type="integer", nullable=true)
+     * @ORM\Column(name="num_votos", type="integer")
      */
-    private $numVotos;
+    private $numVotos = 0;
 
     /**
      * @var string
@@ -70,13 +70,6 @@ class Kupela
      * @ORM\Column(name="url", type="string", length=255, nullable=true)
      */
     private $url;
-    
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="id_kupela_facebook", type="string", length=255)
-     */
-    private $idKupelaFacebook;
 
     /**
      * Get id
@@ -254,30 +247,6 @@ class Kupela
     public function getUrl()
     {
         return $this->url;
-    }
-    
-    /**
-     * Set idKupelaFacebook
-     *
-     * @param string $idKupelaFacebook
-     *
-     * @return Kupela
-     */
-    public function setIdKupelaFacebook($idKupelaFacebook)
-    {
-        $this->id_kupela_facebook = $idKupelaFacebook;
-
-        return $this;
-    }
-
-    /**
-     * Get idKupelaFacebook
-     *
-     * @return string
-     */
-    public function getIdKupelaFacebook()
-    {
-        return $this->id_kupela_facebook;
     }
 }
 

@@ -9,6 +9,10 @@ use Symfony\Component\HttpFoundation\Request;
 use KupelikeBundle\Entity\Kupela;
 use KupelikeBundle\Entity\Cliente;
 use KupelikeBundle\Entity\Voto;
+use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\Serializer\Encoder\XmlEncoder;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 
 class KupelaController extends Controller
 {
@@ -139,4 +143,30 @@ class KupelaController extends Controller
     
         
     }*/
+    
+    /**
+     * API REST
+     */
+     
+     /**
+      * Obtiene el número de likes de una kupela
+      * /api/get-likes/{idKupela}
+      */ 
+    public function getLikesAction($idKupela)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $kupela = $em->getRepository('KupelikeBundle:Kupela')->find($idKupela);
+        $numVotos = $kupela->getNumVotos();
+        $votos = array('num-votos' => $numVotos);
+        
+        // Convertir el objeto en JSON
+        $encoders = array(new JsonEncoder());
+        $normalizers = array(new ObjectNormalizer());
+        
+        $serializer = new Serializer($normalizers, $encoders);
+        
+        // Devolvemos el objeto en JSON
+        $json = $serializer->serialize($votos, 'json');
+        return new Response($json);
+    }
 }

@@ -63,19 +63,9 @@ sagardotegis_buscar:
 
 # API REST URL
 
-obtener_kupelas:
-    path: /api/get-kupelas/{idPagina}
-    defaults: { _controller: KupelikeBundle:Sagardotegi:getKupelas }
-    methods: [GET]
-    
-obtener_likes:
+obtener_likes_kupela:
     path: /api/get-likes/{idKupela}
-    defaults: { _controller: KupelikeBundle:Sagardotegi:getLikes }
-    methods: [GET]
-    
-obtener_sagardotegi:
-    path: /api/get-sagardotegi/{nameSagardotegi}
-    defaults: { _controller: KupelikeBundle:Sagardotegi:getSagardotegi}
+    defaults: { _controller: KupelikeBundle:Kupela:getLikes }
     methods: [GET]
 
 

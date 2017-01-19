@@ -15,18 +15,10 @@ class Cliente
     /**
      * @var int
      *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(name="id_facebook", type="integer")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
      */
-    //private $id;
-    
-    /**
-     * @var string
-     * @ORM\Id
-     * @ORM\Column(name="id", type="string")
-     */
-    private $id;
+    private $idFacebook;
 
     /**
      * @var string
@@ -64,27 +56,27 @@ class Cliente
     private $sexo;
     
     /**
-     * Set id
+     * Set idFacebook
      *
-     * @param string $id
+     * @param string $idFacebook
      *
      * @return Cliente
      */
-    public function setId($id)
+    public function setIdFacebook($idFacebook)
     {
-        $this->id = $id;
+        $this->idFacebook = $idFacebook;
 
         return $this;
     }
 
     /**
-     * Get id
+     * Get idFacebook
      *
-     * @return int
+     * @return string
      */
-    public function getId()
+    public function getIdFacebook()
     {
-        return $this->id;
+        return $this->idFacebook;
     }
 
     /**
@@ -206,29 +198,5 @@ class Cliente
     {
         return $this->sexo;
     }
-    
-    /**
-     * Set idFacebook
-     *
-     * @param string $idFacebook
-     *
-     * @return Cliente
-     */
-    /*public function setIdFacebook($idFacebook)
-    {
-        $this->idFacebook = $idFacebook;
-
-        return $this;
-    }*/
-
-    /**
-     * Get idFacebook
-     *
-     * @return string
-     */
-    /*public function getIdFacebook()
-    {
-        return $this->idFacebook;
-    }*/
 }
 
