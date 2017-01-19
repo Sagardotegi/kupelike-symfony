@@ -64,15 +64,7 @@ obtener_likes:
     defaults: { _controller: KupelikeBundle:Sagardotegi:getLikes }
     methods: [GET]
     
-<<<<<<< HEAD
-# WebHook Facebook
-
-facebook_webhook:
-    path: /api/webhook
-    defaults: { _controller: KupelikeBundle:Sagardotegi:webhook }
-=======
 obtener_sagardotegi:
     path: /api/get-sagardotegi/{nameSagardotegi}
     defaults: { _controller: KupelikeBundle:Sagardotegi:getSagardotegi}
     methods: [GET]
->>>>>>> 302e0e5bbbe5e6dc30000ccb469afc17c7021133
