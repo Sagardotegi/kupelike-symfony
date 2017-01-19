@@ -30,7 +30,7 @@ gps:
 contacto:
     path: /contacto
     defaults: { _controller: KupelikeBundle:Index:contacto }
-    methods: [GET]
+    methods: [GET, POST]
     
 nosotros:
     path: /nosotros
