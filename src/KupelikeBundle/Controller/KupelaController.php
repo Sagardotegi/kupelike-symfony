@@ -10,6 +10,8 @@ use KupelikeBundle\Entity\Kupela;
 use KupelikeBundle\Entity\Cliente;
 use KupelikeBundle\Entity\Voto;
 
+//require '/vendor/autoload.php';
+
 class KupelaController extends Controller
 {
     
@@ -117,6 +119,9 @@ class KupelaController extends Controller
     
         $kupelaVotos->setNumVotos($nuevoVoto);
         $em->flush();
+        //$this->hacerPusher($nuevoVoto);
+        
+        
         
         /*$em = $this->getDoctrine()->getManager();
         $mostrarVotos = $em->getRepository('KupelikeBundle:Kupela')->find($id);
@@ -131,5 +136,23 @@ class KupelaController extends Controller
         $em->flush();*/
     
         
+    }
+    
+    public function hacerPusherAction()
+    {
+        /* pusher */
+        $options = array(
+            'cluster' => 'eu',
+            'encrypted' => true
+        );
+        $pusher = new Pusher(
+            'fb3191e3b80fc4a2076b',
+            'e557d927dbe92d8dd449',
+            '291479',
+            $options
+        );
+        $data['message'] = "Cambiado";
+        $pusher->trigger('my-channel', 'my-event', $data);
+        /* pusher */
     }
 }

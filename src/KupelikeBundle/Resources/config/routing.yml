@@ -42,6 +42,11 @@ kupela_like:
     defaults: { _controller: KupelikeBundle:Kupela:like }
     methods: [POST]
     
+pusher:
+    path: /pusher
+    defaults: { _controller: KupelikeBundle:Kupela:hacerPusher }
+    methods: [GET]
+    
 #cargar_sagardotegis:
 #    path: /save-sagardotegis
 #    defaults: { _controller: KupelikeBundle:Sagardotegi:save }
@@ -55,3 +60,13 @@ enviar_correo:
 sagardotegis_buscar:
     path: /search
     defaults: { _controller: KupelikeBundle:Index:search }
+    
+login:
+    path: /login
+    defaults: { _controller: KupelikeBundle:Index:login }
+    methods: [GET]
+    
+acceder:
+    path: /acceder
+    defaults: { _controller: KupelikeBundle:Index:acceder }
+    methods: [GET]
