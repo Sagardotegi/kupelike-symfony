@@ -1,3 +1,16 @@
+html, body {
+    height: 100%;
+}
+.wrapper {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -372px; /* the bottom margin is the negative value of the footer's height */
+}
+.footer, .push {
+    height: 372px; /* .push must be the same height as .footer */
+}
+
 /* Fonts
 font-family: 'Roboto', sans-serif;
 font-family: 'Fjalla One', sans-serif;
@@ -5,15 +18,33 @@ font-family: 'Lobster', cursive;
 */
 
 /* Bootstrap Override */
+body {
+    padding-top: 100px;
+}
+
+/* Scrollbar */
+body::-webkit-scrollbar {
+    width: .5em;
+}
+ 
+body::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 3px rgba(0,0,0,0.3);
+}
+ 
+body::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+}
+
+/* Fin Scrollbar */
 
 .landing {
 
-    background-image: url('../img/fondo.jpg') !important;
+    background: url('../img/fondo.jpg') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
     background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center center;
-    height: 100vh;
 }
 
 .img-logo{
@@ -36,21 +67,18 @@ font-family: 'Lobster', cursive;
 
 .content {
     
-    margin-top: 120px;
+    /*margin-top: 100px;*/
 }
 
 /* Menu */
 
 .navbar {
     
-    position: fixed !important;
+    position: fixed;
     min-height: 100px !important;
     margin-bottom: 0px !important;
-    border: 0px !important;
-    border-radius: 0px !important;
     background-color: white;
-    width: 100%;
-    z-index: 2;
+    z-index: 3;
 }
 
 .navbar-ham {
@@ -85,7 +113,7 @@ font-family: 'Lobster', cursive;
     float: left;
     height: inherit;
     padding: 15px;
-    font-size: 40px;
+    font-size: 35px;
     line-height: 55px;
     letter-spacing: 2px;
     color: #629c44;
@@ -113,7 +141,7 @@ font-family: 'Lobster', cursive;
 
 .navbar-search-widen {
     
-    padding-left: 0%;
+    padding-left: 5%;
     -moz-transition: padding-left 1s ease-in;
      -o-transition: padding-left  1s ease-in;
      -webkit-transition: padding-left  1s ease-in;
@@ -125,10 +153,17 @@ font-family: 'Lobster', cursive;
     
 }
 
+.searchPadding {
+    padding-right: 40px;
+}
+
+.img-search {
+    height: 200px;
+}
+
 .form-control {
     
-    min-width: 230px !important;
-    width: 95% !important;
+    width: 90% !important;
     height: 34px;
     padding: 6px 12px;
     font-size: 14px;
@@ -151,7 +186,7 @@ font-family: 'Lobster', cursive;
     background-image: none;
     border: 1px solid #ccc;
     border-radius: 4px;
-    width: 95%;
+    width: 90%;
 }
 
 .search-btn {
@@ -215,10 +250,11 @@ font-family: 'Lobster', cursive;
     
     position: fixed !important;
     height: 100vh;
-    background-color: rgba(255, 255, 255, 0.75);
-    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.90);
+    z-index: 2;
     display: none;
-    margin-top: 70px;
+    overflow-y: auto;
+    padding-bottom: 100px;
 }
 
 .closeSearch {
@@ -226,7 +262,8 @@ font-family: 'Lobster', cursive;
     color: black;
     cursor: pointer;
     z-index: 1;
-    margin-top: 120px;
+    display: none;
+    margin-top: 5px;
 }
 
 /* Fin Menu*/
@@ -234,11 +271,14 @@ font-family: 'Lobster', cursive;
 /* Welcome */
 
 .welcome {
+    
     height: 100vh;
     display: flex;
     align-items: center;
     width: 100%;
-    /*height: 100%;*/
+    margin-right: 0px;
+    margin-left: 0px;
+    margin-top: -100px !important;
     overflow-x: hidden;
 }
 
@@ -281,13 +321,13 @@ font-family: 'Lobster', cursive;
 
 
 .btn-social {
+    
     color: #629c44 !important;
-    z-index: 1;
 }
 
 .btn-social-inner {
+    
     color: #232323 !important;
-    z-index: 1;
 }
 
 .subfooter {
@@ -305,9 +345,9 @@ font-family: 'Lobster', cursive;
 }
 
 .footer {
-
-    padding-top: 40px;
+    padding-top: 36px;
     background-color: #232323;
+    height: 372px;
 }
 
 
@@ -352,6 +392,12 @@ font-family: 'Lobster', cursive;
     padding-right: 0px !important;
 }
 
+.p-x-1 {
+    
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+}
+
 /*.parallax-container {
     height: 500px;
 }*/
@@ -380,8 +426,9 @@ font-family: 'Lobster', cursive;
 .caja {
     
     padding: 0px 0px;
-    margin: 20px 0px;
+    margin: 3px 5px;
     background-color: white;
+    border-bottom: #629c44 solid 5px;
 }
 
  .mtitle {
@@ -428,12 +475,12 @@ h1.a-sagar a:active {
   
 .carousel {
     
-      height: 700px;
+      height: 600px;
 }
  
 .item {
     
-      height: 600px
+      height: 500px
 }
   
 .carousel-control {
@@ -530,9 +577,9 @@ h1.a-sagar a:active {
     color: white;
     height: 50px;
     width: 175px;
-    position: relative;
-    top: 80px;
-    left: -50px;
+    position: absolute;
+    top: 40px;
+    left: 25px;
     letter-spacing: 2px;
     padding: 5px;
 }
@@ -560,7 +607,7 @@ h1.a-sagar a:active {
 
 .contact_form{
     font: 100% Arial, Helvetica, sans-serif;
-    max-width: 800px;
+    /*max-width: 800px;*/
     margin: 10px auto;
     padding: 16px;
     background: #F7F7F7;
@@ -591,7 +638,7 @@ h1.a-sagar a:active {
 
 #enviar:hover {
  background: rgba(0,0,0,0);
- box-shadow: inset 0 0 0 3px #43d1af;
+ box-shadow: inset 0 0 0 3px #629c44 /*#43d1af*/;
 }
 
 textarea{
@@ -606,7 +653,7 @@ textarea{
 #nosotros{
     color: #629c44;
     background-color: white;
-    text-align: center;
+    text-align: justify;
     font-family: 'Lobster', cursive;
     
 }
@@ -616,18 +663,63 @@ textarea{
      
 }
 
+/** FIN ! Formulario contacto **/
+/**/
+
+/** Single Sagardotegi ta bere kupelak **/
+
+.single-sagardotegi {
+
+    padding-top: 20px;
+    padding-bottom: 50px;
+    background-color: white;
+    z-index: 1;
+}
+
+.single-img {
+    
+    width: 100%;
+    height: 100%;
+    max-width: 450px;
+    margin: 0 auto;
+}
+
+.single-kupela-img {
+   
+   max-width: 200px;
+}
+
+.single-description {
+    
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 2px;
+    font-size: medium;
+    text-align: justify;
+    margin-left: 20px;
+}
+
+.card-single-direction {
+    
+    background-color: #629c44;
+    color: white;
+    height: 50px;
+    width: 175px;
+    position: absolute;
+    top: 20px;
+    left: 25px;
+    letter-spacing: 2px;
+    padding: 5px;
+}
+
 .like {
+    
     width: 200px !important;
 }
 
 .portada_sidreria{
+    
     width: inherit;
     min-width: 500px;
-    
-}
-
-#decripcion{
-    text-align: justify;
 }
 
 .btn-default {
@@ -638,10 +730,174 @@ textarea{
     margin-top: 10px;
 }    
 
+.card-sidreria {
+    width: 100%;
+    padding: 15px 60px;
+    margin: 0 auto;
+}
+
+.single-kupela {
+    
+  border-left: 2px solid #629c44;
+  padding: 25px 0px;
+}
+
+.kupela-list {
+    
+}
+
+.votos {
+    text-align: center;
+}
+
+.vote-button {
+    
+    background-color: #629c44;
+}
+
+.img-kupela {
+    
+    width: 100%;
+    height: 100%;
+    max-width: 450px;
+    margin: 0 auto;
+}
+
+#mapa_todas{
+    
+    margin-bottom: 50px;
+}
+
+hr.separador_nosotros {
+	border-top: 4px double #6ca250;
+	text-align: center;
+}
+hr.separador_nosotros:after {
+	content: '\002665';
+	display: inline-block;
+	position: relative;
+	top: -15px;
+	padding: 0 10px;
+	background: white;
+	color: #6ca250;
+	font-size: 18px;
+}
+
+.ikastolak {
+    width: 100%;
+}
+
+hr.search-hr {
+    width: 70%;
+    height: 3px;
+    color: #6ca250;
+    background-color: #6ca250;
+}
+
+.card-description.nosotros{
+    color: black;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: justify;
+    letter-spacing: 1px !important;
+    background: white;
+    margin: 0 0 25px;
+    overflow: hidden;
+    padding: 50px;
+    border-radius: 35px 0px 35px 0px;
+        -moz-border-radius: 35px 0px 35px 0px;
+        -webkit-border-radius: 35px 0px 35px 0px;
+    border: 2px solid #6ca250;
+    
+    
+    
+}
 
 
-/** FIN ! Formulario contacto **/
-/**/
+ /*agrandar like*/
+
+.like{
+    -webkit-transition:all 1.9s ease;
+    -moz-transition:all 1.9s ease;
+    -o-transition:all 1.9s ease;
+    -ms-transition:all 1.9s ease;
+    margin-top: 80px;
+    
+   
+    
+}
+
+
+.like:hover img {
+    -webkit-transform:scale(1.25);
+    -moz-transform:scale(1.25);
+    -ms-transform:scale(1.25);
+    -o-transform:scale(1.25);
+    transform:scale(1.25);
+
+}
+
+#corazon-like{
+    width:60px;
+    height:180px;
+    overflow:hidden;
+    
+    
+}
+
+#numVotos{
+    font-size: 60px;
+}
+
+
+
+
+
+/* slider */
+.imagen-about {
+  width: 173px;
+  height: 173px;
+  margin-top: 5%;
+  margin-left: auto;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  border-radius: 300px;
+  /*box-shadow: black -2px -4px 50px -2px;*/
+  text-align: left;
+}
+
+
+/**************** lider new ***********************/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /** titulo index 

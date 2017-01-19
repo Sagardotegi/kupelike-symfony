@@ -5,6 +5,15 @@ $(document).ready(function($) {
         $('#navbar-search').removeClass('navbar-search').addClass('navbar-search-widen');
        // $('#navbar-search').removeClass('col-xs-6 pull-right').addClass('col-xs-8 col-xs-offset-2 col-md-6 col-md-offset-0');
         $('.searchResults').slideDown(1000);
+        $('.closeSearch').show(1100);
+        $('body').css({
+            overflow: 'hidden',
+            height: '100%'
+        });
+        /*$('.searchResults').css({
+            overflow: 'auto !important',
+            height: '1000px'
+        });*/
     });
     
    $('.closeSearch').on('click', function(){
@@ -12,11 +21,21 @@ $(document).ready(function($) {
         $('#navbar-search').removeClass('navbar-search-widen').addClass('navbar-search');
         //$('#navbar-search').removeClass('col-xs-8 col-xs-offset-2 col-md-6 col-md-offset-0').addClass('col-xs-6 pull-right');
         $('.searchResults').slideUp(1000);
+        $('.closeSearch').hide(900);
+        $('.searchBox').val("");
+        $('body').css({
+            overflow: 'auto',
+            height: '100%'
+        });
+        /*$('.searchResults').css({
+            overflow: 'hidden',
+            height: '100%'
+        });*/
     });
             
 });
 
-$(document).ready(function($) {
+/*$(document).ready(function($) {
         $('.toggle-button').click(function() {
             $('.menu').addClass('visible-menu');
         });
@@ -24,7 +43,15 @@ $(document).ready(function($) {
         $('.close-menu').click(function() {
             $('.menu').removeClass('visible-menu');
         });
-    });
+    });*/
+    
+$(document).on('click', function(e) {
+  if($(e.target).is('.navbar-ham2 *')) {
+    $('.menu').addClass('visible-menu');
+  } else {
+    $('.menu').removeClass('visible-menu');
+  }
+});
     
 //* Search zoom disable *//    
     
@@ -41,7 +68,7 @@ function zoomEnable(){
     
 
 
-function showResult(str) {
+/*function showResult(str) {
   if (str.length==0) { 
     document.getElementById("searchResults").innerHTML="";
     document.getElementById("searchResults").style.border="0px";
@@ -61,7 +88,7 @@ function showResult(str) {
   }
   xmlhttp.open("GET","searchResults.php?q="+str,true);
   xmlhttp.send();
-}
+}*/
 
 
 

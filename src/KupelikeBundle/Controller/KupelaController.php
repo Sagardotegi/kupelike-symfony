@@ -22,8 +22,26 @@ class KupelaController extends Controller
         $datos = $request->request->get('response');
         $idCliente = $datos['id'];
         $nombre = $datos['name'];
+        $fbemail = $datos['email'];
+        $fbgender = $datos['gender'];
+        //$fblocation = $datos['location'];
+        //$fblocation = $fblocation['name'];
+        //$fbbirthday = $datos['birthday'];
+        
+        //$fbhometown = $datos['hometown'];
+        //$fbagerange = $datos['age_range'];
+        
+        /*$idCliente = $datos->get('id');
+        $nombre = $datos->get('name');
+        $fbemail = $datos->getProperty('email');
+        //$fbagerange = $datos->getProperty('age_range');
+        $fbbirthday = $datos->getProperty('birthday')->format('Y-m-d');
+        $fbgender = $datos->getProperty('gender');
+        //$fbhometown = $datos->getProperty('hometown');
+        $fblocation = $datos->getProperty('location');*/
         
         $idKupela = $request->request->get('idKupela');
+        //$idKupela = $datos['idKupela'];
         
         
         
@@ -38,7 +56,8 @@ class KupelaController extends Controller
             $this->nuevoVoto($em, $idCliente, $idKupela);
         } else {
             // crea un nuevo cliente
-            $this->crearCliente($em, $idCliente, $nombre);
+            //$this->crearCliente($em, $idCliente, $nombre, $fblocation, $fbemail, $fbbirthday, $fbgender);
+            $this->crearCliente($em, $idCliente, $nombre, $fbemail, $fbgender);
             // añade un nuevo voto
             $this->nuevoVoto($em, $idCliente, $idKupela);
         }
@@ -47,18 +66,23 @@ class KupelaController extends Controller
         return new Response();
     }
     
-    private function crearCliente($em, $id, $nombre)
+    //private function crearCliente($em, $id, $nombre, $fblocation, $fbemail, $fbbirthday, $fbgender)
+    private function crearCliente($em, $id, $nombre, $fbemail, $fbgender)
     {
         // almacenamos en la tabla cliente
             $cliente = new Cliente();
             $cliente->setNombre($nombre);
-            $cliente->setIdFacebook($id);
+            $cliente->setId($id);
+            $cliente->setEmail($fbemail);
+            $cliente->setSexo($fbgender);
+            //$cliente->setDireccion($fblocation);
+            //$cliente->setFechaNacimiento($fbbirthday);
             
             
             $em->persist($cliente);
             $em->flush();
             
-            return $cliente;
+            //return $cliente;
     }
     
     private function nuevoVoto($em, $idCliente, $idKupela)
@@ -66,17 +90,19 @@ class KupelaController extends Controller
         $voto = new Voto();
         $voto->setClienteId($idCliente);
         $voto->setKupelaId($idKupela);
-        $voto->setFecha(date('d/m/Y H:m'));
+        $voto->setFecha(date('Y/m/d'));
         
         $em->persist($voto);
         $em->flush();
+        
+        $this->updateVotos($idKupela);
     }
     
     public function mostrarAction($id){
         
             $mostrarVotos = $this->getDoctrine()->getRepository('KupelikeBundle:Kupela')->find($id);
             if(!$mostrarVotos){
-                throw $this->createNotFoundException('No se ha encontrado la kupepela con el ID'+$id);
+                throw $this->createNotFoundException('No se ha encontrado la kupela con el ID'+$id);
             }
             
             $mostrarVotos=json_encode($mostrarVotos);
@@ -92,16 +118,24 @@ class KupelaController extends Controller
     /*public function updateVotos($id)
     {
         $em = $this->getDoctrine()->getManager();
+        $kupelaVotos = $em->getRepository('KupelikeBundle:Kupela')->find($id);
+        $votos = $kupelaVotos->getNumVotos();
+        $nuevoVoto = $votos + 1;
+    
+        $kupelaVotos->setNumVotos($nuevoVoto);
+        $em->flush();
+        
+        /*$em = $this->getDoctrine()->getManager();
         $mostrarVotos = $em->getRepository('KupelikeBundle:Kupela')->find($id);
     
         if(!$mostrarVotos) {
             throw $this->createNotFoundException(
-              'No se ha encontrado la kupepela con el ID'.$id
+              'No se ha encontrado la kupela con el ID'.$id
             );
         }
     
         $mostrarVotos->setName('');
-        $em->flush();
+        $em->flush();*/
     
         
     }    */

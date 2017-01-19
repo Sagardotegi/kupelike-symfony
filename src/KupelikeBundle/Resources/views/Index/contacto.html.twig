@@ -1,20 +1,22 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-
-    <<div class="row sidreria">
-        <div class="col-sm-12">
-            <h1 class="mtitle title-padding text-center">Contactanos</h1>
+<div class="container-fluid content">
+    <div class="row">
+        <div class="col-xs-offset-3 col-xs-6">
+            <div class="row">
+                <h1 class="mtitle title-padding text-center">Contáctanos</h1>
+            </div>
+            <div class="row">
+                <form class="contact_form" action="{{path('enviar_correo')}}" method="post">
+                    <input name= "nombre-apellidos" class= "formulario" type="text" required  placeholder="Escriba su nombre y apellidos"/>
+                    <input name= "email" class= "formulario" type="email" name="email" required placeholder="Indíquenos su Email"/>
+                    <textarea name="contenido" class= "formulario" name="Mensaje" cols="40" rows="6" required  placeholder="Díganos cuál es el motivo de su consulta para que podamos responderle lo antes posible."></textarea>
+                    <input id="enviar" class="formulario" type="submit" value="Enviar" />
+                </form>
+            </div>
         </div>
-    </div>  
-    <div class= "row contenido">
-           <form class="contact_form" action="#" method="post">
-                       <input class= "formulario" type="text" required  placeholder="Escriba su nombre y apellidos"/>
-                       <input class= "formulario" type="email" name="email" required placeholder="Indicanos tu Email"/>
-                       <textarea class= "formulario" name="Mensaje" cols="40" rows="6" required  placeholder="Dinos cuál es el motivo de tu consulta para que podamos responderte lo antes posible."></textarea>
-                       <input id= "enviar" class="formulario" type="submit" value="Enviar" />
-           </form>
-     </div>  
-   
+    </div>
 
 {% endblock %}
+

@@ -38,7 +38,7 @@ nosotros:
     methods: [GET]    
 
 kupela_like:
-    path: /kupela-like
+    path: /kupela_like
     defaults: { _controller: KupelikeBundle:Kupela:like }
     methods: [POST]
     
@@ -51,6 +51,15 @@ cargar_sagardotegis:
 mostrar_votos:
     path: /mostrar-votos/{id}
     defaults: { _controller: KupelikeBundle:Kupela:mostrar }
+    
+enviar_correo:
+    path: /enviar-correo
+    defaults: { _controller: KupelikeBundle:Index:email }
+    methods: [POST]
+    
+sagardotegis_buscar:
+    path: /search
+    defaults: { _controller: KupelikeBundle:Index:search }
 
 # API REST URL
 
@@ -68,3 +77,5 @@ obtener_sagardotegi:
     path: /api/get-sagardotegi/{nameSagardotegi}
     defaults: { _controller: KupelikeBundle:Sagardotegi:getSagardotegi}
     methods: [GET]
+
+
