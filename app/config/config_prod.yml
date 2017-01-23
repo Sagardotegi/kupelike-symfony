@@ -19,3 +19,7 @@ monolog:
             level: debug
         console:
             type:  console
+            
+doctrine:
+    dbal:
+        url: "%database_url%"
