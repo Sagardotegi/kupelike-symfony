@@ -69,7 +69,22 @@ swiftmailer:
     username:  "kupelikeproject"
     password:  "Abcd_1234"
 
+# app/config/config.yml
+lopi_pusher:
+    app_id: "291479"
+    key: "fb3191e3b80fc4a2076b"
+    secret: "e557d927dbe92d8dd449"
 
+    # Default configuration
+    #debug: false # true if you want use the debug of all requests
+    cluster: eu # Change the cluster name
+    host: https://api.pusherapp.com
+    port: 443
+    #timeout: 30
+
+    # optional if you want to use private or presence channels
+    # see the section about "Private and Presense channel auth" below
+    # auth_service_id: <the_auth_service_id>
   
     
 hwi_oauth:

@@ -42,10 +42,10 @@ kupela_like:
     defaults: { _controller: KupelikeBundle:Kupela:like }
     methods: [POST]
     
-pusher:
-    path: /pusher
-    defaults: { _controller: KupelikeBundle:Kupela:hacerPusher }
-    methods: [POST]
+#pusher:
+#    path: /pusher
+#    defaults: { _controller: KupelikeBundle:Kupela:hacerPusher }
+#    methods: [POST]
     
 #cargar_sagardotegis:
 #    path: /save-sagardotegis

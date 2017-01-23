@@ -45,7 +45,7 @@ class KupelaController extends Controller
         $idKupela = $request->request->get('idKupela');
         //$idKupela = $datos['idKupela'];
         
-        //$this->hacerPusher();
+        
         
         
         // Entity Manager
@@ -64,6 +64,22 @@ class KupelaController extends Controller
             // añade un nuevo voto
             $this->nuevoVoto($em, $idCliente, $idKupela);
         }
+        
+        //$this->hacerPusher();
+        //$pusher = $this->container->get('lopi_pusher.pusher');
+        /*$options = array(
+            'cluster' => 'eu',
+            'encrypted' => true
+        );
+        $pusher = new Pusher(
+            'fb3191e3b80fc4a2076b',
+            'e557d927dbe92d8dd449',
+            '291479',
+            $options
+        );*/
+        //$data['message'] = "Cambiado";
+        //$pusher->trigger('my-channel', 'my-event', $data);
+        //include_once('pusher.php');
         
         
         return new Response();
@@ -139,11 +155,11 @@ class KupelaController extends Controller
         
     }
     
-    public function hacerPusherAction()
-    {
+    /*public function hacerPusher()
+    {*/
         /* pusher */
-        $pusher = $this->container->get('lopi_pusher.pusher');
-        $options = array(
+        //$pusher = $this->container->get('lopi_pusher.pusher');
+        /*$options = array(
             'cluster' => 'eu',
             'encrypted' => true
         );
@@ -152,10 +168,10 @@ class KupelaController extends Controller
             'e557d927dbe92d8dd449',
             '291479',
             $options
-        );
-        $data['message'] = "Cambiado";
-        $pusher->trigger('my-channel', 'my-event', $data);
+        );*/
+        //$data['message'] = "Cambiado";
+        //$pusher->trigger('my-channel', 'my-event', $data);
         //return new Response();
         /* pusher */
-    }
+    /*}*/
 }

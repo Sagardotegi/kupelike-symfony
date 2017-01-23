@@ -20,12 +20,12 @@
         // Enable pusher logging - don't include this in production
         // Pusher.logToConsole = true;
         var pusher = new Pusher('fb3191e3b80fc4a2076b', {
-            cluster: 'eu',
-            encrypted: true
+            cluster: 'eu'//,
+            //encrypted: true
         });
         var channel = pusher.subscribe('my-channel');
         channel.bind('my-event', function(data) {
-            //alert(data.message);
+            alert(data.message);
             //console.log(data.message);
             document.getElementById("prueba").textContent = data.message;
         });
