@@ -45,6 +45,7 @@ class KupelaController extends Controller
         $idKupela = $request->request->get('idKupela');
         //$idKupela = $datos['idKupela'];
         
+        //$this->hacerPusher();
         
         
         // Entity Manager
@@ -141,6 +142,7 @@ class KupelaController extends Controller
     public function hacerPusherAction()
     {
         /* pusher */
+        $pusher = $this->container->get('lopi_pusher.pusher');
         $options = array(
             'cluster' => 'eu',
             'encrypted' => true
@@ -153,6 +155,7 @@ class KupelaController extends Controller
         );
         $data['message'] = "Cambiado";
         $pusher->trigger('my-channel', 'my-event', $data);
+        //return new Response();
         /* pusher */
     }
 }

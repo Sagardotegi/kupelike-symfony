@@ -45,7 +45,7 @@ kupela_like:
 pusher:
     path: /pusher
     defaults: { _controller: KupelikeBundle:Kupela:hacerPusher }
-    methods: [GET]
+    methods: [POST]
     
 #cargar_sagardotegis:
 #    path: /save-sagardotegis

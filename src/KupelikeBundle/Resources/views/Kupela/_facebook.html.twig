@@ -73,12 +73,12 @@
                     data: {response, idKupela: idKupela }
                 });
                 
-                /*$.ajax({
-                    //type: "GET",
+                $.ajax({
+                    type: "POST",
                     //dataType: "json",
                     url: "{{ path('pusher') }}",
                     //data: {response, idKupela: idKupela }
-                });*/
+                });
                 //});
             });
         }
