@@ -1,12 +1,10 @@
 # This file is auto-generated during the composer install
 parameters:
-
-    database_driver: pdo_psql
-    database_host: localhost
-    database_port: null
-    database_name: kupelike
-    database_user: kupelike
-    database_password: abc123
+    database_host: sql11.freesqldatabase.com
+    database_port: 3306
+    database_name: sql11155211
+    database_user: sql11155211
+    database_password: PDcehiT4qX
     
     
     mailer_transport: smtp
