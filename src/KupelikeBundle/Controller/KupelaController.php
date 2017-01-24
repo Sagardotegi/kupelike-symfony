@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 use KupelikeBundle\Entity\Kupela;
 use KupelikeBundle\Entity\Cliente;
 use KupelikeBundle\Entity\Voto;
+//use Lopi\Bundle\PusherBundle;
 
 //require '/vendor/autoload.php';
 
@@ -66,21 +67,9 @@ class KupelaController extends Controller
         }
         
         //$this->hacerPusher();
-        //$pusher = $this->container->get('lopi_pusher.pusher');
-        /*$options = array(
-            'cluster' => 'eu',
-            'encrypted' => true
-        );
-        $pusher = new Pusher(
-            'fb3191e3b80fc4a2076b',
-            'e557d927dbe92d8dd449',
-            '291479',
-            $options
-        );*/
-        //$data['message'] = "Cambiado";
-        //$pusher->trigger('my-channel', 'my-event', $data);
-        //include_once('pusher.php');
-        
+        /*$pusher = $this->container->get('lopi_pusher.pusher');
+        $data['message'] = "Cambiado";
+        $pusher->trigger('my-channel', 'my-event', $data);*/
         
         return new Response();
     }
@@ -155,9 +144,13 @@ class KupelaController extends Controller
         
     }
     
-    /*public function hacerPusher()
-    {*/
+    public function hacerPusherAction()
+    {
         /* pusher */
+        $pusher = $this->container->get('lopi_pusher.pusher');
+        $data['message'] = "Cambiado";
+        $pusher->trigger('my-channel', 'my-event', $data);
+        
         //$pusher = $this->container->get('lopi_pusher.pusher');
         /*$options = array(
             'cluster' => 'eu',
@@ -173,5 +166,16 @@ class KupelaController extends Controller
         //$pusher->trigger('my-channel', 'my-event', $data);
         //return new Response();
         /* pusher */
-    /*}*/
+        /*$em = $this->getDoctrine()->getManager();
+
+        $sagardotegi = $em->getRepository('KupelikeBundle:Sagardotegi')->findOneBy(array("id" => $idSagardotegi));
+        $kupelas = $em->getRepository('KupelikeBundle:Kupela')->findBy(array('idSagardotegi' => $idSagardotegi));
+        
+        return $this->render('KupelikeBundle:Kupela:index2.html.twig', array(
+            'kupelas' => $kupelas,
+            'sagardotegi' => $sagardotegi//,
+            //'kupelaN' => $kupelaN
+        ));*/
+        return new Response();
+    }
 }
