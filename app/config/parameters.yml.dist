@@ -4,7 +4,7 @@
 parameters:
     database_driver:   pdo_pgsql
     database_host:     localhost
-    database_port:     null
+    database_port:     5432
     database_name:   kupelike
     database_user:     ~
     database_password: ~
