@@ -1,11 +1,11 @@
 # This file is auto-generated during the composer install
 parameters:
-    database_driver: pdo_pgsql
-    database_host: ec2-54-225-122-119.compute-1.amazonaws.com
-    database_port: 5432
-    database_name: de89fa2mfr29a5
-    database_user: dqjwnyfnkmdgyw
-    database_password: be6487f7e401a1324b1e97cdcd6e27aa3a3d0bcc8beb1c56d4c47463ee114805
+    database_driver_prod: pdo_pgsql
+    database_host_prod: ec2-54-225-122-119.compute-1.amazonaws.com
+    database_port_prod: 5432
+    database_name_prod: de89fa2mfr29a5
+    database_user_prod: dqjwnyfnkmdgyw
+    database_password_prod: be6487f7e401a1324b1e97cdcd6e27aa3a3d0bcc8beb1c56d4c47463ee114805
     mailer_transport: smtp
     mailer_host: smtp.gmail.com
     mailer_user: kupelikeproject
@@ -13,3 +13,9 @@ parameters:
     secret: ThisTokenIsNotSoSecretChangeIt
     facebook_id: 238649363223511
     facebook_secret: 42b7ae25f21439cfcf10af9c3a88ac08
+    database_driver_dev: pdo_mysql
+    database_host_dev: localhost
+    database_port_dev: null
+    database_name_dev: kupelike
+    database_user_dev: kupelike
+    database_password_dev: abc123
