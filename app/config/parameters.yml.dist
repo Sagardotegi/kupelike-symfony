@@ -3,11 +3,11 @@
 # http://symfony.com/doc/current/best_practices/configuration.html#infrastructure-related-configuration
 parameters:
     database_driver:   pdo_pgsql
-    database_host:     localhost
-    database_port:     null
-    database_name:   kupelike
-    database_user:     ~
-    database_password: ~
+    database_host:     ec2-54-225-122-119.compute-1.amazonaws.com
+    database_port:     5432
+    database_name:   de89fa2mfr29a5
+    database_user:     dqjwnyfnkmdgyw
+    database_password: be6487f7e401a1324b1e97cdcd6e27aa3a3d0bcc8beb1c56d4c47463ee114805
     unix_socket: /tmp/mysql.sock
     # You should uncomment this if you want use pdo_sqlite
     # database_path: "%kernel.root_dir%/data.db3"
