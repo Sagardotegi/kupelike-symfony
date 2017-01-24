@@ -1,8 +1,8 @@
 $(document).ready(function($) {
 
     $('.searchBox').on('focus', function(){
-        $(this).removeClass('form-control').addClass('form-control-widen');
-        $('#navbar-search').removeClass('navbar-search').addClass('navbar-search-widen');
+        $(this).removeClass('form-control').addClass('form-control');
+        $('#navbar-search').removeClass('navbar-search').addClass('navbar-search');
        // $('#navbar-search').removeClass('col-xs-6 pull-right').addClass('col-xs-8 col-xs-offset-2 col-md-6 col-md-offset-0');
         $('.searchResults').slideDown(1000);
         $('.closeSearch').show(1100);

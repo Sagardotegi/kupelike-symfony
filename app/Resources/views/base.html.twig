@@ -65,43 +65,46 @@ $(document).ready(function(){
     </head>
     <body>
         <div class="wrapper">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-xs-12">
-                    <nav class="navbar navbar-light bg-faded row navbar-fixed-top">
-                        <div class="col-xs-3 col-sm-1"><a id="navbar-ham" class="navbar-ham toggle-button"><i class="fa fa-bars fa-2x" aria-hidden="true"></i></a></div>
-                        <div class="col-xs-9 col-sm-4"><a id="navbar-title" class="navbar-title" href="{{ path('index') }}">Kupe<img class="img-logo"/>Like</a></div>
-                        <div class="col-xs-12 col-sm-7 searchPadding">
-                          
-                          <form id="navbar-search" class="navbar-search form-inline" action="{{ path('sagardotegis_buscar') }}">
-                            <input class="form-control searchBox" id="search" type="text" placeholder="Search">
-                            <i class="fa fa-search fa-flip-horizontal fa-1x" aria-hidden="true"></i>
-                            <span class="closeSearch pull-right"><i class="fa fa-times fa-2x" aria-hidden="true"></i></span>
-                          </form>
+            <nav class="navbar navbar-light bg-faded navbar-fixed-top">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xs-4 navbar-header">
+                            <a id="navbar-ham" class="navbar-ham toggle-button"><i class="fa fa-bars fa-2x" aria-hidden="true"></i></a>
+                            <a id="navbar-title" class="navbar-title" href="{{ path('index') }}">Kupe<img class="img-logo"/>Like</a>
                         </div>
-                        
-                    </nav>
-                    
+                        <div class="col-xs-6">
+                            <form id="navbar-search" class="navbar-form pull-right" role="search" action="{{ path('sagardotegis_buscar') }}">
+                                <div class="form-group">
+                                  <input  id="search" type="text" class="form-control searchBox" placeholder="Search">
+                                </div>
+                                <a class="btn navbar-search-btn"><i class="fa fa-search fa-flip-horizontal fa-2x" aria-hidden="true"></i></a>
+                                <span class="closeSearch pull-right"><i class="fa fa-times fa-2x" aria-hidden="true"></i></span>
+                            </form>
+                        </div>
+                        <div class="col-xs-2">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a class="btn-primary">Usuarios <i class="fa fa-user fa-1x" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-                
-                <div class="col-xs-12 searchResults" id="searchResults">
-                    
+            </nav>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-12 searchResults" id="searchResults"></div>
                 </div>
-                
-                <div class="menu">
-                    <span><i class="fa fa-times fa-2x pull-right close-menu" aria-hidden="true"></i></span>
-                    <ul class="menu-links">
-                        <li><a href="{{ path('index') }}">Home</a></li>
-                        <li><a href="{{ path('sagardotegien_mapak') }}">Mapa</a></li>
-                        <li><a href="{{ path('sagardotegis_index') }}">Sidrerias</a></li>
-                        <li><a href="{{ path('contacto') }}">Contacto</a></li>
-                        <li><a href="{{ path('nosotros') }}">Nosotros</a></li>
-                    </ul>
-               </div>
-                
             </div>
-        
-        </div><!-- .container-fluid -->
+            
+            <div class="menu">
+                <span><i class="fa fa-times fa-2x pull-right close-menu" aria-hidden="true"></i></span>
+                <ul class="menu-links">
+                    <li><a href="{{ path('index') }}">Home</a></li>
+                    <li><a href="{{ path('sagardotegien_mapak') }}">Mapa</a></li>
+                    <li><a href="{{ path('sagardotegis_index') }}">Sidrerias</a></li>
+                    <li><a href="{{ path('contacto') }}">Contacto</a></li>
+                    <li><a href="{{ path('nosotros') }}">Nosotros</a></li>
+                </ul>
+           </div>
         
         <!-- IMPORTANTE -> Todos los ficheros que se cargen en el block body deben empezar con un div container-fluid!!!!
         PERO SU ETIQUETA DE CIERRE CORRESPONDIENTE NO HACE FALTA!!!-->

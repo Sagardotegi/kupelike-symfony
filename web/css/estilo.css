@@ -132,8 +132,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .navbar-title {
-    
-    float: left;
+
     height: inherit;
     padding: 15px;
     font-size: 30px;
@@ -151,7 +150,6 @@ body::-webkit-scrollbar-thumb {
 
 .navbar-search {
     
-    padding-left: 50%;
     -moz-transition: padding-left 1s ease-in;
      -o-transition: padding-left  1s ease-in;
      -webkit-transition: padding-left  1s ease-in;
@@ -162,17 +160,20 @@ body::-webkit-scrollbar-thumb {
     margin-bottom: 0px !important;
 }
 
-.navbar-search-widen {
+.navbar-search-btn, .navbar-search-btn:hover, .navbar-search-btn:active,
+.navbar-search-btn:focus, .navbar-search-btn:visited {
     
-    padding-left: 5%;
-    -moz-transition: padding-left 1s ease-in;
-     -o-transition: padding-left  1s ease-in;
-     -webkit-transition: padding-left  1s ease-in;
-     transition: padding-left  1s ease-in;
-    line-height: 115px;
-    height: inherit;
-    margin-top: 0px !important;
-    margin-bottom: 0px !important;
+    font-weight: 400;
+    color: #ffffff;
+    border-radius: 1px;
+    margin-right: 30px;
+    margin-top: 10px;
+    background-color: #629c44;
+    height: 45px;
+    width: 60px;
+}
+
+.form-control {
     
 }
 
@@ -182,42 +183,6 @@ body::-webkit-scrollbar-thumb {
 
 .img-search {
     height: 200px;
-}
-
-.form-control {
-    
-    width: 90% !important;
-    height: 34px;
-    padding: 6px 12px;
-    font-size: 14px;
-    line-height: 1.42857143;
-    color: #555;
-    background-color: #fff;
-    background-image: none;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.form-control-widen {
-    
-    height: 34px;
-    padding: 6px 12px;
-    font-size: 14px;
-    line-height: 1.42857143;
-    color: #555;
-    background-color: #fff;
-    background-image: none;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    width: 90%;
-}
-
-.search-btn {
-    
-    background: none;
-    line-height: 1.42857143;
-    margin-left: -40px;
-    float: none;
 }
 
 .menu {
@@ -554,11 +519,11 @@ h1.a-sagar a:active {
     border: none !important;
     border-radius: 0px !important;
     color: white;
-    padding: 15px 32px;
+    padding: 10px 20px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 20px;
     margin: 4px 2px;
     cursor: pointer;
     font-family: 'Roboto', sans-serif;
@@ -786,6 +751,7 @@ textarea{
 }
 
 .btn-default {
+    
     font-weight: 400;
     color: #629c44;
     border-radius: 1px;
@@ -817,12 +783,23 @@ textarea{
 
 .vote-button {
     
-    
+    background: #629c44;
+    border: none;
+    border-radius: 50px;
+    width: 75px;
+    height: 75px;
+    margin: 20px 5px;
+    float: right;
 }
 
 .vote-count {
     
     font-family: 'Roboto', sans-serif;
+    color: white;
+    font-size: xx-large;
+    font-weight: 100;
+    margin: 40px 5px;
+    letter-spacing: 8px;
 }
 
 .img-kupela {
