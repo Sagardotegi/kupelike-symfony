@@ -61,9 +61,6 @@
         "symfony-assets-install": "relative",
         "incenteev-parameters": {
             "file": "app/config/parameters.yml"
-            "env-map": {
-                "database_url": "DATABASE_URL"
-            }
         },
         "branch-alias": {
             "dev-master": "3.1-dev"
