@@ -2,6 +2,10 @@ index:
     path: /
     defaults: { _controller: KupelikeBundle:Index:index }
     
+login:
+    path: /login
+    defaults: { _controller: KupelikeBundle:Security:login }
+    
 sagardotegis_index:
     path: /sagardotegiak
     defaults: { _controller: KupelikeBundle:Sagardotegi:lista }
