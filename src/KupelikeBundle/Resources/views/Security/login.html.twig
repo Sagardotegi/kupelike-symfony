@@ -3,11 +3,15 @@
 {% block body %}
  
     <div class="container-fluid">
-        {% if error %}
-            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-        {% endif %}
         
         <div class="col-sm-4 col-sm-offset-4">
+            
+            {% if error %}
+                <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            {% endif %}
+            
+            <h1 class="mtitle text-center">Acceso a KupeLike</h1>
+            
             <form action="{{ path('login') }}" method="post">
                 <div class="form-group">
                     <input type="text" id="username" name="_username" value="{{ last_username }}" placeholder="Usuario" class="form-control" />
@@ -17,8 +21,12 @@
                     <input type="password" id="password" name="_password" placeholder="Contraseña" class="form-control" />
                 </div>
             
-                <button type="submit" class="btn btn-primary">login</button>
+                <div class="form-group col-sm-offset-4">
+                    <button type="submit" class="btn btn-primary">login</button>
+                </div>
             </form>
+            <p class="text-right">¿No tienes una cuenta?</p>
+            <p class="text-right"><a href="#">Solicita acceso a la aplicación</a></p>
         </div>
     </div>
 
