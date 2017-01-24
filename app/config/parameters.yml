@@ -14,8 +14,6 @@ parameters:
     database_password_prod: 55365d219faf5386c2e7949094ff07cd5ab3d4e6a90e184bb50da73fe2cb81e1
     mailer_transport: smtp
     mailer_host: smtp.gmail.com
-    mailer_user: kupelikeproject
-    mailer_password: Abcd_1234
     secret: ThisTokenIsNotSoSecretChangeIt
     facebook_id: 238649363223511
     facebook_secret: 42b7ae25f21439cfcf10af9c3a88ac08
