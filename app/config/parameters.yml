@@ -1,16 +1,15 @@
 # This file is auto-generated during the composer install
 parameters:
+    database_driver: pdo_pgsql
+    database_host: 'postgres://dqjwnyfnkmdgyw:be6487f7e401a1324b1e97cdcd6e27aa3a3d0bcc8beb1c56d4c47463ee114805@ec2-54-225-122-119.compute-1.amazonaws.com:5432/de89fa2mfr29a5'
+    database_port: 5432
+    database_name: de89fa2mfr29a5
+    database_user: dqjwnyfnkmdgyw
+    database_password: be6487f7e401a1324b1e97cdcd6e27aa3a3d0bcc8beb1c56d4c47463ee114805
     mailer_transport: smtp
-    mailer_host: 127.0.0.1
-    mailer_user: null
-    mailer_password: null
+    mailer_host: smtp.gmail.com
+    mailer_user: kupelikeproject
+    mailer_password: Abcd_1234
     secret: ThisTokenIsNotSoSecretChangeIt
     facebook_id: 238649363223511
     facebook_secret: 42b7ae25f21439cfcf10af9c3a88ac08
-    unix_socket: /tmp/mysql.sock
-    database_driver: pdo_pgsql
-    database_host: localhost
-    database_port: null
-    database_name: kupelike
-    database_user: kupelike
-    database_password: abc123
