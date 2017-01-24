@@ -3,7 +3,7 @@
 # http://symfony.com/doc/current/best_practices/configuration.html#infrastructure-related-configuration
 parameters:
     database_driver:   pdo_pgsql
-    database_host:     ec2-54-225-122-119.compute-1.amazonaws.com
+    database_host:     postgres://dqjwnyfnkmdgyw:be6487f7e401a1324b1e97cdcd6e27aa3a3d0bcc8beb1c56d4c47463ee114805@ec2-54-225-122-119.compute-1.amazonaws.com:5432/de89fa2mfr29a5
     database_port:     5432
     database_name:   de89fa2mfr29a5
     database_user:     dqjwnyfnkmdgyw
