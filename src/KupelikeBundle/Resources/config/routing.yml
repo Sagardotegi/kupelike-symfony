@@ -94,6 +94,8 @@ actualizar_usuario:
     path: /actualizar-usuario/{id}
     defaults: { _controller: KupelikeBundle:Usuario:actualizar }
     
+# ADMINISTRACIÓN DE LA SIDRERIA
+
 administracion_usuarios:
     path: /usuarios/{nombreSidreria}
     defaults: { _controller: KupelikeBundle:Administracion:usuarios }  
@@ -129,7 +131,6 @@ editar_sagardotegi:
     defaults: { _controller: KupelikeBundle:Administracion:editSidreria}  
     methods: [GET]
     
-
 actualizar_sagardotegi:
     path: /actualizarsagardotegi/{id}
     defaults: { _controller: KupelikeBundle:Administracion:updateSagardotegi }  
