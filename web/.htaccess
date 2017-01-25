@@ -21,8 +21,8 @@ DirectoryIndex app.php
     RewriteEngine On
     
     #RewriteCond %{HTTPS} off
-    RewriteCond %{SERVER_PORT} =80
-    RewriteRule ^(.*)$ https://%{SERVER_NAME}%{REQUEST_URI} [L,R]
+    #RewriteCond %{SERVER_PORT} =80
+    #RewriteRule ^(.*)$ https://%{SERVER_NAME}%{REQUEST_URI} [L,R]
 
     # Determine the RewriteBase automatically and set it as environment variable.
     # If you are using Apache aliases to do mass virtual hosting or installed the
