@@ -64,6 +64,45 @@ enviar_correo:
 sagardotegis_buscar:
     path: /search
     defaults: { _controller: KupelikeBundle:Index:search }
+    
+administracion_usuarios:
+    path: /usuarios/{nombreSidreria}
+    defaults: { _controller: KupelikeBundle:Administracion:usuarios }  
+    methods: [GET]
+    
+nueva_kupela:
+    path: /nuevakupela
+    defaults: { _controller: KupelikeBundle:Administracion:new }  
+    methods: [GET]    
+
+editar_kupela:
+    path: /editarkupela/{idKupela}
+    defaults: { _controller: KupelikeBundle:Administracion:edit }  
+    methods: [GET]
+
+actualizar_kupela:
+    path: /actualizarkupela/{id}
+    defaults: { _controller: KupelikeBundle:Administracion:updateKupela }  
+    methods: [GET] 
+    
+eliminar_kupela:
+    path: /eliminarkupela/{id}
+    defaults: { _controller: KupelikeBundle:Administracion:deleteKupela }  
+    methods: [GET]     
+    
+editar_sagardotegi:
+    path: /editarsagardotegi/{idSagardotegi}
+    defaults: { _controller: KupelikeBundle:Administracion:editSidreria}  
+    methods: [GET]
+    
+
+actualizar_sagardotegi:
+    path: /actualizarsagardotegi/{id}
+    defaults: { _controller: KupelikeBundle:Administracion:updateSagardotegi }  
+    methods: [GET]      
+        
+        
+    
 
 # API REST URL
 
