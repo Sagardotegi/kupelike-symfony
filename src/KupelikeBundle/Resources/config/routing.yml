@@ -2,6 +2,16 @@ index:
     path: /
     defaults: { _controller: KupelikeBundle:Index:index }
     
+login:
+    path: /login
+    defaults: { _controller: KupelikeBundle:Security:login }
+    
+login_check:
+    path: /login_check
+    
+logout:
+    path: /logout
+    
 sagardotegis_index:
     path: /sagardotegiak
     defaults: { _controller: KupelikeBundle:Sagardotegi:lista }
@@ -60,6 +70,29 @@ enviar_correo:
 sagardotegis_buscar:
     path: /search
     defaults: { _controller: KupelikeBundle:Index:search }
+
+# USUARIOS
+
+panel_usuarios:
+    path: /panel-usuarios
+    defaults: { _controller: KupelikeBundle:Usuario:index }
+    
+nuevo_usuario:
+    path: /nuevo-usuario
+    defaults: { _controller: KupelikeBundle:Usuario:new }
+    
+registrar_usuario:    
+    path: /registrar-usuario
+    defaults: { _controller: KupelikeBundle:Usuario:newUser }  
+    methods: [POST,GET]
+    
+editar_usuario:
+    path: /editar-usuario/{id}
+    defaults: { _controller: KupelikeBundle:Usuario:edit }
+    
+actualizar_usuario:
+    path: /actualizar-usuario/{id}
+    defaults: { _controller: KupelikeBundle:Usuario:actualizar }
     
 administracion_usuarios:
     path: /usuarios/{nombreSidreria}

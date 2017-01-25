@@ -4,9 +4,13 @@
         <meta charset="UTF-8" />
         <title>{% block title %}KupeLike{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
-        <link rel="shortcut icon" href="/web/img/favicon.ico" type="image/ico"/>
+        <link rel="shortcut icon" href="{{ asset('img/favicon.ico') }}" type="image/ico"/>
         <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}" />
         <link rel="stylesheet" type="text/css" href="{{ asset('css/estilo.css') }}" />
+        <!-- Estilos CSS para producción para solucionar errores de carga de imágenes -->
+            {% if app.environment == 'prod' %}
+                <link rel="stylesheet" type="text/css" href="{{ asset('css/estilo_prod.css') }}" />
+            {% endif %}
         <link href="{{ asset('/css/font-awesome.min.css') }}" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Roboto|Lobster" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
