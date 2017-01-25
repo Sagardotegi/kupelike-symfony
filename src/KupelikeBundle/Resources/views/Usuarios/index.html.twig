@@ -20,6 +20,9 @@
                     <th>Teléfono</th>
                     <th>Acciones</th>
                 </tr>
+                <tr>
+                    <td><a href="{{ path('nuevo_usuario') }}" title="Crear un nuevo usuario"><span class="glyphicon glyphicon-plus"></span></a></td>
+                </tr>
                 {% for usuario in usuarios %}
                 <tr>
                         <td>{{ usuario.nombre }} {{ usuario.apellidos }}</td>
