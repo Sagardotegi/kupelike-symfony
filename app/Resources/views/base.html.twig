@@ -19,6 +19,13 @@
         
         <script>
 $(document).ready(function(){
+    $('#search').on('keyup keypress', function(e) {
+      var keyCode = e.keyCode || e.which;
+      if (keyCode === 13) { 
+        e.preventDefault();
+        return false;
+      }
+    });
     $("#search").keyup(function(){
         var txtBusqueda = $("#search").val();
         if(txtBusqueda != ""){
