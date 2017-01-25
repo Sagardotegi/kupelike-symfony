@@ -1,7 +1,7 @@
 index:
     path: /
     defaults: { _controller: KupelikeBundle:Index:index }
-    #schemes:  [%httpProtocol%]
+    schemes:  [https]
     
 sagardotegis_index:
     path: /sagardotegiak
