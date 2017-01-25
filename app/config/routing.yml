@@ -14,5 +14,4 @@ default:
 kupelike:
     resource: "@KupelikeBundle/Resources/config/routing.yml"
     prefix:   /
-    schemes: [https]
 
