@@ -38,3 +38,13 @@ security:
     
             # Turn on anonymous for testings need.
             anonymous: ~
+    
+    access_control:
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        #- { path: ^/portal/home, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/usuarios/lista, roles: ROLE_ADMIN }
+        - { path: ^/usuarios, roles: ROLE_ADMIN }
+        - { path: ^/usuario/nuevo, roles: ROLE_ADMIN }
+        - { path: ^/sidreria, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/kupelas/lista, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/kupelas/nuevo, roles: IS_AUTHENTICATED_FULLY }

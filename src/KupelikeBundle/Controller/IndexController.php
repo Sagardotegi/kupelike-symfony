@@ -35,13 +35,37 @@ class IndexController extends Controller
         return $this->render('KupelikeBundle:Index:contacto.html.twig');
     }
     
-     public function nosotrosAction()
+    public function nosotrosAction()
     {
         // carga el Entity Manager (manejamos los datos con Doctrine (ORM))
         //$em = $this->getDoctrine()->getManager();
         // obtenemos los datos para la busqueda de sagardotegis
         //$sagardotegis = $em->getRepository('KupelikeBundle:Sagardotegi')->findAll();
         return $this->render('KupelikeBundle:Index:nosotros.html.twig');
+    }
+    
+    public function loginAction()
+    {
+        return $this->render('KupelikeBundle:Index:login.html.twig');
+    }
+    
+    public function accederAction(Request $request)
+    {
+        // carga el Entity Manager (manejamos los datos con Doctrine (ORM))
+        $em = $this->getDoctrine()->getManager();
+        // obtiene todas las sagardotegis
+        $sagardotegis = $em->getRepository('KupelikeBundle:Sagardotegi')->findAll();
+        
+        //cogemos los datos del formulario
+        
+        $username = $respuesta->request->get('username');
+        $password = $respuesta->request->get('password');
+        
+        /*$this->enviarEmail($nombre, $email, $contenido);
+        return $this->render('KupelikeBundle:Index:contacto.html.twig', array(
+            'sagardotegis' => $sagardotegis
+        ));*/
+        return $this->render('KupelikeBundle:Index:portal.html.twig');
     }
     
     public function searchAction(Request $request)

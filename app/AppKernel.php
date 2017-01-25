@@ -17,6 +17,7 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new KupelikeBundle\KupelikeBundle(),
             new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
+            //new Lopi\Bundle\PusherBundle\LopiPusherBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
