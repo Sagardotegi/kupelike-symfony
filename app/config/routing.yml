@@ -14,4 +14,8 @@ default:
 kupelike:
     resource: "@KupelikeBundle/Resources/config/routing.yml"
     prefix:   /
-
+    
+#kupelike:
+#    resource: "@KupelikeBundle/Controller/"
+#    type:     annotation
+#    prefix:   /
