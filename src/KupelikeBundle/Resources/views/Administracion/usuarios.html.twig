@@ -49,7 +49,7 @@
                   <th>Foto</th>
                   <th>Kupela</th>
                   <th>Descripcion</th>
-                  <th>Ultima modificacion</th>
+                  <th>Año</th>
                   <th></th>
                   <th></th>
                 </tr>
@@ -59,13 +59,13 @@
                   <td><img src="{{kupela.foto}}"></td>
                   <td>{{kupela.nombre}}</td>
                   <td>{{kupela.descripcion}}</td>
-                  <td>dolor</td>
-                  <td><a href="{{ path("editar_kupela",{idKupela:kupela.id})}}"><button class="btn btn-default">Editar</button></a></td>
+                  <td>{{kupela.year}}</td>
+                  <td><a href="{{ path("editar_kupela",{id:kupela.id})}}"><button class="btn btn-default">Editar</button></a></td>
                   <td><a href="{{ path("eliminar_kupela",{id:kupela.id})}}"><button class="btn btn-default">Eliminar</button></a></td>
-                </tr>
               </tbody>
             </table>
             {%endfor%}
+            <div><a href="{{ path("nueva_kupela",{id:sidreria.id})}}"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a></div>
           </div>
         </div>
       </div>
