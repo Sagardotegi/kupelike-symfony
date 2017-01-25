@@ -67,12 +67,17 @@ administracion_usuarios:
     methods: [GET]
     
 nueva_kupela:
-    path: /nuevakupela
+    path: /{id}/nuevakupela
     defaults: { _controller: KupelikeBundle:Administracion:new }  
-    methods: [GET]    
+    methods: [GET]
+    
+registrar_kupela:    
+    path: /registrarkupela
+    defaults: { _controller: KupelikeBundle:Administracion:newKupela }  
+    methods: [POST,GET]
 
 editar_kupela:
-    path: /editarkupela/{idKupela}
+    path: /editarkupela/{id}
     defaults: { _controller: KupelikeBundle:Administracion:edit }  
     methods: [GET]
 

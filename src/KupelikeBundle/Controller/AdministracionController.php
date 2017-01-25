@@ -27,10 +27,10 @@ class AdministracionController extends Controller
          
     }
     
-    public function editAction($idKupela)
+    public function editAction($id)
     {
          $em = $this->getDoctrine()->getManager();
-         $editarkupela = $em->getRepository('KupelikeBundle:Kupela')->findOneBy(array('id'=>$idKupela));
+         $editarkupela = $em->getRepository('KupelikeBundle:Kupela')->findOneBy(array('id'=>$id));
          return $this->render('KupelikeBundle:Administracion:edit.html.twig', array('kupela'=>$editarkupela));
     }
     
@@ -58,14 +58,15 @@ class AdministracionController extends Controller
          $em = $this->getDoctrine()->getManager();
          $kupela = $em->getRepository("KupelikeBundle:Kupela")->find($id);
   
-          $em->removed($kupela);
+          $em->remove($kupela);
           $em->flush();
         
          return $this->redirectToRoute('administracion_usuarios', array('nombreSidreria'=>'Petritegi'));
          
         
     }
-      public function updateSagardotegiAction(Request $request, $id)
+    
+    public function updateSagardotegiAction(Request $request, $id)
     {
          $em = $this->getDoctrine()->getManager();
          $sagardotegi = $em->getRepository("KupelikeBundle:Sagardotegi")->find($id);
@@ -95,6 +96,26 @@ class AdministracionController extends Controller
     {
          return $this->render('KupelikeBundle:Administracion:new.html.twig');
     }
-    
-    
+    public function newKupelaAction( Request $request)
+    {
+         $newKupela = new Kupela();
+         $nombre = $request->query->get('nombre');
+         $newKupela->setNombre($nombre);
+         $descripcion= $request->query->get('descripcion');
+         $newKupela->setDescripcion($descripcion);
+         $idSagardotegi = $request->query->get('id-sagardotegi');
+         $newKupela->setIdSagardotegi($idSagardotegi);
+         $year = $request->query->get('year');
+         $newKupela->setYear($year);
+         $newKupela->setFoto("/web/uploads/kupelas/kupela1.jpg");
+         
+         $em = $this->getDoctrine()->getManager();
+         $em->persist($newKupela);
+         $em->flush();
+         
+         return $this->redirectToRoute('administracion_usuarios', array('nombreSidreria'=>'Petritegi'));
+
+        
+    }      
+   
 }
