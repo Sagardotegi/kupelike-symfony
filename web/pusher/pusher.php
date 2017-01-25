@@ -1,5 +1,5 @@
 <?php
-require_once('../../../vendor/autoload.php');
+require_once('../../vendor/autoload.php');
 /* pusher */
         $options = array(
             'cluster' => 'eu',

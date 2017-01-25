@@ -68,15 +68,18 @@ swiftmailer:
     host:       smtp.gmail.com
     username:  "kupelikeproject"
     password:  "Abcd_1234"
+    
+    
+
 
 # app/config/config.yml
-lopi_pusher:
+#lopi_pusher:
     #app_id: "291479"
     #key: "fb3191e3b80fc4a2076b"
     #secret: "e557d927dbe92d8dd449"
-    app_id: "%pusher.app_id%"
-    key: "%pusher.app_key%"
-    secret: "%pusher.app_secret%"
+    #app_id: "%pusher.app_id%"
+    #key: "%pusher.app_key%"
+    #secret: "%pusher.app_secret%"
 
     # Default configuration
     #debug: false # true if you want use the debug of all requests

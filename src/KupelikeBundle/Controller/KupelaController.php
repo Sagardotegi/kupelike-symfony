@@ -10,6 +10,9 @@ use KupelikeBundle\Entity\Kupela;
 use KupelikeBundle\Entity\Cliente;
 use KupelikeBundle\Entity\Voto;
 //use Lopi\Bundle\PusherBundle;
+use P2\Bundle\RatchetBundle\WebSocket\ConnectionEvent;
+use P2\Bundle\RatchetBundle\WebSocket\Payload;
+use P2\Bundle\RatchetBundle\WebSocket\Server\ApplicationInterface;
 
 //require '/vendor/autoload.php';
 
@@ -45,6 +48,7 @@ class KupelaController extends Controller
         
         $idKupela = $request->request->get('idKupela');
         //$idKupela = $datos['idKupela'];
+        //exec("php /web/pusher/pusher.php");
         
         
         
@@ -70,6 +74,8 @@ class KupelaController extends Controller
         /*$pusher = $this->container->get('lopi_pusher.pusher');
         $data['message'] = "Cambiado";
         $pusher->trigger('my-channel', 'my-event', $data);*/
+        
+        
         
         return new Response();
     }
@@ -144,12 +150,12 @@ class KupelaController extends Controller
         
     }
     
-    public function hacerPusherAction()
-    {
+    //public function hacerPusherAction()
+    //{
         /* pusher */
-        $pusher = $this->container->get('lopi_pusher.pusher');
-        $data['message'] = "Cambiado";
-        $pusher->trigger('my-channel', 'my-event', $data);
+        //$pusher = $this->container->get('lopi_pusher.pusher');
+        //$data['message'] = "Cambiado";
+        //$pusher->trigger('my-channel', 'my-event', $data);
         
         //$pusher = $this->container->get('lopi_pusher.pusher');
         /*$options = array(
@@ -176,6 +182,48 @@ class KupelaController extends Controller
             'sagardotegi' => $sagardotegi//,
             //'kupelaN' => $kupelaN
         ));*/
-        return new Response();
+        //return new Response();
+    //}
+    public static function getSubscribedEvents()
+    {
+        return array(
+            'votado' => 'onSendMessage'
+        );
+    }
+
+    public function onSendMessage(MessageEvent $event)
+    {
+        //$client = $event->getConnection()->getClient()->jsonSerialize();
+        //$message = $event->getPayload()->getData();
+
+        /*$event->getConnection()->broadcast(
+            new EventPayload(
+                'chat.message',
+                array(
+                    'client' => $client,
+                    'message' => $message
+                )
+            )
+        );*/
+
+        /*$event->getConnection()->emit(
+            new EventPayload(
+                'chat.message.sent',
+                array(
+                    'client' => $client,
+                    'message' => $message
+                )
+            )
+        );*/
+        $message = $event->getPayload()->getData();
+        
+        $event->getConnection()->emit(
+            new EventPayload(
+                'voto',
+                array(
+                    'message' => $message
+                )
+            )
+        );
     }
 }
