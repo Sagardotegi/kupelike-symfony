@@ -137,6 +137,7 @@ body::-webkit-scrollbar-thumb {
     height: inherit;
     margin-top: 0px !important;
     margin-bottom: 0px !important;
+    width: 10px;
 }
 
 .navbar-search-widen {
