@@ -3,6 +3,7 @@
 namespace KupelikeBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * Usuario
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="usuario")
  * @ORM\Entity(repositoryClass="KupelikeBundle\Repository\UsuarioRepository")
  */
-class Usuario
+class Usuario implements UserInterface
 {
     /**
      * @var int
@@ -75,7 +76,7 @@ class Usuario
     /**
      * @var string
      *
-     * @ORM\Column(name="username", type="string", length=255,unique=true)
+     * @ORM\Column(name="username", type="string", length=255, unique=true)
      */
     private $username;
 
@@ -85,6 +86,13 @@ class Usuario
      * @ORM\Column(name="password", type="string", length=255)
      */
     private $password;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="role", type="string", length=255)
+     */
+    private $role = 'ROLE_SIDRERO'; // Por defecto el usuario será sidrero
 
 
     /**
@@ -313,6 +321,39 @@ class Usuario
     public function getPassword()
     {
         return $this->password;
+    }
+    
+    /**
+     * Set role
+     *
+     * @param string $role
+     *
+     * @return Usuario
+     */
+    public function setRole($role)
+    {
+        $this->role = $role;
+
+        return $this;
+    }
+
+    /**
+     * Get role
+     *
+     * @return string
+     */
+    public function getRoles()
+    {
+        return array($this->role);
+    }
+    
+    public function getSalt()
+    {
+        return null;
+    }
+    
+    public function eraseCredentials()
+    {
     }
 }
 
