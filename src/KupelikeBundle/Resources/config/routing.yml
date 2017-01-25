@@ -1,52 +1,62 @@
 index:
     path: /
     defaults: { _controller: KupelikeBundle:Index:index }
+    schemes:  [https]
     
 sagardotegis_index:
     path: /sagardotegiak
     defaults: { _controller: KupelikeBundle:Sagardotegi:lista }
     methods: [GET]
+    schemes:  [https]
     
 sagardotegi_view:
     path: /sagardotegiak/{idSagardotegi}
     defaults: { _controller: KupelikeBundle:Sagardotegi:view }
     methods: [GET]
+    schemes:  [https]
     
 sagardotegi_mapa:
     path: /sagardotegiak/{idSagardotegi}/mapa
     defaults: { _controller: KupelikeBundle:Sagardotegi:mapa }
     methods: [GET]
+    schemes:  [https]
     
 sagardotegien_mapak:
     path: /mapak
     defaults: { _controller: KupelikeBundle:Sagardotegi:mapak }
     methods: [GET]
+    schemes:  [https]
     
 gps:
     path: /gps
     defaults: { _controller: KupelikeBundle:Sagardotegi:gps }
     methods: [GET]
+    schemes:  [https]
     
 contacto:
     path: /contacto
     defaults: { _controller: KupelikeBundle:Index:contacto }
     methods: [GET, POST]
+    schemes:  [https]
     
 nosotros:
     path: /nosotros
     defaults: { _controller: KupelikeBundle:Index:nosotros }
-    methods: [GET]    
+    methods: [GET]
+    schemes:  [https]
 
 kupela_like:
     path: /kupela_like
     defaults: { _controller: KupelikeBundle:Kupela:like }
     methods: [POST]
+    schemes:  [https]
     
 
 cargar_sagardotegis:
     path: /save-sagardotegis
     defaults: { _controller: KupelikeBundle:Sagardotegi:save }
     methods: [GET]
+    schemes:  [https]
     
 mostrar_votos:
     path: /mostrar-votos/{id}
@@ -56,10 +66,12 @@ enviar_correo:
     path: /enviar-correo
     defaults: { _controller: KupelikeBundle:Index:email }
     methods: [POST]
+    schemes:  [https]
     
 sagardotegis_buscar:
     path: /search
     defaults: { _controller: KupelikeBundle:Index:search }
+    schemes:  [https]
 
 # API REST URL
 
@@ -67,5 +79,6 @@ obtener_likes_kupela:
     path: /api/get-likes/{idKupela}
     defaults: { _controller: KupelikeBundle:Kupela:getLikes }
     methods: [GET]
+    schemes:  [https]
 
 
