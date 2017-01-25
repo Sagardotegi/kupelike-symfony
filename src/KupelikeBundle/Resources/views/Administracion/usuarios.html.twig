@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+<div class="container-fluid content">
+    
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{{ path("index")}}">Kupelike</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="{{path("sagardotegis_index")}}">Profile</a></li>
+            <li><a href="{{path("contacto")}}">Help</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-9  col-md-12  main">
+          <h1 class="page-header">Datos sidreria</h1>
+          <div class="col-sm-5">
+              <h1 class="card-title">{{sidreria.nombre}}</h1>
+              <p class="card-description" id="descripcion">{{sidreria.descripcion}}</p>
+              <a href="{{ path("editar_sagardotegi",{idSagardotegi:sidreria.id})}}"><button class="btn btn-default">Editar</button></a>
+         </div>
+         <div class="col-sm-6 col-sm-offset-1">
+           <div class="card-direction text-uppercase text-center"><h4>Astigarraga</h4></div>
+           <img src= "{{asset("/uploads/sagardotegis/petritegi_caserio.jpg")}}"  class="img-responsive" alt="Responsive image">
+              
+        </div>   
+      </div>  
+
+          <h2 class="sub-header">Todas las kupelas</h2>
+          <div class="table-responsive">
+            {%for kupela in kupelas %}
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Foto</th>
+                  <th>Kupela</th>
+                  <th>Descripcion</th>
+                  <th>Ultima modificacion</th>
+                  <th></th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><img src="{{kupela.foto}}"></td>
+                  <td>{{kupela.nombre}}</td>
+                  <td>{{kupela.descripcion}}</td>
+                  <td>dolor</td>
+                  <td><a href="{{ path("editar_kupela",{idKupela:kupela.id})}}"><button class="btn btn-default">Editar</button></a></td>
+                  <td><a href="{{ path("eliminar_kupela",{id:kupela.id})}}"><button class="btn btn-default">Eliminar</button></a></td>
+                </tr>
+              </tbody>
+            </table>
+            {%endfor%}
+          </div>
+        </div>
+      </div>
+    </div>
+
+ </div>
+
+
+    
+    
+    
+
+{% endblock %}
