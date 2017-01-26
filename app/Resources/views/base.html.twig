@@ -86,8 +86,12 @@ $(document).ready(function(){
                         <div class="col-xs-12 col-sm-2 loginsidreros">
                         {% if app.user %}
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a href="{{path("administracion_usuarios", { nombreSidreria: app.user.nombreSidreria })}}">Profile</a></li>
-                                <li><a href="{{path("contacto")}}">Help</a></li>
+                                {% if app.user.role == 'ROLE_ADMIN' %}
+                                    <li><a href="{{path('panel_usuarios')}}">Administrar usuarios</a></li>
+                                {% else %}
+                                    <li><a href="{{path("administracion_usuarios", { nombreSidreria: app.user.nombreSidreria })}}">Mi Sidrería</a></li>
+                                {% endif %}
+                                <li><a href="{{path("contacto")}}">Ayuda</a></li>
                                 <li><a href="{{path("logout")}}">Salir</a></li>
                              </ul>
                         {% else %}

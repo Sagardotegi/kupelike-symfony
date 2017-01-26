@@ -13,7 +13,7 @@
              <input name="descripcion" class= "formulario" name="decripcion" value="{{sidreria.descripcion}}"  cols="40" rows="6" required  placeholder="Descripcion sidreria"></input>
              <input type="text" name="direccion" value="{{sidreria.direccion}}" placeholder= "direccion sidreria" class= "formulario">
              <button type="submit" class="formulario" class= "formulario" id="enviar" >Guardar</button>
-             <a href="{{ path("administracion_usuarios",{nombreSidreria: "Petritegi"})}}"><button id="enviar" class= "formulario">Cancelar</button></a>
+             <a href="{{ path("administracion_usuarios",{nombreSidreria: app.user.nombreSidreria})}}"><button id="enviar" class= "formulario">Cancelar</button></a>
          </form>
         
          

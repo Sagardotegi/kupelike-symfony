@@ -14,7 +14,7 @@
              <input type="text" name="descripcion" class= "formulario" value="{{kupela.descripcion}}" placeholder="descripcion de la nueva Kupela">
              <input type="text" name="year" class= "formulario" value="{{kupela.year}}" placeholder="año de la nueva Kupela">
              <button id="enviar"  type="submit" class="formulario">Guardar</button>
-             <a href="{{ path("administracion_usuarios",{nombreSidreria: "Petritegi"})}}"><button id="enviar"  class="formulario">Cancelar</button></a>
+             <a href="{{ path("administracion_usuarios",{nombreSidreria: app.user.nombreSidreria})}}"><button id="enviar"  class="formulario">Cancelar</button></a>
          </form>
        
         
