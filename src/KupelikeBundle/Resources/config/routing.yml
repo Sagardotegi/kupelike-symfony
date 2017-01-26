@@ -1,5 +1,5 @@
 index:
-    path: /
+    path: /index
     defaults: { _controller: KupelikeBundle:Index:index }
     #schemes:  [https]
     
@@ -28,9 +28,9 @@ sagardotegien_mapak:
     #schemes:  [https]
     
 gps:
-    path: /gps
+    path: /
     defaults: { _controller: KupelikeBundle:Sagardotegi:gps }
-    methods: [GET]
+    methods: [GET, POST]
     
 contacto:
     path: /contacto

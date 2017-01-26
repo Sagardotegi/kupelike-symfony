@@ -94,7 +94,7 @@ class SagardotegiController extends Controller
         // obtenemos la sagardotegi que queremos visualizar
         $sagardotegis = $em->getRepository('KupelikeBundle:Sagardotegi')->findAll();
         
-        return $this->render('KupelikeBundle:Sagardotegi:gps.html.twig', array('sagardotegis' => $sagardotegis));
+        return $this->render('KupelikeBundle:Index:gps.html.twig', array('sagardotegis' => $sagardotegis));
     }
     
     /**
