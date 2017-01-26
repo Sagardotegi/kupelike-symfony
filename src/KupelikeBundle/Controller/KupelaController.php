@@ -136,7 +136,7 @@ class KupelaController extends Controller
     
     
         
-    /*public function updateVotos($id)
+    public function updateVotos($id)
     {
         $em = $this->getDoctrine()->getManager();
         $kupelaVotos = $em->getRepository('KupelikeBundle:Kupela')->find($id);
@@ -159,10 +159,10 @@ class KupelaController extends Controller
         }
     
         $mostrarVotos->setName('');
-        $em->flush();
+        $em->flush();*/
     
         
-    }*/
+    }
     
     /**
      * API REST
