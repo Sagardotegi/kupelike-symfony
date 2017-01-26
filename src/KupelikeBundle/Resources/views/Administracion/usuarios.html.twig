@@ -5,7 +5,7 @@
 
 <div class="container-fluid content">
     
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <!--<nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -20,10 +20,11 @@
           <ul class="nav navbar-nav navbar-right">
             <li><a href="{{path("sagardotegis_index")}}">Profile</a></li>
             <li><a href="{{path("contacto")}}">Help</a></li>
+            <li><a href="{{path("logout")}}">Salir</a></li>
           </ul>
         </div>
       </div>
-    </nav>
+    </nav> -->
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-9  col-md-12  main">
@@ -34,7 +35,7 @@
               <a href="{{ path("editar_sagardotegi",{idSagardotegi:sidreria.id})}}"><button class="btn btn-default">Editar</button></a>
          </div>
          <div class="col-sm-6 col-sm-offset-1">
-           <div class="card-direction text-uppercase text-center"><h4>Astigarraga</h4></div>
+           <div class="card-direction text-uppercase text-center">{{sidreria.direccion}}</div>
            <img src= "{{asset("/uploads/sagardotegis/petritegi_caserio.jpg")}}"  class="img-responsive" alt="Responsive image">
               
         </div>   
@@ -56,7 +57,7 @@
               </thead>
               <tbody>
                 <tr>
-                  <td><img src="{{kupela.foto}}"></td>
+                  <td><img class="img-kupela-lista" src="{{kupela.foto}}" /></td>
                   <td>{{kupela.nombre}}</td>
                   <td>{{kupela.descripcion}}</td>
                   <td>{{kupela.year}}</td>
@@ -65,17 +66,9 @@
               </tbody>
             </table>
             {%endfor%}
-            <div><a href="{{ path("nueva_kupela",{id:sidreria.id})}}"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a></div>
+            <div id="nueva_kupela"><a href="{{ path("nueva_kupela",{id:sidreria.id})}}"><i class="fa fa-plus-circle fa-spin fa-5x fa-fw"""aria-hidden="true"></i></a></div>
           </div>
         </div>
       </div>
     </div>
-
- </div>
-
-
-    
-    
-    
-
 {% endblock %}
