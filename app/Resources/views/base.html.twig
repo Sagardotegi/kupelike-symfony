@@ -84,8 +84,15 @@ $(document).ready(function(){
                           </form>
                         </div>
                         <div class="col-xs-12 col-sm-2 loginsidreros">
-                        
-                        <a id="acceder" href="{{ path('administracion_usuarios',{nombreSidreria: "KupeLike"})}}" class="btn btn-primary">Acceder</a>
+                        {% if app.user %}
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a href="{{path("administracion_usuarios", { nombreSidreria: app.user.nombreSidreria })}}">Profile</a></li>
+                                <li><a href="{{path("contacto")}}">Help</a></li>
+                                <li><a href="{{path("logout")}}">Salir</a></li>
+                             </ul>
+                        {% else %}
+                            <a id="acceder" href="{{ path('login') }}" class="btn btn-primary">Acceder</a>
+                        {% endif %}
                         </div>
                     </nav>
                     
