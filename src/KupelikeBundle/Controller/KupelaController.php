@@ -16,9 +16,9 @@ use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 
 //use Lopi\Bundle\PusherBundle;
-use P2\Bundle\RatchetBundle\WebSocket\ConnectionEvent;
-use P2\Bundle\RatchetBundle\WebSocket\Payload;
-use P2\Bundle\RatchetBundle\WebSocket\Server\ApplicationInterface;
+//use P2\Bundle\RatchetBundle\WebSocket\ConnectionEvent;
+//use P2\Bundle\RatchetBundle\WebSocket\Payload;
+//use P2\Bundle\RatchetBundle\WebSocket\Server\ApplicationInterface;
 
 //require '/vendor/autoload.php';
 
@@ -224,15 +224,15 @@ class KupelaController extends Controller
         ));*/
         //return new Response();
     //}
-    public static function getSubscribedEvents()
+    /*public static function getSubscribedEvents()
     {
         return array(
             'votado' => 'onSendMessage'
         );
-    }
+    }*/
 
-    public function onSendMessage(MessageEvent $event)
-    {
+    /*public function onSendMessage(MessageEvent $event)
+    {*/
         //$client = $event->getConnection()->getClient()->jsonSerialize();
         //$message = $event->getPayload()->getData();
 
@@ -255,7 +255,7 @@ class KupelaController extends Controller
                 )
             )
         );*/
-        $message = $event->getPayload()->getData();
+        /*$message = $event->getPayload()->getData();
         
         $event->getConnection()->emit(
             new EventPayload(
@@ -265,5 +265,5 @@ class KupelaController extends Controller
                 )
             )
         );
-    }
+    }*/
 }
