@@ -29,7 +29,7 @@ class KupelaController extends Controller
     /**
      * Almacena un like en la kupela
      */
-    public function likeAction(Request $request)
+    public function likeAction($request)
     {
         // obtenemos los datos enviados por ajax
         $datos = $request->request->get('response');
