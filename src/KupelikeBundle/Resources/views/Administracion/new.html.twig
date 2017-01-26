@@ -1,19 +1,25 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<div class="container-fluid">
-    
-     <div class="row-nuevakupela" style="margin-top:50px;">
-         
-         <form action= "{{path('registrar_kupela')}}">
-             <input type="text" name="nombre" value="">
-             <input type="text" name="descripcion" value="">
-             <input type="text" name="year" value="">
-             <input type="hidden" name="id-sagardotegi" value="{{ app.request.get('id') }}" />
-             <button type="submit" class="btn btn-default">Guardar</button>
+<div class="container-fluid content">
+    <div class="row">
+        <div class="col-xs-offset-3 col-xs-6">
+            <div class="row">
+                <h1 class="mtitle title-padding text-center">Nueva kupela</h1>
+            </div>
+            <div class="row">
+         <form action= "{{path('registrar_kupela')}}" class="contact_form">
+             <input type="text" name="nombre" value="" placeholder="nombre kupela" class= "formulario">
+             <input type="text" name="descripcion" value="" placeholder="descripcion kupela" class= "formulario">
+             <input type="text" name="year" value="" placeholder="año kupela" class= "formulario">
+             <input type="hidden" name="id-sagardotegi" value="{{ app.request.get('id') }}" class= "formulario"/>
+             <button type="submit" class= "formulario" id="enviar" >Guardar</button>
+             <a href="{{ path("administracion_usuarios",{nombreSidreria: "Petritegi"})}}"><button id="enviar" class= "formulario">Cancelar</button></a>
          </form>
-         <a href="{{ path("administracion_usuarios",{nombreSidreria: "Petritegi"})}}"><button class="btn btn-default">Cancelar</button></a>
+         
      </div>
+        </div>
+    </div>
     
     
     

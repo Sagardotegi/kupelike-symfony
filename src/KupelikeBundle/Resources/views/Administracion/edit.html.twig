@@ -1,20 +1,27 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<div class="container">
-    
-    <div class="row editarkupela" style="margin-top:50px;">
+<div class="container-fluid content">
+    <div class="row">
+        <div class="col-xs-offset-3 col-xs-6">
+            <div class="row">
+                <h1 class="mtitle title-padding text-center">Editar Kupela</h1>
+            </div>
+        <div class="row">
        
-         <form action="{{ path("actualizar_kupela", {id: kupela.id})}}">
-             <input type="text" name="nombre" value="{{kupela.nombre}}">
-             <input type="text" name="descripcion" value="{{kupela.descripcion}}">
-             <button type="submit" class="btn btn-default">Guardar</button>
+         <form action="{{ path("actualizar_kupela", {id: kupela.id})}}" class="contact_form">
+             <input type="text" name="nombre" class= "formulario" value="{{kupela.nombre}}" placeholder="nombre de la nueva Kupela">
+             <input type="text" name="descripcion" class= "formulario" value="{{kupela.descripcion}}" placeholder="descripcion de la nueva Kupela">
+             <input type="text" name="year" class= "formulario" value="{{kupela.year}}" placeholder="año de la nueva Kupela">
+             <button id="enviar"  type="submit" class="formulario">Guardar</button>
+             <a href="{{ path("administracion_usuarios",{nombreSidreria: "Petritegi"})}}"><button id="enviar"  class="formulario">Cancelar</button></a>
          </form>
+       
         
-         <a href="{{ path("administracion_usuarios",{nombreSidreria: "Petritegi"})}}"><button class="btn btn-default">Cancelar</button></a>
-        
-     </div>
-    
+         </div>
+        </div>
+    </div>
+       
     
     
 
