@@ -84,7 +84,8 @@ $(document).ready(function(){
                           </form>
                         </div>
                         <div class="col-xs-12 col-sm-2 loginsidreros">
-                        <a id="acceder" href="{{ path('administracion_usuarios',{nombreSidreria: "Petritegi"})}}" class="btn btn-primary">Acceder</a>
+                        
+                        <a id="acceder" href="{{ path('administracion_usuarios',{nombreSidreria: app.user.nombreSidreria})}}" class="btn btn-primary">Acceder</a>
                         </div>
                     </nav>
                     
@@ -104,11 +105,7 @@ $(document).ready(function(){
                         <li><a href="{{ path('nosotros') }}">Nosotros</a></li>
                     </ul>
                </div>
-                
-=======
->>>>>>> a8890fbe62ea6d8cd1c72d70021a0f96a6ffd4b1
             </div>
-<<<<<<<<< saved version
             </nav>
             <div class="container-fluid">
                 <div class="row">
@@ -140,10 +137,8 @@ $(document).ready(function(){
                     <li><a class="btn-access">Usuarios <i class="fa fa-user fa-1x" aria-hidden="true"></i></a></li>
                 </ul>
            </div>
-=========
         
         </div><!-- .container-fluid -->
->>>>>>>>> local version
         
         <!-- IMPORTANTE -> Todos los ficheros que se cargen en el block body deben empezar con un div container-fluid!!!!
         PERO SU ETIQUETA DE CIERRE CORRESPONDIENTE NO HACE FALTA!!!-->
