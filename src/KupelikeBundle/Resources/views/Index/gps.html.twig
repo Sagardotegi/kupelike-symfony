@@ -1,4 +1,6 @@
-<html>
+{% extends 'base.html.twig' %}
+
+{% block body %}
         <script>
     window.onload = function(){
         var sagarPos;
@@ -28,9 +30,15 @@
                 window.location = "{{ path('index') }}";
             }
         
-          });
+          },
+            function (error) { 
+              if (error.code == error.PERMISSION_DENIED)
+                  window.location = "{{ path('index') }}";
+            });
+		} else {
+            window.location = "{{ path('index') }}";
         }
       }
         </script>
         <script type="text/javascript" src="https://maps.google.com/maps/api/js?libraries=geometry&sensor=true"></script>
-</html>
+{% endblock %}

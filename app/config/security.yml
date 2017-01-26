@@ -52,3 +52,9 @@ security:
         - { path: ^/nuevo-usuario, roles: ROLE_ADMIN }
         - { path: ^/panel-usuarios, roles: ROLE_ADMIN }
         - { path: ^/registrar-usuario, roles: ROLE_ADMIN }
+        - { path: ^/usuarios/lista, roles: ROLE_ADMIN }
+        - { path: ^/usuarios, roles: ROLE_ADMIN }
+        - { path: ^/usuario/nuevo, roles: ROLE_ADMIN }
+        - { path: ^/sidreria, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/kupelas/lista, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/kupelas/nuevo, roles: IS_AUTHENTICATED_FULLY }

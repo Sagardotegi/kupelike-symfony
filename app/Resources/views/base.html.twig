@@ -15,10 +15,18 @@
         <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Roboto|Lobster" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://js.pusher.com/3.2/pusher.min.js"></script>
         <script src="{{ asset('js/jquery.min.js') }}"></script>
         
         <script>
 $(document).ready(function(){
+    $('#search').on('keyup keypress', function(e) {
+      var keyCode = e.keyCode || e.which;
+      if (keyCode === 13) { 
+        e.preventDefault();
+        return false;
+      }
+    });
     $("#search").keyup(function(){
         var txtBusqueda = $("#search").val();
         if(txtBusqueda != ""){
@@ -123,31 +131,23 @@ $(document).ready(function(){
                     <div class="col-xs-12 searchResults" id="searchResults">
                     </div>
                 </div>
+
                 
                 <div class="menu">
-                    <span><i class="fa fa-times fa-2x pull-right close-menu" aria-hidden="true"></i></span>
+                <span><i class="fa fa-times fa-2x pull-right close-menu" aria-hidden="true"></i></span>
                     <ul class="menu-links">
                         <li><a href="{{ path('index') }}">Inicio</a></li>
                         <li><a href="{{ path('sagardotegien_mapak') }}">Mapa</a></li>
-                        <li><a href="{{ path('sagardotegis_index') }}">Sidrerías</a></li>
+                        <li><a href="{{ path('sagardotegis_index') }}">Sidrerias</a></li>
                         <li><a href="{{ path('contacto') }}">Contacto</a></li>
                         <li><a href="{{ path('nosotros') }}">Nosotros</a></li>
+                        <li><a class="btn-access">Usuarios <i class="fa fa-user fa-1x" aria-hidden="true"></i></a></li>
                     </ul>
                </div>
                 
             </div>
             
-            <div class="menu">
-                <span><i class="fa fa-times fa-2x pull-right close-menu" aria-hidden="true"></i></span>
-                <ul class="menu-links">
-                    <li><a href="{{ path('index') }}">Home</a></li>
-                    <li><a href="{{ path('sagardotegien_mapak') }}">Mapa</a></li>
-                    <li><a href="{{ path('sagardotegis_index') }}">Sidrerias</a></li>
-                    <li><a href="{{ path('contacto') }}">Contacto</a></li>
-                    <li><a href="{{ path('nosotros') }}">Nosotros</a></li>
-                    <li><a class="btn-access">Usuarios <i class="fa fa-user fa-1x" aria-hidden="true"></i></a></li>
-                </ul>
-           </div>
+            
         
         </div><!-- .container-fluid -->
         
