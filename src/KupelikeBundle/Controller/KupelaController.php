@@ -9,19 +9,19 @@ use Symfony\Component\HttpFoundation\Request;
 use KupelikeBundle\Entity\Kupela;
 use KupelikeBundle\Entity\Cliente;
 use KupelikeBundle\Entity\Voto;
-<<<<<<< HEAD
+
 use Symfony\Component\Serializer\Serializer;
 use Symfony\Component\Serializer\Encoder\XmlEncoder;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
-=======
+
 //use Lopi\Bundle\PusherBundle;
 use P2\Bundle\RatchetBundle\WebSocket\ConnectionEvent;
 use P2\Bundle\RatchetBundle\WebSocket\Payload;
 use P2\Bundle\RatchetBundle\WebSocket\Server\ApplicationInterface;
 
 //require '/vendor/autoload.php';
->>>>>>> unido
+
 
 class KupelaController extends Controller
 {
