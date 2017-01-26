@@ -151,6 +151,16 @@ body::-webkit-scrollbar-thumb {
 .navbar-form {
     
     margin-top: 25px;
+    padding-left: 25%;
+    -moz-transition: padding-left 1s ease-in;
+     -o-transition: padding-left  1s ease-in;
+     -webkit-transition: padding-left  1s ease-in;
+     transition: padding-left  1s ease-in;
+    line-height: 90px;
+    height: inherit;
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+    
 }
 
 .navbar-search {
@@ -175,6 +185,10 @@ body::-webkit-scrollbar-thumb {
     background-color: #629c44;
     height: 45px;
     width: 60px;
+}
+
+#acceder{
+    margin-top: 20px;
 }
 
 .searchBox {
@@ -926,9 +940,6 @@ hr.search-hr {
 }
 
 
-
-
-
 /* slider */
 .imagen-about {
   width: 173px;
@@ -940,6 +951,11 @@ hr.search-hr {
   border-radius: 300px;
   /*box-shadow: black -2px -4px 50px -2px;*/
   text-align: left;
+}
+
+.img-kupela-lista {
+   height: 200px;
+   width: 200px;
 }
 
 
