@@ -1,3 +1,5 @@
+/** Search open **/
+
 $(document).ready(function($) {
 
     $('#searchButton').on('click', function(){
@@ -8,16 +10,8 @@ $(document).ready(function($) {
     });
 });
 
-/*$(document).ready(function($) {
-        $('.toggle-button').click(function() {
-            $('.menu').addClass('visible-menu');
-        });
-        
-        $('.close-menu').click(function() {
-            $('.menu').removeClass('visible-menu');
-        });
-    });*/
-    
+
+/** Menu Open **/
 $(document).on('click', function(e) {
   if($(e.target).is('.navbar-ham *')) {
     $('.menu').addClass('visible-menu');
@@ -26,6 +20,14 @@ $(document).on('click', function(e) {
   }
 });
 
+/** Access window open **/
+
+  $(document).ready(function($) {
+
+    $('.btn-access').on('click', function(){
+        $$("#contactdiv").css("display", "block");
+    });
+});
     
 //* Search zoom disable *//    
     
