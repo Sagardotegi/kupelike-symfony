@@ -1,18 +1,96 @@
 index:
-    path: /
+    path: /index
     defaults: { _controller: KupelikeBundle:Index:index }
+    #schemes:  [https]
     
 sagardotegis_index:
     path: /sagardotegiak
     defaults: { _controller: KupelikeBundle:Sagardotegi:lista }
     methods: [GET]
+    #schemes:  [%httpProtocol%]
     
 sagardotegi_view:
     path: /sagardotegiak/{idSagardotegi}
     defaults: { _controller: KupelikeBundle:Sagardotegi:view }
     methods: [GET]
+    #schemes:  [%httpProtocol%]
     
-sagardotegis_mapa:
+sagardotegi_mapa:
     path: /sagardotegiak/{idSagardotegi}/mapa
     defaults: { _controller: KupelikeBundle:Sagardotegi:mapa }
+    methods: [GET]
+    #schemes:  [https]
+    
+sagardotegien_mapak:
+    path: /mapak
+    defaults: { _controller: KupelikeBundle:Sagardotegi:mapak }
+    methods: [GET]
+    #schemes:  [https]
+    
+gps:
+    path: /
+    defaults: { _controller: KupelikeBundle:Sagardotegi:gps }
+    methods: [GET, POST]
+    
+contacto:
+    path: /contacto
+    defaults: { _controller: KupelikeBundle:Index:contacto }
+    methods: [GET, POST]
+    
+nosotros:
+    path: /nosotros
+    defaults: { _controller: KupelikeBundle:Index:nosotros }
+    methods: [GET]    
+
+kupela_like:
+    path: /kupela_like
+    defaults: { _controller: KupelikeBundle:Kupela:like }
+    methods: [GET, POST]
+    
+
+#pusher:
+#    path: /pusher
+#    defaults: { _controller: KupelikeBundle:Kupela:hacerPusher }
+#    methods: [GET]
+    
+#cargar_sagardotegis:
+#    path: /save-sagardotegis
+#    defaults: { _controller: KupelikeBundle:Sagardotegi:save }
+#    methods: [GET]
+
+
+cargar_sagardotegis:
+    path: /save-sagardotegis
+    defaults: { _controller: KupelikeBundle:Sagardotegi:save }
+    methods: [GET]
+    
+mostrar_votos:
+    path: /mostrar-votos/{id}
+    defaults: { _controller: KupelikeBundle:Kupela:mostrar }
+    
+enviar_correo:
+    path: /enviar-correo
+    defaults: { _controller: KupelikeBundle:Index:email }
+    methods: [POST]
+    
+sagardotegis_buscar:
+    path: /search
+    defaults: { _controller: KupelikeBundle:Index:search }
+
+
+# API REST URL
+
+obtener_likes_kupela:
+    path: /api/get-likes/{idKupela}
+    defaults: { _controller: KupelikeBundle:Kupela:getLikes }
+    methods: [GET]
+
+login:
+    path: /login
+    defaults: { _controller: KupelikeBundle:Index:login }
+    methods: [GET]
+    
+acceder:
+    path: /acceder
+    defaults: { _controller: KupelikeBundle:Index:acceder }
     methods: [GET]

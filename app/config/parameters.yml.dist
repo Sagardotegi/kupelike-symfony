@@ -2,18 +2,30 @@
 # Set parameters here that may be different on each deployment target of the app, e.g. development, staging, production.
 # http://symfony.com/doc/current/best_practices/configuration.html#infrastructure-related-configuration
 parameters:
-    database_host:     127.0.0.1
-    database_port:     ~
-    database_name:     symfony
-    database_user:     root
-    database_password: ~
+    database_driver_prod:   pdo_pgsql
+    database_host_prod:     ec2-54-247-81-76.eu-west-1.compute.amazonaws.com
+    database_port_prod:     5432
+    database_name_prod:   df6bi9takobnqv
+    database_user_prod:     gjxxgbebeawrir
+    database_password_prod: 55365d219faf5386c2e7949094ff07cd5ab3d4e6a90e184bb50da73fe2cb81e1
+    
+    database_driver_dev:   pdo_mysql
+    database_host_dev:     localhost
+    database_port_dev:     null
+    database_name_dev:   kupelike
+    database_user_dev:     ~
+    database_password_dev: ~
+    
     # You should uncomment this if you want use pdo_sqlite
     # database_path: "%kernel.root_dir%/data.db3"
 
-    mailer_transport:  smtp
-    mailer_host:       127.0.0.1
-    mailer_user:       ~
-    mailer_password:   ~
+    # mailer_transport:  smtp
+    # mailer_host:       smtp.gmail.com
+    # mailer_user:       "kupelikeproject"
+    # mailer_password:   ~
 
     # A secret key that's used to generate certain security-related tokens
     secret:            ThisTokenIsNotSoSecretChangeIt
+    
+    facebook_id: 238649363223511
+    facebook_secret: 42b7ae25f21439cfcf10af9c3a88ac08

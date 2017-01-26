@@ -10,4 +10,9 @@ namespace KupelikeBundle\Repository;
  */
 class VotoRepository extends \Doctrine\ORM\EntityRepository
 {
+    /*public function sumKupelas(){
+        return $this->getEntityManager()->createQuery('SELECT count(u.id) FROM KupelikeBundle:Voto u, KupelikeBundle:Kupela a  
+                WHERE a.id = u.kupelaId')
+                ->getResult();
+    }*/
 }

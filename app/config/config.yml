@@ -41,12 +41,14 @@ twig:
 # Doctrine Configuration
 doctrine:
     dbal:
-        host:     "%database_host%"
-        port:     "%database_port%"
-        dbname:   "%database_name%"
-        user:     "%database_user%"
-        password: "%database_password%"
+        #driver:   "%database_driver%"
+        #host:     "%database_host%"
+        #port:     "%database_port%"
+        #dbname:   "%database_name%"
+        #user:     "%database_user%"
+        #password: "%database_password%"
         charset:  UTF8
+        # unix_socket: "/tmp/mysql.sock"
         # if using pdo_sqlite as your database driver:
         #   1. add the path in parameters.yml
         #     e.g. database_path: "%kernel.root_dir%/data/data.db3"
@@ -61,8 +63,49 @@ doctrine:
 
 # Swiftmailer Configuration
 swiftmailer:
-    transport: "%mailer_transport%"
-    host:      "%mailer_host%"
-    username:  "%mailer_user%"
-    password:  "%mailer_password%"
-    spool:     { type: memory }
+    transport:  smtp
+    encryption: ssl
+    auth_mode:  login
+    host:       smtp.gmail.com
+    username:  "kupelikeproject"
+    password:  "Abcd_1234"
+    
+    
+
+
+# app/config/config.yml
+#lopi_pusher:
+    #app_id: "291479"
+    #key: "fb3191e3b80fc4a2076b"
+    #secret: "e557d927dbe92d8dd449"
+    #app_id: "%pusher.app_id%"
+    #key: "%pusher.app_key%"
+    #secret: "%pusher.app_secret%"
+
+    # Default configuration
+    #debug: false # true if you want use the debug of all requests
+    #cluster: eu # Change the cluster name
+    #host: http://api.pusherapp.com
+    #port: 443
+    #timeout: 30
+
+    # optional if you want to use private or presence channels
+    # see the section about "Private and Presense channel auth" below
+    # auth_service_id: <the_auth_service_id>
+  
+    
+hwi_oauth:
+    firewall_names:        [secured_area]
+    resource_owners:
+        facebook:
+            type:          facebook
+            client_id:     "%facebook_id%"
+            client_secret: "%facebook_secret%"
+            infos_url:     "https://graph.facebook.com/me?fields=username,name,picture.type(square)"
+            scope:         "email"
+            options:
+                display: popup 
+
+services:
+    hwi_oauth.user.provider.entity:
+        class: HWI\Bundle\OAuthBundle\Security\Core\User\OAuthUserProvider

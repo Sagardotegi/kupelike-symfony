@@ -11,13 +11,12 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity(repositoryClass="KupelikeBundle\Repository\ClienteRepository")
  */
 class Cliente
-{
+{  
     /**
      * @var int
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
@@ -31,22 +30,49 @@ class Cliente
     /**
      * @var string
      *
-     * @ORM\Column(name="direccion", type="string", length=255)
+     * @ORM\Column(name="direccion", type="string", length=255, nullable=true)
      */
     private $direccion;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="fecha_nacimiento", type="string", length=255)
+     * @ORM\Column(name="fecha_nacimiento", type="string", length=255, nullable=true)
      */
     private $fechaNacimiento;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=255, nullable=true)
+     */
+    private $email;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="sexo", type="string", length=255, nullable=true)
+     */
+    private $sexo;
+    
+    /**
+     * Set idFacebook
+     *
+     * @param string $id
+     *
+     * @return Cliente
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
 
+        return $this;
+    }
 
     /**
      * Get id
      *
-     * @return int
+     * @return string
      */
     public function getId()
     {
@@ -123,6 +149,54 @@ class Cliente
     public function getFechaNacimiento()
     {
         return $this->fechaNacimiento;
+    }
+    
+    /**
+     * Set email
+     *
+     * @param string $email
+     *
+     * @return Cliente
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+    
+    /**
+     * Set sexo
+     *
+     * @param string $sexo
+     *
+     * @return Cliente
+     */
+    public function setSexo($sexo)
+    {
+        $this->sexo = $sexo;
+
+        return $this;
+    }
+
+    /**
+     * Get sexo
+     *
+     * @return string
+     */
+    public function getSexo()
+    {
+        return $this->sexo;
     }
 }
 

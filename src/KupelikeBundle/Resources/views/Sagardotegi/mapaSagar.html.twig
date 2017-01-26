@@ -1,0 +1,262 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container content">
+  <div class="row">
+    <div class="col-md-12">
+        <h1 class="text-center mtitle a-sagar"><a href="{{ path("sagardotegi_view", {idSagardotegi:sagardotegi.id}) }}">{{ sagardotegi.nombre }}</a></h1>
+    </div>
+    <div class="col-md-12">
+      <div id="map" class="mapa"></div>
+  
+          <script>
+          window.onload = function(){
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
+              window.location = "google.navigation:q={{ sagardotegi.latitud }},{{ sagardotegi.longitud }}";
+            }
+          }
+          
+          var map;
+          var user;
+          var centerControlDiv = document.createElement('div');
+          var centerControlDiv2 = document.createElement('div');
+          var mv = 0;
+  
+  
+        function CenterControl(controlDiv, map, persona) {
+        
+          // Set CSS for the control border.
+          var firstChild = document.createElement('button');
+            firstChild.style.backgroundColor = '#fff';
+            firstChild.style.border = 'none';
+            firstChild.style.outline = 'none';
+            firstChild.style.width = '28px';
+            firstChild.style.height = '28px';
+            firstChild.style.borderRadius = '2px';
+            firstChild.style.boxShadow = '0 1px 4px rgba(0,0,0,0.3)';
+            firstChild.style.cursor = 'pointer';
+            firstChild.style.marginRight = '10px';
+            firstChild.style.padding = '0px';
+            firstChild.title = 'Your Location';
+            controlDiv.appendChild(firstChild);
+        
+            var secondChild = document.createElement('div');
+            secondChild.style.margin = '5px';
+            secondChild.style.width = '18px';
+            secondChild.style.height = '18px';
+            secondChild.style.backgroundImage = 'url(/img/mylocation-sprite-1x.png)';
+            secondChild.style.backgroundSize = '180px 18px';
+            secondChild.style.backgroundPosition = '0px 0px';
+            secondChild.style.backgroundRepeat = 'no-repeat';
+            secondChild.id = 'you_location_img';
+            firstChild.appendChild(secondChild);
+        
+        
+          // Setup the click event listeners: simply set the map to Chicago.
+          /*firstChild.addEventListener('click', function() {
+            map.setZoom(17);
+            map.panTo(persona);
+          });*/
+          firstChild.addEventListener('click', function() {
+            //map.setZoom(17);
+            map.panTo(persona);
+            google.maps.event.addListenerOnce(map, 'idle', function() {
+              map.setZoom(17);
+            });
+            if (mv == 0) {
+              $('#you_location_img').css('background-position', '-144px 0px');
+            } else {
+              $('#you_location_img').css('background-position', '-162px 0px');
+            }
+            mv = 1;
+          });
+          
+          firstChild.addEventListener('mouseover', function() {
+            if (mv == 0) {
+              $('#you_location_img').css('background-position', '-36px 0px');
+            } else {
+              $('#you_location_img').css('background-position', '-162px 0px');
+            }
+          });
+          
+          firstChild.addEventListener('mouseout', function() {
+            if (mv == 0) {
+              $('#you_location_img').css('background-position', '0px 0px');
+            } else {
+              $('#you_location_img').css('background-position', '-144px 0px');
+            }
+          });
+          
+          firstChild.addEventListener('mousedown', function() {
+            if (mv == 0) {
+              $('#you_location_img').css('background-position', '-54px 0px');
+            } else {
+              $('#you_location_img').css('background-position', '-162px 0px');
+            }
+          });
+          
+          firstChild.addEventListener('mouseup', function() {
+            if (mv == 0) {
+              $('#you_location_img').css('background-position', '-36px 0px');
+            } else {
+              $('#you_location_img').css('background-position', '-162px 0px');
+            }
+          });
+          
+          google.maps.event.addListener(map, 'dragend', function() {
+              $('#you_location_img').css('background-position', '0px 0px');
+              mv = 0;
+          });
+        
+        }
+        
+        function CenterControl2(controlDiv2, map, sagar) {
+        
+          // Set CSS for the control border.
+          var firstChild2 = document.createElement('button');
+            firstChild2.style.backgroundColor = '#fff';
+            firstChild2.style.border = 'none';
+            firstChild2.style.outline = 'none';
+            firstChild2.style.width = '28px';
+            firstChild2.style.height = '28px';
+            firstChild2.style.borderRadius = '2px';
+            firstChild2.style.boxShadow = '0 1px 4px rgba(0,0,0,0.3)';
+            firstChild2.style.cursor = 'pointer';
+            firstChild2.style.marginRight = '10px';
+            firstChild2.style.padding = '0px';
+            firstChild2.title = 'Sidreria';
+            controlDiv2.appendChild(firstChild2);
+        
+            var secondChild2 = document.createElement('div');
+            secondChild2.style.margin = '5px';
+            secondChild2.style.width = '18px';
+            secondChild2.style.height = '18px';
+            secondChild2.style.backgroundImage = 'url(/img/logo_transp18.png)';
+            secondChild2.style.backgroundSize = '18px 18px';
+            secondChild2.style.backgroundPosition = '0px 0px';
+            secondChild2.style.backgroundRepeat = 'no-repeat';
+            secondChild2.id = 'cider_location_img';
+            firstChild2.appendChild(secondChild2);
+        
+        
+          // Setup the click event listeners: simply set the map to Chicago.
+          firstChild2.addEventListener('click', function() {
+            //map.setZoom(17);
+            map.panTo(sagar);
+            google.maps.event.addListenerOnce(map, 'idle', function() {
+              map.setZoom(17);
+            });
+          });
+        
+        }
+          
+          
+          
+        function myMap() {
+          
+          var directionsService = new google.maps.DirectionsService;
+          var directionsDisplay = new google.maps.DirectionsRenderer;
+          var infowindow = new google.maps.InfoWindow(); 
+          //Creando el mapa
+          var mapCanvas = document.getElementById("map");
+          var mapOptions = {
+            streetViewControl: true,
+            mapTypeControl: true,
+            zoomControl: true,
+            //scaleControl: true,
+            //rotateControl: true,
+            center: new google.maps.LatLng({{ sagardotegi.latitud }},{{ sagardotegi.longitud }}), 
+            zoom: 17,
+            scrollwheel: false
+          };
+          var map = new google.maps.Map(mapCanvas, mapOptions);
+          directionsDisplay.setMap(map);
+          directionsDisplay.setOptions( { suppressMarkers: true } );
+          
+          
+          //Creando los iconos
+          var kupImg="/img/logoblanco35.png";
+          //var kupImg="https://kupelike-oalba.c9users.io/img/botellasidra2.png";
+      		var sagarImg={
+      			url:kupImg,
+      			size: new google.maps.Size(35, 35)
+      		};
+  		
+      		var perImg="/img/personaPos.png";
+      		//var perImg="https://kupelike-oalba.c9users.io/img/personaPos.png";
+      		var persImg={
+      			url:perImg,
+      			size: new google.maps.Size(35, 35)
+      		};
+  		
+  		    //Colocando marcadores
+          var sagarPos = {lat: {{ sagardotegi.latitud }}, lng: {{ sagardotegi.longitud }}};
+          var sagardotegi = new google.maps.Marker({
+            position: sagarPos,
+            animation: google.maps.Animation.DROP,
+            map: map,
+            title: '{{ sagardotegi.nombre }}',
+            icon: sagarImg
+          });
+          var centerControl2 = new CenterControl2(centerControlDiv2, map, sagarPos);
+          
+          infowindow.setContent('<a href="google.navigation:q={{ sagardotegi.latitud }},{{ sagardotegi.longitud }}">{{ sagardotegi.nombre }}<br>{{sagardotegi.direccion}}</a>');
+          sagardotegi.addListener('click', function() {
+            infowindow.open(map, sagardotegi);
+            map.panTo(sagardotegi.position);
+            //map.setCenter(sagardotegi.position);
+          });
+          
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+              var perPos = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+              };
+              var persona = new google.maps.Marker({
+                position: perPos,
+                animation: google.maps.Animation.DROP,
+                map: map,
+                title: 'Tu posición.',
+                icon: persImg
+              });
+              var centerControl = new CenterControl(centerControlDiv, map, perPos);
+            });
+          }
+  
+          calculateAndDisplayRoute(directionsService, directionsDisplay);
+          centerControlDiv.index = 1;
+          map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(centerControlDiv);
+          centerControlDiv2.index = 1;
+          map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(centerControlDiv2);
+        }
+        
+        function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+          var sagarPos = {lat: {{ sagardotegi.latitud }}, lng: {{ sagardotegi.longitud }}};
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+              var perPos = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+              };
+              
+              directionsService.route({
+                origin: perPos,
+                destination: sagarPos,
+                travelMode: google.maps.TravelMode.DRIVING
+              }, function(response, status) {
+                if (status === google.maps.DirectionsStatus.OK) {
+                  directionsDisplay.setDirections(response);
+                } else {
+                  window.alert('Fallo al mostrar la dirección ' + status);
+                }
+              });
+            });
+          }
+        }
+          </script>
+          <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJELelOvLyRDQ_wpznHSccW6w7JhYkXzA&callback=myMap"></script>
+    </div>
+  </div>
+      
+  {% endblock %}

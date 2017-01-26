@@ -1,0 +1,79 @@
+    <div id="fb-root"></div>
+    
+    <script>
+    
+    var btn = $('#btn-facebook');
+    
+        window.fbAsyncInit = function() {
+            // iniciamos la aplicación de Facebook
+            FB.init({
+                appId      : '765683296917544',
+                status     : true,
+                xfbml      : true,
+                cookie     : true
+            });
+            
+            // si no está conectado, muestra la ventana de conexión
+            $('.btn-facebook').click(function(){
+                var idKupela = $(this).attr('numero');
+                // una vez está conectado, llama a la función getAPI
+                FB.getLoginStatus(function(response) {
+                    if (response.status === 'connected') {
+                        getAPI(idKupela);
+                    } else {
+                        // si no está conectado, muestra la ventana de conexión
+                        //$('#btn-facebook').click(function(){
+                        fb_login();
+                        getAPI(idKupela);
+                        //});
+                    }
+                });
+            });
+        };
+        
+        (function(d, s, id){
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {return;}
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/es_ES/all.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+        
+        
+        
+       
+
+        function fb_login()
+        {
+            FB.login(function(response) {
+                if (response.authResponse) {
+                    location.reload();
+                }
+            //}, {"scope":"email,user_birthday,user_location,user_hometown"});
+            }, {"scope":"email"});
+        }
+        
+        function getAPI(idKupela)
+        {
+            // obtiene información del usuario y la muestra
+            //FB.api("/me?fields=id,name,email,age_range,birthday,gender,hometown,location", function(response){
+            FB.api("/me?fields=id,name,email,age_range,gender", function(response){
+                // la información se envía en JSON al controlador Kupela
+                //$('#btn-facebook').click(function(){
+                    
+                // obtenemos el id de la kupela
+                //var idKupela = $(this).attr('numero');
+                //response.push({ name: "idKupela", value: "5" });
+                
+                // Hace la llamada AJAX
+                $.ajax({
+                    type: "POST",
+                    dataType: "json",
+                    url: "{{ path('kupela_like') }}",
+                    data: {response, idKupela: idKupela }
+                });
+                
+                
+            });
+        }
+    </script>

@@ -2,87 +2,175 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Kupelike{% endblock %}</title>
+        <title>{% block title %}KupeLike{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
+        <link rel="shortcut icon" href="{{ asset('img/favicon.ico') }}" type="image/ico"/>
         <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}" />
         <link rel="stylesheet" type="text/css" href="{{ asset('css/estilo.css') }}" />
+        <!-- Estilos CSS para producción para solucionar errores de carga de imágenes -->
+            {% if app.environment == 'prod' %}
+                <link rel="stylesheet" type="text/css" href="{{ asset('css/estilo_prod.css') }}" />
+            {% endif %}
         <link href="{{ asset('/css/font-awesome.min.css') }}" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Roboto|Lobster" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://js.pusher.com/3.2/pusher.min.js"></script>
+        <script src="{{ asset('js/jquery.min.js') }}"></script>
         
+        <script>
+$(document).ready(function(){
+    $('#search').on('keyup keypress', function(e) {
+      var keyCode = e.keyCode || e.which;
+      if (keyCode === 13) { 
+        e.preventDefault();
+        return false;
+      }
+    });
+    $("#search").keyup(function(){
+        var txtBusqueda = $("#search").val();
+        if(txtBusqueda != ""){
+            $.ajax({
+                type: "POST",
+                url: $("#navbar-search").attr("action"),
+                dataType: "json",
+                data: {textoBusqueda : txtBusqueda},
+                success : function(response) {
+                    $("#searchResults").show();
+                    $("#searchResults").html("");
+                    $.each(response, function(index, sagardotegi){
+                        var ida = sagardotegi.id;
+                        var sfoto = sagardotegi.foto;
+                        var route = "{{ path('sagardotegi_view', { 'idSagardotegi': "change" }) }}".replace("change", ida);
+                        var llegar = "{{ path("sagardotegi_mapa", { 'idSagardotegi': "change" }) }}".replace("change", ida);
+                        var foto = "{{asset("change")}}".replace("change", sfoto);
+                        
+                        $("#searchResults").append(
+                        "<hr class='search-hr'><div class='row'>"+
+                            "<a name='"+sagardotegi.nombre+"' href='"+route+"'>"+
+                                "<div class='col-xs-offset-2 col-xs-5'>"+
+                                    "<h2 class='card-title text-uppercase'>"+sagardotegi.nombre+"</h2>"+
+                                    "<div class='card-margen-20'>"+
+                                        "<p class='card-description' id='descripcion'>"+sagardotegi.descripcion+"</p>"+
+                                        "<a href='"+llegar+"'><button type='button' class='btn btn-default'>Como llegar</button></a>"+
+                                        "<a href='#'><button type='button' class='btn btn-default'>Contacto</button></a>"+
+                                    "</div>"+
+                                "</div>"+
+                            "</a>"+
+                            "<a name='"+sagardotegi.nombre+"' href='"+route+"'>"+
+                                "<div class='col-xs-4'>"+
+                                    "<div class='card-sidreria'>"+
+                                        "<img class='img-responsive img-search' src='"+foto+"'></img>"+
+                                    "</div>"+
+                                "</div>"+
+                            "</a>"+
+                        "</div>"
+                        );
+                    });
+                }
+            });
+        }
+    });
+});
+        </script>
     </head>
     <body>
+        <div class="wrapper">
+            <nav class="navbar navbar-light bg-faded navbar-fixed-top">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xs-4 navbar-header">
+                            <a id="navbar-ham" class="navbar-ham toggle-button"><i class="fa fa-bars fa-2x" aria-hidden="true"></i></a>
+                            <a id="navbar-title" class="navbar-title" href="{{ path('index') }}">Kupe<img class="img-logo"/>Like</a>
+                        </div>
+                        <div class="col-xs-8">
+                            <form id="navbar-search" class="navbar-form pull-right p-x-0" role="search" action="{{ path('sagardotegis_buscar') }}">
+                                <div class="form-group">
+                                  <input  id="search" type="text" class="searchBox" placeholder="Search">
+                                </div>
+                                <a id="searchButton" class="btn navbar-search-btn"><i id="searchIcon" class="fa fa-search fa-flip-horizontal fa-2x" aria-hidden="true"></i></a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-12 searchResults" id="searchResults">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="menu">
+                <span><i class="fa fa-times fa-2x pull-right close-menu" aria-hidden="true"></i></span>
+                <ul class="menu-links">
+                    <li><a href="{{ path('index') }}">Inicio</a></li>
+                    <li><a href="{{ path('sagardotegien_mapak') }}">Mapa</a></li>
+                    <li><a href="{{ path('sagardotegis_index') }}">Sidrerias</a></li>
+                    <li><a href="{{ path('contacto') }}">Contacto</a></li>
+                    <li><a href="{{ path('nosotros') }}">Nosotros</a></li>
+                    <li><a class="btn-access">Usuarios <i class="fa fa-user fa-1x" aria-hidden="true"></i></a></li>
+                </ul>
+           </div>
         
+        <!-- IMPORTANTE -> Todos los ficheros que se cargen en el block body deben empezar con un div container-fluid!!!!
+        PERO SU ETIQUETA DE CIERRE CORRESPONDIENTE NO HACE FALTA!!!-->
+            {% block body %}{% endblock %}
+        </div><!-- .container-fluid -->
+        <div class="push"></div>
+        </div>
         <div class="container-fluid">
             
-            <div class="row">
+            <div class="row footer text-center">
                 <div class="col-xs-12">
-                
-                <nav class="navbar navbar-light bg-faded row">
-                  <a id="navbar-ham" class="navbar-ham col-xs-2 col-md-1 toggle-button"><i class="fa fa-bars fa-2x" aria-hidden="true"></i></a>
-                  <a id="navbar-logo" class="navbar-logo col-xs-2 col-md-1 hidden-md hidden-lg" href="#"><i class="fa fa-apple fa-2x" aria-hidden="true"></i></a>
-                  <a id="navbar-title" class="navbar-title col-md-4 hidden-xs hidden-sm" href="/">Kupelike</a>
-                  <form id="navbar-search" class="col-xs-8 col-md-6 navbar-search form-inline pull-right">
-                    <input class="form-control searchBox" type="text" placeholder="Search">
-                    <button class="btn search-btn" type="submit"><i class="fa fa-search fa-flip-horizontal fa-1x" aria-hidden="true"></i></button>
-                  </form>
-                </nav>
-                
-                </div>
-                
-                <div class="col-xs-12 searchResults">
-                    <span class="closeButton"><i><i class="fa fa-times fa-3" aria-hidden="true"></i></i></span>
-                </div>
-                
-                <div class="menu">
-                    <span><i class="fa fa-times fa-2x pull-right close-menu" aria-hidden="true"></i></span>
-                    <ul class="menu-links">
-                        <li><a href="/">Home</a></li>
-                        <li><a href="map">Map</a></li>
-                        <li><a href="sagardotegiak">Sagardotegiak</a></li>
-                        <li><a href="#">Contact</a></li>
-                        <li><a href="#">About</a></li>
-                    </ul>
-               </div>
-                
-            </div>
-        
-       </div><!-- .container-fluid -->
-        
-        <div id="contenido" class="container-fluid">
-            {% block body %}{% endblock %}
-        </div>
-        
-    
-            <footer class="footer container-fluid">
-                <div class="row text-center">
                     
-                    <div class="col-md-4 col-xs-4 font-face-primary p-20"> 
-                        <a href="http://www.facebook.com/kupelike"><i class="fa fa-facebook btn-social fa-5x" aria-hidden="true"></i></a>
+                    <div class="row">
+                        <div class="col-xs-12 font-face-primary p-20"> 
+                        
+                            <ul class="list-inline ftitle">
+                                
+                                <li><a href="https://www.facebook.com/kupelike" target="_blank">
+                                    <span class="fa-stack fa-2x">
+                                      <i class="fa fa-circle fa-stack-2x btn-social"></i>
+                                      <i class="fa fa-facebook fa-stack-1x fa-inverse btn-social-inner" aria-hidden="true"></i>
+                                    </span>
+                                </a></li>
+                                <li><a href="https://twitter.com/KupeLike" target="_blank"><span class="fa-stack fa-2x">
+                                      <i class="fa fa-circle fa-stack-2x btn-social"></i>
+                                      <i class="fa fa-twitter fa-stack-1x fa-inverse btn-social-inner" aria-hidden="true"></i>
+                                    </span>
+                                </a></li>
+                                <li><a href="https://www.instagram.com/kupelike" target="_blank"><span class="fa-stack fa-2x">
+                                      <i class="fa fa-circle fa-stack-2x btn-social"></i>
+                                      <i class="fa fa-instagram fa-stack-1x fa-inverse btn-social-inner" aria-hidden="true"></i>
+                                    </span>
+                                </a></li>
+                            </ul>
+                            
+                        </div>
                     </div>
-                    <div class="col-md-4 col-xs-4 font-face-primary p-20"> 
-                        <a href="http://www.twitter.com/kupelike"><i class="fa fa-twitter btn-social fa-5x" aria-hidden="true"></i></a>
-                    </div>
-                    <div class="col-md-4 col-xs-4 font-face-primary p-20"> 
-                        <a href="http://www.instagram.com/kupelike"><i class="fa fa-instagram btn-social fa-5x" aria-hidden="true"></i></a>
+                    
+                    <div class="row">
+                        <div class="col-xs-12 font-face-primary"> 
+                            <ul class="list-inline footer-menu text-uppercase">
+                                <li><a href="{{ path('index') }}">Inicio</a></li>
+                                <li><a href="{{ path('sagardotegien_mapak') }}">Mapa</a></li>
+                                <li><a href="{{ path('sagardotegis_index') }}">Sidrerías</a></li>
+                                <li><a href="{{ path('contacto') }}">Contacto</a></li>
+                                <li><a href="{{ path('nosotros') }}">Nosotros</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-xs-12 font-face-primary"> 
+                            <ul class="list-unstyled footer-menu green-color">
+                                <li><a href="tel:655555555"><i class="fa fa-phone-square" aria-hidden="true"></i> +34 655 55 55 55</a></li>
+                                <li><a href="mailto:kupelikeproject@gmail.com"><i class="fa fa-envelope" aria-hidden="true"></i> kupelikeproject@gmail.com</a></li>
+                                <li><a href="https://www.google.es/maps/place/Instituto+de+Educaci%C3%B3n+Secundaria+Xabier+Zubiri+Manteo/@43.3274463,-1.9710159,20z/data=!4m5!3m4!1s0x0:0x8654b5f1f9a490ae!8m2!3d43.3274118!4d-1.9708255"><i class="fa fa-map-marker" aria-hidden="true"></i> Paseo de José Miguel Barandiarán, 10-12, 20013 San Sebastián, Guipúzcoa</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-3 col-md-offset-3 col-xs-3 col-xs-offset-3 font-face-primary pc-footer"> 
-                        <h3 class="ftitle">PAGE</h3>
-                        <ul class="list-unstyled ftitle">
-                            <li><a href="" class="green-color">First item</a></li>
-                            <li><a href="" class="green-color">Second item</a></li>
-                            <li><a href="" class="green-color">Third item</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-5 col-md-offset-1 col-xs-5 col-xs-offset-1 font-face-primary pc-footer"> 
-                        <h3 class="ftitle">CONTACT</h3>
-                        <ul class="list-unstyled ftitle">
-                            <li><a href="tel:655555555" class="green-color"><i class="fa fa-phone-square" aria-hidden="true"></i> +34 655 55 55 55</a></li>
-                            <li><a href="mailto:kupelike@kupelike.com" class="green-color"><i class="fa fa-envelope" aria-hidden="true"></i> kupelike@kupelike.com</a></li>
-                            <li><a href="https://maps.google.com/" class="green-color"><i class="fa fa-map-marker" aria-hidden="true"></i> Helbidea 56, Donostia</a></li>
-                        </ul>
-                    </div>
+                <div class="col-xs-12 subfooter">   
+                    Copyright © 2017 KupeLike - All Rights Reserved - <a href="/privacy" class="">Privacy</a>
                 </div>
                 <hr class="fline"/>
                 <footer class="subfooter">
@@ -96,9 +184,11 @@
                 </footer>
             </footer>
         
+        </div><!-- .container-fluid -->
+        
         <script src="{{ asset('js/jquery.min.js') }}"></script>
         <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-        <script src="{{ asset('js/scripts.js') }}"></script>
+        <script src="{{ asset('js/script.js') }}"></script>
         
     </body>
 </html>

@@ -1,0 +1,17 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_driver_dev: pdo_mysql
+    database_host_dev: localhost
+    database_port_dev: null
+    database_name_dev: kupelike
+    database_user_dev: kupelike
+    database_password_dev: abc123
+    database_driver_prod: pdo_pgsql
+    database_host_prod: ec2-54-247-81-76.eu-west-1.compute.amazonaws.com
+    database_port_prod: 5432
+    database_name_prod: df6bi9takobnqv
+    database_user_prod: gjxxgbebeawrir
+    database_password_prod: 55365d219faf5386c2e7949094ff07cd5ab3d4e6a90e184bb50da73fe2cb81e1
+    secret: ThisTokenIsNotSoSecretChangeIt
+    facebook_id: 765683296917544
+    facebook_secret: 31ad4ff7d32353f15149a55b4b965596

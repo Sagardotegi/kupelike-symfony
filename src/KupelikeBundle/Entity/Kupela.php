@@ -22,9 +22,9 @@ class Kupela
     private $id;
     
     /**
-     * @var int
+     * @var string
      *
-     * @ORM\Column(name="id_sagardotegi", type="integer")
+     * @ORM\Column(name="id_sagardotegi", type="string", length=255)
      * @ORM\OneToMany(targetEntity="Sagardotegi", mappedBy="kupela")
      */
     private $idSagardotegi;
@@ -34,7 +34,7 @@ class Kupela
      *
      * @ORM\Column(name="num_votos", type="integer")
      */
-    private $numVotos;
+    private $numVotos = 0;
 
     /**
      * @var string
@@ -46,7 +46,7 @@ class Kupela
     /**
      * @var string
      *
-     * @ORM\Column(name="descripcion", type="string", length=255)
+     * @ORM\Column(name="descripcion", type="string", length=255, nullable=true)
      */
     private $descripcion;
 
@@ -60,14 +60,14 @@ class Kupela
     /**
      * @var string
      *
-     * @ORM\Column(name="foto", type="string", length=255)
+     * @ORM\Column(name="foto", type="string", length=255, nullable=true)
      */
     private $foto;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="url", type="string", length=255)
+     * @ORM\Column(name="url", type="string", length=255, nullable=true)
      */
     private $url;
 
@@ -82,13 +82,27 @@ class Kupela
     }
     
     /**
+     * Set idSagardotegi
+     * 
+     * @param string $idSagardotegi
+     *
+     * @return Kupela
+     */ 
+    public function setIdSagardotegi($idSagardotegi)
+    {
+        $this->idSagardotegi = $idSagardotegi;
+        
+        return $this;
+    }
+    
+    /**
      * Get idSagardotegi
      * 
-     * @return int
+     * @return string
      */ 
     public function getIdSagardotegi()
     {
-        return $this->id;
+        return $this->idSagardotegi;
     }
 
     /**
