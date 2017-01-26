@@ -15,10 +15,18 @@
         <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Roboto|Lobster" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://js.pusher.com/3.2/pusher.min.js"></script>
         <script src="{{ asset('js/jquery.min.js') }}"></script>
         
         <script>
 $(document).ready(function(){
+    $('#search').on('keyup keypress', function(e) {
+      var keyCode = e.keyCode || e.which;
+      if (keyCode === 13) { 
+        e.preventDefault();
+        return false;
+      }
+    });
     $("#search").keyup(function(){
         var txtBusqueda = $("#search").val();
         if(txtBusqueda != ""){
@@ -86,12 +94,16 @@ $(document).ready(function(){
                         <div class="col-xs-12 col-sm-2 loginsidreros">
                         {% if app.user %}
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a href="{{path("administracion_usuarios", { nombreSidreria: "Petritegi" })}}">Profile</a></li>
-                                <li><a href="{{path("contacto")}}">Help</a></li>
+                                {% if app.user.role == 'ROLE_ADMIN' %}
+                                    <li><a href="{{path('panel_usuarios')}}">Administrar usuarios</a></li>
+                                {% else %}
+                                    <li><a href="{{path("administracion_usuarios", { nombreSidreria: app.user.nombreSidreria })}}">Mi Sidrería</a></li>
+                                {% endif %}
+                                <li><a href="{{path("contacto")}}">Ayuda</a></li>
                                 <li><a href="{{path("logout")}}">Salir</a></li>
                              </ul>
                         {% else %}
-                            <a id="acceder" href="{{ path('administracion_usuarios',{nombreSidreria: "Petritegi"})}}" class="btn btn-primary">Acceder</a>
+                            <a id="acceder" href="{{ path('login') }}" class="btn btn-primary">Acceder</a>
                         {% endif %}
                         </div>
                     </nav>
@@ -112,8 +124,30 @@ $(document).ready(function(){
                         <li><a href="{{ path('nosotros') }}">Nosotros</a></li>
                     </ul>
                </div>
+            </div>
+            </nav>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-12 searchResults" id="searchResults">
+                    </div>
+                </div>
+
+                
+                <div class="menu">
+                <span><i class="fa fa-times fa-2x pull-right close-menu" aria-hidden="true"></i></span>
+                    <ul class="menu-links">
+                        <li><a href="{{ path('index') }}">Inicio</a></li>
+                        <li><a href="{{ path('sagardotegien_mapak') }}">Mapa</a></li>
+                        <li><a href="{{ path('sagardotegis_index') }}">Sidrerias</a></li>
+                        <li><a href="{{ path('contacto') }}">Contacto</a></li>
+                        <li><a href="{{ path('nosotros') }}">Nosotros</a></li>
+                        <li><a class="btn-access">Usuarios <i class="fa fa-user fa-1x" aria-hidden="true"></i></a></li>
+                    </ul>
+               </div>
                 
             </div>
+            
+            
         
         </div><!-- .container-fluid -->
         

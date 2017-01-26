@@ -4,11 +4,11 @@
     </div>
     {% for sagardotegi in sagardotegis %}
     
-    <div class="col-xs-6 col-md-4">
+    <div class="col-xs-6 col-lg-4">
         <div class="card">
             <a class="card-link"name="{{ sagardotegi.nombre }}" href="{{ path("sagardotegi_view", {idSagardotegi:sagardotegi.id}) }}">
             <div class="card-direction text-uppercase text-center"><h4>{{ sagardotegi.direccion }}</h4></div>
-            <img class="card-image img-responsive" src="{{asset(sagardotegi.foto)}}"></img>
+            <img class="card-image img-responsive" src="{{ sagardotegi.foto }}"></img>
             <h2 class="card-title text-uppercase">{{ sagardotegi.nombre }}</h2>
             <p class="card-description">{{ sagardotegi.descripcion }}</p>
             </a>

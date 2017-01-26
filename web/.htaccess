@@ -19,6 +19,12 @@ DirectoryIndex app.php
 
 <IfModule mod_rewrite.c>
     RewriteEngine On
+    
+    #RewriteCond %{HTTPS} off
+    #Redirect to https (Those two lines)
+    #RewriteCond %{SERVER_PORT} =80
+    RewriteCond %{HTTP:X-Forwarded-Proto} !https 
+    RewriteRule ^(.*)$ https://%{SERVER_NAME}%{REQUEST_URI} [L,R]
 
     # Determine the RewriteBase automatically and set it as environment variable.
     # If you are using Apache aliases to do mass virtual hosting or installed the
@@ -55,6 +61,14 @@ DirectoryIndex app.php
 
     # Rewrite all other queries to the front controller.
     RewriteRule ^ %{ENV:BASE}/app.php [L]
+    
+    #RewriteCond %{HTTPS} off
+    #RewriteCond %{REQUEST_SCHEME} http
+    # First rewrite to HTTPS:
+    # Don't put www. here. If it is already there it will be included, if not
+    # the subsequent rule will catch it.
+    #RewriteCond %{HTTP:X-Forwarded-Proto} =http
+    #RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 </IfModule>
 
 <IfModule !mod_rewrite.c>

@@ -1,14 +1,14 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-   <div class="container">
+   <div class="container-fluid">
    
         <div class="row single-sagardotegi">
             <div class="col-xs-6">
-                <h2 class="card-title text-uppercase">{{ sagardotegi.nombre }}</h2>
+                <h1 class="card-title text-uppercase">{{ sagardotegi.nombre }}</h1>
                     <p class="single-description" id="descripcion">{{ sagardotegi.descripcion }}</p>
                     <a href="{{ path("sagardotegi_mapa", {idSagardotegi:sagardotegi.id}) }}"><button type="button" class="btn btn-default">Como llegar</button></a>
-                    <a href="http://www.petritegi.com/es/contacto"><button type="button" class="btn btn-default">Contacto</button></a>
+                    <a href=""><button type="button" class="btn btn-default">Contacto</button></a>
             </div>
             <div class="col-xs-6">
                 <div class="card-single-direction text-uppercase text-center"><h4>{{ sagardotegi.direccion }}</h4></div>
@@ -16,36 +16,92 @@
             </div>
         </div>
     </div>
+    <script>
+        // Enable pusher logging - don't include this in production
+        // Pusher.logToConsole = true;
+        /*var pusher = new Pusher('fb3191e3b80fc4a2076b', {
+            cluster: 'eu',
+            encrypted: true
+        });
+        var channel = pusher.subscribe('my-channel');
+        channel.bind('my-event', function(data) {
+            alert(data.message);
+            //console.log(data.message);
+            document.getElementById("prueba").textContent = data.message;
+        });*/
+    </script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.3/handlebars.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
+    
+
+    
+
+    <script type="text/javascript">
+        /*$(function() {
+
+            function nuevoVoto(response) {
+                $('#prueba').append(*/
+                        //$('<p><span>hgjghjfj'/* + response.message */+ '</span></p>')
+                /*);
+            }
+
+            var server = new Ratchet('wss://localhost:8080');
+
+            // bind listeners
+            //server.on('chat.message.sent', appendChatMessage);
+            server.on('voto', nuevoVoto);
+
+            $('.vote-button').click(function(e) {
+                e.preventDefault();
+
+                //var message = $('#message');
+                //var value = message.val();
+                var value = "cambiado"
+
+                if (value.length) {
+                    server.emit('votado', value);
+                    //message.val("");
+                }
+
+                return false;
+            });
+        });*/
+    </script>
+    <!--<div id="prueba">aaa</div>-->
     
     <div class="container">
         
     <div class="row p-x-1 kupela-list">
-        <div class="col-xs-offset-1 col-xs-10">
+        <div class="col-xs-12">
     {% for kupela in kupelas %}
         
       
         <div class="row single-kupela">
-            <div class="col-xs-6">
+            <div class="col-xs-4 vote-wrapper">
+                <div class="row text-center">
+                    <div class="col-xs-12">
+                    <img src="{{asset(kupela.foto)}}" alt="kupela" class="single-kupela-img img-thumbnail img-circle img-responsive"></img>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6">
+                        <h3 class="vote-count">{{kupela.numVotos}}<i class="fa fa-heart fa-1x" aria-hidden="true"></i></h3>
+                    </div>
+                     <div class="col-xs-6">   
+                        <button class="vote-button">
+                            <a id="{{kupela.id}}" class="btn-facebook" numero="{{kupela.id}}">
+                                <i class="fa fa-heart fa-2x" aria-hidden="true"></i>
+                            </a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-8">
                 <div class="caption">
                     <h3 class="card-title text-uppercase">{{kupela.nombre}}</h3>
                     <p class="single-description">{{kupela.descripcion}}</p>
-                </div>
-            </div>
-            <div class="col-xs-4">
-                <img src="{{asset(kupela.foto)}}" alt="kupela" class="single-kupela-img img-circle img-responsive pull-right">
-            </div>
-            <div class="col-xs-2 votos">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <h3>{{kupela.numVotos}}</h3>
-                    </div>
-                    <div class="col-xs-12">
-                        <button class="vote-button">
-                            <a href="#" id="{{kupela.id}}" class="btn-facebook" numero="{{kupela.id}}">
-					            <img class="like-kupela img-responsive" src= "/web/img/logo_reverse.jpg">
-					        </a>
-					    </button>
-                    </div>
                 </div>
             </div>
         </div>

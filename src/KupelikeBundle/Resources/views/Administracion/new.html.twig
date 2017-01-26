@@ -14,7 +14,7 @@
              <input type="text" name="year" value="" placeholder="año kupela" class= "formulario">
              <input type="hidden" name="id-sagardotegi" value="{{ app.request.get('id') }}" class= "formulario"/>
              <button type="submit" class= "formulario" id="enviar" >Guardar</button>
-             <a href="{{ path("administracion_usuarios",{nombreSidreria: "Petritegi"})}}"><button id="enviar" class= "formulario">Cancelar</button></a>
+             <a href="{{ path("administracion_usuarios",{nombreSidreria: app.user.nombreSidreria})}}"><button id="enviar" class= "formulario">Cancelar</button></a>
          </form>
          
      </div>

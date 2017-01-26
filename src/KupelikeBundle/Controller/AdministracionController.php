@@ -14,6 +14,7 @@ use KupelikeBundle\Entity\Kupela;
 
 class AdministracionController extends Controller
 {
+ 
    //funcion que nos mostrara los datos de la sidreria con sus respectivas kupelas 
     public function usuariosAction($nombreSidreria)
     {    //buscara de la pagina sagardotegis y de la pagina kupelas cual corresponde con quien para poderlas desplegar
@@ -49,8 +50,10 @@ class AdministracionController extends Controller
          
           $em->persist($kupela);
           $em->flush();
+          
+          $user = $this->get('security.token_storage')->getToken()->getUser();
         
-         return $this->redirectToRoute('administracion_usuarios', array('nombreSidreria'=>'Petritegi'));
+         return $this->redirectToRoute('administracion_usuarios', array('nombreSidreria'=>$user->getNombreSidreria()));
          
         
     }
@@ -63,7 +66,9 @@ class AdministracionController extends Controller
           $em->remove($kupela);
           $em->flush();
         
-         return $this->redirectToRoute('administracion_usuarios', array('nombreSidreria'=>'Petritegi'));
+         $user = $this->get('security.token_storage')->getToken()->getUser();
+        
+         return $this->redirectToRoute('administracion_usuarios', array('nombreSidreria'=>$user->getNombreSidreria()));
          
         
     }
@@ -83,7 +88,9 @@ class AdministracionController extends Controller
           $em->persist($sagardotegi);
           $em->flush();
          //una vez guardado los cambios nos llevara a la pagina principal nuevamente en donde podremos ver los cambios echos 
-         return $this->redirectToRoute('administracion_usuarios', array('nombreSidreria'=>'Petritegi'));
+         $user = $this->get('security.token_storage')->getToken()->getUser();
+        
+         return $this->redirectToRoute('administracion_usuarios', array('nombreSidreria'=>$user->getNombreSidreria()));
          
         
     }
@@ -116,7 +123,9 @@ class AdministracionController extends Controller
          $em->persist($newKupela);
          $em->flush();
          
-         return $this->redirectToRoute('administracion_usuarios', array('nombreSidreria'=>'Petritegi'));
+         $user = $this->get('security.token_storage')->getToken()->getUser();
+        
+         return $this->redirectToRoute('administracion_usuarios', array('nombreSidreria'=>$user->getNombreSidreria()));
 
         
     } 

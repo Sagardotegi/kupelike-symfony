@@ -336,9 +336,19 @@ class Usuario implements UserInterface
 
         return $this;
     }
-
+    
     /**
      * Get role
+     *
+     * @return string
+     */
+    public function getRole()
+    {
+        return $this->role;
+    }
+
+    /**
+     * Get roles
      *
      * @return string
      */
