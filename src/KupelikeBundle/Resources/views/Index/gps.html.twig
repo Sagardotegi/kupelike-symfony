@@ -30,7 +30,11 @@
                 window.location = "{{ path('index') }}";
             }
         
-          });
+          },
+            function (error) { 
+              if (error.code == error.PERMISSION_DENIED)
+                  window.location = "{{ path('index') }}";
+            });
 		} else {
             window.location = "{{ path('index') }}";
         }
