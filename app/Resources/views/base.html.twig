@@ -23,7 +23,6 @@ $(document).ready(function(){
                 dataType: "json",
                 data: {textoBusqueda : txtBusqueda},
                 success : function(response) {
-                    //console.log(response);
                     $("#searchResults").show();
                     $("#searchResults").html("");
                     $.each(response, function(index, sagardotegi){
@@ -34,27 +33,26 @@ $(document).ready(function(){
                         var foto = "{{asset("change")}}".replace("change", sfoto);
                         
                         $("#searchResults").append(
-    "<hr class='search-hr'><div class='row'>"+
-        "<a name='"+sagardotegi.nombre+"' href='"+route+"'>"+
-            "<div class='col-xs-offset-2 col-xs-5'>"+
-                "<h2 class='card-title text-uppercase'>"+sagardotegi.nombre+"</h2>"+
-                "<div class='card-margen-20'>"+
-                    "<p class='card-description' id='descripcion'>"+sagardotegi.descripcion+"</p>"+
-                    "<a href='"+llegar+"'><button type='button' class='btn btn-default'>Como llegar</button></a>"+
-                    "<a href='#'><button type='button' class='btn btn-default'>Contacto</button></a>"+
-                "</div>"+
-            "</div>"+
-        "</a>"+
-        "<a name='"+sagardotegi.nombre+"' href='"+route+"'>"+
-            "<div class='col-xs-4'>"+
-                "<div class='card-sidreria'>"+
-                    "<img class='img-responsive img-search' src='"+foto+"'></img>"+
-                "</div>"+
-            "</div>"+
-        "</a>"+
-    "</div>"
+                        "<hr class='search-hr'><div class='row'>"+
+                            "<a name='"+sagardotegi.nombre+"' href='"+route+"'>"+
+                                "<div class='col-xs-offset-2 col-xs-5'>"+
+                                    "<h2 class='card-title text-uppercase'>"+sagardotegi.nombre+"</h2>"+
+                                    "<div class='card-margen-20'>"+
+                                        "<p class='card-description' id='descripcion'>"+sagardotegi.descripcion+"</p>"+
+                                        "<a href='"+llegar+"'><button type='button' class='btn btn-default'>Como llegar</button></a>"+
+                                        "<a href='#'><button type='button' class='btn btn-default'>Contacto</button></a>"+
+                                    "</div>"+
+                                "</div>"+
+                            "</a>"+
+                            "<a name='"+sagardotegi.nombre+"' href='"+route+"'>"+
+                                "<div class='col-xs-4'>"+
+                                    "<div class='card-sidreria'>"+
+                                        "<img class='img-responsive img-search' src='"+foto+"'></img>"+
+                                    "</div>"+
+                                "</div>"+
+                            "</a>"+
+                        "</div>"
                         );
-                    
                     });
                 }
             });
@@ -72,26 +70,21 @@ $(document).ready(function(){
                             <a id="navbar-ham" class="navbar-ham toggle-button"><i class="fa fa-bars fa-2x" aria-hidden="true"></i></a>
                             <a id="navbar-title" class="navbar-title" href="{{ path('index') }}">Kupe<img class="img-logo"/>Like</a>
                         </div>
-                        <div class="col-xs-6">
-                            <form id="navbar-search" class="navbar-form pull-right" role="search" action="{{ path('sagardotegis_buscar') }}">
+                        <div class="col-xs-8">
+                            <form id="navbar-search" class="navbar-form pull-right p-x-0" role="search" action="{{ path('sagardotegis_buscar') }}">
                                 <div class="form-group">
-                                  <input  id="search" type="text" class="form-control searchBox" placeholder="Search">
+                                  <input  id="search" type="text" class="searchBox" placeholder="Search">
                                 </div>
-                                <a class="btn navbar-search-btn"><i class="fa fa-search fa-flip-horizontal fa-2x" aria-hidden="true"></i></a>
-                                <span class="closeSearch pull-right"><i class="fa fa-times fa-2x" aria-hidden="true"></i></span>
+                                <a id="searchButton" class="btn navbar-search-btn"><i id="searchIcon" class="fa fa-search fa-flip-horizontal fa-2x" aria-hidden="true"></i></a>
                             </form>
-                        </div>
-                        <div class="col-xs-2">
-                            <ul class="nav navbar-nav navbar-right">
-                                <li><a class="btn-primary">Usuarios <i class="fa fa-user fa-1x" aria-hidden="true"></i></a></li>
-                            </ul>
                         </div>
                     </div>
                 </div>
             </nav>
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-xs-12 searchResults" id="searchResults"></div>
+                    <div class="col-xs-12 searchResults" id="searchResults">
+                    </div>
                 </div>
             </div>
             
@@ -103,6 +96,7 @@ $(document).ready(function(){
                     <li><a href="{{ path('sagardotegis_index') }}">Sidrerias</a></li>
                     <li><a href="{{ path('contacto') }}">Contacto</a></li>
                     <li><a href="{{ path('nosotros') }}">Nosotros</a></li>
+                    <li><a class="btn-access">Usuarios <i class="fa fa-user fa-1x" aria-hidden="true"></i></a></li>
                 </ul>
            </div>
         
