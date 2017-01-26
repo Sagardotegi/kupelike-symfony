@@ -49,7 +49,7 @@ class SagardotegiController extends Controller
         
         //$kupelaN = $em->getRepository('KupelikeBundle:Voto')->sumKupelas();
         
-        return $this->render('KupelikeBundle:Kupela:index2.html.twig', array(
+        return $this->render('KupelikeBundle:Kupela:index.html.twig', array(
             'kupelas' => $kupelas,
             'sagardotegi' => $sagardotegi//,
             //'kupelaN' => $kupelaN

@@ -869,10 +869,33 @@ hr.search-hr {
 }
 
 .img-kupela-lista {
-   height: 200px;
-   width: 200px;
+   height: 250px;
+   width: 250px;
 }
 
+.img-thumbnail{
+    max-width: 80%;
+}
+
+#nueva_kupela{
+    width: 250px;
+    height: 250px;
+    border: 1px black solid;
+    margin-left: 5px;
+    margin-top: 5px;
+}
+
+#nueva_kupela #plus{
+    padding-left: 90px;
+    padding-top: 85px;
+}
+#numvotos{
+    padding-left: 55px;
+}
+
+#btn-facebook{
+    margin-top: 25px;
+}
 
 /**************** lider new ***********************/
 
