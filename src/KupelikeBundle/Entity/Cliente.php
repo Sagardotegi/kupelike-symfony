@@ -15,10 +15,10 @@ class Cliente
     /**
      * @var int
      *
-     * @ORM\Column(name="id_facebook", type="integer")
+     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      */
-    private $idFacebook;
+    private $id;
 
     /**
      * @var string
@@ -58,25 +58,25 @@ class Cliente
     /**
      * Set idFacebook
      *
-     * @param string $idFacebook
+     * @param string $id
      *
      * @return Cliente
      */
-    public function setIdFacebook($idFacebook)
+    public function setId($id)
     {
-        $this->idFacebook = $idFacebook;
+        $this->id = $id;
 
         return $this;
     }
 
     /**
-     * Get idFacebook
+     * Get id
      *
      * @return string
      */
-    public function getIdFacebook()
+    public function getId()
     {
-        return $this->idFacebook;
+        return $this->id;
     }
 
     /**
