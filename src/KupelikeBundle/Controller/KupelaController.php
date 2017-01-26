@@ -109,17 +109,7 @@ class KupelaController extends Controller
     private function nuevoVoto($em, $idCliente, $idKupela)
     {
         $votoExists = $em->getRepository('KupelikeBundle:Voto')->findOneBy(array('clienteId' => $idCliente, 'kupelaId' => $idKupela, 'fecha' => date('Y/m/d')));
-        /*$votoExists = $em->getRepository('KupelikeBundle:Voto')->createQueryBuilder('cm');
         
-        //$votoExists = $em->getRepository('FrontendChancesBundle:ChanceMatch')->createQueryBuilder('cm');
-        $votoExists ->select('cm')
-            ->where($votoExists->expr()->orX(
-                $votoExists->expr()->eq('cm.clienteId', ':cliente_id'),
-                $votoExists->expr()->eq('cm.kupelaId', ':kupela_id')
-            ))
-            ->setParameter('cliente_id', $idCliente)
-            ->setParameter('kupela_id', $idKupela);
-        $votoExists2 = $votoExists->getQuery()->getSingleResult();*/
         if(!$votoExists){
             $voto = new Voto();
             $voto->setClienteId($idCliente);
