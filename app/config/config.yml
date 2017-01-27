@@ -67,7 +67,7 @@ swiftmailer:
     encryption: ssl
     auth_mode:  login
     host:       smtp.gmail.com
-    username:  "kupelikeproject"
+    username:  kupelikeproject
     password:  "Abcd_1234"
     
     
