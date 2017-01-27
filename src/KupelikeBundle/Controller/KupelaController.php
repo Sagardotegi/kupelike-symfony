@@ -77,10 +77,7 @@ class KupelaController extends Controller
             $this->nuevoVoto($em, $idCliente, $idKupela);
         }
         
-        //$this->hacerPusher();
-        /*$pusher = $this->container->get('lopi_pusher.pusher');
-        $data['message'] = "Cambiado";
-        $pusher->trigger('my-channel', 'my-event', $data);*/
+        
         
         
         
@@ -270,4 +267,19 @@ class KupelaController extends Controller
             )
         );
     }*/
+    public function pusherAction(Request $request, $msg){
+    //public function pusherAction(){        
+        //$this->hacerPusher();
+        /*$pusher = $this->container->get('lopi_pusher.pusher');
+        $data['message'] = "Cambiado";
+        $pusher->trigger('my-channel', 'my-event', $data);*/
+        
+        $pusher = $this->container->get('lopi_pusher.pusher');
+    
+        $data['message'] = 'from Symfony: ' . $msg;
+        //$data['message'] = 'from Symfony: ';
+        $pusher->trigger('my-channel', 'my-event', $data);
+        
+        return new Response("Pusher ok 3!!");
+    }
 }

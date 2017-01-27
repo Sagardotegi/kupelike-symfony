@@ -19,16 +19,16 @@
     <script>
         // Enable pusher logging - don't include this in production
         // Pusher.logToConsole = true;
-        /*var pusher = new Pusher('fb3191e3b80fc4a2076b', {
-            cluster: 'eu',
+        var pusher = new Pusher('a37218af0d3c7dcfceae', {
+            //cluster: 'eu',
             encrypted: true
         });
         var channel = pusher.subscribe('my-channel');
         channel.bind('my-event', function(data) {
             alert(data.message);
-            //console.log(data.message);
+            console.log(data.message);
             document.getElementById("prueba").textContent = data.message;
-        });*/
+        });
     </script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -69,7 +69,7 @@
             });
         });*/
     </script>
-    <!--<div id="prueba">aaa</div>-->
+   <div id="prueba">aaa</div>
     
     <div class="container">
         
