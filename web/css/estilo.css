@@ -151,16 +151,6 @@ body::-webkit-scrollbar-thumb {
 .navbar-form {
     
     margin-top: 25px;
-    padding-left: 25%;
-    -moz-transition: padding-left 1s ease-in;
-     -o-transition: padding-left  1s ease-in;
-     -webkit-transition: padding-left  1s ease-in;
-     transition: padding-left  1s ease-in;
-    line-height: 90px;
-    height: inherit;
-    margin-top: 0px !important;
-    margin-bottom: 0px !important;
-    
 }
 
 .navbar-search {

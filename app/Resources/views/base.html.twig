@@ -78,59 +78,30 @@ $(document).ready(function(){
     </head>
     <body>
         <div class="wrapper">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-xs-12">
-                    <nav class="navbar navbar-light bg-faded row navbar-fixed-top">
-                        <div class="col-xs-3 col-sm-1 navbar-ham2"><a id="navbar-ham" class="navbar-ham toggle-button"><i class="fa fa-bars fa-2x" aria-hidden="true"></i></a></div>
-                        <div class="col-xs-9 col-sm-4"><a id="navbar-title" class="navbar-title" href="{{ path('index') }}">Kupe<img class="img-logo"/>Like</a></div>
-                        <div class="col-xs-12 col-sm-5 searchPadding">
-                          <form id="navbar-search" class="navbar-search form-inline" action="{{ path('sagardotegis_buscar') }}">
-                            <input class="form-control searchBox" id="search" type="text" placeholder="Search">
-                            <i class="fa fa-search fa-flip-horizontal fa-1x" aria-hidden="true"></i>
-                            <span class="closeSearch pull-right"><i class="fa fa-times fa-2x" aria-hidden="true"></i></span>
-                          </form>
+        <nav class="navbar navbar-light bg-faded navbar-fixed-top">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xs-4 navbar-header">
+                            <a id="navbar-ham" class="navbar-ham toggle-button"><i class="fa fa-bars fa-2x" aria-hidden="true"></i></a>
+                            <a id="navbar-title" class="navbar-title" href="{{ path('index') }}">Kupe<img class="img-logo"/>Like</a>
                         </div>
-                        <div class="col-xs-12 col-sm-2 loginsidreros">
-                        {% if app.user %}
-                            <ul class="nav navbar-nav navbar-right">
-                                {% if app.user.role == 'ROLE_ADMIN' %}
-                                    <li><a href="{{path('panel_usuarios')}}">Administrar usuarios</a></li>
-                                {% else %}
-                                    <li><a href="{{path("administracion_usuarios", { nombreSidreria: app.user.nombreSidreria })}}">Mi Sidrería</a></li>
-                                {% endif %}
-                                <li><a href="{{path("contacto")}}">Ayuda</a></li>
-                                <li><a href="{{path("logout")}}">Salir</a></li>
-                             </ul>
-                        {% else %}
-                            <a id="acceder" href="{{ path('login') }}" class="btn btn-primary">Acceder</a>
-                        {% endif %}
+                        <div class="col-xs-8">
+                            <form id="navbar-search" class="navbar-form pull-right p-x-0" role="search" action="{{ path('sagardotegis_buscar') }}">
+                                <div class="form-group">
+                                  <input  id="search" type="text" class="searchBox" placeholder="Search">
+                                </div>
+                                <a id="searchButton" class="btn navbar-search-btn"><i id="searchIcon" class="fa fa-search fa-flip-horizontal fa-2x" aria-hidden="true"></i></a>
+                            </form>
                         </div>
-                    </nav>
-                    
+                    </div>
                 </div>
-                
-                <div class="col-xs-12 searchResults" id="searchResults">
-                    
-                </div>
-                
-                <div class="menu">
-                    <span><i class="fa fa-times fa-2x pull-right close-menu" aria-hidden="true"></i></span>
-                    <ul class="menu-links">
-                        <li><a href="{{ path('index') }}">Inicio</a></li>
-                        <li><a href="{{ path('sagardotegien_mapak') }}">Mapa</a></li>
-                        <li><a href="{{ path('sagardotegis_index') }}">Sidrerías</a></li>
-                        <li><a href="{{ path('contacto') }}">Contacto</a></li>
-                        <li><a href="{{ path('nosotros') }}">Nosotros</a></li>
-                    </ul>
-               </div>
-            </div>
             </nav>
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-xs-12 searchResults" id="searchResults">
                     </div>
                 </div>
+            </div>
 
                 
                 <div class="menu">
@@ -141,15 +112,19 @@ $(document).ready(function(){
                         <li><a href="{{ path('sagardotegis_index') }}">Sidrerias</a></li>
                         <li><a href="{{ path('contacto') }}">Contacto</a></li>
                         <li><a href="{{ path('nosotros') }}">Nosotros</a></li>
-                        <li><a class="btn-access">Usuarios <i class="fa fa-user fa-1x" aria-hidden="true"></i></a></li>
+                        {% if app.user %}
+                                {% if app.user.role == 'ROLE_ADMIN' %}
+                                    <li><a href="{{path('panel_usuarios')}}">Administrar usuarios</a></li>
+                                {% else %}
+                                    <li><a href="{{path("administracion_usuarios", { nombreSidreria: app.user.nombreSidreria })}}">Mi Sidrería</a></li>
+                                {% endif %}
+                                <li><a href="{{path("contacto")}}">Ayuda</a></li>
+                                <li><a href="{{path("logout")}}">Salir</a></li>
+                        {% else %}
+                            <li><a href="{{ path('login') }}" class="btn-access">Acceder <i class="fa fa-user fa-1x" aria-hidden="true"></i></a></li>
+                        {% endif %}
                     </ul>
-               </div>
-                
-            </div>
-            
-            
-        
-        </div><!-- .container-fluid -->
+               </div><!-- .container-fluid -->
         
         <!-- IMPORTANTE -> Todos los ficheros que se cargen en el block body deben empezar con un div container-fluid!!!!
         PERO SU ETIQUETA DE CIERRE CORRESPONDIENTE NO HACE FALTA!!!-->
