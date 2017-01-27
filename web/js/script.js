@@ -55,13 +55,12 @@ $(document).ready(function($) {
 
 /* APP info script */
 
-$(document).ready(function($) {
-  
+/*$(document).ready(function($) {
       $('.single-kupela').onClick(function(){
           $(this).find('.single-kupela-info').slideToggle(1000);
        
     });
-});
+});*/
 
 
 /*function showResult(str) {

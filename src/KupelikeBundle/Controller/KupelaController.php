@@ -108,15 +108,19 @@ class KupelaController extends Controller
     
     private function nuevoVoto($em, $idCliente, $idKupela)
     {
-        $voto = new Voto();
-        $voto->setClienteId($idCliente);
-        $voto->setKupelaId($idKupela);
-        $voto->setFecha(date('Y/m/d'));
+        $votoExists = $em->getRepository('KupelikeBundle:Voto')->findOneBy(array('clienteId' => $idCliente, 'kupelaId' => $idKupela, 'fecha' => date('Y/m/d')));
         
-        $em->persist($voto);
-        $em->flush();
-        
-        $this->updateVotos($idKupela);
+        if(!$votoExists){
+            $voto = new Voto();
+            $voto->setClienteId($idCliente);
+            $voto->setKupelaId($idKupela);
+            $voto->setFecha(date('Y/m/d'));
+            
+            $em->persist($voto);
+            $em->flush();
+            
+            $this->updateVotos($idKupela);
+        }
     }
     
     public function mostrarAction($id){

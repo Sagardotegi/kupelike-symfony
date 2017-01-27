@@ -177,6 +177,10 @@ body::-webkit-scrollbar-thumb {
     width: 60px;
 }
 
+#acceder{
+    margin-top: 20px;
+}
+
 .searchBox {
     
     display: none;
@@ -928,9 +932,6 @@ hr.search-hr {
 }
 
 
-
-
-
 /* slider */
 .imagen-about {
   width: 173px;
@@ -942,6 +943,11 @@ hr.search-hr {
   border-radius: 300px;
   /*box-shadow: black -2px -4px 50px -2px;*/
   text-align: left;
+}
+
+.img-kupela-lista {
+   height: 200px;
+   width: 200px;
 }
 
 
