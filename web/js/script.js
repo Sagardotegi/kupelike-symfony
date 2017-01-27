@@ -8,6 +8,7 @@ $(document).ready(function($) {
         $('#searchIcon').toggleClass('fa-times');
         $('.searchResults').slideToggle(1000);
     });
+    //$('#search').textinput('option','preventFocusZoom',false);
 });
 
 
