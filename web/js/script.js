@@ -20,6 +20,15 @@ $(document).on('click', function(e) {
   }
 });
 
+/** Scroll to Sagardotegiak **/
+$(document).on('click','.btn-encuentra', function(event) {
+    event.preventDefault();
+    var target = "#" + this.getAttribute('data-target');
+    $('html, body').animate({
+        scrollTop: $(target).offset().top
+    }, 1500);
+});
+
 /** Access window open **/
 
   $(document).ready(function($) {
