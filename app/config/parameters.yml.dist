@@ -12,7 +12,7 @@ parameters:
     database_driver_dev:   pdo_mysql
     database_host_dev:     localhost
     database_port_dev:     null
-    database_name_dev:   kupelike
+    database_name_dev:   ~
     database_user_dev:     ~
     database_password_dev: ~
     
