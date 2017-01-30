@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+<div class="container-fluid"> 
+    <div class="row sidreria">
+    <div class="row sidreria">
+
+
+<div class="container-fluid content">
+    <div class="row sidreria">
+
+<div class="container-fluid content">
+    <div class="row sidreria">
+
+        <div class="col-sm-12">
+            <h1 class="mtitle title-padding text-center">Registrate con nosotros</h1>
+            <p>rellenar este formulario para formar parte de la comunidad Kupelike, Tu sidra lo merece!</p>
+        </div>
+    </div>  
+    <div class= "row contenido">
+           <form class="contact_form" action="{{path('enviar_correo')}}" method="post">
+                       <input name= "nombre-apellidos" class= "formulario" type="text" required  placeholder="Escriba el nombre y apellidos del administrador"/>
+                       <input name= "email" class= "formulario" type="email" name="email" required placeholder="Indíquenos tu Email"/>
+                       <input name= "nombre-sidreria" class= "formulario" type="text" required  placeholder="Escriba el nombre de la sidreria"/>
+                       <input name= "direccion-sidreria" class= "formulario" type="text" required  placeholder="Escriba la direccion de la sidreria"/>
+                       <textarea name="descripcion-sidreria" class= "formulario" name="Mensaje" cols="40" rows="6" required  placeholder="Descripcion de la sidreria"></textarea>
+                       <input id="enviar" class="formulario" type="submit" value="Enviar" />
+           </form>
+     </div>  
+ 
+
+{% endblock %}
