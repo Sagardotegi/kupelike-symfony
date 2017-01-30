@@ -8,6 +8,8 @@ imports:
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: es
+    directorio_kupelas: '%kernel.root_dir%/../web/uploads/kupelas'
+    directorio_sagardotegis: '%kernel.root_dir%/../web/uploads/sagardotegis'
 
 framework:
     #esi:             ~

@@ -135,7 +135,7 @@ editar_kupela:
 actualizar_kupela:
     path: /actualizarkupela/{id}
     defaults: { _controller: KupelikeBundle:Administracion:updateKupela }  
-    methods: [GET] 
+    methods: [POST] 
     
 eliminar_kupela:
     path: /eliminarkupela/{id}
@@ -150,7 +150,7 @@ editar_sagardotegi:
 actualizar_sagardotegi:
     path: /actualizarsagardotegi/{id}
     defaults: { _controller: KupelikeBundle:Administracion:updateSagardotegi }  
-    methods: [GET]      
+    methods: [POST]      
         
         
     

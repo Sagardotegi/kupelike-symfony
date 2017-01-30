@@ -9,10 +9,11 @@
             </div>
         <div class="row">
        
-         <form action="{{ path("actualizar_kupela", {id: kupela.id})}}" class="contact_form">
+         <form action="{{ path("actualizar_kupela", {id: kupela.id})}}" class="contact_form" method="post" enctype="multipart/form-data">
              <input type="text" name="nombre" class= "formulario" value="{{kupela.nombre}}" placeholder="nombre de la nueva Kupela">
              <input type="text" name="descripcion" class= "formulario" value="{{kupela.descripcion}}" placeholder="descripcion de la nueva Kupela">
              <input type="text" name="year" class= "formulario" value="{{kupela.year}}" placeholder="año de la nueva Kupela">
+             <input type="file" name="foto" class="formulario" />
              <button id="enviar"  type="submit" class="formulario">Guardar</button>
              <a href="{{ path("administracion_usuarios",{nombreSidreria: app.user.nombreSidreria})}}"><button id="enviar"  class="formulario">Cancelar</button></a>
          </form>

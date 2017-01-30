@@ -15,3 +15,7 @@
 /vendor/
 /web/bundles/
 /bin/oc
+
+# Para que no suba las fotos subidas
+/web/uploads/kupelas/*
+/web/uploads/sagardotegis/*
