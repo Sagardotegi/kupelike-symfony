@@ -75,17 +75,17 @@ swiftmailer:
 
 
 # app/config/config.yml
-#lopi_pusher:
-    #app_id: "291479"
-    #key: "fb3191e3b80fc4a2076b"
-    #secret: "e557d927dbe92d8dd449"
+lopi_pusher:
+    app_id: "295127"
+    key: "a37218af0d3c7dcfceae"
+    secret: "d0680cf0b9eb69867826"
     #app_id: "%pusher.app_id%"
     #key: "%pusher.app_key%"
     #secret: "%pusher.app_secret%"
 
     # Default configuration
     #debug: false # true if you want use the debug of all requests
-    #cluster: eu # Change the cluster name
+    #cluster: "eu" # Change the cluster name
     #host: http://api.pusherapp.com
     #port: 443
     #timeout: 30

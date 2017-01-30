@@ -54,11 +54,6 @@ class KupelaController extends Controller
         $fblocation = $datos->getProperty('location');*/
         
         $idKupela = $request->request->get('idKupela');
-        //$idKupela = $datos['idKupela'];
-        //exec("php /web/pusher/pusher.php");
-        
-        
-        
         
         // Entity Manager
         $em = $this->getDoctrine()->getManager();
@@ -77,10 +72,7 @@ class KupelaController extends Controller
             $this->nuevoVoto($em, $idCliente, $idKupela);
         }
         
-        //$this->hacerPusher();
-        /*$pusher = $this->container->get('lopi_pusher.pusher');
-        $data['message'] = "Cambiado";
-        $pusher->trigger('my-channel', 'my-event', $data);*/
+        
         
         
         
@@ -149,7 +141,11 @@ class KupelaController extends Controller
     
         $kupelaVotos->setNumVotos($nuevoVoto);
         $em->flush();
-        //$this->hacerPusher($nuevoVoto);
+        
+        
+        
+        
+        $this->hacerPusher($nuevoVoto, $id);
         
         
         
@@ -166,6 +162,14 @@ class KupelaController extends Controller
         $em->flush();*/
     
         
+    }
+    
+    public function hacerPusher($nuevoVoto, $id){
+        $pusher = $this->container->get('lopi_pusher.pusher');
+    
+        $data['message'] = $nuevoVoto;
+        $data['id'] = $id;
+        $pusher->trigger('my-channel', 'my-event', $data);
     }
     
     /**
@@ -193,81 +197,4 @@ class KupelaController extends Controller
         $json = $serializer->serialize($votos, 'json');
         return new Response($json);
     }
-    
-    //public function hacerPusherAction()
-    //{
-        /* pusher */
-        //$pusher = $this->container->get('lopi_pusher.pusher');
-        //$data['message'] = "Cambiado";
-        //$pusher->trigger('my-channel', 'my-event', $data);
-        
-        //$pusher = $this->container->get('lopi_pusher.pusher');
-        /*$options = array(
-            'cluster' => 'eu',
-            'encrypted' => true
-        );
-        $pusher = new Pusher(
-            'fb3191e3b80fc4a2076b',
-            'e557d927dbe92d8dd449',
-            '291479',
-            $options
-        );*/
-        //$data['message'] = "Cambiado";
-        //$pusher->trigger('my-channel', 'my-event', $data);
-        //return new Response();
-        /* pusher */
-        /*$em = $this->getDoctrine()->getManager();
-
-        $sagardotegi = $em->getRepository('KupelikeBundle:Sagardotegi')->findOneBy(array("id" => $idSagardotegi));
-        $kupelas = $em->getRepository('KupelikeBundle:Kupela')->findBy(array('idSagardotegi' => $idSagardotegi));
-        
-        return $this->render('KupelikeBundle:Kupela:index2.html.twig', array(
-            'kupelas' => $kupelas,
-            'sagardotegi' => $sagardotegi//,
-            //'kupelaN' => $kupelaN
-        ));*/
-        //return new Response();
-    //}
-    /*public static function getSubscribedEvents()
-    {
-        return array(
-            'votado' => 'onSendMessage'
-        );
-    }*/
-
-    /*public function onSendMessage(MessageEvent $event)
-    {*/
-        //$client = $event->getConnection()->getClient()->jsonSerialize();
-        //$message = $event->getPayload()->getData();
-
-        /*$event->getConnection()->broadcast(
-            new EventPayload(
-                'chat.message',
-                array(
-                    'client' => $client,
-                    'message' => $message
-                )
-            )
-        );*/
-
-        /*$event->getConnection()->emit(
-            new EventPayload(
-                'chat.message.sent',
-                array(
-                    'client' => $client,
-                    'message' => $message
-                )
-            )
-        );*/
-        /*$message = $event->getPayload()->getData();
-        
-        $event->getConnection()->emit(
-            new EventPayload(
-                'voto',
-                array(
-                    'message' => $message
-                )
-            )
-        );
-    }*/
 }
