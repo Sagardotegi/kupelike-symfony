@@ -15,14 +15,6 @@ use Symfony\Component\Serializer\Encoder\XmlEncoder;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 
-//use Lopi\Bundle\PusherBundle;
-//use P2\Bundle\RatchetBundle\WebSocket\ConnectionEvent;
-//use P2\Bundle\RatchetBundle\WebSocket\Payload;
-//use P2\Bundle\RatchetBundle\WebSocket\Server\ApplicationInterface;
-
-//require '/vendor/autoload.php';
-
-
 class KupelaController extends Controller
 {
     
@@ -71,11 +63,7 @@ class KupelaController extends Controller
             // añade un nuevo voto
             $this->nuevoVoto($em, $idCliente, $idKupela);
         }
-        
-        
-        
-        
-        
+
         return new Response();
     }
     
@@ -141,9 +129,6 @@ class KupelaController extends Controller
     
         $kupelaVotos->setNumVotos($nuevoVoto);
         $em->flush();
-        
-        
-        
         
         $this->hacerPusher($nuevoVoto, $id);
         

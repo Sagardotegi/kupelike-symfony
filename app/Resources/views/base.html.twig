@@ -106,11 +106,11 @@ $(document).ready(function(){
                 <div class="menu">
                 <span><i class="fa fa-times fa-2x pull-right close-menu" aria-hidden="true"></i></span>
                     <ul class="menu-links">
-                        <li><a href="{{ path('index') }}">Inicio</a></li>
+                        <li><a href="{{ path('index') }}">{{ 'paginas_estaticas.menu.inicio' | trans }}</a></li>
                         <li><a href="{{ path('sagardotegien_mapak') }}">Mapa</a></li>
-                        <li><a href="{{ path('sagardotegis_index') }}">Sidrerias</a></li>
-                        <li><a href="{{ path('contacto') }}">Contacto</a></li>
-                        <li><a href="{{ path('nosotros') }}">Nosotros</a></li>
+                        <li><a href="{{ path('sagardotegis_index') }}">{{ 'paginas_estaticas.menu.sidrerias' | trans }}</a></li>
+                        <li><a href="{{ path('contacto') }}">{{ 'paginas_estaticas.menu.contacto' | trans }}</a></li>
+                        <li><a href="{{ path('nosotros') }}">{{ 'paginas_estaticas.menu.nosotros' | trans }}</a></li>
                         {% if app.user %}
                                 {% if app.user.role == 'ROLE_ADMIN' %}
                                     <li><a href="{{path('panel_usuarios')}}">Administrar usuarios</a></li>

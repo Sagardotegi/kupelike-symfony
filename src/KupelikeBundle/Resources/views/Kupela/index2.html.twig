@@ -17,10 +17,7 @@
         </div>
     </div>
     <script>
-        // Enable pusher logging - don't include this in production
-        // Pusher.logToConsole = true;
         var pusher = new Pusher('a37218af0d3c7dcfceae', {
-            //cluster: 'eu',
             encrypted: true
         });
         var channel = pusher.subscribe('my-channel');

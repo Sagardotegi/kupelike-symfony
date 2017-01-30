@@ -1,0 +1,6 @@
+paginas_estaticas:
+    menu:
+        inicio: "Inicio"
+        sidrerias: "Sidrerías"
+        contacto: "Contacto"
+        nosotros: "Nosotros"
