@@ -7,6 +7,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use KupelikeBundle\Entity\Usuario;
+use KupelikeBundle\Entity\Sagardotegi;
 
 class UsuarioController extends Controller
 {
@@ -107,6 +108,43 @@ class UsuarioController extends Controller
         $this->addFlash('mensaje', $successMessage);
         
         return $this->redirectToRoute('panel_usuarios');
+    }
+    
+    /**
+     * Crea una nueva Sagardotegi
+     */
+    public function newSagardotegiFormAction()
+    {
+        return $this->render('KupelikeBundle:Usuarios:newSagardotegi.html.twig');
+    }
+    
+    public function newSagardotegiAction(Request $request)
+    {
+        $sagardotegi = new Sagardotegi();
+        
+        $nombre = $request->request->get('nombre');
+        $direccion = $request->request->get('direccion');
+        $descripcion = $request->request->get('descripcion');
+        /** @var Symfony\Component\HttpFoundation\File\UploadedFile $foto */
+        $foto = $request->files->get('foto');
+        // asignamos un nombre al archivo generado automáticamente
+        $nombreFoto = $this->get('app.sagardotegi_uploader')->upload($foto);
+        
+        $sagardotegi->setFoto('/uploads/sagardotegis/' . $nombreFoto);
+        $sagardotegi->setNombre($nombre);
+        $sagardotegi->setDescripcion($descripcion);
+        $sagardotegi->setDireccion($direccion);
+        
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($sagardotegi);
+        $em->flush();
+        
+        // mensaje flash de que el usuario se ha creado correctamente
+        $successMessage = $this->get('translator')->trans('Se ha creado la sidrería.');
+        $this->addFlash('mensaje', $successMessage);
+        
+        return $this->redirectToRoute('panel_usuarios');
+        
     }
     
 }

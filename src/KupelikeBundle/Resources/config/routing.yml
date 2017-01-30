@@ -111,6 +111,14 @@ actualizar_usuario:
     path: /actualizar-usuario/{id}
     defaults: { _controller: KupelikeBundle:Usuario:actualizar }
     
+form_nueva_sagardotegi:
+    path: /nueva-sidreria/
+    defaults: { _controller: KupelikeBundle:Usuario:newSagardotegiForm }
+    
+nueva_sagardotegi:
+    path: /nueva-sagardotegi/
+    defaults: { _controller: KupelikeBundle:Usuario:newSagardotegi }
+    
 # ADMINISTRACIÓN DE LA SIDRERIA
 
 administracion_usuarios:
