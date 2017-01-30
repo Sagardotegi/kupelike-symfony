@@ -41,11 +41,12 @@ twig:
 # Doctrine Configuration
 doctrine:
     dbal:
-        host:     "%database_host%"
-        port:     "%database_port%"
-        dbname:   "%database_name%"
-        user:     "%database_user%"
-        password: "%database_password%"
+        #driver:   "%database_driver%"
+        #host:     "%database_host%"
+        #port:     "%database_port%"
+        #dbname:   "%database_name%"
+        #user:     "%database_user%"
+        #password: "%database_password%"
         charset:  UTF8
         # unix_socket: "/tmp/mysql.sock"
         # if using pdo_sqlite as your database driver:
@@ -62,11 +63,36 @@ doctrine:
 
 # Swiftmailer Configuration
 swiftmailer:
-    transport: gmail
-    username:  "kupelikeproject@gmail.com"
+    transport:  gmail
+    encryption: ssl
+    auth_mode:  login
+    host:       smtp.gmail.com
+    #port:       465
+    username:  kupelikeproject@gmail.com
     password:  "Abcd_1234"
-  
+    
+    
 
+
+# app/config/config.yml
+#lopi_pusher:
+    #app_id: "291479"
+    #key: "fb3191e3b80fc4a2076b"
+    #secret: "e557d927dbe92d8dd449"
+    #app_id: "%pusher.app_id%"
+    #key: "%pusher.app_key%"
+    #secret: "%pusher.app_secret%"
+
+    # Default configuration
+    #debug: false # true if you want use the debug of all requests
+    #cluster: eu # Change the cluster name
+    #host: http://api.pusherapp.com
+    #port: 443
+    #timeout: 30
+
+    # optional if you want to use private or presence channels
+    # see the section about "Private and Presense channel auth" below
+    # auth_service_id: <the_auth_service_id>
   
     
 hwi_oauth:

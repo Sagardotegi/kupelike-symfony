@@ -1,36 +1,51 @@
 index:
-    path: /
+    path: /index
     defaults: { _controller: KupelikeBundle:Index:index }
+    #schemes:  [https]
+    
+login:
+    path: /login
+    defaults: { _controller: KupelikeBundle:Security:login }
+    
+login_check:
+    path: /login_check
+    
+logout:
+    path: /logout
     
 sagardotegis_index:
     path: /sagardotegiak
     defaults: { _controller: KupelikeBundle:Sagardotegi:lista }
     methods: [GET]
+    #schemes:  [%httpProtocol%]
     
 sagardotegi_view:
     path: /sagardotegiak/{idSagardotegi}
     defaults: { _controller: KupelikeBundle:Sagardotegi:view }
     methods: [GET]
+    #schemes:  [%httpProtocol%]
     
 sagardotegi_mapa:
     path: /sagardotegiak/{idSagardotegi}/mapa
     defaults: { _controller: KupelikeBundle:Sagardotegi:mapa }
     methods: [GET]
+    #schemes:  [https]
     
 sagardotegien_mapak:
     path: /mapak
     defaults: { _controller: KupelikeBundle:Sagardotegi:mapak }
     methods: [GET]
+    #schemes:  [https]
     
 gps:
-    path: /gps
+    path: /
     defaults: { _controller: KupelikeBundle:Sagardotegi:gps }
-    methods: [GET]
+    methods: [GET, POST]
     
 contacto:
     path: /contacto
     defaults: { _controller: KupelikeBundle:Index:contacto }
-    methods: [GET]
+    methods: [GET, POST]
     
 nosotros:
     path: /nosotros
@@ -38,10 +53,31 @@ nosotros:
     methods: [GET]    
 
 kupela_like:
-    path: /kupela-like
+    path: /kupela_like
     defaults: { _controller: KupelikeBundle:Kupela:like }
-    methods: [POST]
+    methods: [GET, POST]
+    
 
+#pusher:
+#    path: /pusher
+#    defaults: { _controller: KupelikeBundle:Kupela:hacerPusher }
+#    methods: [GET]
+    
+#cargar_sagardotegis:
+#    path: /save-sagardotegis
+#    defaults: { _controller: KupelikeBundle:Sagardotegi:save }
+#    methods: [GET]
+
+
+cargar_sagardotegis:
+    path: /save-sagardotegis
+    defaults: { _controller: KupelikeBundle:Sagardotegi:save }
+    methods: [GET]
+    
+mostrar_votos:
+    path: /mostrar-votos/{id}
+    defaults: { _controller: KupelikeBundle:Kupela:mostrar }
+    
 enviar_correo:
     path: /enviar-correo
     defaults: { _controller: KupelikeBundle:Index:email }
@@ -50,3 +86,88 @@ enviar_correo:
 sagardotegis_buscar:
     path: /search
     defaults: { _controller: KupelikeBundle:Index:search }
+
+# USUARIOS
+
+panel_usuarios:
+    path: /panel-usuarios
+    defaults: { _controller: KupelikeBundle:Usuario:index }
+    
+nuevo_usuario:
+    path: /nuevo-usuario
+    defaults: { _controller: KupelikeBundle:Usuario:new }
+    
+registrar_usuario:    
+    path: /registrar-usuario
+    defaults: { _controller: KupelikeBundle:Usuario:newUser }  
+    methods: [POST,GET]
+    
+editar_usuario:
+    path: /editar-usuario/{id}
+    defaults: { _controller: KupelikeBundle:Usuario:edit }
+    
+actualizar_usuario:
+    path: /actualizar-usuario/{id}
+    defaults: { _controller: KupelikeBundle:Usuario:actualizar }
+    
+# ADMINISTRACIÓN DE LA SIDRERIA
+
+administracion_usuarios:
+    path: /usuarios/{nombreSidreria}
+    defaults: { _controller: KupelikeBundle:Administracion:usuarios }  
+    methods: [GET]
+    
+nueva_kupela:
+    path: /{id}/nuevakupela
+    defaults: { _controller: KupelikeBundle:Administracion:new }  
+    methods: [GET]
+    
+registrar_kupela:    
+    path: /registrarkupela
+    defaults: { _controller: KupelikeBundle:Administracion:newKupela }  
+    methods: [POST,GET]
+
+editar_kupela:
+    path: /editarkupela/{id}
+    defaults: { _controller: KupelikeBundle:Administracion:edit }  
+    methods: [GET]
+
+actualizar_kupela:
+    path: /actualizarkupela/{id}
+    defaults: { _controller: KupelikeBundle:Administracion:updateKupela }  
+    methods: [GET] 
+    
+eliminar_kupela:
+    path: /eliminarkupela/{id}
+    defaults: { _controller: KupelikeBundle:Administracion:deleteKupela }  
+    methods: [GET]     
+    
+editar_sagardotegi:
+    path: /editarsagardotegi/{idSagardotegi}
+    defaults: { _controller: KupelikeBundle:Administracion:editSidreria}  
+    methods: [GET]
+    
+actualizar_sagardotegi:
+    path: /actualizarsagardotegi/{id}
+    defaults: { _controller: KupelikeBundle:Administracion:updateSagardotegi }  
+    methods: [GET]      
+        
+        
+    
+
+# API REST URL
+
+obtener_likes_kupela:
+    path: /api/get-likes/{idKupela}
+    defaults: { _controller: KupelikeBundle:Kupela:getLikes }
+    methods: [GET]
+
+login:
+    path: /login
+    defaults: { _controller: KupelikeBundle:Index:login }
+    methods: [GET]
+    
+acceder:
+    path: /acceder
+    defaults: { _controller: KupelikeBundle:Index:acceder }
+    methods: [GET]

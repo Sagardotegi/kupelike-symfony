@@ -32,3 +32,12 @@ monolog:
 
 #swiftmailer:
 #    delivery_address: me@example.com
+
+doctrine:
+    dbal:
+        driver:   "%database_driver_dev%"
+        host:     "%database_host_dev%"
+        port:     "%database_port_dev%"
+        dbname:   "%database_name_dev%"
+        user:     "%database_user_dev%"
+        password: "%database_password_dev%"

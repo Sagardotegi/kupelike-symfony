@@ -24,7 +24,6 @@ class IndexController extends Controller
         
         // renderiza la vista index de Sagardotegis y pasa la lista de sagardotegis como variable
         return $this->render('KupelikeBundle:Index:index.html.twig', array('sagardotegis' => $sagardotegis));
-        //return $this->render('KupelikeBundle:Index:index.html.twig');
     }
     
     public function contactoAction()
@@ -36,13 +35,37 @@ class IndexController extends Controller
         return $this->render('KupelikeBundle:Index:contacto.html.twig');
     }
     
-     public function nosotrosAction()
+    public function nosotrosAction()
     {
         // carga el Entity Manager (manejamos los datos con Doctrine (ORM))
         //$em = $this->getDoctrine()->getManager();
         // obtenemos los datos para la busqueda de sagardotegis
         //$sagardotegis = $em->getRepository('KupelikeBundle:Sagardotegi')->findAll();
         return $this->render('KupelikeBundle:Index:nosotros.html.twig');
+    }
+    
+    public function loginAction()
+    {
+        return $this->render('KupelikeBundle:Index:login.html.twig');
+    }
+    
+    public function accederAction(Request $request)
+    {
+        // carga el Entity Manager (manejamos los datos con Doctrine (ORM))
+        $em = $this->getDoctrine()->getManager();
+        // obtiene todas las sagardotegis
+        $sagardotegis = $em->getRepository('KupelikeBundle:Sagardotegi')->findAll();
+        
+        //cogemos los datos del formulario
+        
+        $username = $respuesta->request->get('username');
+        $password = $respuesta->request->get('password');
+        
+        /*$this->enviarEmail($nombre, $email, $contenido);
+        return $this->render('KupelikeBundle:Index:contacto.html.twig', array(
+            'sagardotegis' => $sagardotegis
+        ));*/
+        return $this->render('KupelikeBundle:Index:portal.html.twig');
     }
     
     public function searchAction(Request $request)
@@ -84,11 +107,16 @@ class IndexController extends Controller
     private function enviarEmail($nombre, $email, $contenido){
         
          $mail = \Swift_Message::newInstance()
-            ->setSubject('KupeLike - Contacto - ')
+            ->setSubject('KupeLike - Contacto - '.$email)
             ->setFrom("kupelikeproject@gmail.com")
             ->setTo('kupelikeproject@gmail.com')
             ->setBody('')
-            ->addPart('<h1>Nombre Cliente</h1>'.$nombre .'<h2>Mensaje del cliente</h2> <br><p>' . $contenido . '</h2> <h2>Email Cliente</h2></br>' .$email, 'text/html');
+            ->addPart('<h1>Nombre Cliente</h1>'
+                .$nombre.
+                '<h2>Mensaje del cliente</h2>
+                <p>' . $contenido . '</p>
+                <h2>Email Cliente</h2>
+                </br>' .$email, 'text/html');
             
             $this->get('mailer')->send($mail);
         
