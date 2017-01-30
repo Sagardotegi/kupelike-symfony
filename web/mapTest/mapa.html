@@ -1,0 +1,36 @@
+<html>
+<body>
+    <style>
+       #map {
+        height: 100%;
+        width: 100%;
+       }
+    </style>
+      <div id="map" class="mapa"></div>
+  
+          <script>
+          var map;
+        function myMap() {
+            
+            var mapCanvas = document.getElementById("map");
+            var mapOptions = {
+                streetViewControl: true,
+                mapTypeControl: true,
+                zoomControl: true,
+                center: new google.maps.LatLng(43.2585051,-1.981973), 
+                zoom: 15//,
+                //scrollwheel: false
+            };
+            var map = new google.maps.Map(mapCanvas, mapOptions);
+              //Add listener
+            new google.maps.event.addListener(map, "click", function (event) {
+                var latitude = event.latLng.lat();
+                var longitude = event.latLng.lng();
+                console.log( latitude + ', ' + longitude );
+            }); //end addListener
+
+          }
+          </script>
+          <script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
+    </body>
+</html>
