@@ -127,10 +127,12 @@ class UsuarioController extends Controller
         $descripcion = $request->request->get('descripcion');
         /** @var Symfony\Component\HttpFoundation\File\UploadedFile $foto */
         $foto = $request->files->get('foto');
-        // asignamos un nombre al archivo generado automáticamente
-        $nombreFoto = $this->get('app.sagardotegi_uploader')->upload($foto);
+        if($foto != null){
+            // asignamos un nombre al archivo generado automáticamente
+            $nombreFoto = $this->get('app.sagardotegi_uploader')->upload($foto);
+            $sagardotegi->setFoto('/uploads/sagardotegis/' . $nombreFoto);
+        }
         
-        $sagardotegi->setFoto('/uploads/sagardotegis/' . $nombreFoto);
         $sagardotegi->setNombre($nombre);
         $sagardotegi->setDescripcion($descripcion);
         $sagardotegi->setDireccion($direccion);

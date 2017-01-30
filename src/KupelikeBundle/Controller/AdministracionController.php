@@ -52,9 +52,11 @@ class AdministracionController extends Controller
          // Obtenemos el archivo de la foto
          /** @var Symfony\Component\HttpFoundation\File\UploadedFile $foto */
          $foto = $request->files->get('foto');
+         if($foto != null){
          // asignamos un nombre al archivo generado automáticamente
-         $nombreFoto = $this->get('app.kupela_uploader')->upload($foto);
-         $kupela->setFoto('/uploads/kupelas/' . $nombreFoto);
+          $nombreFoto = $this->get('app.kupela_uploader')->upload($foto);
+          $kupela->setFoto('/uploads/kupelas/' . $nombreFoto);
+         }
           
          
           $em->persist($kupela);
@@ -99,9 +101,11 @@ class AdministracionController extends Controller
          // Obtenemos el archivo de la foto
          /** @var Symfony\Component\HttpFoundation\File\UploadedFile $foto */
          $foto = $request->files->get('foto');
-         // asignamos un nombre al archivo generado automáticamente
-         $nombreFoto = $this->get('app.sagardotegi_uploader')->upload($foto);
-         $sagardotegi->setFoto('/uploads/sagardotegis/' . $nombreFoto);
+         if($foto != null){
+          // asignamos un nombre al archivo generado automáticamente
+          $nombreFoto = $this->get('app.sagardotegi_uploader')->upload($foto);
+          $sagardotegi->setFoto('/uploads/sagardotegis/' . $nombreFoto);
+         }
           
          
           $em->persist($sagardotegi);
@@ -139,9 +143,11 @@ class AdministracionController extends Controller
          // Obtenemos el archivo de la foto
          /** @var Symfony\Component\HttpFoundation\File\UploadedFile $foto */
          $foto = $request->files->get('foto');
-         // asignamos un nombre al archivo generado automáticamente
-         $nombreFoto = $this->get('app.kupela_uploader')->upload($foto);
-         $newKupela->setFoto('/uploads/kupelas/' . $nombreFoto);
+         if($foto != null){
+          // asignamos un nombre al archivo generado automáticamente
+          $nombreFoto = $this->get('app.kupela_uploader')->upload($foto);
+          $newKupela->setFoto('/uploads/kupelas/' . $nombreFoto);
+         }
          
          $em = $this->getDoctrine()->getManager();
          $em->persist($newKupela);
