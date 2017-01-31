@@ -46,6 +46,11 @@ contacto:
     path: /contacto
     defaults: { _controller: KupelikeBundle:Index:contacto }
     methods: [GET, POST]
+
+registro:
+    path: /registro
+    defaults: { _controller: KupelikeBundle:Index:registro }
+    methods: [GET, POST]    
     
 nosotros:
     path: /nosotros
@@ -82,6 +87,12 @@ enviar_correo:
     path: /enviar-correo
     defaults: { _controller: KupelikeBundle:Index:email }
     methods: [POST]
+    
+registrar_correo:
+    path: /registrar_correo
+    defaults: { _controller: KupelikeBundle:Index:registro }
+    methods: [POST]
+        
     
 sagardotegis_buscar:
     path: /search

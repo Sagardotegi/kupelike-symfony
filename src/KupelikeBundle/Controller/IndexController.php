@@ -121,5 +121,41 @@ class IndexController extends Controller
             $this->get('mailer')->send($mail);
         
     }
+     public function registroAction(Request $registro)
+    {
+        
+        //cogemos los datos del formulario
+        
+        $nombre = $registro->request->get('nombre-apellidos');
+        $email = $registro->request->get('email');
+        $nombreSidreria= $registro->request->get('nombreSidreria');
+        $direccion= $registro->request->get('direccion');
+        $descripcion= $registro->request->get('descripcion');
+
+        $this->registroEmail($nombre, $email, $nombreSidreria,$direccion,$descripcion);
+        return $this->render('KupelikeBundle:Index:registro_sidrerias.html.twig');
+        
+    }
+    
+    private function registroEmail($nombre, $email, $nombreSidreria,$direccion,$descripcion){
+        
+         $mail = \Swift_Message::newInstance()
+            ->setSubject('KupeLike - Registro - '.$email)
+            ->setFrom("kupelikeproject@gmail.com")
+            ->setTo('kupelikeproject@gmail.com')
+            ->setBody('')
+            ->addPart('<h1>Nombre Cliente</h1>'
+                .$nombre.
+                '<h2>Mensaje del cliente</h2>
+                <p> Nombre sidreria'.$nombreSidreria.'</p>
+                <p>Direccion'.$direccion.'</p>
+                <p> Descrpcion sidreria' . $descripcion . '</p>
+                </br>' .$email, 'text/html');
+            
+            $this->get('mailer')->send($mail);
+        
+    }
+    
+    
 }
 

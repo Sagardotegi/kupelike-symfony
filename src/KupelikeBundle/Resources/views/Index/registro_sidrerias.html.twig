@@ -3,29 +3,22 @@
 {% block body %}
 
 
-<div class="container-fluid"> 
-    <div class="row sidreria">
-    <div class="row sidreria">
-
-
 <div class="container-fluid content">
-    <div class="row sidreria">
-
-<div class="container-fluid content">
-    <div class="row sidreria">
-
-        <div class="col-sm-12">
-            <h1 class="mtitle title-padding text-center">Registrate con nosotros</h1>
-            <p>rellenar este formulario para formar parte de la comunidad Kupelike, Tu sidra lo merece!</p>
-        </div>
-    </div>  
-    <div class= "row contenido">
-           <form class="contact_form" action="{{path('enviar_correo')}}" method="post">
-                       <input name= "nombre-apellidos" class= "formulario" type="text" required  placeholder="Escriba el nombre y apellidos del administrador"/>
-                       <input name= "email" class= "formulario" type="email" name="email" required placeholder="Indíquenos tu Email"/>
-                       <input name= "nombre-sidreria" class= "formulario" type="text" required  placeholder="Escriba el nombre de la sidreria"/>
-                       <input name= "direccion-sidreria" class= "formulario" type="text" required  placeholder="Escriba la direccion de la sidreria"/>
-                       <textarea name="descripcion-sidreria" class= "formulario" name="Mensaje" cols="40" rows="6" required  placeholder="Descripcion de la sidreria"></textarea>
+    <div class="row">
+        <div class="col-xs-offset-3 col-xs-6">
+            <div class="row">
+                <h1 class="mtitle title-padding text-center">Registra tu sidreria</h1>
+                <p id="registro_sidreria"class="single-description">Rellena este formulario para formar parte de la comunidad <b>Kupelike</b></p>
+                <p id="registro_sidreria"class="single-description">Tu sidra lo merece!</p>
+       
+            </div>
+            <div class="row">
+                <form class="contact_form" action="{{path('registrar_correo')}}" method="post">
+                       <input name= "nombre-apellidos" class= "formulario" type="text" required  placeholder="Escriba su nombre y apellidos"/>
+                       <input name= "email" class= "formulario" type="email" name="email" required placeholder="Indíquenos su Email"/>
+                       <input name= "nombreSidreria" class= "formulario" type="text" required  placeholder="Escriba el nombre de la sidreria"/>
+                       <input name= "direccion" class= "formulario" type="text" required  placeholder="Escriba la direccion de la sidreria"/>
+                       <textarea name="descripcion" class= "formulario" name="Mensaje" cols="40" rows="6" required  placeholder="Descripcion de la sidreria"></textarea>
                        <input id="enviar" class="formulario" type="submit" value="Enviar" />
            </form>
      </div>  
