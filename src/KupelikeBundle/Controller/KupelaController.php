@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 use KupelikeBundle\Entity\Kupela;
 use KupelikeBundle\Entity\Cliente;
 use KupelikeBundle\Entity\Voto;
+use Lopi\Bundle\PusherBundle;
 
 use Symfony\Component\Serializer\Serializer;
 use Symfony\Component\Serializer\Encoder\XmlEncoder;

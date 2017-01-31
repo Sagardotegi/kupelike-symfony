@@ -5,7 +5,7 @@ parameters:
     database_port_dev: null
     database_name_dev: kupelike
     database_user_dev: naiara
-    database_password_dev: 
+    database_password_dev: null
     database_driver_prod: pdo_pgsql
     database_host_prod: ec2-54-247-81-76.eu-west-1.compute.amazonaws.com
     database_port_prod: 5432
