@@ -85,6 +85,13 @@ $(document).ready(function(){
                             <a id="navbar-title" class="navbar-title" href="{{ path('index') }}">Kupe<img class="img-logo"/>Like</a>
                         </div>
                         <div class="col-xs-8">
+                            <ul class="list-inline pull-right idiomas">
+                                <li class="es"><a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'es'})) }}">ES</a></li>
+                                <li>|</li>
+                                <li class="eus"><a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'eus'})) }}">EUS</a></li>
+                                <li>|</li>
+                                <li class="en"><a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'en'})) }}">EN</a></li>
+                            </ul>
                             <form id="navbar-search" class="navbar-form pull-right p-x-0" role="search" action="{{ path('sagardotegis_buscar') }}">
                                 <div class="form-group">
                                   <input  id="search" type="text" class="searchBox" placeholder="Search">
@@ -107,7 +114,7 @@ $(document).ready(function(){
                 <span><i class="fa fa-times fa-2x pull-right close-menu" aria-hidden="true"></i></span>
                     <ul class="menu-links">
                         <li><a href="{{ path('index') }}">{{ 'paginas_estaticas.menu.inicio' | trans }}</a></li>
-                        <li><a href="{{ path('sagardotegien_mapak') }}">Mapa</a></li>
+                        <li><a href="{{ path('sagardotegien_mapak') }}">{{ 'paginas_estaticas.menu.mapa' | trans }}</a></li>
                         <li><a href="{{ path('sagardotegis_index') }}">{{ 'paginas_estaticas.menu.sidrerias' | trans }}</a></li>
                         <li><a href="{{ path('contacto') }}">{{ 'paginas_estaticas.menu.contacto' | trans }}</a></li>
                         <li><a href="{{ path('nosotros') }}">{{ 'paginas_estaticas.menu.nosotros' | trans }}</a></li>
@@ -124,6 +131,11 @@ $(document).ready(function(){
                         {% endif %}
                     </ul>
                </div><!-- .container-fluid -->
+               
+               
+        
+               
+               
         
         <!-- IMPORTANTE -> Todos los ficheros que se cargen en el block body deben empezar con un div container-fluid!!!!
         PERO SU ETIQUETA DE CIERRE CORRESPONDIENTE NO HACE FALTA!!!-->
@@ -165,11 +177,11 @@ $(document).ready(function(){
                     <div class="row">
                         <div class="col-xs-12 font-face-primary"> 
                             <ul class="list-inline footer-menu text-uppercase">
-                                <li><a href="{{ path('index') }}">Inicio</a></li>
-                                <li><a href="{{ path('sagardotegien_mapak') }}">Mapa</a></li>
-                                <li><a href="{{ path('sagardotegis_index') }}">Sidrerías</a></li>
-                                <li><a href="{{ path('contacto') }}">Contacto</a></li>
-                                <li><a href="{{ path('nosotros') }}">Nosotros</a></li>
+                                <li><a href="{{ path('index') }}">{{ 'paginas_estaticas.footer.inicio' | trans }}</a></li>
+                                <li><a href="{{ path('sagardotegien_mapak') }}">{{ 'paginas_estaticas.footer.mapa' | trans }}</a></li>
+                                <li><a href="{{ path('sagardotegis_index') }}">{{ 'paginas_estaticas.footer.sidrerias' | trans }}</a></li>
+                                <li><a href="{{ path('contacto') }}">{{ 'paginas_estaticas.footer.contacto' | trans }}</a></li>
+                                <li><a href="{{ path('nosotros') }}">{{ 'paginas_estaticas.footer.nosotros' | trans }}</a></li>
                             </ul>
                         </div>
                         <div class="col-xs-12 font-face-primary"> 

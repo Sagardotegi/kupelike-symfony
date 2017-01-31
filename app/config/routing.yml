@@ -11,10 +11,14 @@ default:
     type:     annotation
     prefix:   /
     
+_index:
+    path:      /
+    defaults:  { _controller: KupelikeBundle:Sagardotegi:gps }
+    
 kupelike:
     resource: "@KupelikeBundle/Resources/config/routing.yml"
-    prefix:   /
-    
+    #prefix:   /
+    prefix:   /{_locale}
 #kupelike:
 #    resource: "@KupelikeBundle/Controller/"
 #    type:     annotation

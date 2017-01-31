@@ -3,7 +3,7 @@ index:
     defaults: { _controller: KupelikeBundle:Index:index }
     #schemes:  [https]
     requirements:
-        _locale: es|eus
+        _locale: es|eus|en
     
 login:
     path: /login
@@ -19,40 +19,50 @@ sagardotegis_index:
     path: /sagardotegiak
     defaults: { _controller: KupelikeBundle:Sagardotegi:lista }
     methods: [GET]
-    #schemes:  [%httpProtocol%]
+    requirements:
+        _locale: es|eus|en
     
 sagardotegi_view:
     path: /sagardotegiak/{idSagardotegi}
     defaults: { _controller: KupelikeBundle:Sagardotegi:view }
     methods: [GET]
-    #schemes:  [%httpProtocol%]
+    requirements:
+        _locale: es|eus|en
     
 sagardotegi_mapa:
     path: /sagardotegiak/{idSagardotegi}/mapa
     defaults: { _controller: KupelikeBundle:Sagardotegi:mapa }
     methods: [GET]
-    #schemes:  [https]
+    requirements:
+        _locale: es|eus|en
     
 sagardotegien_mapak:
     path: /mapak
     defaults: { _controller: KupelikeBundle:Sagardotegi:mapak }
     methods: [GET]
-    #schemes:  [https]
+    requirements:
+        _locale: es|eus|en
     
 gps:
     path: /
     defaults: { _controller: KupelikeBundle:Sagardotegi:gps }
     methods: [GET, POST]
+    #requirements:
+        #_locale: es|eus
     
 contacto:
     path: /contacto
     defaults: { _controller: KupelikeBundle:Index:contacto }
     methods: [GET, POST]
+    requirements:
+        _locale: es|eus|en
     
 nosotros:
     path: /nosotros
     defaults: { _controller: KupelikeBundle:Index:nosotros }
-    methods: [GET]    
+    methods: [GET]
+    requirements:
+        _locale: es|eus|en
 
 kupela_like:
     path: /kupela_like
@@ -60,11 +70,11 @@ kupela_like:
     methods: [GET, POST]
     
 
-pusher:
-    path: /pusher/{msg}
+#pusher:
+#    path: /pusher/{msg}
     #path: /pusher
-    defaults: { _controller: KupelikeBundle:Kupela:pusher }
-    methods: [GET]
+#    defaults: { _controller: KupelikeBundle:Kupela:pusher }
+#    methods: [GET]
     
 #cargar_sagardotegis:
 #    path: /save-sagardotegis
@@ -85,10 +95,14 @@ enviar_correo:
     path: /enviar-correo
     defaults: { _controller: KupelikeBundle:Index:email }
     methods: [POST]
+    requirements:
+        _locale: es|eus|en
     
 sagardotegis_buscar:
     path: /search
     defaults: { _controller: KupelikeBundle:Index:search }
+    requirements:
+        _locale: es|eus|en
 
 # USUARIOS
 

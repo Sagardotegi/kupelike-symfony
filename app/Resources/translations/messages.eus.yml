@@ -1,6 +1,36 @@
 paginas_estaticas:
     menu:
         inicio: "Hasiera"
+        mapa: "Mapa"
+        sidrerias: "Sagardotegiak"
+        contacto: "Kontaktua"
+        nosotros: "Guri buruz"
+    landing:
+        txotx: "Elkarrizketa on bat beti Txotx! batekin hasten da."
+        encuentra: "Zure sagardotegia aurkitu"
+    footer:
+        inicio: "Hasiera"
+        mapa: "Mapa"
         sidrerias: "Sagardotegiak"
         contacto: "Kontaktua"
         nosotros: "Nor gara?"
+paginas:
+    mapa:
+        titulo: "Mapa"
+    sidrerias:
+        titulo: "Sagardotegiak"
+        llegar: "Jarraibideak"
+        contacto: "Kontaktua"
+    contacto:
+        titulo: "Gurekin kontaktatu"
+        nombre: "Zure izen eta abizenak adierazi"
+        email: "Zure Email-a adierazi"
+        motivo: "Zure kontsulta adierazi, lehen bait lehen erantzun ahal izateko."
+        enviar: "Bidali"
+    nosotros:
+        titulo: "Guri buruz"
+        texto1: "Mondragoneko unibertsitateko Liderazgo Emprendedor e Innovación ikasleengatik, I.E.S Zubiri Manteo B.H.I. ikastetxeko Web Aplikazio Garapeneko eta CIFP Don Bosco LHII ikastetxeko Mantenimiento electrónico ikasleen kolaborazioarekin, KupeLike izeneko aplikazio berri bat garatua izan da."
+        texto2: "KupeLike-k, euskal sagardotegiak eta hauen kupelak erakusten ditu, kupel bakoitzeko bozkatzeko eta erreputazio sistema batekin. Boto kopurua aplikazioan agertzeaz gain, kupel bakoitzean egongo diren pantaila batzuetan ere agertuko dira."
+        texto3: "Erabiltzaileen intereserako, informazio eguneratua eta mapa interaktiboa ere izango ditu."
+    slider:
+        desarrollo: "Web Aplikazio Garatzailea"
