@@ -41,11 +41,22 @@ class AdministracionController extends Controller
          $em = $this->getDoctrine()->getManager();
          $kupela = $em->getRepository("KupelikeBundle:Kupela")->find($id);
          
-         $nombre = $request->query->get('nombre');
-         $descripcion = $request->query->get('descripcion');
+         $nombre = $request->request->get('nombre');
+         $descripcion = $request->request->get('descripcion');
+         $year = $request->request->get('year');
          
          $kupela->setNombre($nombre);
          $kupela->setDescripcion($descripcion);
+         $kupela->setYear($year);
+         
+         // Obtenemos el archivo de la foto
+         /** @var Symfony\Component\HttpFoundation\File\UploadedFile $foto */
+         $foto = $request->files->get('foto');
+         if($foto != null){
+         // asignamos un nombre al archivo generado automáticamente
+          $nombreFoto = $this->get('app.kupela_uploader')->upload($foto);
+          $kupela->setFoto('/uploads/kupelas/' . $nombreFoto);
+         }
           
          
           $em->persist($kupela);
@@ -78,11 +89,23 @@ class AdministracionController extends Controller
          $em = $this->getDoctrine()->getManager();
          $sagardotegi = $em->getRepository("KupelikeBundle:Sagardotegi")->find($id);
          
-         $nombre = $request->query->get('nombre');
-         $descripcion = $request->query->get('descripcion');
+         $nombre = $request->request->get('nombre');
+         $descripcion = $request->request->get('descripcion');
+         $direccion = $request->request->get('direccion');
+         $foto = $request->request->get('foto');
          
          $sagardotegi->setNombre($nombre);
          $sagardotegi->setDescripcion($descripcion);
+         $sagardotegi->setDireccion($direccion);
+         
+         // Obtenemos el archivo de la foto
+         /** @var Symfony\Component\HttpFoundation\File\UploadedFile $foto */
+         $foto = $request->files->get('foto');
+         if($foto != null){
+          // asignamos un nombre al archivo generado automáticamente
+          $nombreFoto = $this->get('app.sagardotegi_uploader')->upload($foto);
+          $sagardotegi->setFoto('/uploads/sagardotegis/' . $nombreFoto);
+         }
           
          
           $em->persist($sagardotegi);
@@ -106,18 +129,25 @@ class AdministracionController extends Controller
          return $this->render('KupelikeBundle:Administracion:new.html.twig');
     }
     //funcion que nos permitira que se actualizen y se mofiquen los cambios tanto en la base de datos como en la propia vista
-    public function newKupelaAction( Request $request)
+    public function newKupelaAction(Request $request)
     {    //crearemos el objeto kupela para que primeramente nos visualize los datos actuales y despues mostrar los nuevos
          $newKupela = new Kupela();
-         $nombre = $request->query->get('nombre');
+         $nombre = $request->request->get('nombre');
          $newKupela->setNombre($nombre);
-         $descripcion= $request->query->get('descripcion');
+         $descripcion= $request->request->get('descripcion');
          $newKupela->setDescripcion($descripcion);
-         $idSagardotegi = $request->query->get('id-sagardotegi');
+         $idSagardotegi = $request->request->get('id-sagardotegi');
          $newKupela->setIdSagardotegi($idSagardotegi);
-         $year = $request->query->get('year');
+         $year = $request->request->get('year');
          $newKupela->setYear($year);
-         $newKupela->setFoto("/web/uploads/kupelas/kupela1.jpg");
+         // Obtenemos el archivo de la foto
+         /** @var Symfony\Component\HttpFoundation\File\UploadedFile $foto */
+         $foto = $request->files->get('foto');
+         if($foto != null){
+          // asignamos un nombre al archivo generado automáticamente
+          $nombreFoto = $this->get('app.kupela_uploader')->upload($foto);
+          $newKupela->setFoto('/uploads/kupelas/' . $nombreFoto);
+         }
          
          $em = $this->getDoctrine()->getManager();
          $em->persist($newKupela);

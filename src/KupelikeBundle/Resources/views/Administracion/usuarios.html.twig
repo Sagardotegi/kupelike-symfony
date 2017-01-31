@@ -15,7 +15,7 @@
          </div>
          <div class="col-sm-6 col-sm-offset-1">
            <div class="card-direction text-uppercase text-center">{{sidreria.direccion}}</div>
-           <img src= "{{asset("/uploads/sagardotegis/petritegi_caserio.jpg")}}"  class="img-responsive" alt="Responsive image">
+           <img src= "{{asset(sidreria.foto)}}"  class="img-responsive" alt="Responsive image">
               
         </div>   
       </div>  
@@ -36,7 +36,7 @@
               </thead>
               <tbody>
                 <tr>
-                  <td><imgclass="img-rounded" src="{{kupela.foto}}" /></td>
+                  <td><img class="img-rounded" src="{{asset(kupela.foto)}}" /></td>
                   <td>{{kupela.nombre}}</td>
                   <td>{{kupela.descripcion}}</td>
                   <td>{{kupela.year}}</td>

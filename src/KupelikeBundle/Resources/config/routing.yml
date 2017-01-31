@@ -113,6 +113,14 @@ actualizar_usuario:
     path: /actualizar-usuario/{id}
     defaults: { _controller: KupelikeBundle:Usuario:actualizar }
     
+form_nueva_sagardotegi:
+    path: /nueva-sidreria/
+    defaults: { _controller: KupelikeBundle:Usuario:newSagardotegiForm }
+    
+nueva_sagardotegi:
+    path: /nueva-sagardotegi/
+    defaults: { _controller: KupelikeBundle:Usuario:newSagardotegi }
+    
 # ADMINISTRACIÓN DE LA SIDRERIA
 
 administracion_usuarios:
@@ -138,7 +146,7 @@ editar_kupela:
 actualizar_kupela:
     path: /actualizarkupela/{id}
     defaults: { _controller: KupelikeBundle:Administracion:updateKupela }  
-    methods: [GET] 
+    methods: [POST] 
     
 eliminar_kupela:
     path: /eliminarkupela/{id}
@@ -153,7 +161,7 @@ editar_sagardotegi:
 actualizar_sagardotegi:
     path: /actualizarsagardotegi/{id}
     defaults: { _controller: KupelikeBundle:Administracion:updateSagardotegi }  
-    methods: [GET]      
+    methods: [POST]      
         
         
     
@@ -164,6 +172,11 @@ obtener_likes_kupela:
     path: /api/get-likes/{idKupela}
     defaults: { _controller: KupelikeBundle:Kupela:getLikes }
     methods: [GET]
+    
+agregar_like_kupela:
+    path: /api/add-like/{idKupela}
+    defaults: { _controller: KupelikeBundle:Kupela:addLike }
+    methods: [GET, POST]
 
 login:
     path: /login

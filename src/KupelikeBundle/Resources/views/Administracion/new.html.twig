@@ -8,10 +8,12 @@
                 <h1 class="mtitle title-padding text-center">Nueva kupela</h1>
             </div>
             <div class="row">
-         <form action= "{{path('registrar_kupela')}}" class="contact_form">
+         <form action= "{{path('registrar_kupela')}}" method="post" class="contact_form" enctype="multipart/form-data">
              <input type="text" name="nombre" value="" placeholder="nombre kupela" class= "formulario">
              <input type="text" name="descripcion" value="" placeholder="descripcion kupela" class= "formulario">
              <input type="text" name="year" value="" placeholder="año kupela" class= "formulario">
+             <input type="hidden" name="id-sagardotegi" value="{{ app.request.get('id') }}" class= "formulario"/>
+             <input type="file" name="foto" class="formulario" />
              <input type="hidden" name="id-sagardotegi" value="{{ app.request.get('id') }}" class= "formulario"/>
              <button type="submit" class= "formulario" id="enviar" >Guardar</button>
              <a href="{{ path("administracion_usuarios",{nombreSidreria: app.user.nombreSidreria})}}"><button id="enviar" class= "formulario">Cancelar</button></a>
