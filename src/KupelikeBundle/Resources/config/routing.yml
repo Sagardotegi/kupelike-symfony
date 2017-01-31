@@ -170,6 +170,11 @@ obtener_likes_kupela:
     path: /api/get-likes/{idKupela}
     defaults: { _controller: KupelikeBundle:Kupela:getLikes }
     methods: [GET]
+    
+agregar_like_kupela:
+    path: /api/add-like/{idKupela}
+    defaults: { _controller: KupelikeBundle:Kupela:addLike }
+    methods: [POST]
 
 login:
     path: /login

@@ -197,4 +197,34 @@ class KupelaController extends Controller
         $json = $serializer->serialize($votos, 'json');
         return new Response($json);
     }
+    
+    public function addLikeAction($idKupela)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $kupela = $em->getRepository('KupelikeBundle:Kupela')->find($idKupela);
+        
+        // Encoders de JSON (para devolver JSON)
+        $encoders = array(new JsonEncoder());
+        $normalizers = array(new ObjectNormalizer());
+        $serializer = new Serializer($normalizers, $encoders);
+        
+        // si la kupela no existe
+        if(!$kupela){
+            $message = "La kupela no existe";
+            
+            $json = $serializer->serialize($message, 'json');
+            return new Response($json);
+        } else {
+            $numVotos = $kupela->getNumVotos();
+            $kupela->setNumVotos($numVotos + 1);
+            $em->persist($kupela);
+            $em->flush();
+            
+            $message = "Se ha agregado el voto correctamente";
+            
+            $json = $serializer->serialize($message, 'json');
+            return new Response($json);
+        }
+        
+    }
 }
