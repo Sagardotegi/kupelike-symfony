@@ -274,6 +274,18 @@ body::-webkit-scrollbar-thumb {
     padding-bottom: 100px;
 }
 
+.idiomas {
+    margin-bottom: -30px;
+}
+
+.lang-active {
+    color: #629c44;
+}
+
+.lang-non-active {
+    color: #515151;
+}
+
 /* Fin Menu*/
 
 /* Welcome */

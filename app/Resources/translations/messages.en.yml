@@ -1,0 +1,36 @@
+paginas_estaticas:
+    menu:
+        inicio: "Home"
+        mapa: "Map"
+        sidrerias: "Cider Houses"
+        contacto: "Contact"
+        nosotros: "About us"
+    landing:
+        txotx: "A good conversation always starts with a Txotx!"
+        encuentra: "Find your cider house"
+    footer:
+        inicio: "Home"
+        mapa: "Map"
+        sidrerias: "Cider Houses"
+        contacto: "Contact"
+        nosotros: "About us"
+paginas:
+    mapa:
+        titulo: "Map"
+    sidrerias:
+        titulo: "Cider Houses"
+        llegar: "Directions"
+        contacto: "Contact"
+    contacto:
+        titulo: "Contact us"
+        nombre: "Write your name and surnames"
+        email: "Write your Email"
+        motivo: "Tell us your query so we can answer you as soon as possible."
+        enviar: "Send"
+    nosotros:
+        titulo: "About us"
+        texto1: "A new aplication has been developed by the users of Liderazgo Emprendedor e Innovación of the university of Mondragón, colaborating with the students of Web Aplication Development of I.E.S Zubiri Manteo B.H.I. and the students of Mantenimiento electrónico of CIFP Don Bosco LHII, called KupeLike."
+        texto2: "KupeLike shows the cider houses of the Spanish territory with their barrels and a voting and reputation system for each one of them. The votes are shown in the Web application and in the displays located in the barrels."
+        texto3: "It will also have an interactive map and updated information for the interest of the users."
+    slider:
+        desarrollo: "Web Aplication Developer"
