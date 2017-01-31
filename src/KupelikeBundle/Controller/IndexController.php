@@ -121,5 +121,43 @@ class IndexController extends Controller
             $this->get('mailer')->send($mail);
         
     }
+     public function registroAction(Request $registro)
+    {
+        
+        //cogemos los datos del formulario
+        
+        $nombre = $registro->request->get('nombre-apellidos');
+        $email = $registro->request->get('email');
+        $nombreSidreria= $registro->request->get('nombreSidreria');
+        $direccion= $registro->request->get('direccion');
+        $descripcion= $registro->request->get('descripcion');
+
+        $this->registroEmail($nombre, $email, $nombreSidreria,$direccion,$descripcion);
+        return $this->render('KupelikeBundle:Index:registro_sidrerias.html.twig');
+        
+    }
+    
+    private function registroEmail($nombre, $email, $nombreSidreria,$direccion,$descripcion){
+        
+         $mail = \Swift_Message::newInstance()
+            ->setSubject('KupeLike - Registro - '.$email)
+            ->setFrom("kupelikeproject@gmail.com")
+            ->setTo('kupelikeproject@gmail.com')
+            ->setBody('')
+            ->addPart('<h1>Nombre Cliente</h1>'
+                .$nombre.
+                '<h1>Datos de la sidreria</h1>
+                <h2> Nombre sidreria:</h2><p>'.$nombreSidreria.'</p>
+                <h2>Direccion</h2>
+                <p>'.$direccion.'</p>
+                <h2>Descrpcion sidreria</h2>
+                <p>' . $descripcion . '</p>
+                </br><h2>Email de contacto sidrero:</h2>' .$email, 'text/html');
+            
+            $this->get('mailer')->send($mail);
+        
+    }
+    
+    
 }
 

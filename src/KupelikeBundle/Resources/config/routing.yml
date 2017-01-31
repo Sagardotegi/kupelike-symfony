@@ -2,6 +2,8 @@ index:
     path: /index
     defaults: { _controller: KupelikeBundle:Index:index }
     #schemes:  [https]
+    requirements:
+        _locale: es|eus
     
 login:
     path: /login
@@ -46,6 +48,11 @@ contacto:
     path: /contacto
     defaults: { _controller: KupelikeBundle:Index:contacto }
     methods: [GET, POST]
+
+registro:
+    path: /registro
+    defaults: { _controller: KupelikeBundle:Index:registro }
+    methods: [GET, POST]    
     
 nosotros:
     path: /nosotros
@@ -58,10 +65,11 @@ kupela_like:
     methods: [GET, POST]
     
 
-#pusher:
-#    path: /pusher
-#    defaults: { _controller: KupelikeBundle:Kupela:hacerPusher }
-#    methods: [GET]
+pusher:
+    path: /pusher/{msg}
+    #path: /pusher
+    defaults: { _controller: KupelikeBundle:Kupela:pusher }
+    methods: [GET]
     
 #cargar_sagardotegis:
 #    path: /save-sagardotegis
@@ -82,6 +90,12 @@ enviar_correo:
     path: /enviar-correo
     defaults: { _controller: KupelikeBundle:Index:email }
     methods: [POST]
+    
+registrar_correo:
+    path: /registrar_correo
+    defaults: { _controller: KupelikeBundle:Index:registro }
+    methods: [GET, POST]
+        
     
 sagardotegis_buscar:
     path: /search
@@ -110,6 +124,14 @@ actualizar_usuario:
     path: /actualizar-usuario/{id}
     defaults: { _controller: KupelikeBundle:Usuario:actualizar }
     
+form_nueva_sagardotegi:
+    path: /nueva-sidreria/
+    defaults: { _controller: KupelikeBundle:Usuario:newSagardotegiForm }
+    
+nueva_sagardotegi:
+    path: /nueva-sagardotegi/
+    defaults: { _controller: KupelikeBundle:Usuario:newSagardotegi }
+    
 # ADMINISTRACIÓN DE LA SIDRERIA
 
 administracion_usuarios:
@@ -135,7 +157,7 @@ editar_kupela:
 actualizar_kupela:
     path: /actualizarkupela/{id}
     defaults: { _controller: KupelikeBundle:Administracion:updateKupela }  
-    methods: [GET] 
+    methods: [POST] 
     
 eliminar_kupela:
     path: /eliminarkupela/{id}
@@ -150,7 +172,7 @@ editar_sagardotegi:
 actualizar_sagardotegi:
     path: /actualizarsagardotegi/{id}
     defaults: { _controller: KupelikeBundle:Administracion:updateSagardotegi }  
-    methods: [GET]      
+    methods: [POST]      
         
         
     
@@ -161,6 +183,11 @@ obtener_likes_kupela:
     path: /api/get-likes/{idKupela}
     defaults: { _controller: KupelikeBundle:Kupela:getLikes }
     methods: [GET]
+    
+agregar_like_kupela:
+    path: /api/add-like/{idKupela}
+    defaults: { _controller: KupelikeBundle:Kupela:addLike }
+    methods: [GET, POST]
 
 login:
     path: /login

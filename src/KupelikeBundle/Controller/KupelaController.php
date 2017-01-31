@@ -9,19 +9,12 @@ use Symfony\Component\HttpFoundation\Request;
 use KupelikeBundle\Entity\Kupela;
 use KupelikeBundle\Entity\Cliente;
 use KupelikeBundle\Entity\Voto;
+use Lopi\Bundle\PusherBundle;
 
 use Symfony\Component\Serializer\Serializer;
 use Symfony\Component\Serializer\Encoder\XmlEncoder;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
-
-//use Lopi\Bundle\PusherBundle;
-//use P2\Bundle\RatchetBundle\WebSocket\ConnectionEvent;
-//use P2\Bundle\RatchetBundle\WebSocket\Payload;
-//use P2\Bundle\RatchetBundle\WebSocket\Server\ApplicationInterface;
-
-//require '/vendor/autoload.php';
-
 
 class KupelaController extends Controller
 {
@@ -54,11 +47,6 @@ class KupelaController extends Controller
         $fblocation = $datos->getProperty('location');*/
         
         $idKupela = $request->request->get('idKupela');
-        //$idKupela = $datos['idKupela'];
-        //exec("php /web/pusher/pusher.php");
-        
-        
-        
         
         // Entity Manager
         $em = $this->getDoctrine()->getManager();
@@ -76,14 +64,7 @@ class KupelaController extends Controller
             // añade un nuevo voto
             $this->nuevoVoto($em, $idCliente, $idKupela);
         }
-        
-        //$this->hacerPusher();
-        /*$pusher = $this->container->get('lopi_pusher.pusher');
-        $data['message'] = "Cambiado";
-        $pusher->trigger('my-channel', 'my-event', $data);*/
-        
-        
-        
+
         return new Response();
     }
     
@@ -149,7 +130,8 @@ class KupelaController extends Controller
     
         $kupelaVotos->setNumVotos($nuevoVoto);
         $em->flush();
-        //$this->hacerPusher($nuevoVoto);
+        
+        $this->hacerPusher($nuevoVoto, $id);
         
         
         
@@ -166,6 +148,33 @@ class KupelaController extends Controller
         $em->flush();*/
     
         
+    }
+    
+    public function votosUsuarios(){
+        
+                
+        $sql="SELECT COUNT(nick) from voto WHERE nick='".$_cookie[usuario]."'";
+        $result=mysql_query($sql) or die (mysql_error());
+         
+        if (mysql_result($result,0) == 0){
+        $sql="INSERT INTO voto (nick) VALUES ('".$_cookie[usuario]."')";
+        mysql_query($sql);
+         
+        $up_votos = "UPDATE voto SET votos=votos+1 WHERE id=".$id;
+        	mysql_query($up_votos);
+         
+         echo "Gracias por su voto.";
+        } else {
+         
+         echo "Usted ya ha votado.";
+        }
+}
+    public function hacerPusher($nuevoVoto, $id){
+        $pusher = $this->container->get('lopi_pusher.pusher');
+    
+        $data['message'] = $nuevoVoto;
+        $data['id'] = $id;
+        $pusher->trigger('my-channel', 'my-event', $data);
     }
     
     /**
@@ -194,80 +203,33 @@ class KupelaController extends Controller
         return new Response($json);
     }
     
-    //public function hacerPusherAction()
-    //{
-        /* pusher */
-        //$pusher = $this->container->get('lopi_pusher.pusher');
-        //$data['message'] = "Cambiado";
-        //$pusher->trigger('my-channel', 'my-event', $data);
-        
-        //$pusher = $this->container->get('lopi_pusher.pusher');
-        /*$options = array(
-            'cluster' => 'eu',
-            'encrypted' => true
-        );
-        $pusher = new Pusher(
-            'fb3191e3b80fc4a2076b',
-            'e557d927dbe92d8dd449',
-            '291479',
-            $options
-        );*/
-        //$data['message'] = "Cambiado";
-        //$pusher->trigger('my-channel', 'my-event', $data);
-        //return new Response();
-        /* pusher */
-        /*$em = $this->getDoctrine()->getManager();
-
-        $sagardotegi = $em->getRepository('KupelikeBundle:Sagardotegi')->findOneBy(array("id" => $idSagardotegi));
-        $kupelas = $em->getRepository('KupelikeBundle:Kupela')->findBy(array('idSagardotegi' => $idSagardotegi));
-        
-        return $this->render('KupelikeBundle:Kupela:index2.html.twig', array(
-            'kupelas' => $kupelas,
-            'sagardotegi' => $sagardotegi//,
-            //'kupelaN' => $kupelaN
-        ));*/
-        //return new Response();
-    //}
-    /*public static function getSubscribedEvents()
+    public function addLikeAction($idKupela)
     {
-        return array(
-            'votado' => 'onSendMessage'
-        );
-    }*/
-
-    /*public function onSendMessage(MessageEvent $event)
-    {*/
-        //$client = $event->getConnection()->getClient()->jsonSerialize();
-        //$message = $event->getPayload()->getData();
-
-        /*$event->getConnection()->broadcast(
-            new EventPayload(
-                'chat.message',
-                array(
-                    'client' => $client,
-                    'message' => $message
-                )
-            )
-        );*/
-
-        /*$event->getConnection()->emit(
-            new EventPayload(
-                'chat.message.sent',
-                array(
-                    'client' => $client,
-                    'message' => $message
-                )
-            )
-        );*/
-        /*$message = $event->getPayload()->getData();
+        $em = $this->getDoctrine()->getManager();
+        $kupela = $em->getRepository('KupelikeBundle:Kupela')->find($idKupela);
         
-        $event->getConnection()->emit(
-            new EventPayload(
-                'voto',
-                array(
-                    'message' => $message
-                )
-            )
-        );
-    }*/
+        // Encoders de JSON (para devolver JSON)
+        $encoders = array(new JsonEncoder());
+        $normalizers = array(new ObjectNormalizer());
+        $serializer = new Serializer($normalizers, $encoders);
+        
+        // si la kupela no existe
+        if(!$kupela){
+            $message = "La kupela no existe";
+            
+            $json = $serializer->serialize($message, 'json');
+            return new Response($json);
+        } else {
+            $numVotos = $kupela->getNumVotos();
+            $kupela->setNumVotos($numVotos + 1);
+            $em->persist($kupela);
+            $em->flush();
+            
+            $message = "Se ha agregado el voto correctamente";
+            
+            $json = $serializer->serialize($message, 'json');
+            return new Response($json);
+        }
+        
+    }
 }

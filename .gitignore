@@ -1,4 +1,4 @@
-app/config/parameters.yml
+/app/config/parameters.yml
 /build/
 /phpunit.xml
 /var/*
@@ -15,3 +15,7 @@ app/config/parameters.yml
 /vendor/
 /web/bundles/
 /bin/oc
+
+# Para que no suba las fotos subidas
+/web/uploads/kupelas/*
+/web/uploads/sagardotegis/*

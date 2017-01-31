@@ -24,7 +24,7 @@ font-family: 'Lobster', cursive;
 
 /* Bootstrap Override */
 body {
-    padding-top: 140px;
+    padding-top: 150px;
 }
 
 /* Scrollbar */
@@ -964,9 +964,9 @@ hr.search-hr {
 
 }
 
-#corazon-like{
-    width:60px;
-    height:180px;
+.img-responsive.like{
+    width: 160px;
+    height: 160px;
     overflow:hidden;
     
     
@@ -991,10 +991,38 @@ hr.search-hr {
 }
 
 .img-kupela-lista {
-   height: 200px;
-   width: 200px;
+   height: 250px;
+   width: 250px;
 }
 
+
+#registro_sidreria{
+    text-align: center;
+}
+.img-thumbnail{
+    max-width: 80%;
+}
+
+#nueva_kupela{
+    width: 250px;
+    height: 250px;
+    border: 1px black solid;
+    margin-left: 5px;
+    margin-top: 5px;
+}
+
+#nueva_kupela #plus{
+    padding-left: 90px;
+    padding-top: 85px;
+}
+#numvotos{
+    padding-left: 55px;
+}
+
+#btn-facebook{
+    margin-top: 25px;
+
+}
 
 /**************** lider new ***********************/
 

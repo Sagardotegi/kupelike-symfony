@@ -3,7 +3,7 @@
 namespace KupelikeBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use \pusher\lib\Pusher;
+use Lopi\Bundle\PusherBundle;
 
 class PusherController extends Controller
 {

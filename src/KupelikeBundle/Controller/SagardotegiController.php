@@ -45,11 +45,11 @@ class SagardotegiController extends Controller
 
         //$sagardotegi = $em->getRepository('KupelikeBundle:Sagardotegi')->findOneBy(array("idSagardotegiFacebook" => $idSagardotegi));
         // obtenemos las kupelas de la sagardotegi
-        $kupelas = $em->getRepository('KupelikeBundle:Kupela')->findBy(array('idSagardotegi' => $idSagardotegi));
+        $kupelas = $em->getRepository('KupelikeBundle:Kupela')->findBy(array('idSagardotegi' => $idSagardotegi),['id' => 'ASC']);
         
         //$kupelaN = $em->getRepository('KupelikeBundle:Voto')->sumKupelas();
         
-        return $this->render('KupelikeBundle:Kupela:index2.html.twig', array(
+        return $this->render('KupelikeBundle:Kupela:index.html.twig', array(
             'kupelas' => $kupelas,
             'sagardotegi' => $sagardotegi//,
             //'kupelaN' => $kupelaN

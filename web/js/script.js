@@ -12,6 +12,7 @@ $(document).ready(function($) {
         $('.searchResults').slideToggle(500);
         //$("head").append('<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">');
     });
+    //$('#search').textinput('option','preventFocusZoom',false);
 });
 
 
@@ -22,6 +23,15 @@ $(document).on('click', function(e) {
   } else {
     $('.menu').removeClass('visible-menu');
   }
+});
+
+/** Scroll to Sagardotegiak **/
+$(document).on('click','.btn-encuentra', function(event) {
+    event.preventDefault();
+    var target = "#" + this.getAttribute('data-target');
+    $('html, body').animate({
+        scrollTop: $(target).offset().top
+    }, 1500);
 });
 
 /** Access window open **/
