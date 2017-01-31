@@ -38,14 +38,14 @@ class Sagardotegi
     /**
      * @var float
      *
-     * @ORM\Column(name="latitud", type="float")
+     * @ORM\Column(name="latitud", type="float", nullable=true)
      */
     private $latitud;
 
     /**
      * @var float
      *
-     * @ORM\Column(name="longitud", type="float")
+     * @ORM\Column(name="longitud", type="float", nullable=true)
      */
     private $longitud;
 
@@ -59,14 +59,14 @@ class Sagardotegi
     /**
      * @var string
      *
-     * @ORM\Column(name="foto", type="string", length=255)
+     * @ORM\Column(name="foto", type="string", length=255, nullable=true)
      */
     private $foto;
     
     /**
      * @var string
      *
-     * @ORM\Column(name="id_sagardotegi_facebook", type="string", length=255, unique=true)
+     * @ORM\Column(name="id_sagardotegi_facebook", type="string", length=255, unique=true, nullable=true)
      * @ORM\ManyToOne(targetEntity="Kupela")
      * @ORM\JoinColumn(name="id_sagardotegi", referencedColumnName="id_sagardotegi")
      */

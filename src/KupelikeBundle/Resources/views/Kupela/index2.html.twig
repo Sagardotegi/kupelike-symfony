@@ -17,61 +17,20 @@
         </div>
     </div>
     <script>
-        // Enable pusher logging - don't include this in production
-        // Pusher.logToConsole = true;
-        /*var pusher = new Pusher('fb3191e3b80fc4a2076b', {
-            cluster: 'eu',
+        var pusher = new Pusher('a37218af0d3c7dcfceae', {
             encrypted: true
         });
         var channel = pusher.subscribe('my-channel');
         channel.bind('my-event', function(data) {
-            alert(data.message);
-            //console.log(data.message);
-            document.getElementById("prueba").textContent = data.message;
-        });*/
+            document.getElementById(data.id).innerHTML = data.message + "<i class='fa fa-heart fa-1x' aria-hidden='true'></i>";
+        });
     </script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.3/handlebars.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
     
-
-    
-
-    <script type="text/javascript">
-        /*$(function() {
-
-            function nuevoVoto(response) {
-                $('#prueba').append(*/
-                        //$('<p><span>hgjghjfj'/* + response.message */+ '</span></p>')
-                /*);
-            }
-
-            var server = new Ratchet('wss://localhost:8080');
-
-            // bind listeners
-            //server.on('chat.message.sent', appendChatMessage);
-            server.on('voto', nuevoVoto);
-
-            $('.vote-button').click(function(e) {
-                e.preventDefault();
-
-                //var message = $('#message');
-                //var value = message.val();
-                var value = "cambiado"
-
-                if (value.length) {
-                    server.emit('votado', value);
-                    //message.val("");
-                }
-
-                return false;
-            });
-        });*/
-    </script>
-    <!--<div id="prueba">aaa</div>-->
-    
-    <div class="container">
+<div class="container">
         
     <div class="row p-x-1 kupela-list">
         <div class="col-xs-12">
@@ -87,11 +46,11 @@
                 </div>
                 <div class="row">
                     <div class="col-xs-6">
-                        <h3 class="vote-count">{{kupela.numVotos}}<i class="fa fa-heart fa-1x" aria-hidden="true"></i></h3>
+                        <h3 id="{{kupela.id}}" class="vote-count">{{kupela.numVotos}}<i class="fa fa-heart fa-1x" aria-hidden="true"></i></h3>
                     </div>
                      <div class="col-xs-6">   
                         <button class="vote-button">
-                            <a id="{{kupela.id}}" class="btn-facebook" numero="{{kupela.id}}">
+                            <a class="btn-facebook" numero="{{kupela.id}}">
                                 <i class="fa fa-heart fa-2x" aria-hidden="true"></i>
                             </a>
                         </button>

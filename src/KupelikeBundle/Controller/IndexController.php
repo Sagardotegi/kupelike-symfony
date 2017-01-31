@@ -148,9 +148,11 @@ class IndexController extends Controller
                 .$nombre.
                 '<h1>Datos de la sidreria</h1>
                 <h2> Nombre sidreria:</h2><p>'.$nombreSidreria.'</p>
-                <h2>Direccion</h2><p>'.$direccion.'</p>
-                <h2>Descrpcion sidreria</h2><p>' . $descripcion . '</p>
-                </br><h2>Email de contacto sidrero</h2>' .$email, 'text/html');
+                <h2>Direccion</h2>
+                <p>'.$direccion.'</p>
+                <h2>Descrpcion sidreria</h2>
+                <p>' . $descripcion . '</p>
+                </br><h2>Email de contacto sidrero:</h2>' .$email, 'text/html');
             
             $this->get('mailer')->send($mail);
         
