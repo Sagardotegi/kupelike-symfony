@@ -107,9 +107,9 @@ $(document).ready(function(){
                     <div class="col-xs-7 col-md-1">
                         <ul class="list-inline pull-right idiomas">
                             <li class="es"><a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'es'})) }}">ES</a></li>
-                            <li>|</li>
+                            |
                             <li class="eus"><a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'eus'})) }}">EUS</a></li>
-                            <li>|</li>
+                            |
                             <li class="en"><a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'en'})) }}">EN</a></li>
                         </ul>
                         <form id="navbar-search" class="pull-right p-x-0" role="search" action="{{ path('sagardotegis_buscar') }}">

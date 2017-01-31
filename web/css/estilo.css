@@ -276,7 +276,14 @@ body::-webkit-scrollbar-thumb {
 
 .idiomas {
     margin-bottom: -30px;
+    font-size: 11px;
 }
+
+/*.idiomas-wrapper {
+    position: fixed;
+    margin: 5px 5px;
+    float: right;
+}*/
 
 .lang-active {
     color: #629c44;
