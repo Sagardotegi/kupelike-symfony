@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
- <div class="container-fluid p-x-0 landing content">
+ <div class="container-fluid p-x-0 landing">
     <div class="row welcome">
         <div class="col-sm-12 text-center">
             <h1 class="welcome-text">Una buena conversación se abre siempre con un Txotx!</h1>
@@ -10,12 +10,12 @@
         </div>
     </div>
 
-    <div class="row caja">    
+    <div class="row caja" id="mapa">    
         <div class="col-xs-12">
             {% include('KupelikeBundle:Sagardotegi:mapaDenakMapa.html.twig') %} 
         </div>
     </div>    
-    <div class="row caja">  
+    <div class="row caja" id="sidrerias">  
        <div class="col-xs-12">
         {% include('KupelikeBundle:Sagardotegi:lista.html.twig') %} 
        </div>

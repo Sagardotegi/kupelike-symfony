@@ -2,28 +2,6 @@
 
 {% block body %}
 
-    <div class="row">
-        <div class="col-sm-12">
-            <h1 class="mtitle text-center">Sagardotegiak</h1>
-        </div>
-    </div>
-    <div class="row">
-        {% for sagardotegi in sagardotegis %}
-        
-        <div class="col-xs-4">
-            
-            <div class="card">
-                <a class="card-link" name="{{ sagardotegi.nombre }}" href="{{ path("sagardotegi_view", {idSagardotegi:sagardotegi.id}) }}">
-                <img class="card-image img-responsive" src="/web/{{ sagardotegi.foto }}"></img>
-                <div class="card-direction text-uppercase text-center"><h4>{{ sagardotegi.direccion }}</h4></div>
-                <h2 class="card-title text-uppercase">{{ sagardotegi.nombre }}</h2>
-                <p class="card-description">{{ sagardotegi.descripcion }}</p>
-                </a>
-            </div>
-        </div>
-        {% endfor %}
-    </div>
-
 <div class="container-fluid">
     {% include('KupelikeBundle:Sagardotegi:lista.html.twig') %}
 

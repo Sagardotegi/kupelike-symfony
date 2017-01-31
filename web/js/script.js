@@ -4,9 +4,13 @@ $(document).ready(function($) {
 
     $('#searchButton').on('click', function(){
         $(this).toggleClass('active');
-        $('.searchBox').slideToggle().css('width', '350');
+        $('.desktop-menu').toggleClass('col-md-7 col-lg-8 visible-md visible-lg').addClass('hidden');
+        $('#navbar-search').parent().toggleClass('col-md-1 col-md-8 col-lg-9');
+        $('.searchBox').toggleClass('hidden').css('width', '350');
+        $('.searchBox').focus();
         $('#searchIcon').toggleClass('fa-times');
-        $('.searchResults').slideToggle(1000);
+        $('.searchResults').slideToggle(500);
+        //$("head").append('<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">');
     });
 });
 
@@ -22,11 +26,18 @@ $(document).on('click', function(e) {
 
 /** Access window open **/
 
-  $(document).ready(function($) {
+$(document).ready(function($) {
 
     $('.btn-access').on('click', function(){
-        $$("#contactdiv").css("display", "block");
+      $('.accessWrapper').fadeIn();
+      $("#accessWindow").css('display','block');
     });
+    
+    $('#closeAccess').click(function(){
+			  $('.accessWrapper').fadeOut();		
+			  $('#accessWindow').fadeOut();
+		  return false;
+		});
 });
     
 //* Search zoom disable *//    
@@ -51,39 +62,6 @@ $(document).ready(function($) {
        
     });
 });
-
-
-/* APP info script */
-
-/*$(document).ready(function($) {
-      $('.single-kupela').onClick(function(){
-          $(this).find('.single-kupela-info').slideToggle(1000);
-       
-    });
-});*/
-
-
-/*function showResult(str) {
-  if (str.length==0) { 
-    document.getElementById("searchResults").innerHTML="";
-    document.getElementById("searchResults").style.border="0px";
-    return;
-  }
-  if (window.XMLHttpRequest) {
-    // code for IE7+, Firefox, Chrome, Opera, Safari
-    xmlhttp=new XMLHttpRequest();
-  } else {  // code for IE6, IE5
-    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-  }
-  xmlhttp.onreadystatechange=function() {
-    if (this.readyState==4 && this.status==200) {
-      document.getElementById("searchResults").innerHTML=this.responseText;
-      document.getElementById("searchResults").style.border="1px solid #A5ACB2";
-    }
-  }
-  xmlhttp.open("GET","searchResults.php?q="+str,true);
-  xmlhttp.send();
-}*/
 
 
 
