@@ -94,7 +94,7 @@ enviar_correo:
 registrar_correo:
     path: /registrar_correo
     defaults: { _controller: KupelikeBundle:Index:registro }
-    methods: [POST]
+    methods: [GET,POST]
         
     
 sagardotegis_buscar:
