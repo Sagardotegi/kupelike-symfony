@@ -1,51 +1,72 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-  
-<div class="container-fluid">
-      <div class="row">
-        <div class="col-sm-9  col-md-12  main">
-          <div class="col-sm-5">
-            <h1 class="card-title">{{sagardotegi.nombre}}</h1>
-            <p class="card-description" id="descripcion">{{sagardotegi.descripcion}}</p>
-            <a href="{{ path("sagardotegi_mapa", {idSagardotegi:sagardotegi.id}) }}"><button type="button" class="btn btn-primary">Como llegar</button></a>
-            <a href="http://www.petritegi.com/es/contacto"><button type="button" class="btn btn-primary">Contacto</button></a>
-           </div>    
-     
-      <div class="col-sm-6 col-sm-offset-1">
-         <div class="card-direction text-uppercase text-center"><h4>{{ sagardotegi.direccion }}</h4></div>
-         <img src= "{{asset(sagardotegi.foto)}}"  class="img-thumbnail" alt="Responsive image">
-    </div>   
- </div>    
-          
- <div class="col-sm-12">
-          <h2 class="page-header">Listado kupelas</h2>
-
+   <div class="container-fluid">
+   
+        <div class="row single-sagardotegi">
+            <div class="col-xs-6">
+                <h1 class="card-title text-uppercase">{{ sagardotegi.nombre }}</h1>
+                    <p class="single-description" id="descripcion">{{ sagardotegi.descripcion }}</p>
+                    <a href="{{ path("sagardotegi_mapa", {idSagardotegi:sagardotegi.id}) }}"><button type="button" class="btn btn-default">{{ 'paginas.sidrerias.llegar' | trans }}</button></a>
+                    <a href=""><button type="button" class="btn btn-default">{{ 'paginas.sidrerias.contacto' | trans }}</button></a>
+            </div>
+            <div class="col-xs-6">
+                <div class="card-single-direction text-uppercase text-center"><h4>{{ sagardotegi.direccion }}</h4></div>
+                <img class="single-img img-responsive img-rounded" src="{{asset(sagardotegi.foto)}}"></img>
+            </div>
+        </div>
+    </div>
+    <script>
+        var pusher = new Pusher('a37218af0d3c7dcfceae', {
+            encrypted: true
+        });
+        var channel = pusher.subscribe('my-channel');
+        channel.bind('my-event', function(data) {
+            document.getElementById(data.id).innerHTML = data.message + "<i class='fa fa-heart fa-1x' aria-hidden='true'></i>";
+        });
+    </script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.3/handlebars.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
+    
+<div class="container">
+        
+    <div class="row p-x-1 kupela-list">
+        <div class="col-xs-12">
     {% for kupela in kupelas %}
-    
-    <div class="col-sm-12">
-        <div  class="panel panel-default">  
-            <div class="col-sm-4">   
-              <h2 class="card-title" >{{kupela.nombre}}</h2></br></br>
-              <p class="card-description">{{kupela.descripcion}}</p>   
-              <p class="card-year">{{kupela.year}}</p>
-             </div> 
-             <div class="col-sm-4">   
-              <img src="{{asset(kupela.foto)}}" class="img-rounded img-kupela-lista" alt="Responsive image">
-             </div>
-             <div class="col-sm-4">
-              <h2 id="numvotos">{{kupela.numVotos}}</h2>
-              <a href="#" id="btn-facebook" class="{{kupela.idSagardotegi}}">
-                  <img id="btn-facebook" src= "{{asset("/uploads/kupelas/like.png")}}">
-              </a>
-             </div>        
-        </div>      
-    </div>
-  
+        
+      
+        <div class="row single-kupela">
+            <div class="col-xs-4 vote-wrapper">
+                <div class="row text-center">
+                    <div class="col-xs-12">
+                    <img src="{{asset(kupela.foto)}}" alt="kupela" class="single-kupela-img img-thumbnail img-circle img-responsive"></img>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6">
+                        <h3 id="{{kupela.id}}" class="vote-count">{{kupela.numVotos}}<i class="fa fa-heart fa-1x" aria-hidden="true"></i></h3>
+                    </div>
+                     <div class="col-xs-6">   
+                        <button class="vote-button">
+                            <a class="btn-facebook" numero="{{kupela.id}}">
+                                <i class="fa fa-heart fa-2x" aria-hidden="true"></i>
+                            </a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-8">
+                <div class="caption">
+                    <h3 class="card-title text-uppercase">{{kupela.nombre}}</h3>
+                    <p class="single-description">{{kupela.descripcion}}</p>
+                </div>
+            </div>
+        </div>
+      
     {% endfor %}
+        </div>
+        {{ include('KupelikeBundle:Kupela:_facebook.html.twig') }}
     </div>
- 
-    {{ include('KupelikeBundle:Kupela:_facebook.html.twig') }}
-    
-{% endblock %}
-
+{% endblock %} 
