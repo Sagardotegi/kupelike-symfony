@@ -5,71 +5,49 @@ index:
     requirements:
         _locale: es|eus|en
     
-login:
-    path: /login
-    defaults: { _controller: KupelikeBundle:Security:login }
-    
-login_check:
-    path: /login_check
-    
-logout:
-    path: /logout
-    
 sagardotegis_index:
     path: /sagardotegiak
     defaults: { _controller: KupelikeBundle:Sagardotegi:lista }
     methods: [GET]
-    requirements:
-        _locale: es|eus|en
+    #schemes:  [%httpProtocol%]
     
 sagardotegi_view:
     path: /sagardotegiak/{idSagardotegi}
     defaults: { _controller: KupelikeBundle:Sagardotegi:view }
     methods: [GET]
-    requirements:
-        _locale: es|eus|en
+    #schemes:  [%httpProtocol%]
     
 sagardotegi_mapa:
     path: /sagardotegiak/{idSagardotegi}/mapa
     defaults: { _controller: KupelikeBundle:Sagardotegi:mapa }
     methods: [GET]
-    requirements:
-        _locale: es|eus|en
+    #schemes:  [https]
     
 sagardotegien_mapak:
     path: /mapak
     defaults: { _controller: KupelikeBundle:Sagardotegi:mapak }
     methods: [GET]
-    requirements:
-        _locale: es|eus|en
+    #schemes:  [https]
     
 gps:
     path: /
     defaults: { _controller: KupelikeBundle:Sagardotegi:gps }
     methods: [GET, POST]
-    #requirements:
-        #_locale: es|eus
     
 contacto:
     path: /contacto
     defaults: { _controller: KupelikeBundle:Index:contacto }
     methods: [GET, POST]
-    requirements:
-        _locale: es|eus|en
 
 registro:
     path: /registro
     defaults: { _controller: KupelikeBundle:Index:registro }
-    methods: [GET, POST]
-    #requirements:
-    #    _locale: es|eus|en
+    methods: [GET, POST]    
     
 nosotros:
     path: /nosotros
     defaults: { _controller: KupelikeBundle:Index:nosotros }
-    methods: [GET]
-    requirements:
-        _locale: es|eus|en
+    methods: [GET]    
 
 kupela_like:
     path: /kupela_like
@@ -77,11 +55,11 @@ kupela_like:
     methods: [GET, POST]
     
 
-#pusher:
-#    path: /pusher/{msg}
+pusher:
+    path: /pusher/{msg}
     #path: /pusher
-#    defaults: { _controller: KupelikeBundle:Kupela:pusher }
-#    methods: [GET]
+    defaults: { _controller: KupelikeBundle:Kupela:pusher }
+    methods: [GET]
     
 #cargar_sagardotegis:
 #    path: /save-sagardotegis
@@ -102,8 +80,6 @@ enviar_correo:
     path: /enviar-correo
     defaults: { _controller: KupelikeBundle:Index:email }
     methods: [POST]
-    requirements:
-        _locale: es|eus|en
     
 registrar_correo:
     path: /registrar_correo
@@ -198,6 +174,22 @@ actualizar_sagardotegi:
 obtener_likes_kupela:
     path: /api/get-likes/{idKupela}
     defaults: { _controller: KupelikeBundle:Kupela:getLikes }
+    methods: [GET]
+    
+agregar_like_kupela:
+    path: /api/add-like/{idKupela}
+    defaults: { _controller: KupelikeBundle:Kupela:addLike }
+    methods: [GET, POST]
+
+login:
+    path: /login
+    defaults: { _controller: KupelikeBundle:Index:login }
+    methods: [GET]
+    
+acceder:
+    path: /acceder
+    defaults: { _controller: KupelikeBundle:Index:acceder }
+    methods: [GET]
     methods: [GET]
     
 agregar_like_kupela:

@@ -23,3 +23,13 @@ kupelike:
 #    resource: "@KupelikeBundle/Controller/"
 #    type:     annotation
 #    prefix:   /
+
+login:
+    path: /login
+    defaults: { _controller: KupelikeBundle:Security:login }
+    
+login_check:
+    path: /login_check
+    
+logout:
+    path: /logout
