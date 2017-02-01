@@ -2,35 +2,163 @@
 <body>
     <style>
        #map {
-        height: 100%;
+        height: 90%;
         width: 100%;
        }
     </style>
       <div id="map" class="mapa"></div>
-  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
           <script>
           var map;
+          var centro;
+          var sidrerias = [];
         function myMap() {
             
+            var perImg="../img/personaPos.png";
+      		//var perImg="https://kupelike-oalba.c9users.io/img/personaPos.png";
+      		var persImg={
+      			url:perImg,
+      			size: new google.maps.Size(35, 35)
+      		};
+
             var mapCanvas = document.getElementById("map");
             var mapOptions = {
                 streetViewControl: true,
                 mapTypeControl: true,
                 zoomControl: true,
-                center: new google.maps.LatLng(43.2585051,-1.981973), 
+                center: centro, 
                 zoom: 15//,
                 //scrollwheel: false
             };
             var map = new google.maps.Map(mapCanvas, mapOptions);
-              //Add listener
+            
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                  var perPos = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                  };
+                  var persona = new google.maps.Marker({
+                    position: perPos,
+                    animation: google.maps.Animation.DROP,
+                    map: map,
+                    title: 'Tu posición.',
+                    icon: persImg
+                  });
+                  map.setCenter(perPos);
+                });
+             }
+            //Add listener
             new google.maps.event.addListener(map, "click", function (event) {
                 var latitude = event.latLng.lat();
                 var longitude = event.latLng.lng();
-                console.log( latitude + ', ' + longitude );
-            }); //end addListener
+                //console.log( latitude + ', ' + longitude );
+                $("#long").val(longitude);
+                $("#lat").val(latitude);
+                showPosition(latitude, longitude);
+                
+                setMapOnAll(null);
+                sidrerias = [];
 
+                var sidreria = new google.maps.Marker({
+                    position: new google.maps.LatLng(latitude,longitude),
+                    animation: google.maps.Animation.DROP,
+                    map: map,
+                    title: 'Tu sidrería.'
+                });
+                sidrerias.push(sidreria);
+                setMapOnAll(map);
+                
+                
+                
+            }); //end addListener
+    
           }
-          </script>
-          <script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
+          
+            function setMapOnAll(map) {
+              for (var i = 0; i < sidrerias.length; i++) {
+                sidrerias[i].setMap(map);
+              }
+            }
+            
+            /*
+            // Removes the markers from the map, but keeps them in the array.
+            function clearMarkers() {
+              setMapOnAll(null);
+            }
+            
+            // Shows any markers currently in the array.
+            function showMarkers() {
+              setMapOnAll(map);
+            }
+            
+            // Deletes all markers in the array by removing references to them.
+            function deleteMarkers() {
+              clearMarkers();
+              sidrerias = [];
+            }
+            */
+          
+          function showPosition(lat,long) {
+                var url2 = get_json("https://maps.googleapis.com/maps/api/geocode/json?latlng="+lat+","+long+"&key=AIzaSyBREelEG1_QwGs9Ur0VE00OoqOa9sjppWE");
+                var json2 = JSON.parse(url2);
+                var a2 = json2.results[0].formatted_address;
+                
+                $("#direccion").val(a2);
+                
+                $.each(json2.results[0].address_components, function (i, address_component) {
+                    /*console.log('address_component:'+i);*/
+                
+                    if (address_component.types[0] == "locality"){
+                        //console.log("town:"+address_component.long_name);
+                        //itemLocality = address_component.long_name;
+                        $("#pueblo").val(address_component.long_name);
+                    }
+                
+                    /*
+                    if (address_component.types[0] == "route"){
+                        console.log(i+": route:"+address_component.long_name);
+                        itemRoute = address_component.long_name;
+                    }
+                    
+                    if (address_component.types[0] == "country"){ 
+                        console.log("country:"+address_component.long_name); 
+                        itemCountry = address_component.long_name;
+                    }
+                
+                    if (address_component.types[0] == "postal_code_prefix"){ 
+                        console.log("pc:"+address_component.long_name);  
+                        itemPc = address_component.long_name;
+                    }
+                
+                    if (address_component.types[0] == "street_number"){ 
+                        console.log("street_number:"+address_component.long_name);  
+                        itemSnumber = address_component.long_name;
+                    }*/
+                });
+            }
+            
+            function get_json(url) {
+                var resp ;
+                var xmlHttp ;
+                
+                resp  = '' ;
+                xmlHttp = new XMLHttpRequest();
+                
+                if(xmlHttp != null)
+                {
+                    xmlHttp.open( "GET", url, false );
+                    xmlHttp.send( null );
+                    resp = xmlHttp.responseText;
+                }
+                
+                return resp ;
+            }
+        </script>
+        Longitud: <input id="long" type="text" name="longitud"/>
+        Latitud: <input id="lat" type="text" name="latitud"/>
+        Pueblo: <input id="pueblo" type="text" name="pueblo"/>
+        Dirección: <input id="direccion" type="text" name="direccion"/>
+        <script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
     </body>
 </html>

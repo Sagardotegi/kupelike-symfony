@@ -1,7 +1,6 @@
 index:
     path: /index
     defaults: { _controller: KupelikeBundle:Index:index }
-    #schemes:  [https]
     requirements:
         _locale: es|eus|en
     
