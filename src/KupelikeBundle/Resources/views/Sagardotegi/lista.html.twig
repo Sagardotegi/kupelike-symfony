@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-xs-12">
-        <h1 class="mtitle text-center">Sidrerias</h1>
+        <h1 class="mtitle text-center">{{ 'paginas.sidrerias.titulo' | trans }}</h1>
     </div>
     {% for sagardotegi in sagardotegis %}
     
@@ -15,4 +15,8 @@
         </div>
     </div>
     {% endfor %}
+    
+    <div class="col-xs-12">
+        <p class="pull-right btn-primary">Ver Mas</p>
+    </div>
 </div>

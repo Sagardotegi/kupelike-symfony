@@ -1,6 +1,36 @@
 paginas_estaticas:
     menu:
         inicio: "Inicio"
+        mapa: "Mapa"
         sidrerias: "Sidrerías"
         contacto: "Contacto"
         nosotros: "Nosotros"
+    landing:
+        txotx: "Una buena conversación se abre siempre con un Txotx!"
+        encuentra: "Encuentra tu sidrería"
+    footer:
+        inicio: "Inicio"
+        mapa: "Mapa"
+        sidrerias: "Sidrerías"
+        contacto: "Contacto"
+        nosotros: "Nosotros"
+paginas:
+    mapa:
+        titulo: "Mapa"
+    sidrerias:
+        titulo: "Sidrerías"
+        llegar: "Cómo llegar"
+        contacto: "Contacto"
+    contacto:
+        titulo: "Contáctanos"
+        nombre: "Escriba su nombre y apellidos"
+        email: "Indíquenos su Email"
+        motivo: "Díganos cuál es el motivo de su consulta para que podamos responderle lo antes posible."
+        enviar: "Enviar"
+    nosotros:
+        titulo: "Nosotros"
+        texto1: "Una nueva aplicación ha sido desarrollada por los estudiantes de Liderazgo Emprendedor e Innovación de la Universidad de Mondragón, en colaboración con los estudiantes de Desarrollo de Aplicaciones Web de I.E.S Zubiri Manteo B.H.I. y Mantenimiento electrónico de CIFP Don Bosco LHII, llamada KupeLike."
+        texto2: "KupeLike muestra las sidrerías del territorio español con sus respectivas barricas (kupelas) y un sistema de votos y reputación por cada una de ellas. Los votos se muestran tanto en la aplicación como en unas pantallas alojadas en cada barrica."
+        texto3: "También dispondrá de un mapa interactivo e información actualizada para el interés de los usuarios."
+    slider:
+        desarrollo: "Desarrollador de Aplicaciones Web"

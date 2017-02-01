@@ -16,25 +16,6 @@ html, body {
     height: 372px; /* .push must be the same height as .footer */
 }
 
-
-/* Video Background 
-
-video {
-    
-    background: url('../img/back.mp4') no-repeat center center fixed; 
-     min-width: 100%;
-    min-height: 100%;
-    -webkit-transform: translate(-50%,-50%);
-    -moz-transform: translate(-50%,-50%);
-    -ms-transform: translate(-50%,-50%);
-    transform: translate(-50%,-50%);
-    z-index: 0;
-    position: fixed;
-  transition: 1s opacity;
-}
-
-*/
-
 /* Fonts
 font-family: 'Roboto', sans-serif;
 font-family: 'Fjalla One', sans-serif;
@@ -43,7 +24,7 @@ font-family: 'Lobster', cursive;
 
 /* Bootstrap Override */
 body {
-    padding-top: 120px;
+    padding-top: 150px;
 }
 
 /* Scrollbar */
@@ -87,13 +68,6 @@ body::-webkit-scrollbar-thumb {
     /*margin-right: -30px;*/
 }
 
-/* Content */
-
-.content {
-    
-    /*margin-top: 100px;*/
-}
-
 /* Menu */
 
 .navbar {
@@ -107,10 +81,11 @@ body::-webkit-scrollbar-thumb {
 
 .navbar-ham {
     
-    padding: 10px 30px !important;
-    line-height: 120px;
+    padding: 20px 15px 0px 15px !important;
+    line-height: 150px;
     color: #629c44;
     cursor: pointer;
+    vertical-align: middle;
 }
 
 .navbar-ham:hover, .navbar-ham:active, .navbar-ham:focus, navbar-ham:visited {
@@ -135,22 +110,17 @@ body::-webkit-scrollbar-thumb {
 
     height: inherit;
     padding: 15px;
-    font-size: 30px;
-    line-height: 80px;
+    font-size: 50px;
     letter-spacing: 2px;
     color: #629c44;
     font-family: 'Lobster', cursive;
+    line-height: 155px;
 }
 
 .navbar-title:hover, .navbar-title:active, .navbar-title:focus, .navbar-title:visited {
     
     text-decoration: none !important;
     color: #629c44 !important;
-}
-
-.navbar-form {
-    
-    margin-top: 25px;
 }
 
 .navbar-search {
@@ -171,23 +141,28 @@ body::-webkit-scrollbar-thumb {
     font-weight: 400;
     color: #ffffff;
     border-radius: 1px;
-    margin-top: 10px;
+    margin-top: 40px;
     background-color: #629c44;
-    height: 45px;
-    width: 60px;
+    height: 75px;
+    width: 80px;
+    padding-top: 20px;
 }
 
 #acceder{
     margin-top: 20px;
 }
 
+.form-group {
+    
+    margin-bottom: 15px;
+    float: left;
+}
+
 .searchBox {
     
-    display: none;
     border-radius: 0px;
-    height: 45px;
-    margin-top: 10px;
-    margin-right: -5px;
+    height: 75px;
+    margin-top: 40px;
     width: 0px;
     padding: 6px 12px;
     font-size: 14px;
@@ -209,6 +184,34 @@ body::-webkit-scrollbar-thumb {
 
 .img-search {
     height: 200px;
+}
+
+.desktop-menu {
+    
+    padding-top: 40px;
+}
+
+.desktop-menu-links {
+    
+    list-style: none;
+    padding-left: 0px;
+}
+
+
+.desktop-menu-links>li {
+    
+    display: inline;
+    list-style: none;
+    padding: 0px 15px;
+}
+    
+.desktop-menu-links>li>a {
+    
+    text-decoration: none;
+    letter-spacing: 2px;
+    font-family: 'Roboto', sans-serif;
+    font-size: large;
+    color: #629c44;
 }
 
 .menu {
@@ -269,6 +272,25 @@ body::-webkit-scrollbar-thumb {
     display: none;
     overflow-y: auto;
     padding-bottom: 100px;
+}
+
+.idiomas {
+    margin-bottom: -30px;
+    font-size: 11px;
+}
+
+/*.idiomas-wrapper {
+    position: fixed;
+    margin: 5px 5px;
+    float: right;
+}*/
+
+.lang-active {
+    color: #629c44;
+}
+
+.lang-non-active {
+    color: #515151;
 }
 
 /* Fin Menu*/
@@ -459,11 +481,11 @@ body::-webkit-scrollbar-thumb {
     border-bottom: #629c44 solid 5px;
 }
 
- .mtitle {
+.mtitle {
      
     font-family: 'Lobster', cursive;
     color: #629c44 !important;
- }
+}
  
 h1.a-sagar a:link {
     color: #629c44 !important;
@@ -548,10 +570,7 @@ h1.a-sagar a:active {
 }
 
 .btn-access {
-    border: 1px solid white;
-    border-radius: 0px !important;
-    padding: 10px 20px;
-    text-align: center;
+   
     display: inline-block;
     margin: 30px 0px;
     cursor: pointer;
@@ -559,8 +578,54 @@ h1.a-sagar a:active {
 
 .btn-access:hover, .btn-access:focus,
 .btn-access:visited, .btn-access:active{
-    background-color: white !important;
-    color:  #629c44;
+
+    
+}
+
+#accessWindow {
+    
+    display: none;
+    position: fixed;
+    background-color: #F5F5F6;
+    top: 40%;
+    left: 50%;
+    z-index: 5;
+    border-radius: 3px;
+    width: 375px;
+    margin-top: -130px;
+    margin-left: -170px;
+    border-bottom: 3px solid #629c44;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.3);
+}
+
+.accessWrapper {
+    
+	position:fixed;
+	left:0;right:0;
+	top:0;bottom:0;
+	z-index:100;
+	background-color:rgba(50,50,50,0.5);
+}
+
+.access-title {
+     
+    margin-top: 0px;
+    font-family: 'Lobster', cursive;
+    color: #629c44 !important;
+}
+
+.access-link, .access-link:visited,
+.access-link:hover, .access-link:focus, .access-link:active {
+    
+    color: #629c44;
+    padding: 15px 0px;
+    margin: -5px;
+}
+
+#closeAccess {
+    
+    color: #629c44;
+    margin: 5px -5px;
 }
 
 .estadisticas-titulo {
@@ -589,6 +654,9 @@ h1.a-sagar a:active {
 
 .card {
     
+    height: 500px;
+    width: 100%;
+    padding: 15px 120px;
     width: 100%;
     padding: 15px 60px;
     max-width: 500px;
@@ -625,8 +693,7 @@ h1.a-sagar a:active {
     top: 40px;
     left: 25px;
     letter-spacing: 2px;
-    padding: 5px;
-}
+    padding: 5px;}
 
 .card-link, .card-link:hover, .card-link:active, .card-link:focus, .card-link:visited {
     
@@ -650,10 +717,9 @@ h1.a-sagar a:active {
 
 
 .contact_form{
+    
     font: 100% Arial, Helvetica, sans-serif;
-    /*max-width: 800px;*/
     margin: 10px auto;
-    padding: 16px;
     background: #F7F7F7;
     
 }
@@ -944,12 +1010,37 @@ hr.search-hr {
 }
 
 .img-kupela-lista {
-   height: 200px;
-   width: 200px;
+   height: 250px;
+   width: 250px;
 }
+
 
 #registro_sidreria{
     text-align: center;
+}
+.img-thumbnail{
+    max-width: 80%;
+}
+
+#nueva_kupela{
+    width: 250px;
+    height: 250px;
+    border: 1px black solid;
+    margin-left: 5px;
+    margin-top: 5px;
+}
+
+#nueva_kupela #plus{
+    padding-left: 90px;
+    padding-top: 85px;
+}
+#numvotos{
+    padding-left: 55px;
+}
+
+#btn-facebook{
+    margin-top: 25px;
+
 }
 
 /**************** lider new ***********************/
@@ -1145,3 +1236,4 @@ hr.search-hr {
 }
 
 */
+
