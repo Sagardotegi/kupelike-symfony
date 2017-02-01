@@ -28,9 +28,12 @@ security:
                 check_path: /login_check
                 username_parameter: _username
                 password_parameter: _password
+                
+                always_use_default_target_path: true
+                default_target_path: /es/index
             logout:
               path: /logout
-              target: /
+              target: /es/index
             # http://symfony.com/doc/current/cookbook/security/form_login_setup.html
         
         secured_area:
