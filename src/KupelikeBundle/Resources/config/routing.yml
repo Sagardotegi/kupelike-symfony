@@ -214,3 +214,5 @@ acceder:
     path: /acceder
     defaults: { _controller: KupelikeBundle:Index:acceder }
     methods: [GET]
+    requirements:
+        _locale: es|eus|en
