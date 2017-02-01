@@ -108,7 +108,7 @@ $(document).ready(function(){
                                 <li><a href="{{path("contacto")}}">Ayuda</a></li>
                                 <li><a href="{{path("logout")}}">Salir</a></li>
                             {% else %}
-                                <li><a href="#mapa">Mapa</a></li>
+                                <li><a href="{{ path('sagardotegien_mapak') }}">Mapa</a></li>
                                 <li><a href="{{ path('sagardotegis_index') }}">{{ 'paginas_estaticas.menu.sidrerias' | trans }}</a></li>
                                 <li><a href="{{ path('contacto') }}">{{ 'paginas_estaticas.menu.contacto' | trans }}</a></li>
                                 <li><a class="btn-access">Log In / Registrate</a></li>
