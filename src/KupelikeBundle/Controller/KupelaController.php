@@ -200,7 +200,9 @@ class KupelaController extends Controller
         
         // Devolvemos el objeto en JSON
         $json = $serializer->serialize($votos, 'json');
-        return new Response($json);
+        $response = new Response($json);
+        $response->headers->set('Access-Control-Allow-Origin', '*');
+        return $response;
     }
     
     public function addLikeAction($idKupela)
@@ -228,7 +230,10 @@ class KupelaController extends Controller
             $message = "Se ha agregado el voto correctamente";
             
             $json = $serializer->serialize($message, 'json');
-            return new Response($json);
+            
+            $response = new Response($json);
+            $response->headers->set('Access-Control-Allow-Origin', '*');
+            return $response;
         }
         
     }
