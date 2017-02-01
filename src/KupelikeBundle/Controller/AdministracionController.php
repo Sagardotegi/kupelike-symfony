@@ -55,7 +55,7 @@ class AdministracionController extends Controller
          if($foto != null){
          // asignamos un nombre al archivo generado automáticamente
           $nombreFoto = $this->get('app.kupela_uploader')->upload($foto);
-          $kupela->setFoto('/uploads/kupelas/' . $nombreFoto);
+          $kupela->setFoto('uploads/kupelas/' . $nombreFoto);
          }
           
          
@@ -104,7 +104,7 @@ class AdministracionController extends Controller
          if($foto != null){
           // asignamos un nombre al archivo generado automáticamente
           $nombreFoto = $this->get('app.sagardotegi_uploader')->upload($foto);
-          $sagardotegi->setFoto('/uploads/sagardotegis/' . $nombreFoto);
+          $sagardotegi->setFoto('uploads/sagardotegis/' . $nombreFoto);
          }
           
          
@@ -146,7 +146,7 @@ class AdministracionController extends Controller
          if($foto != null){
           // asignamos un nombre al archivo generado automáticamente
           $nombreFoto = $this->get('app.kupela_uploader')->upload($foto);
-          $newKupela->setFoto('/uploads/kupelas/' . $nombreFoto);
+          $newKupela->setFoto('uploads/kupelas/' . $nombreFoto);
          }
          
          $em = $this->getDoctrine()->getManager();
