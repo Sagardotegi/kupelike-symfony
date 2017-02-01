@@ -190,7 +190,7 @@ class KupelaController extends Controller
         $em = $this->getDoctrine()->getManager();
         $kupela = $em->getRepository('KupelikeBundle:Kupela')->find($idKupela);
         $numVotos = $kupela->getNumVotos();
-        $votos = array('likes' => $numVotos);
+        $votos = $numVotos;
         
         // Convertir el objeto en JSON
         $encoders = array(new JsonEncoder());
