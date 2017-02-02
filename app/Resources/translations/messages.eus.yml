@@ -11,8 +11,10 @@ paginas_estaticas:
             acceder: "Atzitu"
             red: "Oraindik ez al zara gure sareko parte?"
         accederr: "Atzitu / Erregistratu"
+        admuser: "Erabiltzaileak kudeatu"
+        misidre: "Nire sagardotegia"
         ayuda: "Laguntza"
-        salir: "Atera"
+        salir: "Irten"
         buscar: "Bilatu"
     landing:
         txotx: "Elkarrizketa on bat beti Txotx! batekin hasten da."

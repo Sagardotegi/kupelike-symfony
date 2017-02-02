@@ -11,6 +11,8 @@ paginas_estaticas:
             acceder: "Log in"
             red: "You are not part of our network yet?"
         accederr: "Log in / Register"
+        admuser: "Manage users"
+        misidre: "My cider house"
         ayuda: "Help"
         salir: "Log out"
         buscar: "Search"
