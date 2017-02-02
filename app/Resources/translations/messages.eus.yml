@@ -5,6 +5,15 @@ paginas_estaticas:
         sidrerias: "Sagardotegiak"
         contacto: "Kontaktua"
         nosotros: "Guri buruz"
+        acceder:
+            usuario: "Erabiltzailea"
+            contrasena: "Pasahitza"
+            acceder: "Atzitu"
+            red: "Oraindik ez al zara gure sareko parte?"
+        accederr: "Atzitu / Erregistratu"
+        ayuda: "Laguntza"
+        salir: "Atera"
+        buscar: "Bilatu"
     landing:
         txotx: "Elkarrizketa on bat beti Txotx! batekin hasten da."
         encuentra: "Zure sagardotegia aurkitu"

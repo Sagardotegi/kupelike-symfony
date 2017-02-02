@@ -5,6 +5,15 @@ paginas_estaticas:
         sidrerias: "Cider Houses"
         contacto: "Contact"
         nosotros: "About us"
+        acceder: 
+            usuario: "Username"
+            contrasena: "Password"
+            acceder: "Log in"
+            red: "You are not part of our network yet?"
+        accederr: "Log in / Register"
+        ayuda: "Help"
+        salir: "Log out"
+        buscar: "Search"
     landing:
         txotx: "A good conversation always starts with a Txotx!"
         encuentra: "Find your cider house"
