@@ -26,7 +26,10 @@ class UsuarioController extends Controller
     
     public function newAction()
     {
-        return $this->render('KupelikeBundle:Usuarios:new.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $sagardotegis = $em->getRepository('KupelikeBundle:Sagardotegi')->findAll();
+        
+        return $this->render('KupelikeBundle:Usuarios:new.html.twig', array('sagardotegis' => $sagardotegis));
     }
     
     public function newUserAction(Request $request)
@@ -37,10 +40,6 @@ class UsuarioController extends Controller
         $usuario->setNombre($nombre);
         $apellidos = $request->query->get('apellidos');
         $usuario->setApellidos($apellidos);
-        $idSagardotegi = $request->query->get('id-sidreria');
-        $usuario->setIdSidreria($idSagardotegi);
-        $nombreSagardotegi = $request->query->get('nombre-sidreria');
-        $usuario->setNombreSidreria($nombreSagardotegi);
         $telefono = $request->query->get('telefono');
         $usuario->setTelefono($telefono);
         $email = $request->query->get('email');
@@ -49,6 +48,14 @@ class UsuarioController extends Controller
         $usuario->setDireccion($direccion);
         $username = $request->query->get('username');
         $usuario->setUsername($username);
+        
+        // Obtenemos la sagardotegi del select
+        $sagardotegi = explode('-', $request->query->get('sidreria'));
+        $idSagardotegi = $sagardotegi[0];
+        $nombreSagardotegi = $sagardotegi[1];
+        
+        $usuario->setIdSidreria($idSagardotegi);
+        $usuario->setNombreSidreria($nombreSagardotegi);
         
         // password por defecto
         $password = 'abc123';
@@ -72,8 +79,9 @@ class UsuarioController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $usuario = $em->getRepository('KupelikeBundle:Usuario')->find($id);
+        $sagardotegis = $em->getRepository('KupelikeBundle:Sagardotegi')->findAll();
         
-        return $this->render('KupelikeBundle:Usuarios:edit.html.twig', array('usuario' => $usuario));
+        return $this->render('KupelikeBundle:Usuarios:edit.html.twig', array('usuario' => $usuario, 'sagardotegis' => $sagardotegis));
     }
     
     public function actualizarAction(Request $request, $id)
@@ -86,10 +94,6 @@ class UsuarioController extends Controller
         $usuario->setNombre($nombre);
         $apellidos = $request->query->get('apellidos');
         $usuario->setApellidos($apellidos);
-        $idSagardotegi = $request->query->get('id-sidreria');
-        $usuario->setIdSidreria($idSagardotegi);
-        $nombreSagardotegi = $request->query->get('nombre-sidreria');
-        $usuario->setNombreSidreria($nombreSagardotegi);
         $telefono = $request->query->get('telefono');
         $usuario->setTelefono($telefono);
         $email = $request->query->get('email');
@@ -99,6 +103,14 @@ class UsuarioController extends Controller
         $username = $request->query->get('username');
         $usuario->setUsername($username);
         
+        // Obtenemos la sagardotegi del select
+        $sagardotegi = explode('-', $request->query->get('sidreria'));
+        $idSagardotegi = $sagardotegi[0];
+        $nombreSagardotegi = $sagardotegi[1];
+        
+        $usuario->setIdSidreria($idSagardotegi);
+        $usuario->setNombreSidreria($nombreSagardotegi);
+        
         // añadimos el usuario a la base de datos
         $em->persist($usuario);
         $em->flush();
@@ -106,6 +118,20 @@ class UsuarioController extends Controller
         // mensaje flash de que el usuario se ha creado correctamente
         $successMessage = $this->get('translator')->trans('El usuario se ha modificado correctamente.');
         $this->addFlash('mensaje', $successMessage);
+        
+        return $this->redirectToRoute('panel_usuarios');
+    }
+    
+    /**
+     * Eliminar un usuario
+     */
+    public function deleteUserAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $usuario = $em->getRepository("KupelikeBundle:Usuario")->find($id);
+  
+        $em->remove($usuario);
+        $em->flush();
         
         return $this->redirectToRoute('panel_usuarios');
     }

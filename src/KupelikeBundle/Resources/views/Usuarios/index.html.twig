@@ -11,8 +11,8 @@
         	</div>
         {% endfor %}
         
-        <a href="{{ path('form_nueva_sagardotegi') }}" class="btn btn-default">Nueva Sidrería</a>
-         
+        <a href="{{ path('nuevo_usuario') }}" title="Crear un nuevo usuario" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span></a>
+        
         <div class="table-responsive">
             <table id="usuarios" class="table table-hover">
                 <tr>
@@ -22,9 +22,6 @@
                     <th>Teléfono</th>
                     <th>Acciones</th>
                 </tr>
-                <tr>
-                    <td><a href="{{ path('nuevo_usuario') }}" title="Crear un nuevo usuario"><span class="glyphicon glyphicon-plus"></span></a></td>
-                </tr>
                 {% for usuario in usuarios %}
                 <tr>
                         <td>{{ usuario.nombre }} {{ usuario.apellidos }}</td>
@@ -32,6 +29,7 @@
                         <td>{{ usuario.email }}</td>
                         <td>{{ usuario.telefono }}</td>
                         <td><a href="{{ path('editar_usuario', { id: usuario.id }) }}" class="btn btn-default">Editar</a></td>
+                        <td><a href="{{ path('eliminar_usuario', { id: usuario.id }) }}" class="btn btn-default">Eliminar</a></td>
                 </tr>
                 {% endfor %}
             </table>
