@@ -108,7 +108,7 @@ $(document).ready(function(){
                                 <li><a href="{{path("contacto")}}">Ayuda</a></li>
                                 <li><a href="{{path("logout")}}">Salir</a></li>
                             {% else %}
-                                <li><a href="#mapa">Mapa</a></li>
+                                <li><a href="{{ path('sagardotegien_mapak') }}">Mapa</a></li>
                                 <li><a href="{{ path('sagardotegis_index') }}">{{ 'paginas_estaticas.menu.sidrerias' | trans }}</a></li>
                                 <li><a href="{{ path('contacto') }}">{{ 'paginas_estaticas.menu.contacto' | trans }}</a></li>
                                 <li><a class="btn-access">Log In / Registrate</a></li>
@@ -177,9 +177,9 @@ $(document).ready(function(){
                     <h1 class="access-title text-center">Acceder</h1>
                 </div>
                 <div class="col-xs-12">
-                        <form class="access-form" action="{{path('acceder')}}" method="post">
-                            <input name= "username" class= "formulario" type="text" required  placeholder="Usuario"/>
-                            <input name= "password" class= "formulario" type="password" required placeholder="Contraseña"/>
+                        <form class="contact_form" action="{{path('login_check')}}" method="post">
+                            <input name= "_username" class= "formulario" type="text" required  placeholder="Usuario"/>
+                            <input name= "_password" class= "formulario" type="password" required placeholder="Contraseña"/>
                             <input id="enviar" class="formulario" type="submit" value="Acceder" />
                         </form>
                 </div>

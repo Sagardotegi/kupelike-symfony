@@ -24,7 +24,7 @@ font-family: 'Lobster', cursive;
 
 /* Bootstrap Override */
 body {
-    padding-top: 130px;
+    padding-top: 150px;
 }
 
 /* Scrollbar */
@@ -82,7 +82,7 @@ body::-webkit-scrollbar-thumb {
 .navbar-ham {
     
     padding: 20px 15px 0px 15px !important;
-    line-height: 100px;
+    line-height: 150px;
     color: #629c44;
     cursor: pointer;
     vertical-align: middle;
@@ -97,7 +97,7 @@ body::-webkit-scrollbar-thumb {
     
     float: left;
     padding: 15px 30px !important;
-    line-height: 45px;
+    line-height: 70px;
     color: #629c44;
 }
 
@@ -114,7 +114,7 @@ body::-webkit-scrollbar-thumb {
     letter-spacing: 2px;
     color: #629c44;
     font-family: 'Lobster', cursive;
-    line-height: 110px;
+    line-height: 155px;
 }
 
 .navbar-title:hover, .navbar-title:active, .navbar-title:focus, .navbar-title:visited {
@@ -129,7 +129,7 @@ body::-webkit-scrollbar-thumb {
      -o-transition: padding-left  1s ease-in;
      -webkit-transition: padding-left  1s ease-in;
      transition: padding-left  1s ease-in;
-    line-height: 185px;
+    line-height: 110px;
     height: inherit;
     margin-top: 0px !important;
     margin-bottom: 0px !important;
@@ -141,7 +141,7 @@ body::-webkit-scrollbar-thumb {
     font-weight: 400;
     color: #ffffff;
     border-radius: 1px;
-    margin-top: 20px;
+    margin-top: 40px;
     background-color: #629c44;
     height: 75px;
     width: 80px;
@@ -162,7 +162,7 @@ body::-webkit-scrollbar-thumb {
     
     border-radius: 0px;
     height: 75px;
-    margin-top: 20px;
+    margin-top: 40px;
     width: 0px;
     padding: 6px 12px;
     font-size: 14px;
@@ -188,13 +188,13 @@ body::-webkit-scrollbar-thumb {
 
 .desktop-menu {
     
+    padding-top: 40px;
 }
 
 .desktop-menu-links {
     
     list-style: none;
     padding-left: 0px;
-    margin: 10px 0px 0px 0px;
 }
 
 
@@ -212,7 +212,6 @@ body::-webkit-scrollbar-thumb {
     font-family: 'Roboto', sans-serif;
     font-size: large;
     color: #629c44;
-    font-weight: 300;
 }
 
 .menu {
@@ -257,11 +256,10 @@ body::-webkit-scrollbar-thumb {
 .menu-links>li>a {
     
     text-decoration: none;
-    letter-spacing: 4px;
+    letter-spacing: 2px;
     font-family: 'Roboto', sans-serif;
     font-size: xx-large;
     color: white;
-    font-weight: 300;
 }
 
 .searchResults {
@@ -276,9 +274,8 @@ body::-webkit-scrollbar-thumb {
 }
 
 .idiomas {
-    
+    margin-bottom: -30px;
     font-size: 11px;
-    cursor: pointer;
 }
 
 .idiomas>li>a:active {
@@ -578,8 +575,6 @@ h1.a-sagar a:active {
     display: inline-block;
     margin: 30px 0px;
     cursor: pointer;
-    border: 1px solid white;
-    padding: 10px 20px;
 }
 
 .btn-access:hover, .btn-access:focus,
@@ -593,14 +588,15 @@ h1.a-sagar a:active {
     display: none;
     position: fixed;
     background-color: #F5F5F6;
+    top: 40%;
+    left: 50%;
     z-index: 5;
     border-radius: 3px;
-    width: 50%;
+    width: 375px;
+    margin-top: -130px;
+    margin-left: -170px;
     border-bottom: 3px solid #629c44;
     box-shadow: 0 0 10px 0 rgba(0,0,0,0.3);
-    top: 25%;
-    left: 52%;
-    transform: translate(-50%, 0);
 }
 
 .accessWrapper {
@@ -617,7 +613,6 @@ h1.a-sagar a:active {
     margin-top: 0px;
     font-family: 'Lobster', cursive;
     color: #629c44 !important;
-    font-size: 50px;
 }
 
 .access-link, .access-link:visited,
@@ -626,12 +621,6 @@ h1.a-sagar a:active {
     color: #629c44;
     padding: 15px 0px;
     margin: -5px;
-}
-
-.access-form{
-    
-    font: 25px Arial, Helvetica, sans-serif;
-    margin: 10px auto;
 }
 
 #closeAccess {
@@ -732,6 +721,8 @@ h1.a-sagar a:active {
     
     font: 100% Arial, Helvetica, sans-serif;
     margin: 10px auto;
+    background: #F7F7F7;
+    
 }
 
 .formulario{

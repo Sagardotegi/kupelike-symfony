@@ -34,7 +34,7 @@ $(document).on('click','.btn-encuentra', function(event) {
     event.preventDefault();
     var target = "#" + this.getAttribute('data-target');
     $('html, body').animate({
-        scrollTop: $(target).offset().top
+        scrollTop: $(target).offset().top -130
     }, 1500);
 });
 
