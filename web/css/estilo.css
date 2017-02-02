@@ -123,18 +123,6 @@ body::-webkit-scrollbar-thumb {
     color: #629c44 !important;
 }
 
-#navbar-search {
-    
-    -moz-transition: padding-left 1s ease-in;
-     -o-transition: padding-left  1s ease-in;
-     -webkit-transition: padding-left  1s ease-in;
-     transition: padding-left  1s ease-in;
-    line-height: 95px;
-    height: inherit;
-    margin-top: 0px !important;
-    margin-bottom: 0px !important;
-}
-
 .navbar-search-btn, .navbar-search-btn:hover, .navbar-search-btn:active,
 .navbar-search-btn:focus, .navbar-search-btn:visited {
     
@@ -279,6 +267,9 @@ body::-webkit-scrollbar-thumb {
 
     font-size: 11px;
     height: 15px;
+    position: fixed;
+    right: 10px;
+    z-index: 3;
 }
 
 .idiomas-active {
