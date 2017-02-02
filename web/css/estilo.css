@@ -473,6 +473,12 @@ body::-webkit-scrollbar-thumb {
     background: transparent;
 }
 
+.mapaNSagar {
+    
+    height: 500px !important;
+
+}
+
 .caja {
     
     padding: 18px 0px 0px 0px;
