@@ -66,6 +66,13 @@ class Sagardotegi
     /**
      * @var string
      *
+     * @ORM\Column(name="pueblo", type="string", length=255, nullable=true)
+     */
+    private $pueblo;
+    
+    /**
+     * @var string
+     *
      * @ORM\Column(name="id_sagardotegi_facebook", type="string", length=255, unique=true, nullable=true)
      * @ORM\ManyToOne(targetEntity="Kupela")
      * @ORM\JoinColumn(name="id_sagardotegi", referencedColumnName="id_sagardotegi")
@@ -225,6 +232,30 @@ class Sagardotegi
     public function getFoto()
     {
         return $this->foto;
+    }
+    
+    /**
+     * Set pueblo
+     *
+     * @param string $pueblo
+     *
+     * @return Sagardotegi
+     */
+    public function setPueblo($pueblo)
+    {
+        $this->pueblo = $pueblo;
+
+        return $this;
+    }
+
+    /**
+     * Get pueblo
+     *
+     * @return string
+     */
+    public function getPueblo()
+    {
+        return $this->pueblo;
     }
     
     /**

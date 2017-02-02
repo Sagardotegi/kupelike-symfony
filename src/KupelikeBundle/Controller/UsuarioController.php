@@ -125,17 +125,23 @@ class UsuarioController extends Controller
         $nombre = $request->request->get('nombre');
         $direccion = $request->request->get('direccion');
         $descripcion = $request->request->get('descripcion');
+        $pueblo = $request->request->get('pueblo');
+        $latitud = $request->request->get('latitud');
+        $longitud = $request->request->get('longitud');
         /** @var Symfony\Component\HttpFoundation\File\UploadedFile $foto */
         $foto = $request->files->get('foto');
         if($foto != null){
             // asignamos un nombre al archivo generado automáticamente
             $nombreFoto = $this->get('app.sagardotegi_uploader')->upload($foto);
-            $sagardotegi->setFoto('/uploads/sagardotegis/' . $nombreFoto);
+            $sagardotegi->setFoto('uploads/sagardotegis/' . $nombreFoto);
         }
         
         $sagardotegi->setNombre($nombre);
         $sagardotegi->setDescripcion($descripcion);
         $sagardotegi->setDireccion($direccion);
+        $sagardotegi->setLatitud($latitud);
+        $sagardotegi->setLongitud($longitud);
+        $sagardotegi->setPueblo($pueblo);
         
         $em = $this->getDoctrine()->getManager();
         $em->persist($sagardotegi);
