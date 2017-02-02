@@ -244,7 +244,6 @@ body::-webkit-scrollbar-thumb {
 
 .menu-links {
     
-    padding-top: 60px;
     list-style: none;
 }
 
@@ -282,18 +281,20 @@ body::-webkit-scrollbar-thumb {
     cursor: pointer;
 }
 
-/*.idiomas-wrapper {
-    position: fixed;
-    margin: 5px 5px;
-    float: right;
-}*/
-
-.lang-active {
+.idiomas>li>a:active {
     color: #629c44;
 }
 
-.lang-non-active {
-    color: #515151;
+.idiomas-side {
+    
+    font-size: 20px;
+    padding: 15px;
+    color: white;
+    cursor: pointer;
+}
+
+.idiomas-side>li>a:active{
+    color: #232323;
 }
 
 /* Fin Menu*/
