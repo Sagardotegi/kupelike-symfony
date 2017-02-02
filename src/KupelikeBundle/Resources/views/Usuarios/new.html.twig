@@ -1,49 +1,33 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<div class="container-fluid">
+<div class="container-fluid content">
     
-    <div class="row-nuevakupela" style="margin-top:50px;">
+    <div class="row">
+        <div class="col-xs-offset-3 col-xs-6">
+            <div class="row">
+                <h1 class="mtitle title-padding text-center">Nuevo usuario</h1>
+            </div>
         
-        <div class="col-sm-6 col-sm-offset-3">
-            <h2>Crear un nuevo usuario</h2>
-            <form action="{{path('registrar_usuario')}}">
-                <div class="form-group">
-                    <label>Nombre</label>
-                    <input type="text" name="nombre" class="form-control" />
-                </div>
-                <div class="form-group">
-                    <label>Apellidos</label>
-                    <input type="text" name="apellidos" class="form-control" /> 
-                </div>
-                <div class="form-group">
-                    <label>ID de la Sagardotegi</label>
-                    <input type="number" name="id-sidreria" class="form-control" /> 
-                </div>
-                <div class="form-group">
-                    <label>Nombre de la Sagardotegi</label>
-                    <input type="text" name="nombre-sidreria" class="form-control" /> 
-                </div>
-                <div class="form-group">
-                    <label>Teléfono</label>
-                    <input type="number" name="telefono" class="form-control" /> 
-                </div>
-                <div class="form-group">
-                    <label>Email</label>
-                    <input type="email" name="email" class="form-control" /> 
-                </div>
-                <div class="form-group">
-                    <label>Dirección</label>
-                    <input type="text" name="direccion" class="form-control" /> 
-                </div>
-                <div class="form-group">
-                    <label>Nombre de usuario</label>
-                    <input type="text" name="username" class="form-control" />
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-default">Crear</button>
-                </div>
-            </form>
+            <div class="row">
+                <form action="{{path('registrar_usuario')}}" class="contact_form">
+                    <input type="text" name="nombre" class="formulario" placeholder="Nombre" />
+                    <input type="text" name="apellidos" class="formulario" placeholder="Apellidos" /> 
+                    
+                    <select name="sidreria" class="formulario">
+                        <option value="">Selecciona una sidrería</option>
+                        {% for sagardotegi in sagardotegis %}
+                            <option value="{{ sagardotegi.id }}-{{ sagardotegi.nombre }}">{{ sagardotegi.nombre }}</option>
+                        {% endfor %}
+                    </select>
+                    
+                    <input type="number" name="telefono" class="formulario" placeholder="Teléfono" /> 
+                    <input type="email" name="email" class="formulario" placeholder="Email" /> 
+                    <input type="text" name="direccion" class="formulario" placeholder="Dirección" /> 
+                    <input type="text" name="username" class="formulario" placeholder="Nombre de usuario" />
+                    <button type="submit" class= "formulario" id="enviar" >Crear</button>
+                </form>
+            </div>
         </div>
     </div>
     

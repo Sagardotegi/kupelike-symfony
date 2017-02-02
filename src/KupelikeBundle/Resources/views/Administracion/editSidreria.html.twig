@@ -9,6 +9,8 @@
                     <h1 class="mtitle title-padding text-center">Editar Perfil Sidreria</h1>
                 </div>
             </div>
+
+           <div class="row">
             <form action="{{ path("actualizar_sagardotegi", {id: sidreria.id})}}" method="post" class="contact_form" enctype="multipart/form-data">
                 <div class="row">   
                     <div class="col-xs-4">
@@ -24,6 +26,7 @@
                         </div>
                     </div>
                     <div class="col-xs-8"><textarea name="descripcion" class="formulario" style="resize: vertical;" placeholder="Descripción">{{sidreria.descripcion}}</textarea></div>
+                    <div class="col-xs-8"><textarea name="horario" class= "formulario" name="horario" rows="10" cols="50" required  placeholder="Horario sidreria">{{sidreria.horario}}</textarea></div>
                 </div>
                 <div class="row"> 
                     <div class="col-xs-12">
@@ -63,6 +66,7 @@
                     </div>
                 </div>
             </form>
+
         
          
             

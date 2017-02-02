@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container-fluid content">
+    
+    <div class="row">
+        <div class="col-xs-offset-3 col-xs-6">
+            <div class="row">
+                <h1 class="mtitle title-padding text-center">Editar sagardotegi</h1>
+            </div>
+        
+            <div class="row">
+                <form action="{{path('update_sagardotegi', { id: sagardotegi.id })}}" method="post" class="contact_form" enctype="multipart/form-data">
+                    <input type="text" name="nombre" class="formulario" placeholder="Nombre" value="{{ sagardotegi.nombre }}" />
+                    <input type="text" name="direccion" class="formulario" placeholder="Dirección" value="{{ sagardotegi.direccion }}" /> 
+                    <input type="text" name="descripcion" class="formulario" placeholder="Descripción" value="{{ sagardotegi.descripcion }}" /> 
+                    <input type="file" name="foto" class="formulario" /> 
+                    <button type="submit" class= "formulario" id="enviar" >Crear</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+
+{% endblock %}
