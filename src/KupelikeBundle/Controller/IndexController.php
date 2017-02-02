@@ -44,6 +44,7 @@ class IndexController extends Controller
         return $this->render('KupelikeBundle:Index:nosotros.html.twig');
     }
     
+    /*
     public function loginAction()
     {
         return $this->render('KupelikeBundle:Index:login.html.twig');
@@ -64,9 +65,9 @@ class IndexController extends Controller
         /*$this->enviarEmail($nombre, $email, $contenido);
         return $this->render('KupelikeBundle:Index:contacto.html.twig', array(
             'sagardotegis' => $sagardotegis
-        ));*/
+        ));
         return $this->render('KupelikeBundle:Index:portal.html.twig');
-    }
+    }*/
     
     public function searchAction(Request $request)
     {

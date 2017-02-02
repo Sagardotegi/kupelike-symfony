@@ -76,7 +76,7 @@ function zoomEnable(){
        
     });
 });*/
-
+/*
 function cambiarActive(){
     var url = window.location.pathname;
     
@@ -110,6 +110,4 @@ function cambiarActive(){
         $('.en').addClass('lang-non-active');
     }
 }
-
-
-
+*/
