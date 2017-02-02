@@ -16,6 +16,7 @@
         <div class="table-responsive">
             <table id="usuarios" class="table table-hover">
                 <tr>
+                    <th>ID</th>
                     <th>Nombre</th>
                     <th>Sidrería</th>
                     <th>Email</th>
@@ -24,6 +25,7 @@
                 </tr>
                 {% for usuario in usuarios %}
                 <tr>
+                        <td>{{ usuario.id }}</td>
                         <td>{{ usuario.nombre }} {{ usuario.apellidos }}</td>
                         <td>{{ usuario.nombreSidreria }}</td>
                         <td>{{ usuario.email }}</td>

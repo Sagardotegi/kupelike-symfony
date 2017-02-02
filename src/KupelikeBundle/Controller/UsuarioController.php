@@ -137,6 +137,17 @@ class UsuarioController extends Controller
     }
     
     /**
+     * Lista de las sagardotegis
+     */
+    public function indexSagardotegiAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $sagardotegis = $em->getRepository('KupelikeBundle:Sagardotegi')->findAll();
+        
+        return $this->render('KupelikeBundle:Usuarios:indexSagardotegis.html.twig', array('sagardotegis' => $sagardotegis));
+    }
+    
+    /**
      * Crea una nueva Sagardotegi
      */
     public function newSagardotegiFormAction()
@@ -173,6 +184,54 @@ class UsuarioController extends Controller
         
         return $this->redirectToRoute('panel_usuarios');
         
+    }
+    
+    /**
+     * Editar la sagardotegi
+     */
+    public function editSagardotegiAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $sagardotegi = $em->getRepository('KupelikeBundle:Sagardotegi')->find($id);
+        
+        return $this->render('KupelikeBundle:Usuarios:editSagardotegi.html.twig', array('sagardotegi' => $sagardotegi));
+    }
+    
+    /**
+     * Actualizar sagardotegi
+     */
+    public function updateSagardotegiAction(Request $request, $id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $sagardotegi = $em->getRepository('KupelikeBundle:Sagardotegi')->find($id);
+        
+        // cogemos los datos del formulario y los asignamos al usuario
+        $nombre = $request->request->get('nombre');
+        $sagardotegi->setNombre($nombre);
+        $direccion = $request->request->get('direccion');
+        $sagardotegi->setDireccion($direccion);
+        $descripcion = $request->request->get('descripcion');
+        $sagardotegi->setDescripcion($descripcion);
+        
+        // añadimos el usuario a la base de datos
+        $em->persist($sagardotegi);
+        $em->flush();
+        
+        return $this->redirectToRoute('panel_sagardotegis');
+    }
+    
+    /**
+     * Eliminar una sagardotegi
+     */
+    public function deleteSagardotegiAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $sagardotegi = $em->getRepository("KupelikeBundle:Sagardotegi")->find($id);
+  
+        $em->remove($sagardotegi);
+        $em->flush();
+        
+        return $this->redirectToRoute('panel_sagardotegis');
     }
     
 }

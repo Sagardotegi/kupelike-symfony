@@ -119,6 +119,12 @@ eliminar_usuario:
     path: /delete-usuario/{id}
     defaults: { _controller: KupelikeBundle:Usuario:deleteUser }
     
+# Administracion de sagardotegis (ADMIN)
+
+panel_sagardotegis:
+    path: /panel-sagardotegis
+    defaults: { _controller: KupelikeBundle:Usuario:indexSagardotegi }
+    
 form_nueva_sagardotegi:
     path: /nueva-sidreria/
     defaults: { _controller: KupelikeBundle:Usuario:newSagardotegiForm }
@@ -126,6 +132,18 @@ form_nueva_sagardotegi:
 nueva_sagardotegi:
     path: /nueva-sagardotegi/
     defaults: { _controller: KupelikeBundle:Usuario:newSagardotegi }
+    
+edit_sagardotegi:
+    path: /editar-sagardotegi/{id}
+    defaults: { _controller: KupelikeBundle:Usuario:editSagardotegi }
+    
+update_sagardotegi:
+    path: /update-sagardotegi/{id}
+    defaults: { _controller: KupelikeBundle:Usuario:updateSagardotegi }
+    
+delete_sagardotegi:
+    path: /delete-sagardotegi/{id}
+    defaults: { _controller: KupelikeBundle:Usuario:deleteSagardotegi }
     
 # ADMINISTRACIÓN DE LA SIDRERIA
 
