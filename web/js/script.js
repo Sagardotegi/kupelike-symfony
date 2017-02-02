@@ -76,38 +76,19 @@ function zoomEnable(){
        
     });
 });*/
-/*
+
+
 function cambiarActive(){
     var url = window.location.pathname;
     
     if ( url.indexOf("/es/") > -1 ) {
-        $('.es').removeClass('lang-non-active');
-        $('.es').addClass('lang-active');
-        $('.eus').removeClass('lang-active');
-        $('.en').removeClass('lang-active');
-        $('.eus').addClass('lang-non-active');
-        $('.en').addClass('lang-non-active');
+        $('.idiomas .es').addClass('idiomas-active');
+        $('.idiomas-side .es').addClass('idiomas-side-active');
     } else if( url.indexOf("/eus/") > -1 ){
-        $('.eus').removeClass('lang-non-active');
-        $('.eus').addClass('lang-active');
-        $('.es').removeClass('lang-active');
-        $('.en').removeClass('lang-active');
-        $('.es').addClass('lang-non-active');
-        $('.en').addClass('lang-non-active');
+        $('.idiomas .eus').addClass('idiomas-active');
+        $('.idiomas-side .eus').addClass('idiomas-side-active');
     } else if( url.indexOf("/en/") > -1 ){
-        $('.en').removeClass('lang-non-active');
-        $('.en').addClass('lang-active');
-        $('.eus').removeClass('lang-active');
-        $('.es').removeClass('lang-active');
-        $('.eus').addClass('lang-non-active');
-        $('.es').addClass('lang-non-active');
-    } else {
-        $('.es').removeClass('lang-active');
-        $('.eus').removeClass('lang-active');
-        $('.en').removeClass('lang-active');
-        $('.es').addClass('lang-non-active');
-        $('.eus').addClass('lang-non-active');
-        $('.en').addClass('lang-non-active');
+        $('.idiomas .en').addClass('idiomas-active');
+        $('.idiomas-side .en').addClass('idiomas-side-active');
     }
 }
-*/
