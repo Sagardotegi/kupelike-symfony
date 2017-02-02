@@ -200,6 +200,12 @@ agregar_like_kupela:
 #    path: /login
 #    defaults: { _controller: KupelikeBundle:Index:login }
 #    methods: [GET]
+
+login:
+    path: /login
+    defaults: { _controller: KupelikeBundle:Index:login }
+    requirements:
+        _locale: es|eus|en
     
 #acceder:
 #    path: /acceder

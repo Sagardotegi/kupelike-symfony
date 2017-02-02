@@ -24,7 +24,7 @@ security:
             anonymous: ~
             provider: our_db_provider
             form_login: 
-                login_path: /login
+                login_path: /es/login
                 check_path: /login_check
                 username_parameter: _username
                 password_parameter: _password
