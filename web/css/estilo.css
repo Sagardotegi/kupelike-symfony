@@ -24,7 +24,7 @@ font-family: 'Lobster', cursive;
 
 /* Bootstrap Override */
 body {
-    padding-top: 150px;
+    padding-top: 120px;
 }
 
 /* Scrollbar */
@@ -82,7 +82,7 @@ body::-webkit-scrollbar-thumb {
 .navbar-ham {
     
     padding: 20px 15px 0px 15px !important;
-    line-height: 150px;
+    line-height: 115px;
     color: #629c44;
     cursor: pointer;
     vertical-align: middle;
@@ -109,12 +109,12 @@ body::-webkit-scrollbar-thumb {
 .navbar-title {
 
     height: inherit;
-    padding: 15px;
+    padding: 25px;
     font-size: 50px;
     letter-spacing: 2px;
     color: #629c44;
     font-family: 'Lobster', cursive;
-    line-height: 155px;
+    line-height: 120px;
 }
 
 .navbar-title:hover, .navbar-title:active, .navbar-title:focus, .navbar-title:visited {
@@ -123,13 +123,13 @@ body::-webkit-scrollbar-thumb {
     color: #629c44 !important;
 }
 
-.navbar-search {
+#navbar-search {
     
     -moz-transition: padding-left 1s ease-in;
      -o-transition: padding-left  1s ease-in;
      -webkit-transition: padding-left  1s ease-in;
      transition: padding-left  1s ease-in;
-    line-height: 110px;
+    line-height: 95px;
     height: inherit;
     margin-top: 0px !important;
     margin-bottom: 0px !important;
@@ -141,7 +141,7 @@ body::-webkit-scrollbar-thumb {
     font-weight: 400;
     color: #ffffff;
     border-radius: 1px;
-    margin-top: 40px;
+    margin-top: 25px;
     background-color: #629c44;
     height: 75px;
     width: 80px;
@@ -149,6 +149,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 #acceder{
+    
     margin-top: 20px;
 }
 
@@ -162,7 +163,7 @@ body::-webkit-scrollbar-thumb {
     
     border-radius: 0px;
     height: 75px;
-    margin-top: 40px;
+    margin-top: 25px;
     width: 0px;
     padding: 6px 12px;
     font-size: 14px;
@@ -188,13 +189,14 @@ body::-webkit-scrollbar-thumb {
 
 .desktop-menu {
     
-    padding-top: 40px;
+    padding-top: 25px;
 }
 
 .desktop-menu-links {
     
     list-style: none;
     padding-left: 0px;
+    margin-left: -35px;
 }
 
 
@@ -274,11 +276,12 @@ body::-webkit-scrollbar-thumb {
 }
 
 .idiomas {
-    margin-bottom: -30px;
+
     font-size: 11px;
+    height: 15px;
 }
 
-.idiomas>li>a:active {
+.idiomas-active {
     color: #629c44;
 }
 
@@ -286,12 +289,12 @@ body::-webkit-scrollbar-thumb {
     
     font-size: 20px;
     padding: 15px;
-    color: white;
+    color: #3a3a3a;
     cursor: pointer;
 }
 
-.idiomas-side>li>a:active{
-    color: #232323;
+.idiomas-side-active {
+    color: white;
 }
 
 /* Fin Menu*/
