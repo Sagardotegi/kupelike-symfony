@@ -142,6 +142,7 @@ class UsuarioController extends Controller
         $sagardotegi->setLatitud($latitud);
         $sagardotegi->setLongitud($longitud);
         $sagardotegi->setPueblo($pueblo);
+       
         
         $em = $this->getDoctrine()->getManager();
         $em->persist($sagardotegi);

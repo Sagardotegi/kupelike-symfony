@@ -92,11 +92,13 @@ class AdministracionController extends Controller
          $nombre = $request->request->get('nombre');
          $descripcion = $request->request->get('descripcion');
          $direccion = $request->request->get('direccion');
+         $horario = $request->request->get('horario');
          $foto = $request->request->get('foto');
          
          $sagardotegi->setNombre($nombre);
          $sagardotegi->setDescripcion($descripcion);
          $sagardotegi->setDireccion($direccion);
+         $sagardotegi->setHorario($horario);
          
          // Obtenemos el archivo de la foto
          /** @var Symfony\Component\HttpFoundation\File\UploadedFile $foto */

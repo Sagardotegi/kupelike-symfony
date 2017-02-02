@@ -10,8 +10,9 @@
             <div class="row">
          <form action="{{ path("actualizar_sagardotegi", {id: sidreria.id})}}" method="post" class="contact_form" enctype="multipart/form-data">
              <input type="text" name="nombre" value="{{sidreria.nombre}}" placeholder= "nombre sidreria" class= "formulario">
-             <input name="descripcion" class= "formulario" name="decripcion" value="{{sidreria.descripcion}}"  cols="40" rows="6" required  placeholder="Descripcion sidreria"></input>
+             <textarea name="descripcion" class= "formulario" name="decripcion" cols="40" rows="6" required  placeholder="Descripcion sidreria">{{sidreria.descripcion}}</textarea>
              <input type="text" name="direccion" value="{{sidreria.direccion}}" placeholder= "direccion sidreria" class= "formulario">
+             <textarea name="horario" class= "formulario" name="horario" rows="10" cols="50" required  placeholder="Horario sidreria">{{sidreria.horario}}</textarea>
              <input type="file" name="foto" class="formulario" />
              <button type="submit" class="formulario" class= "formulario" id="enviar" >Guardar</button>
              <a href="{{ path("administracion_usuarios",{nombreSidreria: app.user.nombreSidreria})}}"><button id="enviar" class= "formulario">Cancelar</button></a>
