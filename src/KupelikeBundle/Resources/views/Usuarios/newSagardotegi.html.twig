@@ -11,11 +11,58 @@
         
             <div class="row">
                 <form action="{{path('nueva_sagardotegi')}}" method="post" class="contact_form" enctype="multipart/form-data">
-                    <input type="text" name="nombre" class="formulario" placeholder="Nombre" />
-                    <input type="text" name="direccion" class="formulario" placeholder="Dirección" /> 
-                    <input type="text" name="descripcion" class="formulario" placeholder="Descripción" /> 
-                    <input type="file" name="foto" class="formulario" /> 
-                    <button type="submit" class= "formulario" id="enviar" >Crear</button>
+                    <div class="row">   
+                    <div class="col-xs-4">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <input type="text" name="nombre" class="formulario" placeholder="Nombre" required/>
+                            </div>
+                        </div> 
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <input type="file" name="foto" class="formulario" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-8"><textarea name="descripcion" class="formulario" style="resize: vertical;" placeholder="Descripción"></textarea></div>
+                    <div class="col-xs-8"><textarea name="horario" class= "formulario" style="resize: vertical;" placeholder="Horario del Txotx"></textarea></div>
+                </div>
+                <div class="row"> 
+                    <div class="col-xs-12">
+                        <div id="map" class="mapa mapaNSagar"></div>
+                    </div>
+                </div>
+                <div class="row"> 
+                    <div class="col-xs-6">
+                        <div class="row"> 
+                            <div class="col-xs-12">
+                                <input id="direccion" type="text" name="direccion" class="formulario" placeholder="Dirección" required/>
+                            </div>
+                        </div>
+                        <div class="row"> 
+                            <div class="col-xs-12">
+                                <input id="pueblo" type="text" name="pueblo" class="formulario" placeholder="Pueblo" required/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="row"> 
+                            <div class="col-xs-12">
+                                <input id="lat" type="text" name="latitud" class="formulario" placeholder="Latitud" required/>
+                            </div>
+                        </div>
+                        <div class="row"> 
+                            <div class="col-xs-12">
+                                <input id="long" type="text" name="longitud" class="formulario" placeholder="Longitud" required/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row"> 
+                    <div class="col-xs-12">
+                        <button type="submit" class="formulario" class= "formulario" id="enviar" >Guardar</button>
+                    </div>
+                </div>
                 </form>
             </div>
         </div>

@@ -19,7 +19,7 @@ class UsuarioController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $usuarios = $em->getRepository('KupelikeBundle:Usuario')->findAll();
+        $usuarios = $em->getRepository('KupelikeBundle:Usuario')->findBy(array(),['id' => 'ASC']);
         
         return $this->render('KupelikeBundle:Usuarios:index.html.twig', array('usuarios' => $usuarios));
     }
@@ -44,8 +44,8 @@ class UsuarioController extends Controller
         $usuario->setTelefono($telefono);
         $email = $request->query->get('email');
         $usuario->setEmail($email);
-        $direccion = $request->query->get('direccion');
-        $usuario->setDireccion($direccion);
+        //$direccion = $request->query->get('direccion');
+        //$usuario->setDireccion($direccion);
         $username = $request->query->get('username');
         $usuario->setUsername($username);
         
@@ -98,8 +98,8 @@ class UsuarioController extends Controller
         $usuario->setTelefono($telefono);
         $email = $request->query->get('email');
         $usuario->setEmail($email);
-        $direccion = $request->query->get('direccion');
-        $usuario->setDireccion($direccion);
+        //$direccion = $request->query->get('direccion');
+        //$usuario->setDireccion($direccion);
         $username = $request->query->get('username');
         $usuario->setUsername($username);
         
@@ -142,7 +142,7 @@ class UsuarioController extends Controller
     public function indexSagardotegiAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $sagardotegis = $em->getRepository('KupelikeBundle:Sagardotegi')->findAll();
+        $sagardotegis = $em->getRepository('KupelikeBundle:Sagardotegi')->findBy(array(),['id' => 'ASC']);
         
         return $this->render('KupelikeBundle:Usuarios:indexSagardotegis.html.twig', array('sagardotegis' => $sagardotegis));
     }
@@ -162,6 +162,7 @@ class UsuarioController extends Controller
         $nombre = $request->request->get('nombre');
         $direccion = $request->request->get('direccion');
         $descripcion = $request->request->get('descripcion');
+        $horario = $request->request->get('horario');
         $pueblo = $request->request->get('pueblo');
         $latitud = $request->request->get('latitud');
         $longitud = $request->request->get('longitud');
@@ -175,6 +176,7 @@ class UsuarioController extends Controller
         
         $sagardotegi->setNombre($nombre);
         $sagardotegi->setDescripcion($descripcion);
+        $sagardotegi->setHorario($horario);
         $sagardotegi->setDireccion($direccion);
         $sagardotegi->setLatitud($latitud);
         $sagardotegi->setLongitud($longitud);
@@ -210,19 +212,40 @@ class UsuarioController extends Controller
     public function updateSagardotegiAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
-        $sagardotegi = $em->getRepository('KupelikeBundle:Sagardotegi')->find($id);
-        
-        // cogemos los datos del formulario y los asignamos al usuario
-        $nombre = $request->request->get('nombre');
-        $sagardotegi->setNombre($nombre);
-        $direccion = $request->request->get('direccion');
-        $sagardotegi->setDireccion($direccion);
-        $descripcion = $request->request->get('descripcion');
-        $sagardotegi->setDescripcion($descripcion);
-        
-        // añadimos el usuario a la base de datos
-        $em->persist($sagardotegi);
-        $em->flush();
+         $sagardotegi = $em->getRepository("KupelikeBundle:Sagardotegi")->find($id);
+         
+         $nombre = $request->request->get('nombre');
+         $descripcion = $request->request->get('descripcion');
+         $direccion = $request->request->get('direccion');
+         $horario = $request->request->get('horario');
+         $foto = $request->request->get('foto');
+         $pueblo = $request->request->get('pueblo');
+         $latitud = $request->request->get('latitud');
+         $longitud = $request->request->get('longitud');
+         
+         $sagardotegi->setNombre($nombre);
+         $sagardotegi->setDescripcion($descripcion);
+         $sagardotegi->setDireccion($direccion);
+
+         $sagardotegi->setHorario($horario);
+
+         $sagardotegi->setLatitud($latitud);
+         $sagardotegi->setLongitud($longitud);
+         $sagardotegi->setPueblo($pueblo);
+
+         
+         // Obtenemos el archivo de la foto
+         /** @var Symfony\Component\HttpFoundation\File\UploadedFile $foto */
+         $foto = $request->files->get('foto');
+         if($foto != null){
+          // asignamos un nombre al archivo generado automáticamente
+          $nombreFoto = $this->get('app.sagardotegi_uploader')->upload($foto);
+          $sagardotegi->setFoto('uploads/sagardotegis/' . $nombreFoto);
+         }
+          
+         
+          $em->persist($sagardotegi);
+          $em->flush();
         
         return $this->redirectToRoute('panel_sagardotegis');
     }
