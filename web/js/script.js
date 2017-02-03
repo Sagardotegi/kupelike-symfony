@@ -48,10 +48,9 @@ $(document).ready(function($) {
     });
     
     $('#closeAccess').click(function(){
-			  $('.accessWrapper').fadeOut();		
-			  $('#accessWindow').fadeOut();
-		  return false;
-		});
+	    $('.accessWrapper').fadeOut();		
+	    $('#accessWindow').fadeOut();
+	});
 });
     
 //* Search zoom disable *//    
