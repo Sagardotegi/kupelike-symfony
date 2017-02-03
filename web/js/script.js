@@ -92,3 +92,14 @@ function cambiarActive(){
         $('.idiomas-side .en').addClass('idiomas-side-active');
     }
 }
+
+function seguro(){
+confirmar=confirm("¿Seguro?"); 
+    if (confirmar) {
+        // si pulsamos en aceptar
+        return true;
+    }else{ 
+        // si pulsamos en cancelar
+        return false;
+    }           
+}

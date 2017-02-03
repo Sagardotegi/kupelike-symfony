@@ -9,9 +9,9 @@
             </div>
             <div class="row">
                 <form action= "{{path('registrar_kupela')}}" method="post" class="contact_form" enctype="multipart/form-data">
-                    <input type="text" name="nombre" value="" placeholder="nombre kupela" class= "formulario">
+                    <input type="text" name="nombre" value="" placeholder="nombre kupela" class= "formulario" required>
                     <input type="text" name="descripcion" value="" placeholder="descripcion kupela" class= "formulario">
-                    <input type="text" name="year" value="" placeholder="año kupela" class= "formulario">
+                    <input type="text" name="year" value="" placeholder="año kupela" class= "formulario" required>
                     <input type="hidden" name="id-sagardotegi" value="{{ app.request.get('id') }}" class= "formulario"/>
                     <input type="file" name="foto" class="formulario" />
                     <input type="hidden" name="id-sagardotegi" value="{{ app.request.get('id') }}" class= "formulario"/>

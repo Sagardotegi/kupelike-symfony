@@ -14,16 +14,15 @@
                     <input type="text" name="nombre" class="formulario" placeholder="Nombre" />
                     <input type="text" name="apellidos" class="formulario" placeholder="Apellidos" /> 
                     
-                    <select name="sidreria" class="formulario">
-                        <option value="">Selecciona una sidrería</option>
+                    <select name="sidreria" class="formulario" required>
+                        <option disabled selected>Selecciona una sidrería</option>
                         {% for sagardotegi in sagardotegis %}
                             <option value="{{ sagardotegi.id }}-{{ sagardotegi.nombre }}">{{ sagardotegi.nombre }}</option>
                         {% endfor %}
                     </select>
                     
                     <input type="number" name="telefono" class="formulario" placeholder="Teléfono" /> 
-                    <input type="email" name="email" class="formulario" placeholder="Email" /> 
-                    <input type="text" name="direccion" class="formulario" placeholder="Dirección" /> 
+                    <input type="email" name="email" class="formulario" placeholder="Email" />
                     <input type="text" name="username" class="formulario" placeholder="Nombre de usuario" />
                     <button type="submit" class= "formulario" id="enviar" >Crear</button>
                 </form>

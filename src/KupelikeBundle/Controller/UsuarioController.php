@@ -257,8 +257,19 @@ class UsuarioController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $sagardotegi = $em->getRepository("KupelikeBundle:Sagardotegi")->find($id);
-  
         $em->remove($sagardotegi);
+        
+        $kupelas = $em->getRepository("KupelikeBundle:Kupela")->findBy(array('idSagardotegi' => $id));
+        foreach ($kupelas as $kupela) {
+            $em->remove($kupela);
+        }
+        //$em->remove($kupela);
+        
+        //$kupela = $em->getRepository('KupelikeBundle:Kupela');
+        //$query = $em->createQuery('DELETE FROM KupelikeBundle:Kupela e WHERE e.idSagardotegi = '.$id);
+        //$query->setParameter(1, $id);
+        //$query->execute();
+        
         $em->flush();
         
         return $this->redirectToRoute('panel_sagardotegis');
