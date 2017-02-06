@@ -1,18 +1,17 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<div class="container-fluid">
-
-    <div class="row-nuevakupela" style="margin-top:50px;">
-        
-        <div class="col-sm-6 col-sm-offset-3">
-            <div class="row"> 
-                <div class="col-xs-12">
-                    <h2>Crear una nueva sidrería</h2>
-                </div>
+<div class="container-fluid content">
+    
+    <div class="row">
+        <div class="col-xs-offset-3 col-xs-6">
+            <div class="row">
+                <h1 class="mtitle title-padding text-center">Nueva sagardotegi</h1>
             </div>
-            <form action="{{path('nueva_sagardotegi')}}" method="post" class="contact_form" enctype="multipart/form-data">
-                <div class="row">   
+        
+            <div class="row">
+                <form action="{{path('nueva_sagardotegi')}}" method="post" class="contact_form" enctype="multipart/form-data">
+                    <div class="row">   
                     <div class="col-xs-4">
                         <div class="row">
                             <div class="col-xs-12">
@@ -26,6 +25,7 @@
                         </div>
                     </div>
                     <div class="col-xs-8"><textarea name="descripcion" class="formulario" style="resize: vertical;" placeholder="Descripción"></textarea></div>
+                    <div class="col-xs-8"><textarea name="horario" class= "formulario" style="resize: vertical;" placeholder="Horario del Txotx"></textarea></div>
                 </div>
                 <div class="row"> 
                     <div class="col-xs-12">
@@ -60,10 +60,11 @@
                 </div>
                 <div class="row"> 
                     <div class="col-xs-12">
-                        <button type="submit" class="btn btn-default">Crear</button>
+                        <button type="submit" class="formulario" class= "formulario" id="enviar" >Guardar</button>
                     </div>
                 </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>

@@ -14,8 +14,11 @@
                     var perLong = position.coords.longitude;
                     perPos = new google.maps.LatLng(perLat, perLong);
                     {% for sagardotegi in sagardotegis %}
-                        sagarPos = new google.maps.LatLng({{ sagardotegi.latitud }}, {{ sagardotegi.longitud }});
-                        distancia = google.maps.geometry.spherical.computeDistanceBetween(perPos, sagarPos); 
+                        // Si en la sagardotegi están establecidas las coordenadas
+                        {% if sagardotegi.latitud and sagardotegi.longitud %}
+                            sagarPos = new google.maps.LatLng({{ sagardotegi.latitud }}, {{ sagardotegi.longitud }});
+                            distancia = google.maps.geometry.spherical.computeDistanceBetween(perPos, sagarPos); 
+                        {% endif %}
         
                         if (distancia <= 30) {
                             id = "{{ sagardotegi.id }}";

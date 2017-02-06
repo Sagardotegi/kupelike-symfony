@@ -47,6 +47,7 @@ class Sagardotegi
      *
      * @ORM\Column(name="longitud", type="float", nullable=true)
      */
+     
     private $longitud;
 
     /**
@@ -55,12 +56,21 @@ class Sagardotegi
      * @ORM\Column(name="descripcion", type="string", length=255)
      */
     private $descripcion;
+    
+     /**
+     * @var string
+     *
+     * @ORM\Column(name="horario", type="string", length=255, nullable=true)
+     */
+    private $horario;
 
     /**
      * @var string
      *
      * @ORM\Column(name="foto", type="string", length=255, nullable=true)
      */
+     
+     
     private $foto;
     
     /**
@@ -208,6 +218,31 @@ class Sagardotegi
     public function getDescripcion()
     {
         return $this->descripcion;
+    }
+    
+    
+     /**
+     * Set horario
+     *
+     * @param string $horario
+     *
+     * @return Sagardotegi
+     */
+    public function setHorario($horario)
+    {
+        $this->horario = $horario;
+
+        return $this;
+    }
+
+    /**
+     * Get horario
+     *
+     * @return string
+     */
+    public function getHorario()
+    {
+        return $this->horario;
     }
 
     /**

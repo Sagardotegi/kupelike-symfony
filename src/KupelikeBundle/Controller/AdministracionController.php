@@ -21,7 +21,7 @@ class AdministracionController extends Controller
          //en la vista Usuarios 
          $em = $this->getDoctrine()->getManager();
          $sagardotegi = $em->getRepository('KupelikeBundle:Sagardotegi')->findOneBy(array('nombre'=>$nombreSidreria));
-         $kupelas = $em->getRepository('KupelikeBundle:Kupela')->findBy(array('idSagardotegi'=>$sagardotegi->getId()));
+         $kupelas = $em->getRepository('KupelikeBundle:Kupela')->findBy(array('idSagardotegi'=>$sagardotegi->getId()),['nombre' => 'ASC']);
          return $this->render('KupelikeBundle:Administracion:usuarios.html.twig', array('sidreria'=>$sagardotegi,'kupelas' =>$kupelas));
          
          
@@ -92,11 +92,22 @@ class AdministracionController extends Controller
          $nombre = $request->request->get('nombre');
          $descripcion = $request->request->get('descripcion');
          $direccion = $request->request->get('direccion');
+         $horario = $request->request->get('horario');
          $foto = $request->request->get('foto');
+         $pueblo = $request->request->get('pueblo');
+         $latitud = $request->request->get('latitud');
+         $longitud = $request->request->get('longitud');
          
          $sagardotegi->setNombre($nombre);
          $sagardotegi->setDescripcion($descripcion);
          $sagardotegi->setDireccion($direccion);
+
+         $sagardotegi->setHorario($horario);
+
+         $sagardotegi->setLatitud($latitud);
+         $sagardotegi->setLongitud($longitud);
+         $sagardotegi->setPueblo($pueblo);
+
          
          // Obtenemos el archivo de la foto
          /** @var Symfony\Component\HttpFoundation\File\UploadedFile $foto */

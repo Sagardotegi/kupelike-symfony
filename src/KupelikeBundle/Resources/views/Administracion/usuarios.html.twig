@@ -11,10 +11,11 @@
           <div class="col-sm-5">
               <h1 class="card-title">{{sidreria.nombre}}</h1>
               <p class="card-description" id="descripcion">{{sidreria.descripcion}}</p>
+              <p class="card-description" id="horario">{{sidreria.horario}}</p>
               <a href="{{ path("editar_sagardotegi",{idSagardotegi:sidreria.id})}}"><button class="btn btn-primary">Editar</button></a>
          </div>
          <div class="col-sm-6 col-sm-offset-1">
-           <div class="card-direction text-uppercase text-center">{{sidreria.direccion}}</div>
+           <div class="card-direction text-uppercase text-center">{{sidreria.pueblo}}</div>
 
            <img src= "{{asset(sidreria.foto)}}"  class="img-responsive" alt="Responsive image">
               
@@ -47,7 +48,7 @@
                     <td>{{kupela.descripcion}}</td>
                     <td>{{kupela.year}}</td>
                     <td><a href="{{ path("editar_kupela",{id:kupela.id})}}"><button class="btn btn-primary">Editar</button></a></td>
-                    <td><a href="{{ path("eliminar_kupela",{id:kupela.id})}}"><button class="btn btn-primary">Eliminar</button></a></td>
+                    <td><a href="{{ path("eliminar_kupela",{id:kupela.id})}}" onclick="seguro();"><button class="btn btn-primary">Eliminar</button></a></td>
                 </tbody>
               </table>
               {%endfor%}

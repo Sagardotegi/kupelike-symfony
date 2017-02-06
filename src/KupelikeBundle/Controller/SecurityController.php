@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 class SecurityController extends Controller
 {
     
-    public function loginAction(Request $request)
+    /*public function loginAction(Request $request)
     {
         $authenticationUtils = $this->get('security.authentication_utils');
         
@@ -21,7 +21,7 @@ class SecurityController extends Controller
             'last_username' => $lastUsername,
             'error'         => $error,
         ));
-    }
+    }*/
     
     public function loginCheckAction()
     {

@@ -5,6 +5,17 @@ paginas_estaticas:
         sidrerias: "Sidrerías"
         contacto: "Contacto"
         nosotros: "Nosotros"
+        acceder:
+            usuario: "Usuario"
+            contrasena: "Contraseña"
+            acceder: "Acceder"
+            red: "¿Aún no eres parte de nuestra red?"
+        accederr: "Acceder / Registrarse"
+        admuser: "Administrar usuarios"
+        misidre: "Mi sidrería"
+        ayuda: "Ayuda"
+        salir: "Salir"
+        buscar: "Buscar"
     landing:
         txotx: "Una buena conversación se abre siempre con un Txotx!"
         encuentra: "Encuentra tu sidrería"

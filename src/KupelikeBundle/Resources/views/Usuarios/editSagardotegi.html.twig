@@ -2,31 +2,30 @@
 
 {% block body %}
 <div class="container-fluid content">
+    
     <div class="row">
         <div class="col-xs-offset-3 col-xs-6">
             <div class="row">
-                <div class="col-xs-12">
-                    <h1 class="mtitle title-padding text-center">Editar Perfil Sidreria</h1>
-                </div>
+                <h1 class="mtitle title-padding text-center">Editar sagardotegi</h1>
             </div>
-
-           <div class="row">
-            <form action="{{ path("actualizar_sagardotegi", {id: sidreria.id})}}" method="post" class="contact_form" enctype="multipart/form-data">
-                <div class="row">   
+        
+            <div class="row">
+                <form action="{{path('update_sagardotegi', { id: sagardotegi.id })}}" method="post" class="contact_form" enctype="multipart/form-data">
+                    <div class="row">   
                     <div class="col-xs-4">
                         <div class="row">
                             <div class="col-xs-12">
-                                <input type="text" name="nombre" class="formulario" value="{{sidreria.nombre}}" placeholder="Nombre" required/>
+                                <input type="text" name="nombre" class="formulario" value="{{sagardotegi.nombre}}" placeholder="Nombre" required/>
                             </div>
                         </div> 
                         <div class="row">
                             <div class="col-xs-12">
-                                <input type="file" name="foto" value="{{sidreria.foto}}" class="formulario" />
+                                <input type="file" name="foto" value="{{sagardotegi.foto}}" class="formulario" />
                             </div>
                         </div>
                     </div>
-                    <div class="col-xs-8"><textarea name="descripcion" class="formulario" style="resize: vertical;" placeholder="Descripción">{{sidreria.descripcion}}</textarea></div>
-                    <div class="col-xs-8"><textarea name="horario" class= "formulario" style="resize: vertical;" placeholder="Horario del Txotx">{{sidreria.horario}}</textarea></div>
+                    <div class="col-xs-8"><textarea name="descripcion" class="formulario" style="resize: vertical;" placeholder="Descripción">{{sagardotegi.descripcion}}</textarea></div>
+                    <div class="col-xs-8"><textarea name="horario" class= "formulario" style="resize: vertical;" placeholder="Horario del Txotx">{{sagardotegi.horario}}</textarea></div>
                 </div>
                 <div class="row"> 
                     <div class="col-xs-12">
@@ -37,24 +36,24 @@
                     <div class="col-xs-6">
                         <div class="row"> 
                             <div class="col-xs-12">
-                                <input id="direccion" type="text" name="direccion" class="formulario" value="{{sidreria.direccion}}" placeholder="Dirección" required/>
+                                <input id="direccion" type="text" name="direccion" class="formulario" value="{{sagardotegi.direccion}}" placeholder="Dirección" required/>
                             </div>
                         </div>
                         <div class="row"> 
                             <div class="col-xs-12">
-                                <input id="pueblo" type="text" name="pueblo" class="formulario" value="{{sidreria.pueblo}}" placeholder="Pueblo" required/>
+                                <input id="pueblo" type="text" name="pueblo" class="formulario" value="{{sagardotegi.pueblo}}" placeholder="Pueblo" required/>
                             </div>
                         </div>
                     </div>
                     <div class="col-xs-6">
                         <div class="row"> 
                             <div class="col-xs-12">
-                                <input id="lat" type="text" name="latitud" class="formulario" value="{{sidreria.latitud}}" placeholder="Latitud" required/>
+                                <input id="lat" type="text" name="latitud" class="formulario" value="{{sagardotegi.latitud}}" placeholder="Latitud" required/>
                             </div>
                         </div>
                         <div class="row"> 
                             <div class="col-xs-12">
-                                <input id="long" type="text" name="longitud" class="formulario" value="{{sidreria.longitud}}" placeholder="Longitud" required/>
+                                <input id="long" type="text" name="longitud" class="formulario" value="{{sagardotegi.longitud}}" placeholder="Longitud" required/>
                             </div>
                         </div>
                     </div>
@@ -62,10 +61,10 @@
                 <div class="row"> 
                     <div class="col-xs-12">
                         <button type="submit" class="formulario" class= "formulario" id="enviar" >Guardar</button>
-                            <a href="{{ path("administracion_usuarios",{nombreSidreria: app.user.nombreSidreria})}}"><button id="enviar" class= "formulario">Cancelar</button></a>
                     </div>
                 </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -87,14 +86,14 @@
                 streetViewControl: true,
                 mapTypeControl: true,
                 zoomControl: true,
-                center: new google.maps.LatLng({{ sidreria.latitud }},{{ sidreria.longitud }}),
+                center: new google.maps.LatLng({{ sagardotegi.latitud }},{{ sagardotegi.longitud }}),
                 zoom: 15,
                 scrollwheel: false
             };
             var map = new google.maps.Map(mapCanvas, mapOptions);
             
             var sidreria = new google.maps.Marker({
-                position: new google.maps.LatLng({{ sidreria.latitud }},{{ sidreria.longitud }}),
+                position: new google.maps.LatLng({{ sagardotegi.latitud }},{{ sagardotegi.longitud }}),
                 animation: google.maps.Animation.DROP,
                 map: map,
                 title: 'Tu sidrería.'
@@ -226,7 +225,7 @@
             }
         </script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJELelOvLyRDQ_wpznHSccW6w7JhYkXzA&callback=myMap"></script>
- 
+    
     
     
 
