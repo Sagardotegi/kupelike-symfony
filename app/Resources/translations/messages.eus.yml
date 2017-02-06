@@ -14,6 +14,7 @@ paginas_estaticas:
         admuser: "Erabiltzaileak kudeatu"
         admsidre: "Sagardotegiak kudeatu"
         misidre: "Nire sagardotegia"
+        change_password: "Aldatu nire pasahitza"
         ayuda: "Laguntza"
         salir: "Irten"
         buscar: "Bilatu"

@@ -272,7 +272,8 @@ body::-webkit-scrollbar-thumb {
     z-index: 3;
 }
 
-.idiomas-active {
+.idiomas-active, .idiomas-active:hover, .idiomas-active:active,
+.idiomas-active:focus, .idiomas-active:visited {
     color: #629c44;
 }
 
@@ -284,7 +285,8 @@ body::-webkit-scrollbar-thumb {
     cursor: pointer;
 }
 
-.idiomas-side-active {
+.idiomas-side-active, .idiomas-side-active:hover, .idiomas-side-active:active,
+.idiomas-side-active:focus, .idiomas-side-active:visited {
     color: white;
 }
 
@@ -583,7 +585,7 @@ h1.a-sagar a:active {
     
 }
 
-.btn-access2 {
+.btn-margin {
    
     display: inline-block;
     margin: 30px 0px;
@@ -640,6 +642,7 @@ h1.a-sagar a:active {
     
     color: #629c44;
     margin: 5px -5px;
+    cursor: pointer;
 }
 
 .estadisticas-titulo {
