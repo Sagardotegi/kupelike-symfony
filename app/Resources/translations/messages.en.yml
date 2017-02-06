@@ -28,6 +28,46 @@ paginas_estaticas:
         sidrerias: "Cider Houses"
         contacto: "Contact"
         nosotros: "About us"
+labels:
+    usuario:
+        nombre: "Name:"
+        apellidos: "Surnames:"
+        sidreria: "Cider house:"
+        telefono: "Phone:"
+        email: "Email:"
+        username: "Username:"
+    kupela:
+        nombre: "Name:"
+        descripcion: "Description:"
+        ano: "Year:"
+        foto: "Picture:"
+    sidreria:
+        nombre: "Name:"
+        descripcion: "Description:"
+        horario: "Txotx time:"
+        foto: "Picture:"
+        ubicacion: "Location:"
+        direccion: "Address:"
+        coordenadas: "Coordinates:"
+boton:
+    actualizar: "Update"
+    acceder: "Log in"
+    enviar: "Send"
+    change_password: "Change my password"
+    editar: "Update"
+    eliminar: "Delete"
+    modificar: "Change"
+    guardar: "Save"
+    cancelar: "Cancel"
+titulos:
+    mapa: "Map"
+    sidrerias: "Cider Houses"
+    contacto: "Contact us"
+    nosotros: "About us"
+    editperfil: "Edit profile"
+    editkupela: "Edit kupela"
+    editsidre: "Edit cider house"
+    contrasena: "Change password"
 paginas:
     mapa:
         titulo: "Map"

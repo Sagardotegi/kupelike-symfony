@@ -28,6 +28,46 @@ paginas_estaticas:
         sidrerias: "Sagardotegiak"
         contacto: "Kontaktua"
         nosotros: "Nor gara?"
+labels:
+    usuario:
+        nombre: "Izena:"
+        apellidos: "Abizenak:"
+        sidreria: "Sagardotegia:"
+        telefono: "Telefonoa:"
+        email: "Emaila:"
+        username: "Erabiltzaile izena:"
+    kupela:
+        nombre: "Izena:"
+        descripcion: "Deskribapena:"
+        ano: "Urtea:"
+        foto: "Argazkia:"
+    sidreria:
+        nombre: "Izena:"
+        descripcion: "Deskribapena:"
+        horario: "Txotx ordutegia:"
+        foto: "Argazkia:"
+        ubicacion: "Kokalekua:"
+        direccion: "Helbidea:"
+        coordenadas: "Koordenadak:"
+boton:
+    actualizar: "Eguneratu"
+    acceder: "Atzitu"
+    enviar: "Bidali"
+    change_password: "Aldatu nire pasahitza"
+    editar: "Eguneratu"
+    eliminar: "Ezabatu"
+    modificar: "Aldatu"
+    guardar: "Gorde"
+    cancelar: "Ezeztatu"
+titulos:
+    mapa: "Mapa"
+    sidrerias: "Sagardotegiak"
+    contacto: "Gurekin kontaktatu"
+    nosotros: "Guri buruz"
+    editperfil: "Profila eguneratu"
+    editkupela: "Kupela eguneratu"
+    editsidre: "Sagardotegia eguneratu"
+    contrasena: "Pasahitza aldatu"
 paginas:
     mapa:
         titulo: "Mapa"

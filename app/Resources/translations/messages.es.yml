@@ -28,6 +28,46 @@ paginas_estaticas:
         sidrerias: "Sidrerías"
         contacto: "Contacto"
         nosotros: "Nosotros"
+labels:
+    usuario:
+        nombre: "Nombre:"
+        apellidos: "Apellidos:"
+        sidreria: "Sidrería:"
+        telefono: "Teléfono:"
+        email: "Email:"
+        username: "Nombre de usuario:"
+    kupela:
+        nombre: "Nombre:"
+        descripcion: "Descripción:"
+        ano: "Año:"
+        foto: "Foto:"
+    sidreria:
+        nombre: "Nombre:"
+        descripcion: "Descripción:"
+        horario: "Horatio del Txotx:"
+        foto: "Foto:"
+        ubicacion: "Ubicación:"
+        direccion: "Dirección:"
+        coordenadas: "Coordenadas:"
+boton:
+    actualizar: "Actualizar"
+    acceder: "Acceder"
+    enviar: "Enviar"
+    change_password: "Cambiar mi contraseña"
+    editar: "Editar"
+    eliminar: "Eliminar"
+    modificar: "Modificar"
+    guardar: "Guardar"
+    cancelar: "Cancelar"
+titulos:
+    mapa: "Mapa"
+    sidrerias: "Sidrerías"
+    contacto: "Contáctanos"
+    nosotros: "Nosotros"
+    editperfil: "Editar perfil"
+    editkupela: "Editar kupela"
+    editsidre: "Editar sidrería"
+    contrasena: "Cambiar contraseña"
 paginas:
     mapa:
         titulo: "Mapa"
