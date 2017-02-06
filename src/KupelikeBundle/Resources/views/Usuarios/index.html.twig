@@ -31,7 +31,7 @@
                         <td>{{ usuario.email }}</td>
                         <td>{{ usuario.telefono }}</td>
                         <td><a href="{{ path('editar_usuario', { id: usuario.id }) }}" class="btn btn-default">Editar</a></td>
-                        <td><a href="{{ path('eliminar_usuario', { id: usuario.id }) }}" class="btn btn-default">Eliminar</a></td>
+                        <td><a href="{{ path('eliminar_usuario', { id: usuario.id }) }}" class="btn btn-default" onclick="seguro();">Eliminar</a></td>
                 </tr>
                 {% endfor %}
             </table>

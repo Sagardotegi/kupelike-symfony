@@ -15,8 +15,9 @@
              <input type="text" name="year" class= "formulario" value="{{kupela.year}}" placeholder="año de la nueva Kupela">
              <input type="file" name="foto" class="formulario" />
              <button id="enviar"  type="submit" class="formulario">Guardar</button>
-             <a href="{{ path("administracion_usuarios",{nombreSidreria: app.user.nombreSidreria})}}"><button id="enviar"  class="formulario">Cancelar</button></a>
+             
          </form>
+             <a href="{{ path("administracion_usuarios",{nombreSidreria: app.user.nombreSidreria})}}"><button id="cancelar"  class="formulario">Cancelar</button></a>
        
         
          </div>
