@@ -172,6 +172,23 @@ class AdministracionController extends Controller
     } 
     
     
+    /**
+     * Métodos para el cambio de password
+     */
+    public function changePasswordAction($id)
+    {
+     $repo = $this->getDoctrine()->getRepository('KupelikeBundle:Usuario');
+     $usuario = $repo->find($id);
+     
+     return $this->render('KupelikeBundle:Administracion:changePasswrod.html.twig', array('usuario' => $usuario));
+    }
+    
+    
+    public function updatePasswordAction($id, Request $req)
+    {
+     
+    }
+    
     
     
    

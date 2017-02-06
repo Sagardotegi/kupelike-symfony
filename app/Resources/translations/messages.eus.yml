@@ -13,6 +13,7 @@ paginas_estaticas:
         accederr: "Atzitu / Erregistratu"
         admuser: "Erabiltzaileak kudeatu"
         misidre: "Nire sagardotegia"
+        change_password: "Aldatu nire pasahitza"
         ayuda: "Laguntza"
         salir: "Irten"
         buscar: "Bilatu"
