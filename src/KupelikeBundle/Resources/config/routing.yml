@@ -115,6 +115,14 @@ actualizar_usuario:
     path: /actualizar-usuario/{id}
     defaults: { _controller: KupelikeBundle:Usuario:actualizar }
 
+editar_perfil:
+    path: /editar-perfil/{id}
+    defaults: { _controller: KupelikeBundle:Usuario:editPerfil }
+
+actualizar_perfil:
+    path: /actualizar-perfil/{id}
+    defaults: { _controller: KupelikeBundle:Usuario:actualizarPerfil }
+
 eliminar_usuario:
     path: /delete-usuario/{id}
     defaults: { _controller: KupelikeBundle:Usuario:deleteUser }

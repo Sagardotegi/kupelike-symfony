@@ -275,4 +275,58 @@ class UsuarioController extends Controller
         return $this->redirectToRoute('panel_sagardotegis');
     }
     
+    /**
+     * Muestra perfil del usuario
+     */
+    public function editPerfilAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $usuario = $em->getRepository("KupelikeBundle:Usuario")->find($id);
+        
+        return $this->render('KupelikeBundle:Usuarios:perfil.html.twig', array('usuario' => $usuario));
+    }
+    
+    /**
+     * Actualiza perfil del usuario
+     */
+    public function actualizarPerfilAction(Request $request, $id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $usuario = $em->getRepository('KupelikeBundle:Usuario')->find($id);
+        
+        // cogemos los datos del formulario y los asignamos al usuario
+        $nombre = $request->query->get('nombre');
+        $usuario->setNombre($nombre);
+        $apellidos = $request->query->get('apellidos');
+        $usuario->setApellidos($apellidos);
+        $telefono = $request->query->get('telefono');
+        $usuario->setTelefono($telefono);
+        $email = $request->query->get('email');
+        $usuario->setEmail($email);
+        //$direccion = $request->query->get('direccion');
+        //$usuario->setDireccion($direccion);
+        $username = $request->query->get('username');
+        $usuario->setUsername($username);
+        
+        // Obtenemos la sagardotegi del select
+        $sagardotegi = explode('-', $request->query->get('sidreria'));
+        $idSagardotegi = $sagardotegi[0];
+        $nombreSagardotegi = $sagardotegi[1];
+        
+        $usuario->setIdSidreria($idSagardotegi);
+        $usuario->setNombreSidreria($nombreSagardotegi);
+        
+        // añadimos el usuario a la base de datos
+        $em->persist($usuario);
+        $em->flush();
+        
+        // mensaje flash de que el usuario se ha creado correctamente
+        $successMessage = $this->get('translator')->trans('El usuario se ha modificado correctamente.');
+        $this->addFlash('mensaje', $successMessage);
+        
+        $user = $this->get('security.token_storage')->getToken()->getUser();
+        
+         return $this->redirectToRoute('administracion_usuarios', array('nombreSidreria'=>$user->getNombreSidreria()));
+    }
+    
 }

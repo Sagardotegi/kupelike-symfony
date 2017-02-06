@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container-fluid content">
+    
+    <div class="row">
+        <div class="col-xs-offset-3 col-xs-6">
+            <div class="row">
+                <h1 class="mtitle title-padding text-center">Editar usuario</h1>
+            </div>
+        
+            <div class="row">
+                <form action="{{path('actualizar_perfil', { id: usuario.id })}}" class="contact_form">
+                    <label>Nombre:</label><input type="text" name="nombre" class="formulario" value="{{ usuario.nombre }}" />
+                    <label>Apellidos:</label><input type="text" name="apellidos" class="formulario" value="{{ usuario.apellidos }}" /> 
+                    <label>Sidrería:</label><select name="sidreria" class="formulario">
+                        <option value="{{ usuario.idSidreria }}-{{ usuario.nombreSidreria }}">{{ usuario.nombreSidreria }}</option>
+                    </select>
+                    <label>Teléfono:</label><input type="number" name="telefono" class="formulario" value="{{ usuario.telefono }}" /> 
+                    <label>Email:</label><input type="email" name="email" class="formulario" value="{{ usuario.email }}" /> 
+                    <label>Nombre de usuario:</label><input type="text" name="username" class="formulario" value="{{ usuario.username }}" disabled/>
+                    <button type="submit" class= "formulario" id="enviar" >Actualizar</button>
+                </form>
+                <a href="{{path("change_password", { id: usuario.id })}}"><button class="formulario">{{ 'paginas_estaticas.menu.change_password' | trans }}</button></a>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+
+{% endblock %}
