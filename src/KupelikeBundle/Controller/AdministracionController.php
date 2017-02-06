@@ -180,13 +180,49 @@ class AdministracionController extends Controller
      $repo = $this->getDoctrine()->getRepository('KupelikeBundle:Usuario');
      $usuario = $repo->find($id);
      
-     return $this->render('KupelikeBundle:Administracion:changePasswrod.html.twig', array('usuario' => $usuario));
+     return $this->render('KupelikeBundle:Administracion:changePassword.html.twig', array('usuario' => $usuario));
     }
     
     
     public function updatePasswordAction($id, Request $req)
     {
+     $em = $this->getDoctrine()->getManager();
+     $usuario = $em->getRepository('KupelikeBundle:Usuario')->find($id);
      
+     $passActual = $req->get('password-actual');
+     $passNueva = $req->get('password-nueva');
+     $rePass = $req->get('password-repetir');
+     
+     if(!empty($passActual) && !empty($passNueva) && !empty($rePass)){
+            if(password_verify($passActual, $usuario->getPassword())){
+                if($passNueva == $rePass){
+                    
+                    $encoder = $this->container->get('security.password_encoder');
+                    $encoded = $encoder->encodePassword($usuario, $passNueva);
+                    $usuario->setPassword($encoded);
+                    
+                    $em->flush();
+            
+                    $successMessage = $this->get('translator')->trans('La contraseña ha sido modificado correctamente.');
+                    $this->addFlash('mensaje', $successMessage);
+                    $user = $this->get('security.token_storage')->getToken()->getUser();
+        
+                    return $this->redirectToRoute('administracion_usuarios', array('nombreSidreria'=>$user->getNombreSidreria()));
+                } else {
+                    $errorMessage = $this->get('translator')->trans('La nueva contraseña no coincide.');
+                    $this->addFlash('mensaje', $errorMessage);
+                    return $this->render('KupelikeBundle:Administracion:changePassword.html.twig', array('usuario' => $usuario));
+                }
+            } else {
+                $errorMessage = $this->get('translator')->trans('Las contraseñas no coinciden.');
+                $this->addFlash('mensaje', $errorMessage);
+                return $this->render('KupelikeBundle:Administracion:changePassword.html.twig', array('usuario' => $usuario));
+            }
+        } else {
+            $errorMessage = $this->get('translator')->trans('Todos los campos son obligatorios.');
+            $this->addFlash('mensaje', $errorMessage);
+            return $this->render('KupelikeBundle:Administracion:changePassword.html.twig', array('usuario' => $usuario));
+        }
     }
     
     
