@@ -13,6 +13,7 @@ paginas_estaticas:
         accederr: "Acceder / Registrarse"
         admuser: "Administrar usuarios"
         misidre: "Mi sidrería"
+        change_password: "Cambiar mi contraseña"
         ayuda: "Ayuda"
         salir: "Salir"
         buscar: "Buscar"

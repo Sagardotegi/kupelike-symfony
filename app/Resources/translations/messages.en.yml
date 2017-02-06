@@ -13,6 +13,7 @@ paginas_estaticas:
         accederr: "Log in / Register"
         admuser: "Manage users"
         misidre: "My cider house"
+        change_password: "Change my password"
         ayuda: "Help"
         salir: "Log out"
         buscar: "Search"

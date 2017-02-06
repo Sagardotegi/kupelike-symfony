@@ -105,6 +105,7 @@ $(document).ready(function(){
                                     <li><a href="{{path('panel_sagardotegis')}}">Administrar sagardotegis</a></li>
                                 {% else %}
                                     <li><a class="btn-margin" href="{{path("administracion_usuarios", { nombreSidreria: app.user.nombreSidreria })}}">{{ 'paginas_estaticas.menu.misidre' | trans }}</a></li>
+                                    <li><a class="btn-margin" href="{{path("change_password", { id: app.user.id })}}">{{ 'paginas_estaticas.menu.change_password' | trans }}</a></li>
                                 {% endif %}
                                 <li><a href="{{path("contacto")}}">{{ 'paginas_estaticas.menu.ayuda' | trans }}</a></li>
                                 <li><a href="{{path("logout")}}">{{ 'paginas_estaticas.menu.salir' | trans }}</a></li>
@@ -150,9 +151,11 @@ $(document).ready(function(){
             <ul class="menu-links">
                 {% if app.user %}
                     {% if app.user.role == 'ROLE_ADMIN' %}
-                        <li><a class="" href="{{path('panel_usuarios')}}">Administrar usuarios</a></li>
-                    {% else %}
-                        <li><a class="" href="{{path("administracion_usuarios", { nombreSidreria: app.user.nombreSidreria })}}">Mi Sidrería</a></li>
+                        <li><a href="{{path('panel_usuarios')}}">{{ 'paginas_estaticas.menu.admuser' | trans }}</a></li>
+                        <li><a href="{{path('panel_sagardotegis')}}">Administrar sagardotegis</a></li>
+                    {% elseif app.user.role == 'ROLE_SIDRERO' %}
+                        <li><a href="{{path("administracion_usuarios", { nombreSidreria: app.user.nombreSidreria })}}">{{ 'paginas_estaticas.menu.misidre' | trans }}</a></li>
+                        <li><a href="{{path("change_password", { id: app.user.id })}}">{{ 'paginas_estaticas.menu.change_password' | trans }}</a></li>
                     {% endif %}
                     <li><a href="{{path("contacto")}}">Ayuda</a></li>
                     <li><a href="{{path("logout")}}">Salir</a></li>

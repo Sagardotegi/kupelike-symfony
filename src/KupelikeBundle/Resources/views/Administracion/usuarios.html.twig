@@ -4,6 +4,13 @@
 
 
 <div class="container-fluid content">
+  <div class="row">
+    {% for flashMessage in app.session.flashbag.get('mensaje') %}
+    	<div class="alert alert-success" role="alert">
+    		<div class="container"> {{ flashMessage }} </div>
+    	</div>
+    {% endfor %}
+  </div>
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-9  col-md-12  main">
