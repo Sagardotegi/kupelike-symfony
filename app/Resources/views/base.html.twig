@@ -94,7 +94,7 @@ $(document).ready(function(){
                     <div class="col-xs-1 navbar-header hidden-md hidden-lg">
                         <a id="navbar-ham" class="navbar-ham toggle-button visible-xs visible-sm"><i class="fa fa-bars fa-4x" aria-hidden="true"></i></a>
                     </div>
-                    <div class="col-xs-4 col-lg-3 navbar-header">
+                    <div class="col-xs-4 col-lg-3 navbar-header p-x-0">
                         <a id="navbar-title" class="navbar-title" href="{{ path('index') }}">Kupe<img class="img-logo"/>Like</a>
                     </div>
                     <div class="col-md-7 col-lg-8 desktop-menu visible-md visible-lg p-x-0">
@@ -149,12 +149,10 @@ $(document).ready(function(){
             </ul>
             <ul class="menu-links">
                 {% if app.user %}
-<<<<<<< HEAD
-<<<<<<< HEAD
                     {% if app.user.role == 'ROLE_ADMIN' %}
-                        <li><a class="btn-access" href="{{path('panel_usuarios')}}">Administrar usuarios</a></li>
+                        <li><a class="" href="{{path('panel_usuarios')}}">Administrar usuarios</a></li>
                     {% else %}
-                        <li><a class="btn-access" href="{{path("administracion_usuarios", { nombreSidreria: app.user.nombreSidreria })}}">Mi Sidrería</a></li>
+                        <li><a class="" href="{{path("administracion_usuarios", { nombreSidreria: app.user.nombreSidreria })}}">Mi Sidrería</a></li>
                     {% endif %}
                     <li><a href="{{path("contacto")}}">Ayuda</a></li>
                     <li><a href="{{path("logout")}}">Salir</a></li>
@@ -164,29 +162,7 @@ $(document).ready(function(){
                     <li><a href="{{ path('sagardotegis_index') }}">{{ 'paginas_estaticas.menu.sidrerias' | trans }}</a></li>
                     <li><a href="{{ path('contacto') }}">{{ 'paginas_estaticas.menu.contacto' | trans }}</a></li>
                     <li><a href="{{ path('nosotros') }}">{{ 'paginas_estaticas.menu.nosotros' | trans }}</a></li>
-                    <li><a class="btn-access">Log In / Registrate</a></li>
-=======
-                        {% if app.user.role == 'ROLE_ADMIN' %}
-                            <li><a href="{{path('panel_usuarios')}}">Administrar usuarios</a></li>
-                            <li><a href="{{path('panel_sagardotegis')}}">Administrar sagardotegis</a></li>
-                        {% else %}
-                            <li><a href="{{path("administracion_usuarios", { nombreSidreria: app.user.nombreSidreria })}}">Mi Sidrería</a></li>
-                        {% endif %}
-                        <li><a href="{{path("contacto")}}">Ayuda</a></li>
-                        <li><a href="{{path("logout")}}">Salir</a></li>
-=======
->>>>>>> a7e0f8440915a398b90809ae5f37f44add489386
-                    {% if app.user.role == 'ROLE_ADMIN' %}
-                        <li><a href="{{path('panel_usuarios')}}">{{ 'paginas_estaticas.menu.admuser' | trans }}</a></li>
-                        <li><a href="{{path('panel_sagardotegis')}}">Administrar sagardotegis</a></li>
-                    {% else %}
-                        <li><a href="{{path("administracion_usuarios", { nombreSidreria: app.user.nombreSidreria })}}">{{ 'paginas_estaticas.menu.misidre' | trans }}</a></li>
-                    {% endif %}
-                    <li><a href="{{path("contacto")}}">{{ 'paginas_estaticas.menu.ayuda' | trans }}</a></li>
-                    <li><a href="{{path("logout")}}">{{ 'paginas_estaticas.menu.salir' | trans }}</a></li>
-                {% else %}
-                    <li><a class="btn-access">{{ 'paginas_estaticas.menu.accederr' | trans }}<i class="fa fa-user fa-1x" aria-hidden="true"></i></a></li>
->>>>>>> 73ba36e06e0015d87cf0a3d5dc2bb047e7a56dab
+                    <li><a class="btn-access">{{ 'paginas_estaticas.menu.accederr' | trans }}</a></li>
                 {% endif %}
             </ul>
        </div>

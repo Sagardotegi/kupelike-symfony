@@ -51,6 +51,13 @@ $(document).ready(function($) {
 	    $('.accessWrapper').fadeOut();		
 	    $('#accessWindow').fadeOut();
 	});
+	
+	$(document).mouseup(function (e) {
+     var access = $("#accessWindow");
+     if (!access.is(e.target) && access.has(e.target).length == 0) {
+         access.fadeOut(500);
+     }
+ });
 });
     
 //* Search zoom disable *//    
