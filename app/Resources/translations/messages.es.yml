@@ -44,7 +44,7 @@ labels:
     sidreria:
         nombre: "Nombre:"
         descripcion: "Descripción:"
-        horario: "Horatio del Txotx:"
+        horario: "Horario del Txotx:"
         foto: "Foto:"
         ubicacion: "Ubicación:"
         direccion: "Dirección:"
