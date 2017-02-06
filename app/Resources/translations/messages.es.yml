@@ -12,6 +12,7 @@ paginas_estaticas:
             red: "¿Aún no eres parte de nuestra red?"
         accederr: "Acceder / Registrarse"
         admuser: "Administrar usuarios"
+        admsidre: "Administrar sidrerías"
         misidre: "Mi sidrería"
         ayuda: "Ayuda"
         salir: "Salir"

@@ -102,7 +102,7 @@ $(document).ready(function(){
                             {% if app.user %}
                                 {% if app.user.role == 'ROLE_ADMIN' %}
                                     <li><a class="btn-access2" href="{{path('panel_usuarios')}}">{{ 'paginas_estaticas.menu.admuser' | trans }}</a></li>
-                                    <li><a href="{{path('panel_sagardotegis')}}">Administrar sagardotegis</a></li>
+                                    <li><a href="{{path('panel_sagardotegis')}}">{{ 'paginas_estaticas.menu.admsidre' | trans }}</a></li>
                                 {% else %}
                                     <li><a class="btn-access2" href="{{path("administracion_usuarios", { nombreSidreria: app.user.nombreSidreria })}}">{{ 'paginas_estaticas.menu.misidre' | trans }}</a></li>
                                 {% endif %}
@@ -156,7 +156,7 @@ $(document).ready(function(){
                 {% if app.user %}
                     {% if app.user.role == 'ROLE_ADMIN' %}
                         <li><a href="{{path('panel_usuarios')}}">{{ 'paginas_estaticas.menu.admuser' | trans }}</a></li>
-                        <li><a href="{{path('panel_sagardotegis')}}">Administrar sagardotegis</a></li>
+                        <li><a href="{{path('panel_sagardotegis')}}">{{ 'paginas_estaticas.menu.admsidre' | trans }}</a></li>
                     {% else %}
                         <li><a href="{{path("administracion_usuarios", { nombreSidreria: app.user.nombreSidreria })}}">{{ 'paginas_estaticas.menu.misidre' | trans }}</a></li>
                     {% endif %}
