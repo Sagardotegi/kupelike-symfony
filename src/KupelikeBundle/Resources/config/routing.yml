@@ -115,6 +115,14 @@ actualizar_usuario:
     path: /actualizar-usuario/{id}
     defaults: { _controller: KupelikeBundle:Usuario:actualizar }
 
+editar_perfil:
+    path: /editar-perfil/{id}
+    defaults: { _controller: KupelikeBundle:Usuario:editPerfil }
+
+actualizar_perfil:
+    path: /actualizar-perfil/{id}
+    defaults: { _controller: KupelikeBundle:Usuario:actualizarPerfil }
+
 eliminar_usuario:
     path: /delete-usuario/{id}
     defaults: { _controller: KupelikeBundle:Usuario:deleteUser }
@@ -186,8 +194,16 @@ actualizar_sagardotegi:
     path: /actualizarsagardotegi/{id}
     defaults: { _controller: KupelikeBundle:Administracion:updateSagardotegi }  
     methods: [POST]      
-        
-        
+
+change_password:
+    path: /change-password/{id}
+    defaults: { _controller: KupelikeBundle:Administracion:changePassword }  
+    methods: [GET]
+    
+update_password:
+    path: /update-password/{id}
+    defaults: { _controller: KupelikeBundle:Administracion:updatePassword }  
+    methods: [POST]
     
 
 # API REST URL

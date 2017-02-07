@@ -5,19 +5,19 @@
     <div class="row">
         <div class="col-xs-offset-3 col-xs-6">
             <div class="row">
-                <h1 class="mtitle title-padding text-center">Editar Kupela</h1>
+                <h1 class="mtitle title-padding text-center">{{ 'titulos.editkupela' | trans }}</h1>
             </div>
         <div class="row">
        
          <form action="{{ path("actualizar_kupela", {id: kupela.id})}}" class="contact_form" method="post" enctype="multipart/form-data">
-             <input type="text" name="nombre" class= "formulario" value="{{kupela.nombre}}" placeholder="nombre de la nueva Kupela">
-             <input type="text" name="descripcion" class= "formulario" value="{{kupela.descripcion}}" placeholder="descripcion de la nueva Kupela">
-             <input type="text" name="year" class= "formulario" value="{{kupela.year}}" placeholder="año de la nueva Kupela">
-             <input type="file" name="foto" class="formulario" />
-             <button id="enviar"  type="submit" class="formulario">Guardar</button>
+            <label>{{ 'labels.kupela.nombre' | trans }}</label><input type="text" name="nombre" class= "formulario" value="{{kupela.nombre}}" placeholder="nombre de la Kupela">
+            <label>{{ 'labels.kupela.descripcion' | trans }}</label><input type="text" name="descripcion" class= "formulario" value="{{kupela.descripcion}}" placeholder="descripcion de la Kupela">
+            <label>{{ 'labels.kupela.ano' | trans }}</label><input type="text" name="year" class= "formulario" value="{{kupela.year}}" placeholder="año de la Kupela">
+            <label>{{ 'labels.kupela.foto' | trans }}</label><input type="file" name="foto" class="formulario" />
+            <button id="enviar"  type="submit" class="formulario">{{ 'boton.guardar' | trans }}</button>
              
          </form>
-             <a href="{{ path("administracion_usuarios",{nombreSidreria: app.user.nombreSidreria})}}"><button id="cancelar"  class="formulario">Cancelar</button></a>
+            <a href="{{ path("administracion_usuarios",{nombreSidreria: app.user.nombreSidreria})}}"><button id="cancelar"  class="formulario">{{ 'boton.cancelar' | trans }}</button></a>
        
         
          </div>
