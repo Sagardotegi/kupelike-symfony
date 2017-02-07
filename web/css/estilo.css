@@ -898,6 +898,11 @@ textarea{
     text-align: center;
 }
 
+.vote-logo {
+    
+    width: 50px;
+}
+
 .vote-wrapper {
     
     background-color: rgba(98, 156, 68, 0.76);
@@ -1063,9 +1068,9 @@ hr.search-hr {
     padding-left: 55px;
 }
 
-#btn-facebook{
-    margin-top: 25px;
-
+.btn-facebook{
+    
+    color: white !important;
 }
 
 /**************** lider new ***********************/
