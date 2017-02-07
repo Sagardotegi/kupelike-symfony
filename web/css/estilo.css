@@ -793,6 +793,14 @@ textarea{
 /** FIN ! Formulario contacto **/
 /**/
 
+.login_form{
+    
+    font: 100% Arial, Helvetica, sans-serif;
+    margin: 10px auto;
+    background: #F7F7F7;
+    
+}
+
 /** Single Sagardotegi ta bere kupelak **/
 
 .single-sagardotegi {

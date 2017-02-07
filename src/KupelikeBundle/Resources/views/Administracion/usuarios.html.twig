@@ -14,7 +14,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-9  col-md-12  main">
-          <h1 class="page-header">Perfil sidreria</h1>
+          <h1 class="page-header">{{ 'titulos.perfilsidre' | trans }}</h1>
           <div class="col-sm-5">
               <h1 class="card-title">{{sidreria.nombre}}</h1>
               <p class="card-description" id="descripcion">{{sidreria.descripcion}}</p>
@@ -32,7 +32,7 @@
         </div>   
       </div>  
       <div class="col-sm-12  main">
-          <h2 class="page-header">Listado kupelas</h2>
+          <h2 class="page-header">{{ 'titulos.listakupelas' | trans }}</h2>
         <div class="col-sm-12">
             <div id="nueva_kupela"><a href="{{ path("nueva_kupela",{id:sidreria.id})}}"><i id= "plus" class="fa fa-plus-square-o fa-5x" aria-hidden="true"></i></a></div>
             <div class="table-responsive">
@@ -40,10 +40,10 @@
               <table class="table table-striped">
                 <thead>
                   <tr>
-                    <th>Foto</th>
-                    <th>Kupela</th>
-                    <th>Descripcion</th>
-                    <th>Año</th>
+                    <th>{{ 'labels.kupela.foto' | trans }}</th>
+                    <th>{{ 'labels.kupela.nombre' | trans }}</th>
+                    <th>{{ 'labels.kupela.descripcion' | trans }}</th>
+                    <th>{{ 'labels.kupela.ano' | trans }}</th>
                     <th></th>
                     <th></th>
                   </tr>
@@ -64,5 +64,5 @@
 
           </div>
         </div>
-      </div>
+      <!--</div>-->
 {% endblock %}

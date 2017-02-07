@@ -5,13 +5,13 @@
     <div class="row">
         <div class="col-xs-offset-3 col-xs-6">
             <div class="row">
-                <h1 class="mtitle title-padding text-center">Acceder</h1>
+                <h1 class="mtitle title-padding text-center">{{ 'titulos.acceder' | trans }}</h1>
             </div>
             <div class="row">
                 <form class="contact_form" action="{{path('acceder')}}" method="post">
-                    <input name= "username" class= "formulario" type="text" required  placeholder="Usuario"/>
-                    <input name= "password" class= "formulario" type="password" required placeholder="Contraseña"/>
-                    <input id="enviar" class="formulario" type="submit" value="Acceder" />
+                    <input name= "username" class= "formulario" type="text" required  placeholder="{{ 'paginas_estaticas.menu.acceder.usuario' | trans }}"/>
+                    <input name= "password" class= "formulario" type="password" required placeholder="{{ 'paginas_estaticas.menu.acceder.contrasena' | trans }}"/>
+                    <input id="enviar" class="formulario" type="submit" value="{{ 'boton.acceder' | trans }}" />
                 </form>
             </div>
         </div>

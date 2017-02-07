@@ -49,6 +49,12 @@ labels:
         ubicacion: "Location:"
         direccion: "Address:"
         coordenadas: "Coordinates:"
+    registro:
+        nombreyape: "Name and surnames:"
+        email: "Email:"
+        nombresidre: "Name of the cider house:"
+        direccion: "Address:"
+        descripcion: "Description:"
 boton:
     actualizar: "Update"
     acceder: "Log in"
@@ -64,10 +70,14 @@ titulos:
     sidrerias: "Cider Houses"
     contacto: "Contact us"
     nosotros: "About us"
+    acceder: "Access"
     editperfil: "Edit profile"
     editkupela: "Edit kupela"
     editsidre: "Edit cider house"
+    newkupela: "New kupela"
     contrasena: "Change password"
+    perfilsidre: "Profile of the cider house"
+    listakupelas: "List of the kupelas"
 paginas:
     mapa:
         titulo: "Map"
@@ -88,3 +98,7 @@ paginas:
         texto3: "It will also have an interactive map and updated information for the interest of the users."
     slider:
         desarrollo: "Web Aplication Developer"
+    registrasidre: 
+        titulo: "Register your cider house"
+        subtitulo: "Fill this form to be part of the KupeLike community"
+        merece: "Your cider deserves it!"

@@ -49,6 +49,12 @@ labels:
         ubicacion: "Kokalekua:"
         direccion: "Helbidea:"
         coordenadas: "Koordenadak:"
+    registro:
+        nombreyape: "Izen eta abizenak:"
+        email: "Emaila:"
+        nombresidre: "Sagardotegiaren izena:"
+        direccion: "Helbidea:"
+        descripcion: "Deskribapena:"
 boton:
     actualizar: "Eguneratu"
     acceder: "Atzitu"
@@ -64,10 +70,14 @@ titulos:
     sidrerias: "Sagardotegiak"
     contacto: "Gurekin kontaktatu"
     nosotros: "Guri buruz"
+    acceder: "Atzitu"
     editperfil: "Profila eguneratu"
     editkupela: "Kupela eguneratu"
     editsidre: "Sagardotegia eguneratu"
+    newkupela: "Kupel berria"
     contrasena: "Pasahitza aldatu"
+    perfilsidre: "Sagardotegiaren profila"
+    listakupelas: "Kupelen zerrenda"
 paginas:
     mapa:
         titulo: "Mapa"
@@ -88,3 +98,7 @@ paginas:
         texto3: "Erabiltzaileen intereserako, informazio eguneratua eta mapa interaktiboa ere izango ditu."
     slider:
         desarrollo: "Web Aplikazio Garatzailea"
+    registrasidre: 
+        titulo: "Zure sagardotegia erregistratu"
+        subtitulo: "Formulario hau bete ezazu KupeLike komunitatean parte hartzeko"
+        merece: "Zure sagardoak merezi du!"
