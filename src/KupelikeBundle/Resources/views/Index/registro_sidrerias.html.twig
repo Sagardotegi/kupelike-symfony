@@ -7,21 +7,23 @@
     <div class="row">
         <div class="col-xs-offset-3 col-xs-6">
             <div class="row">
-                <h1 class="mtitle title-padding text-center">Registra tu sidreria</h1>
-                <p id="registro_sidreria"class="single-description">Rellena este formulario para formar parte de la comunidad <b>Kupelike</b></p>
-                <p id="registro_sidreria"class="single-description">Tu sidra lo merece!</p>
+                <h1 class="mtitle title-padding text-center">{{ 'paginas.registrasidre.titulo' | trans }}</h1>
+                <p id="registro_sidreria"class="single-description">{{ 'paginas.registrasidre.subtitulo' | trans }}</p>
+                <p id="registro_sidreria"class="single-description">{{ 'paginas.registrasidre.merece' | trans }}</p>
        
             </div>
             <div class="row">
                 <form class="contact_form" action="{{path('registrar_correo')}}" method="post">
-                       <input name= "nombre-apellidos" class= "formulario" type="text" required  placeholder="Escriba su nombre y apellidos"/>
-                       <input name= "email" class= "formulario" type="email" name="email" required placeholder="Indíquenos su Email"/>
-                       <input name= "nombreSidreria" class= "formulario" type="text" required  placeholder="Escriba el nombre de la sidreria"/>
-                       <input name= "direccion" class= "formulario" type="text" required  placeholder="Escriba la direccion de la sidreria"/>
-                       <textarea name="descripcion" class= "formulario" name="Mensaje" cols="40" rows="6" required  placeholder="Descripcion de la sidreria"></textarea>
-                       <input id="enviar" class="formulario" type="submit" value="Enviar" />
-           </form>
-     </div>  
+                       <label>{{ 'labels.registro.nombreyape' | trans }}</label><input name= "nombre-apellidos" class= "formulario" type="text" required  placeholder="{{ 'labels.registro.nombreyape' | trans }}"/>
+                       <label>{{ 'labels.registro.email' | trans }}</label><input name= "email" class= "formulario" type="email" name="email" required placeholder="{{ 'labels.registro.email' | trans }}"/>
+                       <label>{{ 'labels.registro.nombresidre' | trans }}</label><input name= "nombreSidreria" class= "formulario" type="text" required  placeholder="{{ 'labels.registro.nombresidre' | trans }}"/>
+                       <label>{{ 'labels.registro.direccion' | trans }}</label><input name= "direccion" class= "formulario" type="text" required  placeholder="{{ 'labels.registro.direccion' | trans }}"/>
+                       <label>{{ 'labels.registro.descripcion' | trans }}</label><textarea name="descripcion" class= "formulario" name="Mensaje" cols="40" rows="6" required  placeholder="{{ 'labels.registro.descripcion' | trans }}"></textarea>
+                       <input id="enviar" class="formulario" type="submit" value="{{ 'boton.enviar' | trans }}" />
+                </form>
+            </div>
+        </div>
+    </div>
  
 
 {% endblock %}

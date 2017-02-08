@@ -49,6 +49,12 @@ labels:
         ubicacion: "Ubicación:"
         direccion: "Dirección:"
         coordenadas: "Coordenadas:"
+    registro:
+        nombreyape: "Nombre y apellidos:"
+        email: "Email:"
+        nombresidre: "Nombre de la sidrería:"
+        direccion: "Dirección:"
+        descripcion: "Descripción:"
 boton:
     actualizar: "Actualizar"
     acceder: "Acceder"
@@ -64,10 +70,14 @@ titulos:
     sidrerias: "Sidrerías"
     contacto: "Contáctanos"
     nosotros: "Nosotros"
+    acceder: "Acceder"
     editperfil: "Editar perfil"
     editkupela: "Editar kupela"
     editsidre: "Editar sidrería"
+    newkupela: "Nueva kupela"
     contrasena: "Cambiar contraseña"
+    perfilsidre: "Perfil de la sidrería"
+    listakupelas: "Listado de las kupelas"
 paginas:
     mapa:
         titulo: "Mapa"
@@ -88,3 +98,7 @@ paginas:
         texto3: "También dispondrá de un mapa interactivo e información actualizada para el interés de los usuarios."
     slider:
         desarrollo: "Desarrollador de Aplicaciones Web"
+    registrasidre: 
+        titulo: "Registra tu sidrería"
+        subtitulo: "Rellena este formulario para formar parte de la comunidad KupeLike"
+        merece: "¡Tu sidra lo merece!"

@@ -10,74 +10,75 @@
                 </div>
             </div>
 
-           <div class="row">
-            <form action="{{ path("actualizar_sagardotegi", {id: sidreria.id})}}" method="post" class="contact_form" enctype="multipart/form-data">
-                <div class="row">   
-                    <div class="col-xs-4">
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <label>{{ 'labels.sidreria.nombre' | trans }}</label><input type="text" name="nombre" class="formulario" value="{{sidreria.nombre}}" placeholder="Nombre" required/>
+            <div class="row">
+                <form action="{{ path("actualizar_sagardotegi", {id: sidreria.id})}}" method="post" class="contact_form" enctype="multipart/form-data">
+                    <div class="row">   
+                        <div class="col-xs-4">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <label>{{ 'labels.sidreria.nombre' | trans }}</label><input type="text" name="nombre" class="formulario" value="{{sidreria.nombre}}" placeholder="Nombre" required/>
+                                </div>
+                            </div> 
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <label>{{ 'labels.sidreria.foto' | trans }}</label><input type="file" name="foto" value="{{sidreria.foto}}" class="formulario" />
+                                </div>
                             </div>
-                        </div> 
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <label>{{ 'labels.sidreria.foto' | trans }}</label><input type="file" name="foto" value="{{sidreria.foto}}" class="formulario" />
+                        </div>
+                        <div class="col-xs-8">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <label>{{ 'labels.sidreria.descripcion' | trans }}</label><textarea name="descripcion" class="formulario" style="resize: vertical;" placeholder="Descripción">{{sidreria.descripcion}}</textarea>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <label>{{ 'labels.sidreria.horario' | trans }}</label><textarea name="horario" class= "formulario" style="resize: vertical;" placeholder="Horario del Txotx">{{sidreria.horario}}</textarea>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xs-8">
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <label>{{ 'labels.sidreria.descripcion' | trans }}</label><textarea name="descripcion" class="formulario" style="resize: vertical;" placeholder="Descripción">{{sidreria.descripcion}}</textarea>
+                    <div class="row"> 
+                        <div class="col-xs-12">
+                            <label>{{ 'labels.sidreria.ubicacion' | trans }}</label><div id="map" class="mapa mapaNSagar"></div>
+                        </div>
+                    </div>
+                    <div class="row"> 
+                        <div class="col-xs-6">
+                            <div class="row"> 
+                                <div class="col-xs-12">
+                                    <label>{{ 'labels.sidreria.direccion' | trans }}</label><input id="direccion" type="text" name="direccion" class="formulario" value="{{sidreria.direccion}}" placeholder="Dirección" required/>
+                                </div>
+                            </div>
+                            <div class="row"> 
+                                <div class="col-xs-12">
+                                    <input id="pueblo" type="text" name="pueblo" class="formulario" value="{{sidreria.pueblo}}" placeholder="Pueblo" required/>
+                                </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <label>{{ 'labels.sidreria.horario' | trans }}</label><textarea name="horario" class= "formulario" style="resize: vertical;" placeholder="Horario del Txotx">{{sidreria.horario}}</textarea>
+                        <div class="col-xs-6">
+                            <div class="row"> 
+                                <div class="col-xs-12">
+                                    <label>{{ 'labels.sidreria.coordenadas' | trans }}</label><input id="lat" type="text" name="latitud" class="formulario" value="{{sidreria.latitud}}" placeholder="Latitud" required/>
+                                </div>
+                            </div>
+                            <div class="row"> 
+                                <div class="col-xs-12">
+                                    <input id="long" type="text" name="longitud" class="formulario" value="{{sidreria.longitud}}" placeholder="Longitud" required/>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                    <div class="row"> 
+                        <div class="col-xs-12">
+                            <button type="submit" class="formulario" class= "formulario" id="enviar" >{{ 'boton.guardar' | trans }}</button>
+                        </div>
+                    </div>
+                </form>
                 <div class="row"> 
                     <div class="col-xs-12">
-                        <label>{{ 'labels.sidreria.ubicacion' | trans }}</label><div id="map" class="mapa mapaNSagar"></div>
+                        <a href="{{ path("administracion_usuarios",{nombreSidreria: app.user.nombreSidreria})}}"><button id="cancelar" class= "formulario">{{ 'boton.cancelar' | trans }}</button></a>
                     </div>
-                </div>
-                <div class="row"> 
-                    <div class="col-xs-6">
-                        <div class="row"> 
-                            <div class="col-xs-12">
-                                <label>{{ 'labels.sidreria.direccion' | trans }}</label><input id="direccion" type="text" name="direccion" class="formulario" value="{{sidreria.direccion}}" placeholder="Dirección" required/>
-                            </div>
-                        </div>
-                        <div class="row"> 
-                            <div class="col-xs-12">
-                                <input id="pueblo" type="text" name="pueblo" class="formulario" value="{{sidreria.pueblo}}" placeholder="Pueblo" required/>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-6">
-                        <div class="row"> 
-                            <div class="col-xs-12">
-                                <label>{{ 'labels.sidreria.coordenadas' | trans }}</label><input id="lat" type="text" name="latitud" class="formulario" value="{{sidreria.latitud}}" placeholder="Latitud" required/>
-                            </div>
-                        </div>
-                        <div class="row"> 
-                            <div class="col-xs-12">
-                                <input id="long" type="text" name="longitud" class="formulario" value="{{sidreria.longitud}}" placeholder="Longitud" required/>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row"> 
-                    <div class="col-xs-12">
-                        <button type="submit" class="formulario" class= "formulario" id="enviar" >{{ 'boton.guardar' | trans }}</button>
-                    </div>
-                </div>
-            </form>
-            <div class="row"> 
-                <div class="col-xs-12">
-                    <a href="{{ path("administracion_usuarios",{nombreSidreria: app.user.nombreSidreria})}}"><button id="cancelar" class= "formulario">{{ 'boton.cancelar' | trans }}</button></a>
                 </div>
             </div>
         </div>
