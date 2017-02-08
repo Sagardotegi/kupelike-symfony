@@ -73,7 +73,7 @@ swiftmailer:
     auth_mode:  login
     host:       smtp.gmail.com
     #port:       465
-    username:  kupelikeproject@gmail.com
+    username:  "kupelikeproject@gmail.com"
     password:  "Abcd_1234"
     
     

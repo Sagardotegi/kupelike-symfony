@@ -11,6 +11,7 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use KupelikeBundle\Entity\Usuario;
 use KupelikeBundle\Entity\Sagardotegi;
 use KupelikeBundle\Entity\Kupela;
+use KupelikeBundle\Entity\Cliente;
 
 class AdministracionController extends Controller
 {
@@ -22,9 +23,32 @@ class AdministracionController extends Controller
          $em = $this->getDoctrine()->getManager();
          $sagardotegi = $em->getRepository('KupelikeBundle:Sagardotegi')->findOneBy(array('nombre'=>$nombreSidreria));
          $kupelas = $em->getRepository('KupelikeBundle:Kupela')->findBy(array('idSagardotegi'=>$sagardotegi->getId()),['nombre' => 'ASC']);
-         return $this->render('KupelikeBundle:Administracion:usuarios.html.twig', array('sidreria'=>$sagardotegi,'kupelas' =>$kupelas));
+         $hombres = $this->getNumHombres($em);
+         $mujeres = $this->getNumMujeres($em);
+         return $this->render('KupelikeBundle:Administracion:usuarios.html.twig', array('sidreria'=>$sagardotegi,'kupelas' =>$kupelas, 'hombres' =>$hombres, 'mujeres' =>$mujeres));
          
          
+    }
+    
+    private function getNumHombres($em)
+    {
+        $query = $em->createQuery(
+            "SELECT c
+            FROM KupelikeBundle:Cliente c
+            WHERE c.sexo = 'male'
+        ");
+       return $query->getResult(); 
+    }
+    
+    private function getNumMujeres($em)
+    {
+        $query = $em->createQuery(
+            "SELECT count(c)
+            FROM KupelikeBundle:Cliente c
+            WHERE c.sexo = 'female'
+            
+            ");
+        return $query->getResult();    
     }
     //funcion para editar las kupelas individualmente
     public function editAction($id)
