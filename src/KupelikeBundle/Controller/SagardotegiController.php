@@ -27,6 +27,20 @@ class SagardotegiController extends Controller
     }
     
     /**
+     * Muestra la lista de sagardotegis para Index limitado a X
+     **/
+    public function listaIndexAction()
+    {
+        // carga el Entity Manager (manejamos los datos con Doctrine (ORM))
+        $em = $this->getDoctrine()->getManager();
+        // obtiene todas las sagardotegis
+        $sagardotegis = $em->getRepository('KupelikeBundle:Sagardotegi')->find(6);
+        
+        // renderiza la vista index de Sagardotegis y pasa la lista de sagardotegis como variable
+        return $this->render('KupelikeBundle:Sagardotegi:listaIndex.html.twig', array('sagardotegis' => $sagardotegis));
+    }
+    
+    /**
      * Muestra una sagardotegi y sus kupelas
      */
     public function viewAction($idSagardotegi){

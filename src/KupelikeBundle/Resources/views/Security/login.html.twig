@@ -3,30 +3,44 @@
 {% block body %}
  
     <div class="container-fluid">
-        
-        <div class="col-sm-4 col-sm-offset-4">
-            
-            {% if error %}
-                <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-            {% endif %}
-            
-            <h1 class="mtitle text-center">Acceso a KupeLike</h1>
-            
-            <form action="{{ path('login_check') }}" method="post">
-                <div class="form-group">
-                    <input type="text" id="username" name="_username" value="{{ last_username }}" placeholder="Usuario" class="form-control" />
+        <div class="row">
+            <div class="col-xs-8 col-xs-offset-2 col-md-6 col-md-offset-3">
+                <div class="row">
+                
+                    {% if error %}
+                    <div class="col-xs-12">
+                        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                    </div>
+                    {% endif %}
+                    
+                    <div class="col-xs-12">
+                    <h1 class="mtitle text-center">Acceso a KupeLike</h1>
+                    </div>
+                    
+                    <div class="col-xs-12">
+                        <div class="row">
+                        <form action="{{ path('login_check') }}" method="post">
+                            <div class="form-group col-xs-12">
+                                <input type="text" id="username" name="_username" value="{{ last_username }}" placeholder="Usuario" class="form-control" />
+                            </div>
+                        
+                            <div class="form-group col-xs-12">
+                                <input type="password" id="password" name="_password" placeholder="Contraseña" class="form-control" />
+                            </div>
+                        
+                            <div class="form-group col-xs-12">
+                                <button type="submit" class="btn btn-primary pull-right">Login</button>
+                            </div>
+                        </form>
+                        <div class="col-xs-12">
+                            <p class="text-right">¿No tienes una cuenta?</p>
+                            <p class="text-right"><a href="#">Solicita acceso a la aplicación</a></p>
+                        </div>
+                        </div>
+                    </div>
+                    
                 </div>
-            
-                <div class="form-group">
-                    <input type="password" id="password" name="_password" placeholder="Contraseña" class="form-control" />
-                </div>
-            
-                <div class="form-group col-sm-offset-4">
-                    <button type="submit" class="btn btn-primary">login</button>
-                </div>
-            </form>
-            <p class="text-right">¿No tienes una cuenta?</p>
-            <p class="text-right"><a href="#">Solicita acceso a la aplicación</a></p>
+            </div>
         </div>
     
 
