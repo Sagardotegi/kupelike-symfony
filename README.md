@@ -39,15 +39,8 @@ php bin/console doctrine:schema:update --dump-sql
 php bin/console doctrine:schema:update --force 
 ```
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 Nos pedirá configurar la base de datos, lo haremos con nuestros datos del MySQL que tengamos instalado en nuestra máquina.
-=======
-Nos pedirá configurar la base de datos, lo haremos con nuestros datos del MySQL que tengamos instalado en nuestra máquina. 
 
-El archivo SQL de la base de datos creada hasta el momento se encuentra en la carpeta compartida de **DRIVE**
->>>>>>> f81bfbe21cbd0f5724feca50db805f7cc0fab4a6
-=======
 Hay que tener siempre en cuenta que **NO ES RECOMENDABLE** utilizar estos comandos en un entorno de producción, en ese caso es mejor ejecutar un `--dump-sql` y actualizar nuestra BD manualmente.
 
 # <a name="doc"></a> Documentación
@@ -75,4 +68,3 @@ Accedemos a través de la ruta:
 ```
 https://[tu-dominio]/web/
 ```
->>>>>>> 09598654c674ad6a12c124f6a08407a25b5c77de
