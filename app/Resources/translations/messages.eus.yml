@@ -36,6 +36,7 @@ labels:
         telefono: "Telefonoa:"
         email: "Emaila:"
         username: "Erabiltzaile izena:"
+        acciones: "Akzioak:"
     kupela:
         nombre: "Izena:"
         descripcion: "Deskribapena:"
@@ -49,6 +50,7 @@ labels:
         ubicacion: "Kokalekua:"
         direccion: "Helbidea:"
         coordenadas: "Koordenadak:"
+        acciones: "Akzioak:"
     registro:
         nombreyape: "Izen eta abizenak:"
         email: "Emaila:"
@@ -65,6 +67,7 @@ boton:
     modificar: "Aldatu"
     guardar: "Gorde"
     cancelar: "Ezeztatu"
+    crear: "Sortu"
 titulos:
     mapa: "Mapa"
     sidrerias: "Sagardotegiak"
@@ -72,12 +75,16 @@ titulos:
     nosotros: "Guri buruz"
     acceder: "Atzitu"
     editperfil: "Profila eguneratu"
+    editusuario: "Erabiltzailea eguneratu"
     editkupela: "Kupela eguneratu"
     editsidre: "Sagardotegia eguneratu"
     newkupela: "Kupel berria"
+    newsidre: "Sagardotegi berria"
+    newusuario: "Erabiltzaile berria"
     contrasena: "Pasahitza aldatu"
     perfilsidre: "Sagardotegiaren profila"
     listakupelas: "Kupelen zerrenda"
+    login: "KupeLike-era atzitu"
 paginas:
     mapa:
         titulo: "Mapa"
@@ -102,3 +109,9 @@ paginas:
         titulo: "Zure sagardotegia erregistratu"
         subtitulo: "Formulario hau bete ezazu KupeLike komunitatean parte hartzeko"
         merece: "Zure sagardoak merezi du!"
+    login:
+        titulo: "KupeLike-era atzitu"
+        usuario: "Erabiltzailea"
+        contrasena: "Pasahitza"
+        cuenta: "Ez duzu konturik?"
+        solicitar: "Aplikaziora atzipena eskatu"

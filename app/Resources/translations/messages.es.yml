@@ -36,6 +36,7 @@ labels:
         telefono: "Teléfono:"
         email: "Email:"
         username: "Nombre de usuario:"
+        acciones: "Acciones:"
     kupela:
         nombre: "Nombre:"
         descripcion: "Descripción:"
@@ -49,6 +50,7 @@ labels:
         ubicacion: "Ubicación:"
         direccion: "Dirección:"
         coordenadas: "Coordenadas:"
+        acciones: "Acciones:"
     registro:
         nombreyape: "Nombre y apellidos:"
         email: "Email:"
@@ -65,6 +67,7 @@ boton:
     modificar: "Modificar"
     guardar: "Guardar"
     cancelar: "Cancelar"
+    crear: "Crear"
 titulos:
     mapa: "Mapa"
     sidrerias: "Sidrerías"
@@ -72,12 +75,16 @@ titulos:
     nosotros: "Nosotros"
     acceder: "Acceder"
     editperfil: "Editar perfil"
+    editusuario: "Editar usuario"
     editkupela: "Editar kupela"
     editsidre: "Editar sidrería"
     newkupela: "Nueva kupela"
+    newsidre: "Nueva sidrería"
+    newusuario: "Nuevo usuario"
     contrasena: "Cambiar contraseña"
     perfilsidre: "Perfil de la sidrería"
     listakupelas: "Listado de las kupelas"
+    login: "Acceso a KupeLike"
 paginas:
     mapa:
         titulo: "Mapa"
@@ -102,3 +109,9 @@ paginas:
         titulo: "Registra tu sidrería"
         subtitulo: "Rellena este formulario para formar parte de la comunidad KupeLike"
         merece: "¡Tu sidra lo merece!"
+    login:
+        titulo: "Acceso a KupeLike"
+        usuario: "Usuario"
+        contrasena: "Contraseña"
+        cuenta: "¿No tienes cuenta?"
+        solicitar: "Solicita acceso a la aplicación"

@@ -36,6 +36,7 @@ labels:
         telefono: "Phone:"
         email: "Email:"
         username: "Username:"
+        acciones: "Actions:"
     kupela:
         nombre: "Name:"
         descripcion: "Description:"
@@ -49,6 +50,7 @@ labels:
         ubicacion: "Location:"
         direccion: "Address:"
         coordenadas: "Coordinates:"
+        acciones: "Actions:"
     registro:
         nombreyape: "Name and surnames:"
         email: "Email:"
@@ -65,6 +67,7 @@ boton:
     modificar: "Change"
     guardar: "Save"
     cancelar: "Cancel"
+    crear: "Create"
 titulos:
     mapa: "Map"
     sidrerias: "Cider Houses"
@@ -72,12 +75,16 @@ titulos:
     nosotros: "About us"
     acceder: "Access"
     editperfil: "Edit profile"
+    editusuario: "Edit user"
     editkupela: "Edit kupela"
     editsidre: "Edit cider house"
     newkupela: "New kupela"
+    newsidre: "New cider house"
+    newusuario: "New user"
     contrasena: "Change password"
     perfilsidre: "Profile of the cider house"
     listakupelas: "List of the kupelas"
+    login: "Access to KupeLike"
 paginas:
     mapa:
         titulo: "Map"
@@ -102,3 +109,9 @@ paginas:
         titulo: "Register your cider house"
         subtitulo: "Fill this form to be part of the KupeLike community"
         merece: "Your cider deserves it!"
+    login:
+        titulo: "Access to KupeLike"
+        usuario: "Username"
+        contrasena: "Password"
+        cuenta: "You don't have an account?"
+        solicitar: "Ask for access to the aplication"
