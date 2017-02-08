@@ -182,7 +182,7 @@ $(document).ready(function(){
                 </div>
                 <div class="col-xs-12">
                     <form class="contact_form" action="{{path('login_check')}}" method="post">
-                        <input name= "_username" class= "formulario" type="text" required placeholder="{{ 'paginas_estaticas.menu.acceder.usuario' | trans }}"/>
+                        <input name= "_username" id="user" class= "formulario" type="text" required placeholder="{{ 'paginas_estaticas.menu.acceder.usuario' | trans }}"/>
                         <input name= "_password" class= "formulario" type="password" required placeholder="{{ 'paginas_estaticas.menu.acceder.contrasena' | trans }}"/>
                         <input id="enviar" class="formulario" type="submit" value="{{ 'paginas_estaticas.menu.acceder.acceder' | trans }}" />
                     </form>

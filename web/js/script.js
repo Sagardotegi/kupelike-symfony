@@ -45,6 +45,7 @@ $(document).ready(function($) {
     $('.btn-access').on('click', function(){
       $('.accessWrapper').fadeIn();
       $("#accessWindow").css('display','block');
+      $('#user').focus();
     });
     
     $('#closeAccess').click(function(){
