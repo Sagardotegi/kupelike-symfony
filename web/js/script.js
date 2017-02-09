@@ -118,7 +118,9 @@ $(document).ready(function($) {
         filepicker.pick(
           {
             imageQuality: 80,
-            imageDim: [400, 300],
+            //imageMax: [800, 600],
+            //imageMin: [300, 200],
+            //imageDim: [400, 300],
             mimetype: 'image/*',
             container: 'window',
             services: ['COMPUTER', 'FACEBOOK', 'INSTAGRAM', 'GOOGLE_DRIVE', 'DROPBOX']
@@ -132,3 +134,34 @@ $(document).ready(function($) {
         
     });
 });
+
+/* eliminar archivos de filestack*/
+/*
+filepicker.setKey("AnjcKYi0oTomOZxBk7c7Ez");
+
+var blob = {
+  url: ''
+};
+    console.log(JSON.stringify(blob));
+    var cdn_url = blob.url;
+    console.log("Removing...");
+    filepicker.remove(
+      blob, {
+        policy: 'eyJleHBpcnkiOjE2ODgxMzkwNTJ9',
+        signature: '89b33aeb5bd917c9df3b5949396460bba8a3f4f41e2f6b7c9854e29b965ceed5'
+      },
+      function(blob) {
+        console.log("Removed");
+        filepicker.remove(
+          cdn_url,
+          function(FPError) {
+            console.log(FPError.toString());
+          },
+          function(metadata) {
+            console.log("removing file again (expected result: error 171)...");
+            console.log(JSON.stringify(metadata));
+          }
+        );
+      }
+    );
+    */
