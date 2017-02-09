@@ -45,7 +45,7 @@ $(document).ready(function($) {
     $('.btn-access').on('click', function(){
       $('.accessWrapper').fadeIn();
       $("#accessWindow").css('display','block');
-      $('#username').focus();
+      $('#user').focus();
     });
     
     $('#closeAccess').click(function(){
@@ -117,6 +117,8 @@ $(document).ready(function($) {
         filepicker.setKey("AnjcKYi0oTomOZxBk7c7Ez");
         filepicker.pick(
           {
+            imageQuality: 80,
+            imageDim: [400, 300],
             mimetype: 'image/*',
             container: 'window',
             services: ['COMPUTER', 'FACEBOOK', 'INSTAGRAM', 'GOOGLE_DRIVE', 'DROPBOX']
