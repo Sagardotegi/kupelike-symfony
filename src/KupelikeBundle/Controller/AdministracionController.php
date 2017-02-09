@@ -43,7 +43,7 @@ class AdministracionController extends Controller
     private function getNumMujeres($em)
     {
         $query = $em->createQuery(
-            "SELECT count(c)
+            "SELECT c
             FROM KupelikeBundle:Cliente c
             WHERE c.sexo = 'female'
             
@@ -191,8 +191,6 @@ class AdministracionController extends Controller
          $user = $this->get('security.token_storage')->getToken()->getUser();
         
          return $this->redirectToRoute('administracion_usuarios', array('nombreSidreria'=>$user->getNombreSidreria()));
-
-        
     } 
     
     
