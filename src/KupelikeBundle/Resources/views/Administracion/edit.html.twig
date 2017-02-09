@@ -13,16 +13,17 @@
             <label>{{ 'labels.kupela.nombre' | trans }}</label><input type="text" name="nombre" class= "formulario" value="{{kupela.nombre}}" placeholder="nombre de la Kupela">
             <label>{{ 'labels.kupela.descripcion' | trans }}</label><textarea name="descripcion" class= "formulario" placeholder="descripcion de la Kupela" style="resize: vertical;">{{kupela.descripcion}}</textarea>
             <label>{{ 'labels.kupela.ano' | trans }}</label><input type="text" name="year" class= "formulario" value="{{kupela.year}}" placeholder="año de la Kupela">
-            <label>{{ 'labels.kupela.foto' | trans }}</label><input type="filepicker" data-fp-apikey="AnjcKYi0oTomOZxBk7c7Ez" onchange="valor(event.fpfile.url)" id="foto" name="foto" class="formulario" value="{{kupela.foto}}">
+            <label>{{ 'labels.kupela.foto' | trans }}</label><input type="file" id="foto2" name="foto2" class="formulario" value="{{kupela.foto}}"/>
+                                    <input type="hidden" name="foto" class="formulario" id="foto" value="{{kupela.foto}}"/>
             <button id="enviar"  type="submit" class="formulario">{{ 'boton.guardar' | trans }}</button>
              
          </form>
             <a href="{{ path("administracion_usuarios",{nombreSidreria: app.user.nombreSidreria})}}"><button id="cancelar"  class="formulario">{{ 'boton.cancelar' | trans }}</button></a>
            <script>
-          function valor(valor){
+          /*function valor(valor){
               //alert(valor);
               document.getElementById("foto").value = valor;
-          }
+          }*/
           </script>
         
          </div>

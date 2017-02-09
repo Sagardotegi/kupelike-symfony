@@ -110,3 +110,23 @@ confirmar=confirm("¿Seguro?");
         return false;
     }           
 }
+
+/*filepicker de filestack*/
+$(document).ready(function($) {
+    $("#foto2").click(function(){
+        filepicker.setKey("AnjcKYi0oTomOZxBk7c7Ez");
+        filepicker.pick(
+          {
+            mimetype: 'image/*',
+            container: 'window',
+            services: ['COMPUTER', 'FACEBOOK', 'INSTAGRAM', 'GOOGLE_DRIVE', 'DROPBOX']
+          },
+          function(Blob){
+            $("#foto").val(Blob.url);
+          },
+          function(FPError){
+            console.log(FPError.toString());
+         });
+        
+    });
+});
