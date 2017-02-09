@@ -21,7 +21,8 @@
                             </div> 
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <label>{{ 'labels.sidreria.foto' | trans }}</label><input type="filepicker" data-fp-apikey="AnjcKYi0oTomOZxBk7c7Ez" onchange="valor(event.fpfile.url)" id="foto" name="foto" class="formulario" value="{{sidreria.foto}}">
+                                    <label>{{ 'labels.sidreria.foto' | trans }}</label><input type="file" id="foto2" name="foto2" class="formulario" value="{{sidreria.foto}}"/>
+                                    <input type="hidden" name="foto" class="formulario" id="foto" value="{{sidreria.foto}}"/><!--<input type="filepicker" data-fp-apikey="AnjcKYi0oTomOZxBk7c7Ez" onchange="valor(event.fpfile.url)" id="foto" name="foto" class="formulario" value="{{sidreria.foto}}">-->
                                 </div>
                             </div>
                         </div>
@@ -85,10 +86,10 @@
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
           <script>
-          function valor(valor){
-              //alert(valor);
+          /*function valor(valor){
+              alert(valor);
               document.getElementById("foto").value = valor;
-          }
+          }*/
           var map;
           var centro;
           var sidrerias = [];
