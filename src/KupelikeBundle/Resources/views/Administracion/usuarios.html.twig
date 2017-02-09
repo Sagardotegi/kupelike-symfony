@@ -32,6 +32,7 @@
       </div>  
     </div>
 
+<<<<<<< HEAD
     <div class="row">
       
       <div class="col-xs-12">
@@ -71,6 +72,42 @@
             </table>
             {%endfor%}
            
+=======
+        </div>   
+      </div>  
+      <div class="col-sm-12  main">
+          <h2 class="page-header">{{ 'titulos.listakupelas' | trans }}</h2>
+          <div id="chartContainer2" style="height: 300px; width: 100%;"></div>  
+        <div class="col-sm-12">
+            <div id="nueva_kupela"><a href="{{ path("nueva_kupela",{id:sidreria.id})}}"><i id= "plus" class="fa fa-plus-square-o fa-5x" aria-hidden="true"></i></a></div>
+            <div class="table-responsive">
+              {%for kupela in kupelas %}
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>{{ 'labels.kupela.foto' | trans }}</th>
+                    <th>{{ 'labels.kupela.nombre' | trans }}</th>
+                    <th>{{ 'labels.kupela.descripcion' | trans }}</th>
+                    <th>{{ 'labels.kupela.ano' | trans }}</th>
+                    <th></th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><img class="img-rounded img-kupela-lista"src="{{asset(kupela.foto)}}" /></td>
+                    <td>{{kupela.nombre}}</td>
+                    <td>{{kupela.descripcion}}</td>
+                    <td>{{kupela.year}}</td>
+                    <td><a href="{{ path("editar_kupela",{id:kupela.id})}}"><button class="btn btn-primary">{{ 'boton.editar' | trans }}</button></a></td>
+                    <td><a href="{{ path("eliminar_kupela",{id:kupela.id})}}" onclick="seguro();"><button class="btn btn-primary">{{ 'boton.eliminar' | trans }}</button></a></td>
+                </tbody>
+              </table>
+              {%endfor%}
+             
+            </div>
+
+>>>>>>> estadisticas
           </div>
         </div>
       </div>
@@ -99,10 +136,43 @@
       		]
       	});
       	chart.render();
+        	
+        	
+        	
+      	var chart2 = new CanvasJS.Chart("chartContainer2", {
+      		theme: "theme2",//theme1
+      		title:{
+      			text: "Numero Votos por fecha"              
+      		},
+      		animationEnabled: false,   // change to true
+      		data: [              
+      		{
+      			// Change type to "bar", "area", "spline", "pie",etc.
+      			type: "column",
+      			dataPoints: [
+      			  {% for fecha in fechas %}
+      			    	{ label: "{{fecha.fecha | date("d/m/Y")}}",  y: {{fecha.NumVotos}} },
+      			  {% endfor %}
+      	
+      			]
+      		}
+      		]
+      	});
+      	chart2.render();
       }
       
       
+<<<<<<< HEAD
       </script>
 
 
 {% endblock %}
+=======
+              {% for fecha in fechas %}
+      			    	console.log({{fecha.fecha}});
+      			  {% endfor %}
+      </script>
+
+ 
+{% endblock %}
+>>>>>>> estadisticas

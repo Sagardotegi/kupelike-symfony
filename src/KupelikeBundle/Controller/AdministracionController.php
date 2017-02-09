@@ -12,6 +12,8 @@ use KupelikeBundle\Entity\Usuario;
 use KupelikeBundle\Entity\Sagardotegi;
 use KupelikeBundle\Entity\Kupela;
 use KupelikeBundle\Entity\Cliente;
+use KupelikeBundle\Entity\Voto;
+
 
 class AdministracionController extends Controller
 {
@@ -25,11 +27,19 @@ class AdministracionController extends Controller
          $kupelas = $em->getRepository('KupelikeBundle:Kupela')->findBy(array('idSagardotegi'=>$sagardotegi->getId()),['nombre' => 'ASC']);
          $hombres = $this->getNumHombres($em);
          $mujeres = $this->getNumMujeres($em);
-         return $this->render('KupelikeBundle:Administracion:usuarios.html.twig', array('sidreria'=>$sagardotegi,'kupelas' =>$kupelas, 'hombres' =>$hombres, 'mujeres' =>$mujeres));
+         $fechas = $this->getNumXfecha($em);
+         return $this->render('KupelikeBundle:Administracion:usuarios.html.twig', array('sidreria'=>$sagardotegi,'kupelas' =>$kupelas, 'hombres' =>$hombres, 'mujeres' =>$mujeres, 'fechas' =>$fechas));
          
          
     }
-    
+       private function getNumXfecha($em)
+      
+    {        
+           $query = $em->createQuery(
+            "select v.fecha as fecha,count(k.numVotos) as NumVotos from KupelikeBundle:Voto v, KupelikeBundle:Kupela k where k.id=v.kupelaId group by v.fecha
+        ");
+       return $query->getResult(); 
+    }
     private function getNumHombres($em)
     {
         $query = $em->createQuery(
