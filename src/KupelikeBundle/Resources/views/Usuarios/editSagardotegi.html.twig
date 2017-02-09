@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-xs-offset-3 col-xs-6">
             <div class="row">
-                <h1 class="mtitle title-padding text-center">Editar sagardotegi</h1>
+                <h1 class="mtitle title-padding text-center">{{ 'titulos.editsidre' | trans }}</h1>
             </div>
         
             <div class="row">
@@ -15,28 +15,38 @@
                     <div class="col-xs-4">
                         <div class="row">
                             <div class="col-xs-12">
-                                <input type="text" name="nombre" class="formulario" value="{{sagardotegi.nombre}}" placeholder="Nombre" required/>
+                                <label>{{ 'labels.sidreria.nombre' | trans }}</label><input type="text" name="nombre" class="formulario" value="{{sagardotegi.nombre}}" placeholder="Nombre" required/>
                             </div>
                         </div> 
                         <div class="row">
                             <div class="col-xs-12">
-                                <input type="file" name="foto" value="{{sagardotegi.foto}}" class="formulario" />
+                                <label>{{ 'labels.sidreria.foto' | trans }}</label><input type="filepicker" data-fp-apikey="AnjcKYi0oTomOZxBk7c7Ez" onchange="valor(event.fpfile.url)" id="foto" name="foto" class="formulario" value="{{sagardotegi.foto}}">
                             </div>
                         </div>
                     </div>
-                    <div class="col-xs-8"><textarea name="descripcion" class="formulario" style="resize: vertical;" placeholder="Descripción">{{sagardotegi.descripcion}}</textarea></div>
-                    <div class="col-xs-8"><textarea name="horario" class= "formulario" style="resize: vertical;" placeholder="Horario del Txotx">{{sagardotegi.horario}}</textarea></div>
+                    <div class="col-xs-8">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <label>{{ 'labels.sidreria.descripcion' | trans }}</label><textarea name="descripcion" class="formulario" style="resize: vertical;" placeholder="Descripción">{{sagardotegi.descripcion}}</textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <label>{{ 'labels.sidreria.horario' | trans }}</label><textarea name="horario" class= "formulario" style="resize: vertical;" placeholder="Horario del Txotx">{{sagardotegi.horario}}</textarea>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="row"> 
                     <div class="col-xs-12">
-                        <div id="map" class="mapa mapaNSagar"></div>
+                        <label>{{ 'labels.sidreria.ubicacion' | trans }}</label><div id="map" class="mapa mapaNSagar"></div>
                     </div>
                 </div>
                 <div class="row"> 
                     <div class="col-xs-6">
                         <div class="row"> 
                             <div class="col-xs-12">
-                                <input id="direccion" type="text" name="direccion" class="formulario" value="{{sagardotegi.direccion}}" placeholder="Dirección" required/>
+                                <label>{{ 'labels.sidreria.direccion' | trans }}</label><input id="direccion" type="text" name="direccion" class="formulario" value="{{sagardotegi.direccion}}" placeholder="Dirección" required/>
                             </div>
                         </div>
                         <div class="row"> 
@@ -48,7 +58,7 @@
                     <div class="col-xs-6">
                         <div class="row"> 
                             <div class="col-xs-12">
-                                <input id="lat" type="text" name="latitud" class="formulario" value="{{sagardotegi.latitud}}" placeholder="Latitud" required/>
+                                <label>{{ 'labels.sidreria.coordenadas' | trans }}</label><input id="lat" type="text" name="latitud" class="formulario" value="{{sagardotegi.latitud}}" placeholder="Latitud" required/>
                             </div>
                         </div>
                         <div class="row"> 
@@ -60,7 +70,7 @@
                 </div>
                 <div class="row"> 
                     <div class="col-xs-12">
-                        <button type="submit" class="formulario" class= "formulario" id="enviar" >Guardar</button>
+                        <button type="submit" class="formulario" class= "formulario" id="enviar" >{{ 'boton.guardar' | trans }}</button>
                     </div>
                 </div>
                 </form>
@@ -69,6 +79,10 @@
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
           <script>
+          function valor(valor){
+              //alert(valor);
+              document.getElementById("foto").value = valor;
+          }
           var map;
           var centro;
           var sidrerias = [];

@@ -6,25 +6,25 @@
     <div class="row">
         <div class="col-xs-offset-3 col-xs-6">
             <div class="row">
-                <h1 class="mtitle title-padding text-center">Nuevo usuario</h1>
+                <h1 class="mtitle title-padding text-center">{{ 'titulos.newusuario' | trans }}</h1>
             </div>
         
             <div class="row">
                 <form action="{{path('registrar_usuario')}}" class="contact_form">
-                    <input type="text" name="nombre" class="formulario" placeholder="Nombre" />
-                    <input type="text" name="apellidos" class="formulario" placeholder="Apellidos" /> 
+                    <label>{{ 'labels.usuario.nombre' | trans }}</label><input type="text" name="nombre" class="formulario" placeholder="Nombre" />
+                    <label>{{ 'labels.usuario.apellidos' | trans }}</label><input type="text" name="apellidos" class="formulario" placeholder="Apellidos" /> 
                     
-                    <select name="sidreria" class="formulario" required>
+                    <label>{{ 'labels.usuario.sidreria' | trans }}</label><select name="sidreria" class="formulario" required>
                         <option disabled selected>Selecciona una sidrería</option>
                         {% for sagardotegi in sagardotegis %}
                             <option value="{{ sagardotegi.id }}-{{ sagardotegi.nombre }}">{{ sagardotegi.nombre }}</option>
                         {% endfor %}
                     </select>
                     
-                    <input type="number" name="telefono" class="formulario" placeholder="Teléfono" /> 
-                    <input type="email" name="email" class="formulario" placeholder="Email" />
-                    <input type="text" name="username" class="formulario" placeholder="Nombre de usuario" />
-                    <button type="submit" class= "formulario" id="enviar" >Crear</button>
+                    <label>{{ 'labels.usuario.telefono' | trans }}</label><input type="number" name="telefono" class="formulario" placeholder="Teléfono" /> 
+                    <label>{{ 'labels.usuario.email' | trans }}</label><input type="email" name="email" class="formulario" placeholder="Email" />
+                    <label>{{ 'labels.usuario.username' | trans }}</label><input type="text" name="username" class="formulario" placeholder="Nombre de usuario" />
+                    <button type="submit" class= "formulario" id="enviar" >{{ 'boton.crear' | trans }}</button>
                 </form>
             </div>
         </div>

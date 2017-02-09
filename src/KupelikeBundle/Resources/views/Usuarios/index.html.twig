@@ -11,17 +11,17 @@
         	</div>
         {% endfor %}
         
-        <a href="{{ path('nuevo_usuario') }}" title="Crear un nuevo usuario" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span></a>
+        <a href="{{ path('nuevo_usuario') }}" title="{{ 'titulos.newusuario' | trans }}" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span></a>
         
         <div class="table-responsive">
             <table id="usuarios" class="table table-hover">
                 <tr>
                     <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Sidrería</th>
-                    <th>Email</th>
-                    <th>Teléfono</th>
-                    <th>Acciones</th>
+                    <th>{{ 'labels.usuario.nombre' | trans }}</th>
+                    <th>{{ 'labels.usuario.sidreria' | trans }}</th>
+                    <th>{{ 'labels.usuario.email' | trans }}</th>
+                    <th>{{ 'labels.usuario.telefono' | trans }}</th>
+                    <th colspan="2">{{ 'labels.usuario.acciones' | trans }}</th>
                 </tr>
                 {% for usuario in usuarios %}
                 <tr>
@@ -30,8 +30,8 @@
                         <td>{{ usuario.nombreSidreria }}</td>
                         <td>{{ usuario.email }}</td>
                         <td>{{ usuario.telefono }}</td>
-                        <td><a href="{{ path('editar_usuario', { id: usuario.id }) }}" class="btn btn-default">Editar</a></td>
-                        <td><a href="{{ path('eliminar_usuario', { id: usuario.id }) }}" class="btn btn-default" onclick="seguro();">Eliminar</a></td>
+                        <td><a href="{{ path('editar_usuario', { id: usuario.id }) }}" class="btn btn-default">{{ 'boton.editar' | trans }}</a></td>
+                        <td><a href="{{ path('eliminar_usuario', { id: usuario.id }) }}" class="btn btn-default" onclick="seguro();">{{ 'boton.eliminar' | trans }}</a></td>
                 </tr>
                 {% endfor %}
             </table>
