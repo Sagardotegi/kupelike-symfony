@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-   <div class="container-fluid">
+   <div class="container p-x-0">
    
         <div class="row single-sagardotegi">
             <div class="col-xs-6">
@@ -33,18 +33,18 @@
 <div class="container">
         
     <div class="row p-x-1 kupela-list">
-        <div class="col-xs-12">
+        <div class="col-xs-11 col-xs-offset-1">
     {% for kupela in kupelas %}
         
       
         <div class="row single-kupela">
-            <div class="col-xs-4 vote-wrapper">
+            <div class="col-xs-4 vote-wrapper p-x-0">
                 <div class="row text-center">
                     <div class="col-xs-12">
-                    <img src="{{asset(kupela.foto)}}" alt="kupela" class="single-kupela-img img-thumbnail img-circle img-responsive"></img>
+                    <img src="{{asset(kupela.foto)}}" alt="kupela" class="single-kupela-img img-responsive"></img>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row p-x-1">
                     <div class="col-xs-6">
                         <h3 id="{{kupela.id}}" class="vote-count">{{kupela.numVotos}}<i class="fa fa-heart fa-1x" aria-hidden="true"></i></h3>
                     </div>

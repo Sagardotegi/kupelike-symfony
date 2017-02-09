@@ -274,7 +274,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .idiomas > li > a, a:focus, a:hover, a:visited, a:active {
-    color: inherit;
+    
     text-decoration: none;
 }
 
@@ -291,9 +291,15 @@ body::-webkit-scrollbar-thumb {
     cursor: pointer;
 }
 
+.idiomas-side > li > a, a:focus, a:hover, a:visited, a:active {
+    
+    text-decoration: none;
+}
+
 .idiomas-side-active, .idiomas-side-active:hover, .idiomas-side-active:active,
 .idiomas-side-active:focus, .idiomas-side-active:visited {
-    color: white;
+    
+    color: white !important;
 }
 
 /* Fin Menu*/
@@ -677,7 +683,6 @@ h1.a-sagar a:active {
 
 .card {
     
-    height: 500px;
     width: 100%;
     padding: 15px 120px;
     width: 100%;
@@ -834,9 +839,11 @@ textarea{
 
 .single-kupela-img {
     
-   margin-top: 15px;
    padding: 0px !important;
    border: none !important;
+    width: 100%;
+    border-top-left-radius: 20px;
+    height: 200px;
 }
 
 .single-kupela-info {
@@ -851,7 +858,7 @@ textarea{
     
     font-family: 'Roboto', sans-serif;
     letter-spacing: 2px;
-    font-size: x-large;
+    font-size: large;
     text-align: justify;
     margin-left: 20px;
 }
@@ -923,7 +930,7 @@ textarea{
     border-radius: 50px;
     width: 75px;
     height: 75px;
-    margin: 20px 5px;
+    margin: 15px 0px;
     float: right;
 }
 
@@ -931,10 +938,10 @@ textarea{
     
     font-family: 'Roboto', sans-serif;
     color: white;
-    font-size: xx-large;
+    font-size: x-large;
     font-weight: 100;
-    margin: 40px 5px;
-    letter-spacing: 8px;
+    margin: 40px 0px;
+    letter-spacing: 5px;
 }
 
 .img-kupela {
@@ -1051,25 +1058,19 @@ hr.search-hr {
 }
 
 
-#registro_sidreria{
+#registro_sidreria {
     text-align: center;
 }
-.img-thumbnail{
+.img-thumbnail {
     max-width: 80%;
 }
 
-#nueva_kupela{
-    width: 250px;
-    height: 250px;
-    border: 1px black solid;
-    margin-left: 5px;
-    margin-top: 5px;
+.add-kupela {
+    
+    margin-top: 20px;
+    margin-right: 15px;
 }
 
-#nueva_kupela #plus{
-    padding-left: 90px;
-    padding-top: 85px;
-}
 #numvotos{
     padding-left: 55px;
 }
