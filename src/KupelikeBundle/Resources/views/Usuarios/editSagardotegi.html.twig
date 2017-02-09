@@ -20,19 +20,19 @@
                         </div> 
                         <div class="row">
                             <div class="col-xs-12">
-                                <label>{{ 'labels.sidreria.foto' | trans }}</label><input type="file" name="foto" value="{{sagardotegi.foto}}" class="formulario" />
+                                <label>{{ 'labels.sidreria.foto' | trans }}</label><input type="filepicker" data-fp-apikey="AnjcKYi0oTomOZxBk7c7Ez" onchange="valor(event.fpfile.url)" id="foto" name="foto" class="formulario" value="{{sagardotegi.foto}}">
                             </div>
                         </div>
                     </div>
                     <div class="col-xs-8">
                         <div class="row">
                             <div class="col-xs-12">
-                                <label>{{ 'labels.sidreria.descripcion' | trans }}</label><textarea name="descripcion" class="formulario" style="resize: vertical;" placeholder="Descripción">{{sidreria.descripcion}}</textarea>
+                                <label>{{ 'labels.sidreria.descripcion' | trans }}</label><textarea name="descripcion" class="formulario" style="resize: vertical;" placeholder="Descripción">{{sagardotegi.descripcion}}</textarea>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-xs-12">
-                                <label>{{ 'labels.sidreria.horario' | trans }}</label><textarea name="horario" class= "formulario" style="resize: vertical;" placeholder="Horario del Txotx">{{sidreria.horario}}</textarea>
+                                <label>{{ 'labels.sidreria.horario' | trans }}</label><textarea name="horario" class= "formulario" style="resize: vertical;" placeholder="Horario del Txotx">{{sagardotegi.horario}}</textarea>
                             </div>
                         </div>
                     </div>
@@ -79,6 +79,10 @@
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
           <script>
+          function valor(valor){
+              //alert(valor);
+              document.getElementById("foto").value = valor;
+          }
           var map;
           var centro;
           var sidrerias = [];

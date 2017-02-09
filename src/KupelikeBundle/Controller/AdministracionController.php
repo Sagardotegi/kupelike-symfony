@@ -68,19 +68,21 @@ class AdministracionController extends Controller
          $nombre = $request->request->get('nombre');
          $descripcion = $request->request->get('descripcion');
          $year = $request->request->get('year');
+         $foto = $request->request->get('foto');
          
          $kupela->setNombre($nombre);
          $kupela->setDescripcion($descripcion);
          $kupela->setYear($year);
+         $kupela->setFoto($foto);
          
          // Obtenemos el archivo de la foto
          /** @var Symfony\Component\HttpFoundation\File\UploadedFile $foto */
-         $foto = $request->files->get('foto');
+         /*$foto = $request->files->get('foto');
          if($foto != null){
          // asignamos un nombre al archivo generado automáticamente
           $nombreFoto = $this->get('app.kupela_uploader')->upload($foto);
           $kupela->setFoto('uploads/kupelas/' . $nombreFoto);
-         }
+         }*/
           
          
           $em->persist($kupela);
@@ -135,12 +137,13 @@ class AdministracionController extends Controller
          
          // Obtenemos el archivo de la foto
          /** @var Symfony\Component\HttpFoundation\File\UploadedFile $foto */
-         $foto = $request->files->get('foto');
-         if($foto != null){
+         //$foto = $request->files->get('foto');
+         $sagardotegi->setFoto($foto);
+         /*if($foto != null){
           // asignamos un nombre al archivo generado automáticamente
           $nombreFoto = $this->get('app.sagardotegi_uploader')->upload($foto);
           $sagardotegi->setFoto('uploads/sagardotegis/' . $nombreFoto);
-         }
+         }*/
           
          
           $em->persist($sagardotegi);
@@ -175,14 +178,16 @@ class AdministracionController extends Controller
          $newKupela->setIdSagardotegi($idSagardotegi);
          $year = $request->request->get('year');
          $newKupela->setYear($year);
+         $foto = $request->request->get('foto');
+         $newKupela->setFoto($foto);
          // Obtenemos el archivo de la foto
          /** @var Symfony\Component\HttpFoundation\File\UploadedFile $foto */
-         $foto = $request->files->get('foto');
+         /*$foto = $request->files->get('foto');
          if($foto != null){
           // asignamos un nombre al archivo generado automáticamente
           $nombreFoto = $this->get('app.kupela_uploader')->upload($foto);
           $newKupela->setFoto('uploads/kupelas/' . $nombreFoto);
-         }
+         }*/
          
          $em = $this->getDoctrine()->getManager();
          $em->persist($newKupela);
