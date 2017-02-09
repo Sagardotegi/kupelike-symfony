@@ -34,6 +34,7 @@
       </div>  
       <div class="col-sm-12  main">
           <h2 class="page-header">{{ 'titulos.listakupelas' | trans }}</h2>
+          <div id="chartContainer2" style="height: 300px; width: 100%;"></div>  
         <div class="col-sm-12">
             <div id="nueva_kupela"><a href="{{ path("nueva_kupela",{id:sidreria.id})}}"><i id= "plus" class="fa fa-plus-square-o fa-5x" aria-hidden="true"></i></a></div>
             <div class="table-responsive">
@@ -90,8 +91,36 @@
       		]
       	});
       	chart.render();
+        	
+        	
+        	
+      	var chart2 = new CanvasJS.Chart("chartContainer2", {
+      		theme: "theme2",//theme1
+      		title:{
+      			text: "Numero Votos por fecha"              
+      		},
+      		animationEnabled: false,   // change to true
+      		data: [              
+      		{
+      			// Change type to "bar", "area", "spline", "pie",etc.
+      			type: "column",
+      			dataPoints: [
+      			  {% for fecha in fechas %}
+      			    	{ label: "{{fecha.fecha | date("d/m/Y")}}",  y: {{fecha.NumVotos}} },
+      			  {% endfor %}
+      	
+      			]
+      		}
+      		]
+      	});
+      	chart2.render();
       }
+      
+      
+              {% for fecha in fechas %}
+      			    	console.log({{fecha.fecha}});
+      			  {% endfor %}
       </script>
 
-
+ 
 {% endblock %}
