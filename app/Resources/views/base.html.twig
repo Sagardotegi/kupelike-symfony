@@ -7,7 +7,7 @@
         {% block stylesheets %}{% endblock %}
         <link rel="shortcut icon" href="{{ asset('img/favicon.ico') }}" type="image/ico"/>
         <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}" />
-        <link rel="stylesheet" type="text/css" href="{{ asset('css/estilo.css') }}" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}" />
         <!-- Estilos CSS para producción para solucionar errores de carga de imágenes -->
             {% if app.environment == 'prod' %}
                 <link rel="stylesheet" type="text/css" href="{{ asset('css/estilo_prod.css') }}" />
@@ -261,7 +261,7 @@ $(document).ready(function(){
         
         <script src="{{ asset('js/jquery.min.js') }}"></script>
         <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-        <script src="{{ asset('js/script.js') }}"></script>
+        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
         
     </body>
 </html>

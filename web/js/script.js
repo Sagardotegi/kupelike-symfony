@@ -72,18 +72,6 @@ function zoomEnable(){
   $('head meta[name=viewport]').remove();
   $('head').prepend('<meta name="viewport" content="user-scalable=1" />');
 }
-    
-/* APP info script */
-
-/*$(document).ready(function($) {
-  
-      $('.info-icon').hover(function(){
-          $(this).slideToggle(1000);
-          $(this).siblings('.info-textarea').slideToggle(1000);
-       
-    });
-});*/
-
 
 function cambiarActive(){
     var url = window.location.pathname;
