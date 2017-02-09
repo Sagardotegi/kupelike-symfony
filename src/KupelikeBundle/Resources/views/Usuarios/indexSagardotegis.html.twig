@@ -11,16 +11,16 @@
         	</div>
         {% endfor %}
         
-        <a href="{{ path('form_nueva_sagardotegi') }}" title="Crear nueva sagardotegi" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span></a>
+        <a href="{{ path('form_nueva_sagardotegi') }}" title="{{ 'titulos.newsidre' | trans }}" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span></a>
         
         <div class="table-responsive">
             <table id="usuarios" class="table table-hover">
                 <tr>
                     <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Dirección</th>
-                    <th>Descripcion</th>
-                    <th>Acciones</th>
+                    <th>{{ 'labels.sidreria.nombre' | trans }}</th>
+                    <th>{{ 'labels.sidreria.direccion' | trans }}</th>
+                    <th>{{ 'labels.sidreria.descripcion' | trans }}</th>
+                    <th>{{ 'labels.sidreria.acciones' | trans }}</th>
                 </tr>
                 {% for sagardotegi in sagardotegis %}
                 <tr>
@@ -29,8 +29,8 @@
                         <td>{{ sagardotegi.direccion }}</td>
                         <td>{{ sagardotegi.descripcion }}</td>
                         <td>
-                            <a href="{{ path('edit_sagardotegi', { id: sagardotegi.id }) }}" class="btn btn-default">Editar</a>
-                            <a href="{{ path('delete_sagardotegi', { id: sagardotegi.id }) }}" class="btn btn-default" onclick="seguro();">Eliminar</a>
+                            <a href="{{ path('edit_sagardotegi', { id: sagardotegi.id }) }}" class="btn btn-default">{{ 'boton.editar' | trans }}</a>
+                            <a href="{{ path('delete_sagardotegi', { id: sagardotegi.id }) }}" class="btn btn-default" onclick="seguro();">{{ 'boton.eliminar' | trans }}</a>
                         </td>
                 </tr>
                 {% endfor %}

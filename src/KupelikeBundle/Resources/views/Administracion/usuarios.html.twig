@@ -1,10 +1,11 @@
-  {% extends 'base.html.twig' %}
+{% extends 'base.html.twig' %}
   
   {% block body %}
   
   
   <div class="container">
-    
+    <div id="chartContainer" style="height: 300px; width: 100%;"></div>  
+
     {% for flashMessage in app.session.flashbag.get('mensaje') %}
     <div class="row">
       <div class="col-xs-12">
@@ -74,4 +75,32 @@
         </div>
       </div>
       
-  {% endblock %}
+
+      <script src={{asset("js/estadisticas.min.js")}}></script>
+      <script type="text/javascript">
+      
+      window.onload = function () {
+      	var chart = new CanvasJS.Chart("chartContainer", {
+      		theme: "theme2",//theme1
+      		title:{
+      			text: "Likes a las kupelas por GENERO"              
+      		},
+      		animationEnabled: false,   // change to true
+      		data: [              
+      		{
+      			// Change type to "bar", "area", "spline", "pie",etc.
+      			type: "pie",
+      			dataPoints: [
+      				{ label: "Mujeres",  y: {{mujeres|length}}},
+      				{ label: "Hombres", y: {{hombres|length}}}
+      				
+      			]
+      		}
+      		]
+      	});
+      	chart.render();
+      }
+      </script>
+
+
+{% endblock %}

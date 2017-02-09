@@ -13,12 +13,18 @@
                     <label>{{ 'labels.kupela.descripcion' | trans }}</label><input type="text" name="descripcion" value="" placeholder="descripcion kupela" class= "formulario">
                     <label>{{ 'labels.kupela.ano' | trans }}</label><input type="text" name="year" value="" placeholder="año kupela" class= "formulario" required>
                     <input type="hidden" name="id-sagardotegi" value="{{ app.request.get('id') }}" class= "formulario"/>
-                    <label>{{ 'labels.kupela.foto' | trans }}</label><input type="file" name="foto" class="formulario" />
+                    <label>{{ 'labels.kupela.foto' | trans }}</label><input type="filepicker" data-fp-apikey="AnjcKYi0oTomOZxBk7c7Ez" onchange="valor(event.fpfile.url)" id="foto" name="foto" class="formulario" value="">
                     <input type="hidden" name="id-sagardotegi" value="{{ app.request.get('id') }}" class= "formulario"/>
                     <button type="submit" class= "formulario" id="enviar" >{{ 'boton.guardar' | trans }}</button>
                     <a href="{{ path("administracion_usuarios",{nombreSidreria: app.user.nombreSidreria})}}"><button id="enviar" class= "formulario">{{ 'boton.cancelar' | trans }}</button></a>
                 </form>
             </div>
+            <script>
+            function valor(valor){
+                //alert(valor);
+                document.getElementById("foto").value = valor;
+            }
+            </script>
         </div>
     </div>
     

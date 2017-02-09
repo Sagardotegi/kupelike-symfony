@@ -11,6 +11,7 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use KupelikeBundle\Entity\Usuario;
 use KupelikeBundle\Entity\Sagardotegi;
 use KupelikeBundle\Entity\Kupela;
+use KupelikeBundle\Entity\Cliente;
 
 class AdministracionController extends Controller
 {
@@ -22,9 +23,32 @@ class AdministracionController extends Controller
          $em = $this->getDoctrine()->getManager();
          $sagardotegi = $em->getRepository('KupelikeBundle:Sagardotegi')->findOneBy(array('nombre'=>$nombreSidreria));
          $kupelas = $em->getRepository('KupelikeBundle:Kupela')->findBy(array('idSagardotegi'=>$sagardotegi->getId()),['nombre' => 'ASC']);
-         return $this->render('KupelikeBundle:Administracion:usuarios.html.twig', array('sidreria'=>$sagardotegi,'kupelas' =>$kupelas));
+         $hombres = $this->getNumHombres($em);
+         $mujeres = $this->getNumMujeres($em);
+         return $this->render('KupelikeBundle:Administracion:usuarios.html.twig', array('sidreria'=>$sagardotegi,'kupelas' =>$kupelas, 'hombres' =>$hombres, 'mujeres' =>$mujeres));
          
          
+    }
+    
+    private function getNumHombres($em)
+    {
+        $query = $em->createQuery(
+            "SELECT c
+            FROM KupelikeBundle:Cliente c
+            WHERE c.sexo = 'male'
+        ");
+       return $query->getResult(); 
+    }
+    
+    private function getNumMujeres($em)
+    {
+        $query = $em->createQuery(
+            "SELECT c
+            FROM KupelikeBundle:Cliente c
+            WHERE c.sexo = 'female'
+            
+            ");
+        return $query->getResult();    
     }
     //funcion para editar las kupelas individualmente
     public function editAction($id)
@@ -44,19 +68,21 @@ class AdministracionController extends Controller
          $nombre = $request->request->get('nombre');
          $descripcion = $request->request->get('descripcion');
          $year = $request->request->get('year');
+         $foto = $request->request->get('foto');
          
          $kupela->setNombre($nombre);
          $kupela->setDescripcion($descripcion);
          $kupela->setYear($year);
+         $kupela->setFoto($foto);
          
          // Obtenemos el archivo de la foto
          /** @var Symfony\Component\HttpFoundation\File\UploadedFile $foto */
-         $foto = $request->files->get('foto');
+         /*$foto = $request->files->get('foto');
          if($foto != null){
          // asignamos un nombre al archivo generado automáticamente
           $nombreFoto = $this->get('app.kupela_uploader')->upload($foto);
           $kupela->setFoto('uploads/kupelas/' . $nombreFoto);
-         }
+         }*/
           
          
           $em->persist($kupela);
@@ -111,12 +137,13 @@ class AdministracionController extends Controller
          
          // Obtenemos el archivo de la foto
          /** @var Symfony\Component\HttpFoundation\File\UploadedFile $foto */
-         $foto = $request->files->get('foto');
-         if($foto != null){
+         //$foto = $request->files->get('foto');
+         $sagardotegi->setFoto($foto);
+         /*if($foto != null){
           // asignamos un nombre al archivo generado automáticamente
           $nombreFoto = $this->get('app.sagardotegi_uploader')->upload($foto);
           $sagardotegi->setFoto('uploads/sagardotegis/' . $nombreFoto);
-         }
+         }*/
           
          
           $em->persist($sagardotegi);
@@ -151,14 +178,16 @@ class AdministracionController extends Controller
          $newKupela->setIdSagardotegi($idSagardotegi);
          $year = $request->request->get('year');
          $newKupela->setYear($year);
+         $foto = $request->request->get('foto');
+         $newKupela->setFoto($foto);
          // Obtenemos el archivo de la foto
          /** @var Symfony\Component\HttpFoundation\File\UploadedFile $foto */
-         $foto = $request->files->get('foto');
+         /*$foto = $request->files->get('foto');
          if($foto != null){
           // asignamos un nombre al archivo generado automáticamente
           $nombreFoto = $this->get('app.kupela_uploader')->upload($foto);
           $newKupela->setFoto('uploads/kupelas/' . $nombreFoto);
-         }
+         }*/
          
          $em = $this->getDoctrine()->getManager();
          $em->persist($newKupela);
@@ -167,8 +196,6 @@ class AdministracionController extends Controller
          $user = $this->get('security.token_storage')->getToken()->getUser();
         
          return $this->redirectToRoute('administracion_usuarios', array('nombreSidreria'=>$user->getNombreSidreria()));
-
-        
     } 
     
     
