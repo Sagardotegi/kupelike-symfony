@@ -123,6 +123,23 @@ $(document).ready(function($) {
     });
 });
 
+
+/*contacto sidrerias*/
+$(document).ready(function() {
+  $("#mostrarcontacto").hide();
+  $("#contactoSidreria").click(function(){
+       
+     $("#mostrarcontacto").show(3000);
+    
+    
+    
+  });
+    
+    
+  
+});
+
+
 /* eliminar archivos de filestack*/
 /*
 filepicker.setKey("AnjcKYi0oTomOZxBk7c7Ez");

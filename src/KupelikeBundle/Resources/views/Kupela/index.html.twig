@@ -8,7 +8,8 @@
                 <h1 class="card-title text-uppercase">{{ sagardotegi.nombre }}</h1>
                     <p class="single-description" id="descripcion">{{ sagardotegi.descripcion }}</p>
                     <a href="{{ path("sagardotegi_mapa", {idSagardotegi:sagardotegi.id}) }}"><button type="button" class="btn btn-default">{{ 'paginas.sidrerias.llegar' | trans }}</button></a>
-                    <a href=""><button type="button" class="btn btn-default">{{ 'paginas.sidrerias.contacto' | trans }}</button></a>
+                    <button id="contactoSidreria" type="button" class="btn btn-default">{{ 'paginas.sidrerias.contacto' | trans }}</button>
+                    <div id="mostrarcontacto">{{ sagardotegi.direccion }}</div>
             </div>
             <div class="col-xs-6">
                 <div class="card-single-direction text-uppercase text-center"><h4>{{ sagardotegi.pueblo }}</h4></div>
