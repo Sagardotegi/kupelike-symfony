@@ -52,7 +52,16 @@ kupela_like:
     path: /kupela_like
     defaults: { _controller: KupelikeBundle:Kupela:like }
     methods: [GET, POST]
+
+kupela_aviso:
+    path: /kupela_aviso
+    defaults: { _controller: KupelikeBundle:Kupela:aviso }
+    methods: [GET, POST]
     
+kupela_avisar:
+    path: /kupela_avisar/{idKupela}
+    defaults: { _controller: KupelikeBundle:Kupela:avisar }
+    #methods: [GET, POST]
 
 pusher:
     path: /pusher/{msg}
