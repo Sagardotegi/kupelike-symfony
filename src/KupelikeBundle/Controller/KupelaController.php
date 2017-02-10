@@ -101,9 +101,9 @@ class KupelaController extends Controller
         return new Response();
     }
     
-    public function avisarAction($idKupela){
+    public function avisarAction($id){
         $em = $this->getDoctrine()->getManager();
-        /*$avisos = $em->getRepository('KupelikeBundle:Voto')->findBy(array('kupelaId' => $idKupela, 'aviso' => 'si'));
+        /*$avisos = $em->getRepository('KupelikeBundle:Voto')->findBy(array('kupelaId' => $id, 'aviso' => 'si'));
         $idcliente = $avisos->getClienteId();
         $cliente = $em->getRepository('KupelikeBundle:Cliente')->find($idcliente);
         $email = $cliente->getEmail();*/
@@ -111,12 +111,12 @@ class KupelaController extends Controller
         $emails = $em->createQuery('SELECT c.email FROM KupelikeBundle:Cliente c, KupelikeBundle:Voto v
                 WHERE v.aviso = :aviso AND v.kupelaId = :kupela AND v.clienteId = c.id')
                 ->setParameter('aviso','si')
-                ->setParameter('kupela',$idKupela)
+                ->setParameter('kupela',$id)
                 ->getResult();
                 
         $datos = $em->createQuery('SELECT k.nombre as kupela, s.nombre as sagardotegi FROM KupelikeBundle:Kupela k, KupelikeBundle:Sagardotegi s
                 WHERE k.idSagardotegi = s.id AND k.id = :kupela')
-                ->setParameter('kupela',$idKupela)
+                ->setParameter('kupela',$id)
                 ->getResult();
           
          $mail = \Swift_Message::newInstance()
@@ -127,7 +127,7 @@ class KupelaController extends Controller
             /*->addPart("<h1>".$datos."</h1>aaa<h2>Mensaje del cliente</h2>
                 <p>bbb</p>
                 <h2>Email Cliente</h2>
-                </br>" .$idKupela);*/
+                </br>" .$id);*/
             
             foreach($datos as $datos2)    {
 

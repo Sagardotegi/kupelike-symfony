@@ -59,7 +59,7 @@ kupela_aviso:
     methods: [GET, POST]
     
 kupela_avisar:
-    path: /kupela_avisar/{idKupela}
+    path: /kupela_avisar/{id}
     defaults: { _controller: KupelikeBundle:Kupela:avisar }
     #methods: [GET, POST]
 
