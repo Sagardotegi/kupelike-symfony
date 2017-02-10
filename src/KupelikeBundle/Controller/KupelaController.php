@@ -120,7 +120,7 @@ class KupelaController extends Controller
                 ->getResult();
           
          $mail = \Swift_Message::newInstance()
-            ->setSubject('KupeLike - Contacto - ')
+            ->setSubject('KupeLike - La kupela ha sido embotellada')
             ->setFrom("kupelikeproject@gmail.com")
             //->setTo($emails)
             ->setBody('');
