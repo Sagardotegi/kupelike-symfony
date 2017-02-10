@@ -32,6 +32,17 @@
                 //getAPI(idKupela);
                 //location.reload();
             });
+            
+            $('.btn-aviso').click(function(){
+                var idKupela = $(this).attr('numero');
+                FB.getLoginStatus(function(response) {
+                    if (response.status === 'connected') {
+                        aviso(idKupela);
+                    } else {
+                        fb_login(idKupela);
+                    }
+                });
+            });
         };
         
         (function(d, s, id){
@@ -53,7 +64,7 @@
                     getAPI(idKupela);
                     location.reload();
                 }
-            //}, {"scope":"email,user_birthday,user_location,user_hometown"});
+            //}, {"scope":"email,user_birthday,user_location"});
             }, {"scope":"email"});
             //getAPI(idKupela);
         }
@@ -61,7 +72,7 @@
         function getAPI(idKupela)
         {
             // obtiene información del usuario y la muestra
-            //FB.api("/me?fields=id,name,email,age_range,birthday,gender,hometown,location", function(response){
+            //FB.api("/me?fields=id,name,email,age_range,birthday,gender,location", function(response){
             FB.api("/me?fields=id,name,email,age_range,gender", function(response){
                 // la información se envía en JSON al controlador Kupela
                 //$('#btn-facebook').click(function(){
@@ -79,6 +90,18 @@
                 });
                 
                 
+            });
+        }
+        
+        function aviso(idKupela)
+        {
+            FB.api("/me?fields=id,name,email,age_range,gender", function(response){
+                $.ajax({
+                    type: "POST",
+                    dataType: "json",
+                    url: "{{ path('kupela_aviso') }}",
+                    data: {response, idKupela: idKupela }
+                });
             });
         }
     </script>
