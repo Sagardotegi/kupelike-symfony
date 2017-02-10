@@ -67,7 +67,7 @@
                     <td>{{kupela.nombre}}</td>
                     <td>{{kupela.descripcion}}</td>
                     <td>{{kupela.year}}
-                    <button class="btn btn-primary">Embotellado</button>
+                    <a href="{{ path("kupela_avisar",{id:kupela.id})}}"><button class="btn btn-primary">Embotellado</button></a>
                     </td>
                     <td><a href="{{ path("editar_kupela",{id:kupela.id})}}"><button class="btn btn-primary">{{ 'boton.editar' | trans }}</button></a><br/>
                     <a href="{{ path("eliminar_kupela",{id:kupela.id})}}" onclick="seguro();"><button class="btn btn-primary">{{ 'boton.eliminar' | trans }}</button></a></td>
