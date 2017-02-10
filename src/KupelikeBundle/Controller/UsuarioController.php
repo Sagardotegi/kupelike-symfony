@@ -166,13 +166,14 @@ class UsuarioController extends Controller
         $pueblo = $request->request->get('pueblo');
         $latitud = $request->request->get('latitud');
         $longitud = $request->request->get('longitud');
+        $foto = $request->request->get('foto');
         /** @var Symfony\Component\HttpFoundation\File\UploadedFile $foto */
-        $foto = $request->files->get('foto');
+        /*$foto = $request->files->get('foto');
         if($foto != null){
             // asignamos un nombre al archivo generado automáticamente
             $nombreFoto = $this->get('app.sagardotegi_uploader')->upload($foto);
             $sagardotegi->setFoto('uploads/sagardotegis/' . $nombreFoto);
-        }
+        }*/
         
         $sagardotegi->setNombre($nombre);
         $sagardotegi->setDescripcion($descripcion);
@@ -181,6 +182,7 @@ class UsuarioController extends Controller
         $sagardotegi->setLatitud($latitud);
         $sagardotegi->setLongitud($longitud);
         $sagardotegi->setPueblo($pueblo);
+        $sagardotegi->setFoto($foto);
        
         
         $em = $this->getDoctrine()->getManager();
