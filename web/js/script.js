@@ -77,14 +77,14 @@ function cambiarActive(){
     var url = window.location.pathname;
     
     if ( url.indexOf("/es/") > -1 ) {
-        $('.idiomas .es').addClass('idiomas-active');
-        $('.idiomas-side .es').addClass('idiomas-side-active');
+        $('.es').addClass('idiomas-active');
+        $('.es').addClass('idiomas-side-active');
     } else if( url.indexOf("/eus/") > -1 ){
-        $('.idiomas .eus').addClass('idiomas-active');
-        $('.idiomas-side .eus').addClass('idiomas-side-active');
+        $('.eus').addClass('idiomas-active');
+        $('.eus').addClass('idiomas-side-active');
     } else if( url.indexOf("/en/") > -1 ){
-        $('.idiomas .en').addClass('idiomas-active');
-        $('.idiomas-side .en').addClass('idiomas-side-active');
+        $('.en').addClass('idiomas-active');
+        $('.en').addClass('idiomas-side-active');
     }
 }
 
