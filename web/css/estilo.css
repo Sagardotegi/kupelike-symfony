@@ -24,7 +24,7 @@ font-family: 'Lobster', cursive;
 
 /* Bootstrap Override */
 body {
-    padding-top: 125px;
+    padding-top: 135px;
 }
 
 /* Scrollbar */
@@ -858,7 +858,7 @@ textarea{
     
     font-family: 'Roboto', sans-serif;
     letter-spacing: 2px;
-    font-size: large;
+    font-size: medium;
     text-align: justify;
     margin-left: 20px;
 }
@@ -930,7 +930,7 @@ textarea{
     border-radius: 50px;
     width: 75px;
     height: 75px;
-    margin: 15px 0px;
+    margin: 15px 5px;
 }
 
 .vote-count {
@@ -1079,197 +1079,63 @@ hr.search-hr {
     color: white !important;
 }
 
-/**************** lider new ***********************/
+/* On/Off Slider */
 
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
 
+/* Hide default HTML checkbox */
+.switch input {display:none;}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/** titulo index 
-
-<div class='title-carrusel'>
-              <div class='visible'>
-                <p>
-                  Disfruta de la Sidra con
-                </p>
-                <ul>
-                  <li>Amigos !</li>
-                  <li>Familia !</li>
-                  <li>Pareja !</li>
-                  <li>KupeLike !</li>
-                </ul>
-              </div>
-            </div>
-
-.title-carrusel {
+/* The slider */
+.slider {
   position: absolute;
-  top: 50%;
-  
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  font-size: 35px;
-  line-height: 40px;
-  font-family: 'Lato', sans-serif;
-  color: #ecf0f1;
-  height: 160px;
-  overflow: hidden;
-}
-
-.title-carrusel > .visible {
-  font-weight: 600;
-  overflow: hidden;
-  height: 50px;
-  padding: 0 40px;
-}
-.title-carrusel > .visible:before {
-  content: '[';
-  left: 0;
-  line-height: 40px;
-}
-.title-carrusel > .visible:after {
-  content: ']';
-  position: absolute;
-  right: 0;
-  line-height: 40px;
-}
-.title-carrusel > .visible:after, .visible:before {
-  position: absolute;
+  cursor: pointer;
   top: 0;
-  color: #16a085;
-  font-size: 42px;
-  -webkit-animation-name: opacity;
-  -webkit-animation-duration: 2s;
-  -webkit-animation-iteration-count: infinite;
-  -webkit-animation-name: opacity;
-          animation-name: opacity;
-  -webkit-animation-duration: 2s;
-          animation-duration: 2s;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
 }
 
-.title-carrusel > .visible > p {
-  display: inline;
-  float: left;
-  margin: 0;
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
 }
 
-.title-carrusel > .visible > ul {
-  margin-top: 0;
-  padding-left: 350px;
-  text-align: left;
-  list-style: none;
-  -webkit-animation-name: change;
-  -webkit-animation-duration: 6s;
-  -webkit-animation-iteration-count: infinite;
-  -webkit-animation-name: change;
-          animation-name: change;
-  -webkit-animation-duration: 6s;
-          animation-duration: 6s;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
+input:checked + .slider {
+  background-color: #2196F3;
 }
 
-.title-carrusel > .visible > ul > li {
-  line-height: 45px;
-  margin-left: 20px;
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
 }
 
-@-webkit-keyframes opacity {
-  0%, 100% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-}
-@-webkit-keyframes change {
-  0%, 12%, 100% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-  }
-  17%,29% {
-    -webkit-transform: translateY(-50px);
-            transform: translateY(-50px);
-  }
-  34%,46% {
-    -webkit-transform: translateY(-100px);
-            transform: translateY(-100px);
-  }
-  51%,63% {
-    -webkit-transform: translateY(-150px);
-            transform: translateY(-150px);
-  }
-  68%,80% {
-    -webkit-transform: translateY(-100px);
-            transform: translateY(-100px);
-  }
-  85%,97% {
-    -webkit-transform: translateY(-50px);
-            transform: translateY(-50px);
-  }
-}
-@keyframes opacity {
-  0%, 100% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-}
-@keyframes change {
-  0%, 12%, 100% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-  }
-  17%,29% {
-    -webkit-transform: translateY(-25%);
-            transform: translateY(-25%);
-  }
-  34%,46% {
-    -webkit-transform: translateY(-50%);
-            transform: translateY(-50%);
-  }
-  51%,63% {
-    -webkit-transform: translateY(-75%);
-            transform: translateY(-75%);
-  }
-  68%,80% {
-    -webkit-transform: translateY(-50%);
-            transform: translateY(-50%);
-  }
-  85%,97% {
-    -webkit-transform: translateY(-25%);
-            transform: translateY(-25%);
-  }
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
 }
 
-*/
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
 
+.slider.round:before {
+  border-radius: 50%;
+}

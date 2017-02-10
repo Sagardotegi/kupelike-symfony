@@ -29,7 +29,14 @@
                         <td>{{ usuario.nombre }} {{ usuario.apellidos }}</td>
                         <td>{{ usuario.nombreSidreria }}</td>
                         <td>{{ usuario.email }}</td>
-                        <td>{{ usuario.telefono }}</td>
+                        <td>
+                            {{ usuario.telefono }}
+                            <br/>
+                            <label class="switch">
+                              <input type="checkbox">
+                              <div class="slider round"></div>
+                            </label>
+                        </td>
                         <td><a href="{{ path('editar_usuario', { id: usuario.id }) }}" class="btn btn-default">{{ 'boton.editar' | trans }}</a></td>
                         <td><a href="{{ path('eliminar_usuario', { id: usuario.id }) }}" class="btn btn-default" onclick="seguro();">{{ 'boton.eliminar' | trans }}</a></td>
                 </tr>
