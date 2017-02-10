@@ -21,6 +21,16 @@
                             </div> 
                             <div class="row">
                                 <div class="col-xs-12">
+                                    <label>{{ 'labels.sidreria.telefono' | trans }}</label><input type="text" name="telefono" class="formulario" value="{{sidreria.telefono}}" placeholder="Telefono"/>
+                                </div>
+                            </div> 
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <label>{{ 'labels.sidreria.email' | trans }}</label><input type="text" name="email" class="formulario" value="{{sidreria.email}}" placeholder="Email" />
+                                </div>
+                            </div> 
+                            <div class="row">
+                                <div class="col-xs-12">
                                     <label>{{ 'labels.sidreria.foto' | trans }}</label><input type="file" id="foto2" name="foto2" class="formulario" value="{{sidreria.foto}}"/>
                                     <input type="hidden" name="foto" class="formulario" id="foto" value="{{sidreria.foto}}"/><!--<input type="filepicker" data-fp-apikey="AnjcKYi0oTomOZxBk7c7Ez" onchange="valor(event.fpfile.url)" id="foto" name="foto" class="formulario" value="{{sidreria.foto}}">-->
                                 </div>

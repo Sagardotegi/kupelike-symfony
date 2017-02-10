@@ -126,16 +126,21 @@ $(document).ready(function($) {
 
 /*contacto sidrerias*/
 $(document).ready(function() {
-  $("#mostrarcontacto").hide();
+  
+  var mostrado = false;
+    
   $("#contactoSidreria").click(function(){
-       
-     $("#mostrarcontacto").show(3000);
-    
-    
-    
+    if(mostrado == false){
+     $("#mostrarcontacto").fadeIn(1000);
+     mostrado = true;
+    }else if(mostrado == true){
+     $("#mostrarcontacto").fadeOut(1000); 
+     mostrado = false;
+    } 
+     
   });
-    
-    
+  
+  
   
 });
 
