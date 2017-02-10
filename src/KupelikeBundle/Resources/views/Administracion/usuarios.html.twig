@@ -61,7 +61,13 @@
                     <td><img class="img-rounded img-kupela-lista"src="{{asset(kupela.foto)}}" /></td>
                     <td>{{kupela.nombre}}</td>
                     <td>{{kupela.descripcion}}</td>
-                    <td>{{kupela.year}}</td>
+                    <td>{{kupela.year}}
+                    <h4>Embotellado</h4>
+                    <label class="switch">
+                      <input type="checkbox">
+                      <div class="slider round"></div>
+                    </label>
+                    </td>
                     <td><a href="{{ path("editar_kupela",{id:kupela.id})}}"><button class="btn btn-primary">{{ 'boton.editar' | trans }}</button></a></td>
                     <td><a href="{{ path("eliminar_kupela",{id:kupela.id})}}" onclick="seguro();"><button class="btn btn-primary">{{ 'boton.eliminar' | trans }}</button></a></td>
                 </tbody>
