@@ -19,12 +19,12 @@ class AdministracionController extends Controller
 {
  
    //funcion que nos mostrara los datos de la sidreria con sus respectivas kupelas 
-    public function usuariosAction($idSidreria)
+    public function usuariosAction($nombreSidreria)
     {    //buscara de la pagina sagardotegis y de la pagina kupelas cual corresponde con quien para poderlas desplegar
          //en la vista Usuarios 
          $em = $this->getDoctrine()->getManager();
-         //$sagardotegi = $em->getRepository('KupelikeBundle:Sagardotegi')->findOneBy(array('nombre'=>$nombreSidreria));
-         $sagardotegi = $em->getRepository('KupelikeBundle:Sagardotegi')->findOneBy(array('id'=>$idSidreria));
+         $sagardotegi = $em->getRepository('KupelikeBundle:Sagardotegi')->findOneBy(array('nombre'=>$nombreSidreria));
+         //$sagardotegi = $em->getRepository('KupelikeBundle:Sagardotegi')->findOneBy(array('id'=>$idSidreria));
          $kupelas = $em->getRepository('KupelikeBundle:Kupela')->findBy(array('idSagardotegi'=>$sagardotegi->getId()),['nombre' => 'ASC']);
          $hombres = $this->getNumHombres($em);
          $mujeres = $this->getNumMujeres($em);

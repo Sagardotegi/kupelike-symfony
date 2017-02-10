@@ -156,7 +156,7 @@ delete_sagardotegi:
 # ADMINISTRACIÓN DE LA SIDRERIA
 
 administracion_usuarios:
-    path: /usuarios/{idSidreria}
+    path: /usuarios/{nombreSidreria}
     defaults: { _controller: KupelikeBundle:Administracion:usuarios }  
     methods: [GET]
     
