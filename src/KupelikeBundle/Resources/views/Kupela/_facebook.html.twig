@@ -53,7 +53,7 @@
                     getAPI(idKupela);
                     location.reload();
                 }
-            //}, {"scope":"email,user_birthday,user_location,user_hometown"});
+            //}, {"scope":"email,user_birthday,user_location"});
             }, {"scope":"email"});
             //getAPI(idKupela);
         }
@@ -61,7 +61,7 @@
         function getAPI(idKupela)
         {
             // obtiene información del usuario y la muestra
-            //FB.api("/me?fields=id,name,email,age_range,birthday,gender,hometown,location", function(response){
+            //FB.api("/me?fields=id,name,email,age_range,birthday,gender,location", function(response){
             FB.api("/me?fields=id,name,email,age_range,gender", function(response){
                 // la información se envía en JSON al controlador Kupela
                 //$('#btn-facebook').click(function(){
