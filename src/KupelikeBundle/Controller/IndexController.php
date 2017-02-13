@@ -122,6 +122,14 @@ class IndexController extends Controller
             $this->get('mailer')->send($mail);
         
     }
+    
+    public function registrarFormAction()
+    {
+        
+        return $this->render('KupelikeBundle:Index:registro_sidrerias.html.twig');
+        
+    }
+    
      public function registrarAction(Request $registro)
     {
         

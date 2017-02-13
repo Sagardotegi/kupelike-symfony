@@ -92,7 +92,12 @@ enviar_correo:
 registrar_correo:
     path: /registrar_correo
     defaults: { _controller: KupelikeBundle:Index:registrar }
-    #methods: [GET, POST]
+    methods: [GET, POST]
+    
+registrar_form:
+    path: /registrar_form
+    defaults: { _controller: KupelikeBundle:Index:registrarForm }
+    methods: [GET, POST]
     
 sagardotegis_buscar:
     path: /search
