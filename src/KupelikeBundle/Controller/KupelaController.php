@@ -16,6 +16,10 @@ use Symfony\Component\Serializer\Encoder\XmlEncoder;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 
+
+use KupelikeBundle\Entity\Cliente;
+use KupelikeBundle\Entity\Voto;
+
 class KupelaController extends Controller
 {
     
@@ -24,6 +28,7 @@ class KupelaController extends Controller
      */
     public function likeAction(Request $request)
     {
+        
         // obtenemos los datos enviados por ajax
         $datos = $request->request->get('response');
         $idCliente = $datos['id'];
@@ -53,6 +58,7 @@ class KupelaController extends Controller
         // busca el id de facebook en la tabla Cliente
         $clienteExists = $em->getRepository('KupelikeBundle:Cliente')->find($idCliente);
         
+        
         // si el id de facebook existe
         if($clienteExists){
             // añade un nuevo voto
@@ -67,6 +73,21 @@ class KupelaController extends Controller
 
         return new Response();
     }
+    
+       
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     /**
      * Almacena un aviso en la kupela
