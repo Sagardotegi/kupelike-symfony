@@ -73,17 +73,17 @@ swiftmailer:
     auth_mode:  login
     host:       smtp.gmail.com
     #port:       465
-    username:  "kupelikeproject@gmail.com"
-    password:  "Abcd_1234"
+    username:  "%mail_username%"
+    password:  "%mail_password%"
     
     
 
 
 # app/config/config.yml
 lopi_pusher:
-    app_id: "295127"
-    key: "a37218af0d3c7dcfceae"
-    secret: "d0680cf0b9eb69867826"
+    app_id: "%pusher_id%"
+    key: "%pusher_key%"
+    secret: "%pusher_secret%"
     #app_id: "%pusher.app_id%"
     #key: "%pusher.app_key%"
     #secret: "%pusher.app_secret%"
