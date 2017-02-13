@@ -21,6 +21,7 @@ paginas_estaticas:
         buscar: "Buscar"
     landing:
         txotx: "Una buena conversación se abre siempre con un Txotx!"
+        subtitulo: "Con tu ayuda, mantenemos viva la tradición más famosa de nuestra cultura."
         encuentra: "Encuentra tu sidrería"
     footer:
         inicio: "Inicio"
@@ -72,6 +73,8 @@ boton:
     guardar: "Guardar"
     cancelar: "Cancelar"
     crear: "Crear"
+    aviso: "Recibir aviso"
+    embotellado: "Embotellado"
 titulos:
     mapa: "Mapa"
     sidrerias: "Sidrerías"

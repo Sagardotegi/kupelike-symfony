@@ -21,6 +21,7 @@ paginas_estaticas:
         buscar: "Bilatu"
     landing:
         txotx: "Elkarrizketa on bat beti Txotx! batekin hasten da."
+        subtitulo: "Zure laguntzarekin, gure kulturako tradiziorik famatuena bizirik mantentzen dugu."
         encuentra: "Zure sagardotegia aurkitu"
     footer:
         inicio: "Hasiera"
@@ -70,6 +71,8 @@ boton:
     guardar: "Gorde"
     cancelar: "Ezeztatu"
     crear: "Sortu"
+    aviso: "Abisua jaso"
+    embotellado: "Botilaratuta"
 titulos:
     mapa: "Mapa"
     sidrerias: "Sagardotegiak"

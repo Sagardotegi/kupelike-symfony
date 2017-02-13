@@ -21,6 +21,7 @@ paginas_estaticas:
         buscar: "Search"
     landing:
         txotx: "A good conversation always starts with a Txotx!"
+        subtitulo: "With your help, we keep alive the most famous tradition of our culture."
         encuentra: "Find your cider house"
     footer:
         inicio: "Home"
@@ -70,6 +71,8 @@ boton:
     guardar: "Save"
     cancelar: "Cancel"
     crear: "Create"
+    aviso: "Get notification"
+    embotellado: "Bottled"
 titulos:
     mapa: "Map"
     sidrerias: "Cider Houses"
