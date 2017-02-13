@@ -13,11 +13,16 @@
                 <link rel="stylesheet" type="text/css" href="{{ asset('css/estilo_prod.css') }}" />
             {% endif %}
         <link href="{{ asset('/css/font-awesome.min.css') }}" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Roboto|Lobster" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Roboto|Lobster|Lato" rel="stylesheet">
+
+         
+        <script src="https://js.pusher.com/3.2/pusher.min.js"></script>
+        <script src="{{ asset('js/jquery.min.js') }}"></script>
+
         <script src="https://js.pusher.com/3.2/pusher.min.js"></script>
         <script type="text/javascript" src="//api.filestackapi.com/filestack.js"></script>
-        <script src="{{ asset('js/jquery.min.js') }}"></script>
+        
+
         <script>
 $(document).ready(function(){
     $('#search').on('keyup keypress', function(e) {
@@ -156,7 +161,7 @@ $(document).ready(function(){
                         <li><a href="{{path('panel_sagardotegis')}}">{{ 'paginas_estaticas.menu.admsidre' | trans }}</a></li>
                     {% elseif app.user.role == 'ROLE_SIDRERO' %}
                         <li><a href="{{path("administracion_usuarios", { nombreSidreria: app.user.nombreSidreria })}}">{{ 'paginas_estaticas.menu.misidre' | trans }}</a></li>
-                        <li><a href="{{path("change_password", { id: app.user.id })}}">{{ 'paginas_estaticas.menu.change_password' | trans }}</a></li>
+                        <li><a class="btn-margin" href="{{path("editar_perfil", { id: app.user.id })}}">{{ 'paginas_estaticas.menu.perfil' | trans }}</a></li>
                     {% endif %}
                     <li><a href="{{path("contacto")}}">{{ 'paginas_estaticas.menu.ayuda' | trans }}</a></li>
                     <li><a href="{{path("logout")}}">{{ 'paginas_estaticas.menu.salir' | trans }}</a></li>
@@ -185,7 +190,7 @@ $(document).ready(function(){
                     <form class="login_form" action="{{ path('login_check') }}" method="post">
                         <input name="_username" id="username" class= "formulario" type="text" required placeholder="{{ 'paginas_estaticas.menu.acceder.usuario' | trans }}"/>
                         <input name="_password" id="password" class= "formulario" type="password" required placeholder="{{ 'paginas_estaticas.menu.acceder.contrasena' | trans }}"/>
-                        <input id="enviar" class="formulario" type="submit" value="{{ 'paginas_estaticas.menu.acceder.acceder' | trans }}" />
+                        <button id="enviar" class="formulario" type="submit">{{ 'paginas_estaticas.menu.acceder.acceder' | trans }}</button>
                     </form>
                 </div>
                 <div class="col-xs-12">
@@ -258,10 +263,10 @@ $(document).ready(function(){
             </footer>
         
         </div><!-- .container-fluid -->
-        
-        <script src="{{ asset('js/jquery.min.js') }}"></script>
+       
         <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+        <script type="text/javascript" src="//api.filestackapi.com/filestack.js"></script>
         <script src="{{ asset('js/script.js') }}"></script>
-        
-    </body>
+       
+        </body>
 </html>

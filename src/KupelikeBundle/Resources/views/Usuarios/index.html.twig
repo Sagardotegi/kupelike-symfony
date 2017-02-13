@@ -30,8 +30,8 @@
                         <td>{{ usuario.nombreSidreria }}</td>
                         <td>{{ usuario.email }}</td>
                         <td>{{ usuario.telefono }}</td>
-                        <td><a href="{{ path('editar_usuario', { id: usuario.id }) }}" class="btn btn-default">{{ 'boton.editar' | trans }}</a></td>
-                        <td><a href="{{ path('eliminar_usuario', { id: usuario.id }) }}" class="btn btn-default" onclick="seguro();">{{ 'boton.eliminar' | trans }}</a></td>
+                        <td><a href="{{ path('editar_usuario', { id: usuario.id }) }}" class="btn btn-default">{{ 'boton.editar' | trans }}</a><br/>
+                        <a href="{{ path('eliminar_usuario', { id: usuario.id }) }}" class="btn btn-default" onclick="seguro();">{{ 'boton.eliminar' | trans }}</a></td>
                 </tr>
                 {% endfor %}
             </table>

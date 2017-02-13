@@ -1,41 +1,58 @@
 {% extends 'base.html.twig' %}
-
-{% block body %}
-
-
-<div class="container-fluid content">
-<div id="chartContainer" style="height: 300px; width: 100%;"></div>  
-  <div class="row">
+  
+  {% block body %}
+  
+  
+  <div class="container">
+   <div class="row"> 
+    <div class="col-md-3 col-lg-6 col-sm-3 ">
+      <div id="chartContainer" style="height: 200px; width: 100%;"></div>
+    </div>  
+    <div class="col-md-3 col-lg-6 col-sm-3 ">
+      <div id="chartContainer2" style="height: 200px; width: 100%;"></div> 
+    </div> 
+   </div> 
     {% for flashMessage in app.session.flashbag.get('mensaje') %}
-    	<div class="alert alert-success" role="alert">
-    		<div class="container"> {{ flashMessage }} </div>
-    	</div>
+    <div class="row">
+      <div class="col-xs-12">
+      	<div class="alert alert-success" role="alert">
+      		<div class="container"> {{ flashMessage }} </div>
+      	</div>
+      </div>
+    </div>
     {% endfor %}
+    
+    <div class="row">
+      <div class="col-xs-12">
+        <h1 class="page-header">{{ 'titulos.perfilsidre' | trans }}</h1>
+        </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-xs-6">
+          <h1 class="card-title">{{sidreria.nombre}}</h1>
+          <p class="card-description" id="descripcion">{{sidreria.descripcion}}</p>
+          <p class="card-description" id="horario">{{sidreria.horario}}</p>
+          <a href="{{ path("editar_sagardotegi",{idSagardotegi:sidreria.id})}}"><button class="btn btn-primary">{{ 'boton.editar' | trans }}</button></a>
+     </div>
+     <div class="col-xs-6">
+       <div class="card-single-direction text-uppercase text-center"><h4>{{sidreria.pueblo}}</h4></div>
+       <img src= "{{asset(sidreria.foto)}}"  class="img-responsive single-img img-rounded" alt="Responsive image">
+      </div>
+    </div>
+    
   </div>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-sm-9  col-md-12  main">
-          <h1 class="page-header">{{ 'titulos.perfilsidre' | trans }}</h1>
-          <div class="col-sm-5">
-              <h1 class="card-title">{{sidreria.nombre}}</h1>
-              <p class="card-description" id="descripcion">{{sidreria.descripcion}}</p>
-              <p class="card-description" id="horario">{{sidreria.horario}}</p>
-              <a href="{{ path("editar_sagardotegi",{idSagardotegi:sidreria.id})}}"><button class="btn btn-primary">{{ 'boton.editar' | trans }}</button></a>
-         </div>
-         <div class="col-sm-6 col-sm-offset-1">
-           <div class="card-direction text-uppercase text-center">{{sidreria.pueblo}}</div>
-
-           <img src= "{{asset(sidreria.foto)}}"  class="img-responsive" alt="Responsive image">
-              
-        </div>   
-      </div>  
-
-        </div>   
-      </div>  
-      <div class="col-sm-12  main">
+    
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-9 col-xs-offset-1">
           <h2 class="page-header">{{ 'titulos.listakupelas' | trans }}</h2>
-        <div class="col-sm-12">
-            <div id="nueva_kupela"><a href="{{ path("nueva_kupela",{id:sidreria.id})}}"><i id= "plus" class="fa fa-plus-square-o fa-5x" aria-hidden="true"></i></a></div>
+      </div>
+      <div class="col-xs-1">
+          <div class="add-kupela pull-right"><a href="{{ path("nueva_kupela",{id:sidreria.id})}}"><i id= "plus" class="fa fa-plus-square-o fa-4x" aria-hidden="true"></i></a></div>
+      </div>  
+      <div class="col-xs-10 col-xs-offset-1">
+            
             <div class="table-responsive">
               {%for kupela in kupelas %}
               <table class="table table-striped">
@@ -54,18 +71,21 @@
                     <td><img class="img-rounded img-kupela-lista"src="{{asset(kupela.foto)}}" /></td>
                     <td>{{kupela.nombre}}</td>
                     <td>{{kupela.descripcion}}</td>
-                    <td>{{kupela.year}}</td>
-                    <td><a href="{{ path("editar_kupela",{id:kupela.id})}}"><button class="btn btn-primary">{{ 'boton.editar' | trans }}</button></a></td>
-                    <td><a href="{{ path("eliminar_kupela",{id:kupela.id})}}" onclick="seguro();"><button class="btn btn-primary">{{ 'boton.eliminar' | trans }}</button></a></td>
+                    <td>{{kupela.year}}
+                    <a href="{{ path("kupela_avisar",{id:kupela.id})}}"><button class="btn btn-primary">Embotellado</button></a>
+                    </td>
+                    <td><a href="{{ path("editar_kupela",{id:kupela.id})}}"><button class="btn btn-primary">{{ 'boton.editar' | trans }}</button></a><br/>
+                    <a href="{{ path("eliminar_kupela",{id:kupela.id})}}" onclick="seguro();"><button class="btn btn-primary">{{ 'boton.eliminar' | trans }}</button></a></td>
                 </tbody>
               </table>
               {%endfor%}
              
             </div>
 
-          </div>
         </div>
-      <!--</div>-->
+      </div>
+      
+      
 
       <script src={{asset("js/estadisticas.min.js")}}></script>
       <script type="text/javascript">
@@ -90,8 +110,36 @@
       		]
       	});
       	chart.render();
+        	
+        	
+        	
+      	var chart2 = new CanvasJS.Chart("chartContainer2", {
+      		theme: "theme2",//theme1
+      		title:{
+      			text: "Numero Votos por fecha"              
+      		},
+      		animationEnabled: false,   // change to true
+      		data: [              
+      		{
+      			// Change type to "bar", "area", "spline", "pie",etc.
+      			type: "column",
+      			dataPoints: [
+      			  {% for fecha in fechas %}
+      			    	{ label: "{{fecha.fecha | date("d/m/Y")}}",  y: {{fecha.NumVotos}} },
+      			  {% endfor %}
+      	
+      			]
+      		}
+      		]
+      	});
+      	chart2.render();
       }
+      
+      
+              {% for fecha in fechas %}
+      			    	console.log({{fecha.fecha}});
+      			  {% endfor %}
       </script>
 
-
+ 
 {% endblock %}

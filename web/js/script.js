@@ -72,31 +72,19 @@ function zoomEnable(){
   $('head meta[name=viewport]').remove();
   $('head').prepend('<meta name="viewport" content="user-scalable=1" />');
 }
-    
-/* APP info script */
-
-/*$(document).ready(function($) {
-  
-      $('.info-icon').hover(function(){
-          $(this).slideToggle(1000);
-          $(this).siblings('.info-textarea').slideToggle(1000);
-       
-    });
-});*/
-
 
 function cambiarActive(){
     var url = window.location.pathname;
     
     if ( url.indexOf("/es/") > -1 ) {
-        $('.idiomas .es').addClass('idiomas-active');
-        $('.idiomas-side .es').addClass('idiomas-side-active');
+        $('.es').addClass('idiomas-active');
+        $('.es').addClass('idiomas-side-active');
     } else if( url.indexOf("/eus/") > -1 ){
-        $('.idiomas .eus').addClass('idiomas-active');
-        $('.idiomas-side .eus').addClass('idiomas-side-active');
+        $('.eus').addClass('idiomas-active');
+        $('.eus').addClass('idiomas-side-active');
     } else if( url.indexOf("/en/") > -1 ){
-        $('.idiomas .en').addClass('idiomas-active');
-        $('.idiomas-side .en').addClass('idiomas-side-active');
+        $('.en').addClass('idiomas-active');
+        $('.en').addClass('idiomas-side-active');
     }
 }
 
@@ -110,3 +98,80 @@ confirmar=confirm("¿Seguro?");
         return false;
     }           
 }
+
+/*filepicker de filestack*/
+$(document).ready(function($) {
+    $("#foto2").click(function(){
+        filepicker.setKey("AnjcKYi0oTomOZxBk7c7Ez");
+        filepicker.pick(
+          {
+            imageQuality: 80,
+            //imageMax: [800, 600],
+            //imageMin: [300, 200],
+            //imageDim: [400, 300],
+            mimetype: 'image/*',
+            container: 'window',
+            services: ['COMPUTER', 'FACEBOOK', 'INSTAGRAM', 'GOOGLE_DRIVE', 'DROPBOX']
+          },
+          function(Blob){
+            $("#foto").val(Blob.url);
+          },
+          function(FPError){
+            console.log(FPError.toString());
+         });
+        
+    });
+});
+
+
+/*contacto sidrerias*/
+$(document).ready(function() {
+  
+  var mostrado = false;
+    
+  $("#contactoSidreria").click(function(){
+    if(mostrado == false){
+     $("#mostrarcontacto").fadeIn(1000);
+     mostrado = true;
+    }else if(mostrado == true){
+     $("#mostrarcontacto").fadeOut(1000); 
+     mostrado = false;
+    } 
+     
+  });
+  
+  
+  
+});
+
+
+/* eliminar archivos de filestack*/
+/*
+filepicker.setKey("AnjcKYi0oTomOZxBk7c7Ez");
+
+var blob = {
+  url: ''
+};
+    console.log(JSON.stringify(blob));
+    var cdn_url = blob.url;
+    console.log("Removing...");
+    filepicker.remove(
+      blob, {
+        policy: 'eyJleHBpcnkiOjE2ODgxMzkwNTJ9',
+        signature: '89b33aeb5bd917c9df3b5949396460bba8a3f4f41e2f6b7c9854e29b965ceed5'
+      },
+      function(blob) {
+        console.log("Removed");
+        filepicker.remove(
+          cdn_url,
+          function(FPError) {
+            console.log(FPError.toString());
+          },
+          function(metadata) {
+            console.log("removing file again (expected result: error 171)...");
+            console.log(JSON.stringify(metadata));
+          }
+        );
+      }
+    );
+    */

@@ -22,9 +22,9 @@ class Kupela
     private $id;
     
     /**
-     * @var string
+     * @var integer
      *
-     * @ORM\Column(name="id_sagardotegi", type="string", length=255)
+     * @ORM\Column(name="id_sagardotegi", type="integer")
      * @ORM\OneToMany(targetEntity="Sagardotegi", mappedBy="kupela")
      */
     private $idSagardotegi;

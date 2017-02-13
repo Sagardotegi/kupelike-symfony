@@ -15,3 +15,8 @@ parameters:
     secret: ThisTokenIsNotSoSecretChangeIt
     facebook_id: 765683296917544
     facebook_secret: 31ad4ff7d32353f15149a55b4b965596
+    mail_username: kupelikeproject@gmail.com
+    mail_password: Abcd_1234
+    pusher_id: 295127
+    pusher_key: a37218af0d3c7dcfceae
+    pusher_secret: d0680cf0b9eb69867826

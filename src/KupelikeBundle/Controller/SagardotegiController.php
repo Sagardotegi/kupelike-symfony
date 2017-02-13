@@ -49,24 +49,33 @@ class SagardotegiController extends Controller
         // obtenemos la sagardotegi que queremos visualizar
 
         $sagardotegi = $em->getRepository('KupelikeBundle:Sagardotegi')->findOneBy(array("id" => $idSagardotegi));
-        //$sagardotegi = $em->getRepository('KupelikeBundle:Sagardotegi')->find($idSagardotegi);
-        // obtenemos los datos para la busqueda de sagardotegis
-        //$sagardotegis = $em->getRepository('KupelikeBundle:Sagardotegi')->findAll();
-
-        //$sagardotegi = $em->getRepository('KupelikeBundle:Sagardotegi')->find($idSagardotegi);
-        // obtenemos los datos para la busqueda de sagardotegis
-        //$sagardotegis = $em->getRepository('KupelikeBundle:Sagardotegi')->findAll();
-
-        //$sagardotegi = $em->getRepository('KupelikeBundle:Sagardotegi')->findOneBy(array("idSagardotegiFacebook" => $idSagardotegi));
+        
         // obtenemos las kupelas de la sagardotegi
         $kupelas = $em->getRepository('KupelikeBundle:Kupela')->findBy(array('idSagardotegi' => $idSagardotegi),['nombre' => 'ASC']);
+        
+        /*$hombres = $em->createQuery(
+            "SELECT k.id as id, count(v.id) as votos 
+            FROM KupelikeBundle:Cliente c, KupelikeBundle:Voto v, KupelikeBundle:Kupela k
+            WHERE c.sexo = 'male' AND v.clienteId = c.id AND k.idSagardotegi = :sagardotegi 
+            GROUP BY k.id
+            ")->setParameter('sagardotegi',$idSagardotegi)
+                ->getResult();
+                
+            $mujeres = $em->createQuery(
+            "SELECT k.id as id, count(v.id) as votos 
+            FROM KupelikeBundle:Cliente c, KupelikeBundle:Voto v, KupelikeBundle:Kupela k
+            WHERE c.sexo = 'female' AND v.clienteId = c.id AND k.idSagardotegi = :sagardotegi 
+            GROUP BY k.id
+        ")->setParameter('sagardotegi',$idSagardotegi)
+                ->getResult();*/
         
         //$kupelaN = $em->getRepository('KupelikeBundle:Voto')->sumKupelas();
         
         return $this->render('KupelikeBundle:Kupela:index.html.twig', array(
             'kupelas' => $kupelas,
-            'sagardotegi' => $sagardotegi//,
-            //'kupelaN' => $kupelaN
+            'sagardotegi' => $sagardotegi/*,
+            'hombres' =>$hombres, 
+            'mujeres' =>$mujeres*/
         ));
         
         

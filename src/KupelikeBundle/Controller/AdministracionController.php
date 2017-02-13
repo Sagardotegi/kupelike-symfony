@@ -12,6 +12,8 @@ use KupelikeBundle\Entity\Usuario;
 use KupelikeBundle\Entity\Sagardotegi;
 use KupelikeBundle\Entity\Kupela;
 use KupelikeBundle\Entity\Cliente;
+use KupelikeBundle\Entity\Voto;
+
 
 class AdministracionController extends Controller
 {
@@ -22,14 +24,23 @@ class AdministracionController extends Controller
          //en la vista Usuarios 
          $em = $this->getDoctrine()->getManager();
          $sagardotegi = $em->getRepository('KupelikeBundle:Sagardotegi')->findOneBy(array('nombre'=>$nombreSidreria));
+         //$sagardotegi = $em->getRepository('KupelikeBundle:Sagardotegi')->findOneBy(array('id'=>$idSidreria));
          $kupelas = $em->getRepository('KupelikeBundle:Kupela')->findBy(array('idSagardotegi'=>$sagardotegi->getId()),['nombre' => 'ASC']);
          $hombres = $this->getNumHombres($em);
          $mujeres = $this->getNumMujeres($em);
-         return $this->render('KupelikeBundle:Administracion:usuarios.html.twig', array('sidreria'=>$sagardotegi,'kupelas' =>$kupelas, 'hombres' =>$hombres, 'mujeres' =>$mujeres));
+         $fechas = $this->getNumXfecha($em);
+         return $this->render('KupelikeBundle:Administracion:usuarios.html.twig', array('sidreria'=>$sagardotegi,'kupelas' =>$kupelas, 'hombres' =>$hombres, 'mujeres' =>$mujeres, 'fechas' =>$fechas));
          
          
     }
-    
+       private function getNumXfecha($em)
+      
+    {        
+           $query = $em->createQuery(
+            "select v.fecha as fecha,count(k.numVotos) as NumVotos from KupelikeBundle:Voto v, KupelikeBundle:Kupela k where k.id=v.kupelaId group by v.fecha
+        ");
+       return $query->getResult(); 
+    }
     private function getNumHombres($em)
     {
         $query = $em->createQuery(
@@ -123,6 +134,8 @@ class AdministracionController extends Controller
          $pueblo = $request->request->get('pueblo');
          $latitud = $request->request->get('latitud');
          $longitud = $request->request->get('longitud');
+         $telefono = $request->request->get('telefono');
+         $email = $request->request->get('email');
          
          $sagardotegi->setNombre($nombre);
          $sagardotegi->setDescripcion($descripcion);
@@ -134,6 +147,8 @@ class AdministracionController extends Controller
          $sagardotegi->setLongitud($longitud);
          $sagardotegi->setPueblo($pueblo);
 
+         $sagardotegi->setTelefono($telefono);
+         $sagardotegi->setEmail($email);
          
          // Obtenemos el archivo de la foto
          /** @var Symfony\Component\HttpFoundation\File\UploadedFile $foto */

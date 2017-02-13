@@ -122,7 +122,7 @@ class IndexController extends Controller
             $this->get('mailer')->send($mail);
         
     }
-     public function registroAction(Request $registro)
+     public function registrarAction(Request $registro)
     {
         
         //cogemos los datos del formulario
