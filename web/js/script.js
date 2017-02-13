@@ -78,7 +78,7 @@ function cambiarActive(){
     
     if ( url.indexOf("/es/") > -1 ) {
         $('.idiomas').children('.es').addClass('idiomas-active');
-        $('.idiomas-side').children('es').addClass('idiomas-side-active');
+        $('.idiomas-side').children('.es').addClass('idiomas-side-active');
     } else if( url.indexOf("/eus/") > -1 ){
         $('.idiomas').children('.eus').addClass('idiomas-active');
         $('.idiomas-side').children('.eus').addClass('idiomas-side-active');
