@@ -9,6 +9,12 @@ use KupelikeBundle\Entity\Kupela;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\Serializer\Encoder\XmlEncoder;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+
 class SagardotegiController extends Controller
 {
     
@@ -284,8 +290,37 @@ class SagardotegiController extends Controller
         
         return new Response($resJson);
     }
-           
-     public function getSagardotegiAction($nameSagardotegi)
+     
+    public function getSagardotegiAction($idSagardotegi)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $sagardotegi = $em->getRepository('KupelikeBundle:Sagardotegi')->find($idSagardotegi);
+        $nombre = $sagardotegi->getNombre();
+        $direccion = $sagardotegi->getDireccion();
+        $descripcion = $sagardotegi->getDescripcion();
+        $latitud = $sagardotegi->getLatitud();
+        $longitud = $sagardotegi->getLongitud();
+        $horario = $sagardotegi->getHorario();
+        $telefono = $sagardotegi->getTelefono();
+        $email = $sagardotegi->getEmail();
+        $foto = $sagardotegi->getFoto();
+
+        $response = new JsonResponse();
+        $response->setData(array(
+            'Nombre' => $nombre,
+            'Foto' => $foto,
+            'Descripcion' => $descripcion,
+            'Horario' => $horario,
+            'Telefono' => $telefono,
+            'Email' => $email,
+            'Direccion' => $direccion,
+            'Latitud' => $latitud,
+            'Longitud' => $longitud
+        ));
+        return $response;
+    }
+    
+     /*public function getSagardotegiAction($nameSagardotegi)
     {    
          $fb = $this->facebookObject();
         $request = $fb->request(
@@ -298,7 +333,7 @@ class SagardotegiController extends Controller
         $graphNode = $response->getGraphNode();        
         return new Response($graphNode);
             
-    }
+    }*/
     /**
      * Crea el objeto Facebook requerido para cada llamada a la API de Facebook
      */ 
