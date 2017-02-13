@@ -17,9 +17,6 @@ use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 
 
-use KupelikeBundle\Entity\Cliente;
-use KupelikeBundle\Entity\Voto;
-
 class KupelaController extends Controller
 {
     
