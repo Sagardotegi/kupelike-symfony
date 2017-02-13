@@ -37,6 +37,8 @@ labels:
         email: "Email:"
         username: "Nombre de usuario:"
         acciones: "Acciones:"
+        telefono: "Telefono:"
+        email: "Email"
     kupela:
         nombre: "Nombre:"
         descripcion: "Descripción:"
@@ -51,6 +53,8 @@ labels:
         direccion: "Dirección:"
         coordenadas: "Coordenadas:"
         acciones: "Acciones:"
+        telefono: "Telefono:"
+        email: "Correo Electronico:"
     registro:
         nombreyape: "Nombre y apellidos:"
         email: "Email:"

@@ -51,6 +51,8 @@ labels:
         direccion: "Helbidea:"
         coordenadas: "Koordenadak:"
         acciones: "Akzioak:"
+        telefono: "Telefonoa"
+        email: "Posta-elektronikoa"
     registro:
         nombreyape: "Izen eta abizenak:"
         email: "Emaila:"

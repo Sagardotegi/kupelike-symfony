@@ -95,6 +95,22 @@ class Sagardotegi
      *
      * @return int
      */
+     
+     
+     /**
+     * @var string
+     *
+     * @ORM\Column(name="telefono", type="string", length=255, nullable=true)
+     */
+    private $telefono;
+    
+      /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=255, nullable=true)
+     */
+    private $email;
+ 
     public function getId()
     {
         return $this->id;
@@ -318,5 +334,52 @@ class Sagardotegi
         //return $this->id_sagardotegi_facebook;
         return $this->idSagardotegiFacebook;
     }
-}
 
+    /**
+     * Set telefono
+     *
+     * @param string $telefono
+     *
+     * @return Sagardotegi
+     */
+    public function setTelefono($telefono)
+    {
+        $this->telefono = $telefono;
+
+        return $this;
+    }
+
+    /**
+     * Get telefono
+     *
+     * @return string
+     */
+    public function getTelefono()
+    {
+        return $this->telefono;
+    }
+
+    /**
+     * Set email
+     *
+     * @param string $email
+     *
+     * @return Sagardotegi
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+}

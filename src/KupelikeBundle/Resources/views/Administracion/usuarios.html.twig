@@ -4,9 +4,14 @@
   
   
   <div class="container">
-    <div id="chartContainer" style="height: 300px; width: 100%;"></div>
-    <div id="chartContainer2" style="height: 300px; width: 100%;"></div> 
-
+   <div class="row"> 
+    <div class="col-md-3 col-lg-6 col-sm-3 ">
+      <div id="chartContainer" style="height: 200px; width: 100%;"></div>
+    </div>  
+    <div class="col-md-3 col-lg-6 col-sm-3 ">
+      <div id="chartContainer2" style="height: 200px; width: 100%;"></div> 
+    </div> 
+   </div> 
     {% for flashMessage in app.session.flashbag.get('mensaje') %}
     <div class="row">
       <div class="col-xs-12">

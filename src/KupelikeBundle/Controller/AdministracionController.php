@@ -134,6 +134,8 @@ class AdministracionController extends Controller
          $pueblo = $request->request->get('pueblo');
          $latitud = $request->request->get('latitud');
          $longitud = $request->request->get('longitud');
+         $telefono = $request->request->get('telefono');
+         $email = $request->request->get('email');
          
          $sagardotegi->setNombre($nombre);
          $sagardotegi->setDescripcion($descripcion);
@@ -145,6 +147,8 @@ class AdministracionController extends Controller
          $sagardotegi->setLongitud($longitud);
          $sagardotegi->setPueblo($pueblo);
 
+         $sagardotegi->setTelefono($telefono);
+         $sagardotegi->setEmail($email);
          
          // Obtenemos el archivo de la foto
          /** @var Symfony\Component\HttpFoundation\File\UploadedFile $foto */
