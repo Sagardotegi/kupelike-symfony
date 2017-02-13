@@ -113,14 +113,15 @@ class KupelaController extends Controller
                 ->setParameter('aviso','si')
                 ->setParameter('kupela',$id)
                 ->getResult();
+                //SELECT YEAR(STR_TO_DATE(subdateshow, '%m/%d/%Y')) FROM table;
                 
-        $datos = $em->createQuery('SELECT k.nombre as kupela, s.nombre as sagardotegi FROM KupelikeBundle:Kupela k, KupelikeBundle:Sagardotegi s
+        $datos = $em->createQuery('SELECT k.nombre as kupela, s.nombre as sagardotegi, s.email as email, s.telefono as telefono, s.direccion as direccion FROM KupelikeBundle:Kupela k, KupelikeBundle:Sagardotegi s
                 WHERE k.idSagardotegi = s.id AND k.id = :kupela')
                 ->setParameter('kupela',$id)
                 ->getResult();
           
          $mail = \Swift_Message::newInstance()
-            ->setSubject('KupeLike - Contacto - ')
+            ->setSubject('KupeLike - La kupela ha sido embotellada')
             ->setFrom("kupelikeproject@gmail.com")
             //->setTo($emails)
             ->setBody('');
@@ -131,7 +132,11 @@ class KupelaController extends Controller
             
             foreach($datos as $datos2)    {
 
-                $mail->addPart('<h2>La kupela '.$datos2['kupela'].' de la sidreria '.$datos2['sagardotegi'].' ha sido embotellada.</h2>', 'text/html');
+                $mail->addPart('<h2>La kupela '.$datos2['kupela'].' de la sidreria '.$datos2['sagardotegi'].' ha sido embotellada.</h2>
+                Ponte en contacto con <b>'.$datos2['sagardotegi'].'</b><br>
+                <ul><li>Dirección: <b>'.$datos2['direccion'].'</b></li>
+                <li>Teléfono: <b>'.$datos2['telefono'].'</b></li>
+                <li>Email: <b>'.$datos2['email'].'</b></li></ul>', 'text/html');
         
             }
             

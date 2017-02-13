@@ -29,3 +29,9 @@ parameters:
     
     facebook_id: 238649363223511
     facebook_secret: 42b7ae25f21439cfcf10af9c3a88ac08
+    
+    mail_username: "kupelikeproject@gmail.com"
+    mail_password: "Abcd_1234"
+    pusher_id: "295127"
+    pusher_key: "a37218af0d3c7dcfceae"
+    pusher_secret: "d0680cf0b9eb69867826"

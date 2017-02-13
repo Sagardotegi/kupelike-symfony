@@ -51,6 +51,8 @@ labels:
         direccion: "Address:"
         coordenadas: "Coordinates:"
         acciones: "Actions:"
+        telefono: "PhoneNumber:"
+        email: "Email:"
     registro:
         nombreyape: "Name and surnames:"
         email: "Email:"

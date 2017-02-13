@@ -24,7 +24,8 @@ font-family: 'Lobster', cursive;
 
 /* Bootstrap Override */
 body {
-    padding-top: 125px;
+    
+    padding-top: 122px;
 }
 
 /* Scrollbar */
@@ -1146,4 +1147,10 @@ input:checked + .slider:before {
 .slider.round:before {
     
   border-radius: 50%;
+}
+
+
+#mostrarcontacto{
+    display: none;
+    margin-top: 30px;
 }

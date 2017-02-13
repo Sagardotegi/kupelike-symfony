@@ -9,6 +9,12 @@ use KupelikeBundle\Entity\Kupela;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\Serializer\Encoder\XmlEncoder;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+
 class SagardotegiController extends Controller
 {
     
@@ -49,24 +55,33 @@ class SagardotegiController extends Controller
         // obtenemos la sagardotegi que queremos visualizar
 
         $sagardotegi = $em->getRepository('KupelikeBundle:Sagardotegi')->findOneBy(array("id" => $idSagardotegi));
-        //$sagardotegi = $em->getRepository('KupelikeBundle:Sagardotegi')->find($idSagardotegi);
-        // obtenemos los datos para la busqueda de sagardotegis
-        //$sagardotegis = $em->getRepository('KupelikeBundle:Sagardotegi')->findAll();
-
-        //$sagardotegi = $em->getRepository('KupelikeBundle:Sagardotegi')->find($idSagardotegi);
-        // obtenemos los datos para la busqueda de sagardotegis
-        //$sagardotegis = $em->getRepository('KupelikeBundle:Sagardotegi')->findAll();
-
-        //$sagardotegi = $em->getRepository('KupelikeBundle:Sagardotegi')->findOneBy(array("idSagardotegiFacebook" => $idSagardotegi));
+        
         // obtenemos las kupelas de la sagardotegi
         $kupelas = $em->getRepository('KupelikeBundle:Kupela')->findBy(array('idSagardotegi' => $idSagardotegi),['nombre' => 'ASC']);
+        
+        /*$hombres = $em->createQuery(
+            "SELECT k.id as id, count(v.id) as votos 
+            FROM KupelikeBundle:Cliente c, KupelikeBundle:Voto v, KupelikeBundle:Kupela k
+            WHERE c.sexo = 'male' AND v.clienteId = c.id AND k.idSagardotegi = :sagardotegi 
+            GROUP BY k.id
+            ")->setParameter('sagardotegi',$idSagardotegi)
+                ->getResult();
+                
+            $mujeres = $em->createQuery(
+            "SELECT k.id as id, count(v.id) as votos 
+            FROM KupelikeBundle:Cliente c, KupelikeBundle:Voto v, KupelikeBundle:Kupela k
+            WHERE c.sexo = 'female' AND v.clienteId = c.id AND k.idSagardotegi = :sagardotegi 
+            GROUP BY k.id
+        ")->setParameter('sagardotegi',$idSagardotegi)
+                ->getResult();*/
         
         //$kupelaN = $em->getRepository('KupelikeBundle:Voto')->sumKupelas();
         
         return $this->render('KupelikeBundle:Kupela:index.html.twig', array(
             'kupelas' => $kupelas,
-            'sagardotegi' => $sagardotegi//,
-            //'kupelaN' => $kupelaN
+            'sagardotegi' => $sagardotegi/*,
+            'hombres' =>$hombres, 
+            'mujeres' =>$mujeres*/
         ));
         
         
@@ -275,8 +290,37 @@ class SagardotegiController extends Controller
         
         return new Response($resJson);
     }
-           
-     public function getSagardotegiAction($nameSagardotegi)
+     
+    public function getSagardotegiAction($idSagardotegi)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $sagardotegi = $em->getRepository('KupelikeBundle:Sagardotegi')->find($idSagardotegi);
+        $nombre = $sagardotegi->getNombre();
+        $direccion = $sagardotegi->getDireccion();
+        $descripcion = $sagardotegi->getDescripcion();
+        $latitud = $sagardotegi->getLatitud();
+        $longitud = $sagardotegi->getLongitud();
+        $horario = $sagardotegi->getHorario();
+        $telefono = $sagardotegi->getTelefono();
+        $email = $sagardotegi->getEmail();
+        $foto = $sagardotegi->getFoto();
+
+        $response = new JsonResponse();
+        $response->setData(array(
+            'Nombre' => $nombre,
+            'Foto' => $foto,
+            'Descripcion' => $descripcion,
+            'Horario' => $horario,
+            'Telefono' => $telefono,
+            'Email' => $email,
+            'Direccion' => $direccion,
+            'Latitud' => $latitud,
+            'Longitud' => $longitud
+        ));
+        return $response;
+    }
+    
+     /*public function getSagardotegiAction($nameSagardotegi)
     {    
          $fb = $this->facebookObject();
         $request = $fb->request(
@@ -289,7 +333,7 @@ class SagardotegiController extends Controller
         $graphNode = $response->getGraphNode();        
         return new Response($graphNode);
             
-    }
+    }*/
     /**
      * Crea el objeto Facebook requerido para cada llamada a la API de Facebook
      */ 
