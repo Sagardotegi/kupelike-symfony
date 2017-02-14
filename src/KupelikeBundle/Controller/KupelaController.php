@@ -16,6 +16,7 @@ use Symfony\Component\Serializer\Encoder\XmlEncoder;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 
+
 class KupelaController extends Controller
 {
     
@@ -24,6 +25,7 @@ class KupelaController extends Controller
      */
     public function likeAction(Request $request)
     {
+        
         // obtenemos los datos enviados por ajax
         $datos = $request->request->get('response');
         $idCliente = $datos['id'];
@@ -52,6 +54,8 @@ class KupelaController extends Controller
         $em = $this->getDoctrine()->getManager();
         // busca el id de facebook en la tabla Cliente
         $clienteExists = $em->getRepository('KupelikeBundle:Cliente')->find($idCliente);
+         
+        
         
         // si el id de facebook existe
         if($clienteExists){
@@ -67,7 +71,7 @@ class KupelaController extends Controller
 
         return new Response();
     }
-    
+
     /**
      * Almacena un aviso en la kupela
      */
@@ -154,7 +158,7 @@ class KupelaController extends Controller
         return $this->render('KupelikeBundle:Index:index.html.twig', array('sagardotegis' => $sagardotegis));
         
     }
-    
+
     //private function crearCliente($em, $id, $nombre, $fblocation, $fbemail, $fbbirthday, $fbgender)
     private function crearCliente($em, $id, $nombre, $fbemail, $fbgender)
     {
@@ -226,10 +230,6 @@ class KupelaController extends Controller
 
         }
  
-    
-    
-    
-        
     public function updateVotos($id)
     {
         $em = $this->getDoctrine()->getManager();

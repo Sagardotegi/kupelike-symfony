@@ -130,6 +130,7 @@ class Voto
     public function getFecha()
     {
         return $this->fecha;
+
     }
     
     /**
@@ -154,6 +155,9 @@ class Voto
     public function getAviso()
     {
         return $this->aviso;
+
     }
+    
+   
 }
 
