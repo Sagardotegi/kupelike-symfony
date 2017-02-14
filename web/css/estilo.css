@@ -205,6 +205,11 @@ body::-webkit-scrollbar-thumb {
     color: #629c44;
 }
 
+.desktop-menu-links>li>a:hover {
+    
+    border-bottom: 1px solid #629c44;
+}
+
 .menu {
     
   background: rgba(98, 156, 68, 0.90);
