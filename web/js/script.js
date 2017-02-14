@@ -102,6 +102,7 @@ confirmar=confirm("¿Seguro?");
 /*filepicker de filestack*/
 $(document).ready(function($) {
     $("#foto2").click(function(){
+      preventDefault();
         filepicker.setKey("AnjcKYi0oTomOZxBk7c7Ez");
         filepicker.pick(
           {
