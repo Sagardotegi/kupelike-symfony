@@ -28,7 +28,6 @@ DirectoryIndex app.php
     RewriteCond %{HTTP:X-Forwarded-Proto} !https 
     RewriteRule ^(.*)$ https://%{SERVER_NAME}%{REQUEST_URI} [L,R]
     #
-    RewriteRule ^(.*)$ http://%{SERVER_NAME}%/es/api/ [L,R]
 
     # Determine the RewriteBase automatically and set it as environment variable.
     # If you are using Apache aliases to do mass virtual hosting or installed the
