@@ -24,7 +24,8 @@ font-family: 'Lobster', cursive;
 
 /* Bootstrap Override */
 body {
-    padding-top: 135px;
+    
+    padding-top: 122px;
 }
 
 /* Scrollbar */
@@ -204,14 +205,19 @@ body::-webkit-scrollbar-thumb {
     color: #629c44;
 }
 
+.desktop-menu-links>li>a:hover {
+    
+    border-bottom: 1px solid #629c44;
+}
+
 .menu {
     
   background: rgba(98, 156, 68, 0.90);
-  width: 300px;
+  width: 50%;
   height: 100%;
   display: block;
   position: absolute;
-  left: -300px;
+  left: -50%;
   top: 0;
   transition: left 0.3s linear;
   z-index: 3;
@@ -237,18 +243,19 @@ body::-webkit-scrollbar-thumb {
 }
 
 
-.menu-links>li {
+.menu-links li {
     
-    padding-top: 20px;
+    padding-top: 65px;
     list-style: none;
+    height: 140px;
 }
     
-.menu-links>li>a {
+.menu-links>a>li {
     
     text-decoration: none;
     letter-spacing: 2px;
     font-family: 'Roboto', sans-serif;
-    font-size: xx-large;
+    font-size: -webkit-xxx-large;
     color: white;
 }
 
@@ -584,6 +591,14 @@ h1.a-sagar a:active {
     letter-spacing: 1px;
 }
 
+.btn-primary:hover, .btn-primary:active,
+.btn-primary:visited, .btn-primary:focus {
+    
+     color: #4CAF50 !important; /* Green */
+     border: 1px solid #4CAF50 !important;
+     background-color: white !important;
+}
+
 .btn-access {
    
     display: inline-block;
@@ -684,11 +699,10 @@ h1.a-sagar a:active {
 .card {
     
     width: 100%;
-    padding: 15px 120px;
-    width: 100%;
     padding: 15px 60px;
     max-width: 500px;
     margin: 0 auto;
+    height: 550px;
 }
 
 .card-image {

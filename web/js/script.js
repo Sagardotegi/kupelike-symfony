@@ -77,14 +77,14 @@ function cambiarActive(){
     var url = window.location.pathname;
     
     if ( url.indexOf("/es/") > -1 ) {
-        $('.es').addClass('idiomas-active');
-        $('.es').addClass('idiomas-side-active');
+        $('.idiomas').children('.es').addClass('idiomas-active');
+        $('.idiomas-side').children('.es').addClass('idiomas-side-active');
     } else if( url.indexOf("/eus/") > -1 ){
-        $('.eus').addClass('idiomas-active');
-        $('.eus').addClass('idiomas-side-active');
+        $('.idiomas').children('.eus').addClass('idiomas-active');
+        $('.idiomas-side').children('.eus').addClass('idiomas-side-active');
     } else if( url.indexOf("/en/") > -1 ){
-        $('.en').addClass('idiomas-active');
-        $('.en').addClass('idiomas-side-active');
+        $('.idiomas').children('.en').addClass('idiomas-active');
+        $('.idiomas-side').children('.en').addClass('idiomas-side-active');
     }
 }
 
@@ -105,7 +105,7 @@ $(document).ready(function($) {
         filepicker.setKey("AnjcKYi0oTomOZxBk7c7Ez");
         filepicker.pick(
           {
-            imageQuality: 80,
+            imageQuality: 50,
             //imageMax: [800, 600],
             //imageMin: [300, 200],
             //imageDim: [400, 300],

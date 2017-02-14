@@ -47,6 +47,7 @@ class UsuarioController extends Controller
         //$direccion = $request->query->get('direccion');
         //$usuario->setDireccion($direccion);
         $username = $request->query->get('username');
+        $username = strtolower($username);
         $usuario->setUsername($username);
         
         // Obtenemos la sagardotegi del select
@@ -101,6 +102,7 @@ class UsuarioController extends Controller
         //$direccion = $request->query->get('direccion');
         //$usuario->setDireccion($direccion);
         $username = $request->query->get('username');
+        $username = strtolower($username);
         $usuario->setUsername($username);
         
         // Obtenemos la sagardotegi del select
@@ -309,6 +311,7 @@ class UsuarioController extends Controller
         //$direccion = $request->query->get('direccion');
         //$usuario->setDireccion($direccion);
         $username = $request->query->get('username');
+        $username = strtolower($username);
         $usuario->setUsername($username);
         
         // Obtenemos la sagardotegi del select

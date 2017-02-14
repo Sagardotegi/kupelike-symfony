@@ -88,11 +88,6 @@ class IndexController extends Controller
     public function emailAction(Request $respuesta)
     {
         
-        // carga el Entity Manager (manejamos los datos con Doctrine (ORM))
-        $em = $this->getDoctrine()->getManager();
-        // obtiene todas las sagardotegis
-        $sagardotegis = $em->getRepository('KupelikeBundle:Sagardotegi')->findAll();
-        
         //cogemos los datos del formulario
         
         $nombre = $respuesta->request->get('nombre-apellidos');
@@ -100,9 +95,7 @@ class IndexController extends Controller
         $contenido= $respuesta->request->get('contenido');
         
         $this->enviarEmail($nombre, $email, $contenido);
-        return $this->render('KupelikeBundle:Index:contacto.html.twig', array(
-            'sagardotegis' => $sagardotegis
-        ));
+        return $this->render('KupelikeBundle:Index:contacto.html.twig');
     }
 
     private function enviarEmail($nombre, $email, $contenido){
@@ -122,6 +115,14 @@ class IndexController extends Controller
             $this->get('mailer')->send($mail);
         
     }
+    
+    public function registrarFormAction()
+    {
+        
+        return $this->render('KupelikeBundle:Index:registro_sidrerias.html.twig');
+        
+    }
+    
      public function registrarAction(Request $registro)
     {
         

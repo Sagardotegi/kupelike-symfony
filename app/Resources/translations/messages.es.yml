@@ -21,6 +21,7 @@ paginas_estaticas:
         buscar: "Buscar"
     landing:
         txotx: "Una buena conversación se abre siempre con un Txotx!"
+        subtitulo: "Con tu ayuda, mantenemos viva la tradición más famosa de nuestra cultura."
         encuentra: "Encuentra tu sidrería"
     footer:
         inicio: "Inicio"
@@ -37,8 +38,6 @@ labels:
         email: "Email:"
         username: "Nombre de usuario:"
         acciones: "Acciones:"
-        telefono: "Telefono:"
-        email: "Email"
     kupela:
         nombre: "Nombre:"
         descripcion: "Descripción:"
@@ -53,8 +52,8 @@ labels:
         direccion: "Dirección:"
         coordenadas: "Coordenadas:"
         acciones: "Acciones:"
-        telefono: "Telefono:"
-        email: "Correo Electronico:"
+        telefono: "Teléfono:"
+        email: "Correo electrónico:"
     registro:
         nombreyape: "Nombre y apellidos:"
         email: "Email:"
@@ -64,14 +63,17 @@ labels:
 boton:
     actualizar: "Actualizar"
     acceder: "Acceder"
-    enviar: "Enviar"
+    aviso: "Recibir aviso"
+    cancelar: "Cancelar"
     change_password: "Cambiar mi contraseña"
+    crear: "Crear"
     editar: "Editar"
     eliminar: "Eliminar"
-    modificar: "Modificar"
+    embotellado: "Embotellado"
+    enviar: "Enviar"
     guardar: "Guardar"
-    cancelar: "Cancelar"
-    crear: "Crear"
+    modificar: "Modificar"
+    selfoto: "Seleccionar foto"
 titulos:
     mapa: "Mapa"
     sidrerias: "Sidrerías"

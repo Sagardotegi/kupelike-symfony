@@ -14,7 +14,6 @@
             {% endif %}
         <link href="{{ asset('/css/font-awesome.min.css') }}" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Roboto|Lobster|Lato" rel="stylesheet">
-
          
         <script src="https://js.pusher.com/3.2/pusher.min.js"></script>
         <script src="{{ asset('js/jquery.min.js') }}"></script>
@@ -157,21 +156,21 @@ $(document).ready(function(){
             <ul class="menu-links">
                 {% if app.user %}
                     {% if app.user.role == 'ROLE_ADMIN' %}
-                        <li><a href="{{path('panel_usuarios')}}">{{ 'paginas_estaticas.menu.admuser' | trans }}</a></li>
-                        <li><a href="{{path('panel_sagardotegis')}}">{{ 'paginas_estaticas.menu.admsidre' | trans }}</a></li>
+                        <a href="{{path('panel_usuarios')}}"><li>{{ 'paginas_estaticas.menu.admuser' | trans }}</li></a>
+                        <a href="{{path('panel_sagardotegis')}}"><li>{{ 'paginas_estaticas.menu.admsidre' | trans }}</li></a>
                     {% elseif app.user.role == 'ROLE_SIDRERO' %}
-                        <li><a href="{{path("administracion_usuarios", { nombreSidreria: app.user.nombreSidreria })}}">{{ 'paginas_estaticas.menu.misidre' | trans }}</a></li>
-                        <li><a class="btn-margin" href="{{path("editar_perfil", { id: app.user.id })}}">{{ 'paginas_estaticas.menu.perfil' | trans }}</a></li>
+                        <a href="{{path("administracion_usuarios", { nombreSidreria: app.user.nombreSidreria })}}"><li>{{ 'paginas_estaticas.menu.misidre' | trans }}</li></a>
+                        <a class="btn-margin" href="{{path("editar_perfil", { id: app.user.id })}}"><li>{{ 'paginas_estaticas.menu.perfil' | trans }}</li></a>
                     {% endif %}
-                    <li><a href="{{path("contacto")}}">{{ 'paginas_estaticas.menu.ayuda' | trans }}</a></li>
-                    <li><a href="{{path("logout")}}">{{ 'paginas_estaticas.menu.salir' | trans }}</a></li>
+                    <a href="{{path("contacto")}}"><li>{{ 'paginas_estaticas.menu.ayuda' | trans }}</li></a>
+                    <a href="{{path("logout")}}"><li>{{ 'paginas_estaticas.menu.salir' | trans }}</li></a>
                 {% else %}
-                    <li><a href="{{ path('index') }}">{{ 'paginas_estaticas.menu.inicio' | trans }}</a></li>
-                    <li><a href="{{ path('sagardotegis_index') }}">{{ 'paginas_estaticas.menu.sidrerias' | trans }}</a></li>
-                    <li><a href="{{ path('sagardotegien_mapak') }}">{{ 'paginas_estaticas.menu.mapa' | trans }}</a></li>
-                    <li><a href="{{ path('contacto') }}">{{ 'paginas_estaticas.menu.contacto' | trans }}</a></li>
-                    <li><a href="{{ path('nosotros') }}">{{ 'paginas_estaticas.menu.nosotros' | trans }}</a></li>
-                    <li><a class="btn-access">{{ 'paginas_estaticas.menu.accederr' | trans }}</a></li>
+                    <a href="{{ path('index') }}"><li>{{ 'paginas_estaticas.menu.inicio' | trans }}</li></a>
+                    <a href="{{ path('sagardotegis_index') }}"><li>{{ 'paginas_estaticas.menu.sidrerias' | trans }}</li></a>
+                    <a href="{{ path('sagardotegien_mapak') }}"><li>{{ 'paginas_estaticas.menu.mapa' | trans }}</li></a>
+                    <a href="{{ path('contacto') }}"><li>{{ 'paginas_estaticas.menu.contacto' | trans }}</li></a>
+                    <a href="{{ path('nosotros') }}"><li>{{ 'paginas_estaticas.menu.nosotros' | trans }}</li></a>
+                    <a class="btn-access"><li>{{ 'paginas_estaticas.menu.accederr' | trans }}</li></a>
                 {% endif %}
             </ul>
        </div>
@@ -194,7 +193,7 @@ $(document).ready(function(){
                     </form>
                 </div>
                 <div class="col-xs-12">
-                    <a href="{{path("registrar_correo")}}" class="access-link pull-right">{{ 'paginas_estaticas.menu.acceder.red' | trans }}</a>
+                    <a href="{{path("registrar_form")}}" class="access-link pull-right">{{ 'paginas_estaticas.menu.acceder.red' | trans }}</a>
                 </div>
             </div>
         </div>
@@ -265,7 +264,6 @@ $(document).ready(function(){
         </div><!-- .container-fluid -->
        
         <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-        <script type="text/javascript" src="//api.filestackapi.com/filestack.js"></script>
         <script src="{{ asset('js/script.js') }}"></script>
        
         </body>

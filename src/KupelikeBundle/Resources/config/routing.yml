@@ -93,7 +93,11 @@ registrar_correo:
     path: /registrar_correo
     defaults: { _controller: KupelikeBundle:Index:registrar }
     methods: [GET, POST]
-        
+    
+registrar_form:
+    path: /registrar_form
+    defaults: { _controller: KupelikeBundle:Index:registrarForm }
+    methods: [GET, POST]
     
 sagardotegis_buscar:
     path: /search
@@ -226,6 +230,11 @@ agregar_like_kupela:
     path: /api/add-like/{idKupela}
     defaults: { _controller: KupelikeBundle:Kupela:addLike }
     methods: [GET, POST]
+    
+obtener_datos_sidreria:
+    path: /api/get-sidreria/{idSagardotegi}
+    defaults: { _controller: KupelikeBundle:Sagardotegi:getSagardotegi }
+    methods: [GET]
 
 #login:
 #    path: /login
@@ -235,6 +244,11 @@ agregar_like_kupela:
 login:
     path: /login
     defaults: { _controller: KupelikeBundle:Index:login }
+    requirements:
+        _locale: es|eus|en
+        
+login_check:
+    path: /login_ckeck
     requirements:
         _locale: es|eus|en
     

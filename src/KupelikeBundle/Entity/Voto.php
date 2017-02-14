@@ -158,28 +158,6 @@ class Voto
 
     }
     
-    /**
-     * Set aviso
-     *
-     * @param string $aviso
-     *
-     * @return Voto
-     */
-    public function setAviso($aviso)
-    {
-        $this->aviso = $aviso;
-
-        return $this;
-    }
-
-    /**
-     * Get aviso
-     *
-     * @return string
-     */
-    public function getAviso()
-    {
-        return $this->aviso;
-    }
+   
 }
 
