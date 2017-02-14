@@ -213,11 +213,11 @@ body::-webkit-scrollbar-thumb {
 .menu {
     
   background: rgba(98, 156, 68, 0.90);
-  width: 300px;
+  width: 50%;
   height: 100%;
   display: block;
   position: absolute;
-  left: -300px;
+  left: -50%;
   top: 0;
   transition: left 0.3s linear;
   z-index: 3;
@@ -243,18 +243,19 @@ body::-webkit-scrollbar-thumb {
 }
 
 
-.menu-links>li {
+.menu-links li {
     
-    padding-top: 20px;
+    padding-top: 65px;
     list-style: none;
+    height: 140px;
 }
     
-.menu-links>li>a {
+.menu-links>a>li {
     
     text-decoration: none;
     letter-spacing: 2px;
     font-family: 'Roboto', sans-serif;
-    font-size: xx-large;
+    font-size: -webkit-xxx-large;
     color: white;
 }
 
