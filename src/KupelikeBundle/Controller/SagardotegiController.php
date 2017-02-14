@@ -47,13 +47,13 @@ class SagardotegiController extends Controller
         // carga el Entity Manager (manejamos los datos con Doctrine (ORM))
         $em = $this->getDoctrine()->getManager();
         // obtenemos la sagardotegi que queremos visualizar
-
         $sagardotegi = $em->getRepository('KupelikeBundle:Sagardotegi')->findOneBy(array("id" => $idSagardotegi));
         
         // obtenemos las kupelas de la sagardotegi
         $kupelas = $em->getRepository('KupelikeBundle:Kupela')->findBy(array('idSagardotegi' => $idSagardotegi),['nombre' => 'ASC']);
         
-        /*$hombres = $em->createQuery(
+
+        $hombres = $em->createQuery(
             "SELECT k.id as id, count(v.id) as votos 
             FROM KupelikeBundle:Cliente c, KupelikeBundle:Voto v, KupelikeBundle:Kupela k
             WHERE c.sexo = 'male' AND v.clienteId = c.id AND k.idSagardotegi = :sagardotegi 
@@ -67,18 +67,45 @@ class SagardotegiController extends Controller
             WHERE c.sexo = 'female' AND v.clienteId = c.id AND k.idSagardotegi = :sagardotegi 
             GROUP BY k.id
         ")->setParameter('sagardotegi',$idSagardotegi)
-                ->getResult();*/
-        
+                ->getResult();
+
+        foreach($kupelas as $kupela){
+            $idKupela = $kupela->getId();
+            $mujeres = $this->getNumMujeres($em, $idKupela);
+            $hombres = $this->getNumHombres($em, $idKupela);
+        }
+
         //$kupelaN = $em->getRepository('KupelikeBundle:Voto')->sumKupelas();
         
         return $this->render('KupelikeBundle:Kupela:index.html.twig', array(
             'kupelas' => $kupelas,
-            'sagardotegi' => $sagardotegi/*,
+            'sagardotegi' => $sagardotegi,
             'hombres' =>$hombres, 
-            'mujeres' =>$mujeres*/
+            'mujeres' =>$mujeres,
+            //'kupelaN' => $kupelaN
+
         ));
         
         
+    }
+    
+      private function getNumHombres($em, $idKupela)
+    {
+       $query = $em->createQuery(
+            "SELECT count(v.kupelaId)as NumLike, v.kupelaId, c.sexo from KupelikeBundle:Voto v, KupelikeBundle:Cliente c where v.clienteId= c.id and c.sexo='male' 
+            and v.kupelaId = $idKupela group by v.kupelaId, c.sexo
+        ");
+       return $query->getResult(); 
+    }
+    
+    private function getNumMujeres($em, $idKupela)
+    {
+        $query = $em->createQuery(
+            "SELECT count(v.kupelaId)as NumLike, v.kupelaId, c.sexo from KupelikeBundle:Voto v, KupelikeBundle:Cliente c where v.clienteId= c.id and c.sexo='female' 
+            and v.kupelaId = $idKupela group by v.kupelaId, c.sexo
+            
+            ");
+        return $query->getResult();    
     }
     
     /**
@@ -123,7 +150,7 @@ class SagardotegiController extends Controller
     /**
      * Obtiene las sagardotegis y sus kupelas de las páginas de Facebook con una llamada a la API desde JavaScript y las almacena en la BD
      */
-    /*public function saveAction(Request $request)
+    public function saveAction(Request $request)
     {
         // obtenemos los datos de la sagardotegi enviados por ajax
         $nombre = $request->query->get('name');
@@ -186,12 +213,12 @@ class SagardotegiController extends Controller
         }
         
         return new Response();
-    }*/
+    }
     
     /**
      * Crea una nueva sagardotegi con los datos obtenidos de Facebook
      */
-    /*private function newSagardotegi($datos)
+    private function newSagardotegi($datos)
     {
         $em = $this->getDoctrine()->getManager();
         // creamos la sagardotegi
@@ -208,12 +235,12 @@ class SagardotegiController extends Controller
         $em->flush();
         
         return $sagardotegi;
-    }*/
+    }
     
     /**
      * Crea una nueva kupela con los datos obtenidos de Facebook
      */
-    /*private function newKupela($datos)
+   private function newKupela($datos)
     {
         $em = $this->getDoctrine()->getManager();
         
