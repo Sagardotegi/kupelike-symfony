@@ -585,6 +585,14 @@ h1.a-sagar a:active {
     letter-spacing: 1px;
 }
 
+.btn-primary:hover, .btn-primary:active,
+.btn-primary:visited, .btn-primary:focus {
+    
+     color: #4CAF50 !important; /* Green */
+     border: 1px solid #4CAF50 !important;
+     background-color: white !important;
+}
+
 .btn-access {
    
     display: inline-block;
@@ -685,11 +693,10 @@ h1.a-sagar a:active {
 .card {
     
     width: 100%;
-    padding: 15px 120px;
-    width: 100%;
     padding: 15px 60px;
     max-width: 500px;
     margin: 0 auto;
+    height: 550px;
 }
 
 .card-image {
