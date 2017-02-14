@@ -224,7 +224,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .visible-menu {
-    
+    overflow: auto;
     left: 0;
     transition: left 0.3s linear;
     position: fixed;
@@ -238,14 +238,16 @@ body::-webkit-scrollbar-thumb {
 }
 
 .menu-links {
-    
+    /*overflow: auto;*/
     list-style: none;
+    padding-left: 0;
 }
 
 
 .menu-links li {
     
-    padding-top: 65px;
+    padding-top: 40px;
+    padding-left: 55px;
     list-style: none;
     height: 140px;
 }
@@ -257,6 +259,10 @@ body::-webkit-scrollbar-thumb {
     font-family: 'Roboto', sans-serif;
     font-size: -webkit-xxx-large;
     color: white;
+}
+
+.menu-links-active>li {
+    background-color: #87b370 !important;
 }
 
 .searchResults {
