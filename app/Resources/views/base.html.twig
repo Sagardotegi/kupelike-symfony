@@ -165,11 +165,11 @@ $(document).ready(function(){
                     <a href="{{path("contacto")}}"><li>{{ 'paginas_estaticas.menu.ayuda' | trans }}</li></a>
                     <a href="{{path("logout")}}"><li>{{ 'paginas_estaticas.menu.salir' | trans }}</li></a>
                 {% else %}
-                    <a href="{{ path('index') }}"><li>{{ 'paginas_estaticas.menu.inicio' | trans }}</li></a>
-                    <a href="{{ path('sagardotegis_index') }}"><li>{{ 'paginas_estaticas.menu.sidrerias' | trans }}</li></a>
-                    <a href="{{ path('sagardotegien_mapak') }}"><li>{{ 'paginas_estaticas.menu.mapa' | trans }}</li></a>
-                    <a href="{{ path('contacto') }}"><li>{{ 'paginas_estaticas.menu.contacto' | trans }}</li></a>
-                    <a href="{{ path('nosotros') }}"><li>{{ 'paginas_estaticas.menu.nosotros' | trans }}</li></a>
+                    <a class="{% if app.request.attributes.get('_route') starts with 'index' %}menu-links-active{% endif %}" href="{{ path('index') }}"><li>{{ 'paginas_estaticas.menu.inicio' | trans }}</li></a>
+                    <a class="{% if app.request.attributes.get('_route') starts with 'sagardotegis_index' %}menu-links-active{% endif %}" href="{{ path('sagardotegis_index') }}"><li>{{ 'paginas_estaticas.menu.sidrerias' | trans }}</li></a>
+                    <a class="{% if app.request.attributes.get('_route') starts with 'sagardotegien_mapak' %}menu-links-active{% endif %}" href="{{ path('sagardotegien_mapak') }}"><li>{{ 'paginas_estaticas.menu.mapa' | trans }}</li></a>
+                    <a class="{% if app.request.attributes.get('_route') starts with 'contacto' %}menu-links-active{% endif %}" href="{{ path('contacto') }}"><li>{{ 'paginas_estaticas.menu.contacto' | trans }}</li></a>
+                    <a class="{% if app.request.attributes.get('_route') starts with 'nosotros' %}menu-links-active{% endif %}" href="{{ path('nosotros') }}"><li>{{ 'paginas_estaticas.menu.nosotros' | trans }}</li></a>
                     <a class="btn-access"><li>{{ 'paginas_estaticas.menu.accederr' | trans }}</li></a>
                 {% endif %}
             </ul>
