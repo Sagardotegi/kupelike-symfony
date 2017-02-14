@@ -52,7 +52,7 @@ labels:
         direccion: "Address:"
         coordenadas: "Coordinates:"
         acciones: "Actions:"
-        telefono: "PhoneNumber:"
+        telefono: "Phone number:"
         email: "Email:"
     registro:
         nombreyape: "Name and surnames:"
