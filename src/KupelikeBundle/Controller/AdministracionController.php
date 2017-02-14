@@ -20,18 +20,22 @@ class AdministracionController extends Controller
  
    //funcion que nos mostrara los datos de la sidreria con sus respectivas kupelas 
     public function usuariosAction($nombreSidreria)
-    {    //buscara de la pagina sagardotegis y de la pagina kupelas cual corresponde con quien para poderlas desplegar
-         //en la vista Usuarios 
-         $em = $this->getDoctrine()->getManager();
-         $sagardotegi = $em->getRepository('KupelikeBundle:Sagardotegi')->findOneBy(array('nombre'=>$nombreSidreria));
-         //$sagardotegi = $em->getRepository('KupelikeBundle:Sagardotegi')->findOneBy(array('id'=>$idSidreria));
-         $kupelas = $em->getRepository('KupelikeBundle:Kupela')->findBy(array('idSagardotegi'=>$sagardotegi->getId()),['nombre' => 'ASC']);
-         $hombres = $this->getNumHombres($em);
-         $mujeres = $this->getNumMujeres($em);
-         $fechas = $this->getNumXfecha($em);
-         return $this->render('KupelikeBundle:Administracion:usuarios.html.twig', array('sidreria'=>$sagardotegi,'kupelas' =>$kupelas, 'hombres' =>$hombres, 'mujeres' =>$mujeres, 'fechas' =>$fechas));
-         
-         
+    {   
+        $user = $this->get('security.token_storage')->getToken()->getUser();
+        if ($user->getNombreSidreria() != $nombreSidreria){
+            return $this->redirectToRoute('index');
+        } else {
+            //buscara de la pagina sagardotegis y de la pagina kupelas cual corresponde con quien para poderlas desplegar
+            //en la vista Usuarios 
+            $em = $this->getDoctrine()->getManager();
+            $sagardotegi = $em->getRepository('KupelikeBundle:Sagardotegi')->findOneBy(array('nombre'=>$nombreSidreria));
+            //$sagardotegi = $em->getRepository('KupelikeBundle:Sagardotegi')->findOneBy(array('id'=>$idSidreria));
+            $kupelas = $em->getRepository('KupelikeBundle:Kupela')->findBy(array('idSagardotegi'=>$sagardotegi->getId()),['nombre' => 'ASC']);
+            $hombres = $this->getNumHombres($em);
+            $mujeres = $this->getNumMujeres($em);
+            $fechas = $this->getNumXfecha($em);
+            return $this->render('KupelikeBundle:Administracion:usuarios.html.twig', array('sidreria'=>$sagardotegi,'kupelas' =>$kupelas, 'hombres' =>$hombres, 'mujeres' =>$mujeres, 'fechas' =>$fechas));
+        }
     }
        private function getNumXfecha($em)
       
