@@ -224,7 +224,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .visible-menu {
-    
+    overflow: auto;
     left: 0;
     transition: left 0.3s linear;
     position: fixed;
@@ -238,7 +238,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .menu-links {
-    
+    /*overflow: auto;*/
     list-style: none;
     padding-left: 0;
 }
