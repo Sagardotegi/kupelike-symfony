@@ -13,7 +13,7 @@
                     <label>{{ 'labels.kupela.descripcion' | trans }}</label><input type="text" name="descripcion" value="" placeholder="descripcion kupela" class= "formulario">
                     <label>{{ 'labels.kupela.ano' | trans }}</label><input type="text" name="year" value="" placeholder="año kupela" class= "formulario" required>
                     <input type="hidden" name="id-sagardotegi" value="{{ app.request.get('id') }}" class= "formulario"/>
-                    <label>{{ 'labels.kupela.foto' | trans }}</label><input type="file" id="foto2" name="foto2" class="formulario" value=""/>
+                    <label>{{ 'labels.kupela.foto' | trans }}</label><div id="foto2" name="foto2" class="formulario">{{ 'boton.selfoto' | trans }}</div>
                                     <input type="hidden" name="foto" class="formulario" id="foto" value=""/>
                     <input type="hidden" name="id-sagardotegi" value="{{ app.request.get('id') }}" class= "formulario"/>
                     <button type="submit" class= "formulario" id="enviar" >{{ 'boton.guardar' | trans }}</button>

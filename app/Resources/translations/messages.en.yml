@@ -73,6 +73,7 @@ boton:
     enviar: "Send"
     guardar: "Save"
     modificar: "Change"
+    selfoto: "Choose picture"
 titulos:
     mapa: "Map"
     sidrerias: "Cider Houses"

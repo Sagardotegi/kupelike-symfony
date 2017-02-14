@@ -73,6 +73,7 @@ boton:
     enviar: "Enviar"
     guardar: "Guardar"
     modificar: "Modificar"
+    selfoto: "Seleccionar foto"
 titulos:
     mapa: "Mapa"
     sidrerias: "Sidrerías"
