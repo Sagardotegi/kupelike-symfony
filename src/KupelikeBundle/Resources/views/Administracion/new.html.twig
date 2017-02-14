@@ -17,8 +17,9 @@
                                     <input type="hidden" name="foto" class="formulario" id="foto" value=""/>
                     <input type="hidden" name="id-sagardotegi" value="{{ app.request.get('id') }}" class= "formulario"/>
                     <button type="submit" class= "formulario" id="enviar" >{{ 'boton.guardar' | trans }}</button>
-                    <a href="{{ path("administracion_usuarios",{nombreSidreria: app.user.nombreSidreria})}}"><button id="enviar" class= "formulario">{{ 'boton.cancelar' | trans }}</button></a>
                 </form>
+                <!-- Los botones cancelar tienen que ir fuera del formulario-->
+                <a href="{{ path("administracion_usuarios",{nombreSidreria: app.user.nombreSidreria})}}"><button id="enviar" class= "formulario">{{ 'boton.cancelar' | trans }}</button></a>
             </div>
             <script>
             /*function valor(valor){

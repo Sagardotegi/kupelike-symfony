@@ -42,38 +42,37 @@
                         <label>{{ 'labels.sidreria.ubicacion' | trans }}</label><div id="map" class="mapa mapaNSagar"></div>
                     </div>
                 </div>
-                <div class="row"> 
-                    <div class="col-xs-6">
+                
+                    
                         <div class="row"> 
                             <div class="col-xs-12">
                                 <label>{{ 'labels.sidreria.direccion' | trans }}</label><input id="direccion" type="text" name="direccion" class="formulario" value="{{sagardotegi.direccion}}" placeholder="Dirección" required/>
                             </div>
                         </div>
-                    </div>
+                    
                     <div class="row"> 
                         <div class="col-xs-12">
                             <input id="pueblo" type="text" name="pueblo" class="formulario" value="{{sagardotegi.pueblo}}" placeholder="Pueblo" required/>
                         </div>
                     </div>
-                    <div class="col-xs-6">
+                    
                         <div class="row"> 
                             <div class="col-xs-12">
                                 <label>{{ 'labels.sidreria.coordenadas' | trans }}</label><input id="lat" type="text" name="latitud" class="formulario" value="{{sagardotegi.latitud}}" placeholder="Latitud" required/>
                             </div>
                         </div>
-                    </div>
+                    
                     <div class="row"> 
                         <div class="col-xs-12">
                             <input id="long" type="text" name="longitud" class="formulario" value="{{sagardotegi.longitud}}" placeholder="Longitud" required/>
                         </div>
                     </div>
-                </div>
+                
                 <div class="row"> 
                     <div class="col-xs-12">
                         <button type="submit" class="formulario" class= "formulario" id="enviar" >{{ 'boton.guardar' | trans }}</button>
                     </div>
                 </div>
-            </div>
             </form>
         </div>
             
