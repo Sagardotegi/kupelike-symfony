@@ -304,6 +304,17 @@ class SagardotegiController extends Controller
         $telefono = $sagardotegi->getTelefono();
         $email = $sagardotegi->getEmail();
         $foto = $sagardotegi->getFoto();
+        
+        $kupela = $em->getRepository('KupelikeBundle:Kupela')->findBy(array('idSagardotegi' => $idSagardotegi));
+        foreach ($kupela as $kupel) {
+            $kupelas[] = array(
+                'Nombre' => $kupel->getNombre(),
+                'Foto' => $kupel->getFoto(),
+                'Votos' => $kupel->getNumVotos(),
+                'Año' => $kupel->getYear(),
+                'Descripción' => $kupel->getDescripcion(),
+            );
+        }
 
         $response = new JsonResponse();
         $response->setData(array(
@@ -311,11 +322,16 @@ class SagardotegiController extends Controller
             'Foto' => $foto,
             'Descripcion' => $descripcion,
             'Horario' => $horario,
-            'Telefono' => $telefono,
-            'Email' => $email,
             'Direccion' => $direccion,
-            'Latitud' => $latitud,
-            'Longitud' => $longitud
+            'Contacto' => array(
+                'Telefono' => $telefono,
+                'Email' => $email
+            ),
+            'Coordenadas' => array(
+                'Latitud' => $latitud,
+                'Longitud' => $longitud
+            ),
+            'Kupelas' => $kupelas
         ));
         return $response;
     }
