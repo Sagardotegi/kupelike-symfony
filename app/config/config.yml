@@ -13,8 +13,9 @@ parameters:
 
 framework:
     #esi:             ~
-    translator:      
-        fallback: ["%locale%"] 
+    #translator:      
+    #    fallback: ["%locale%"] 
+    translator:      { fallbacks: ["%locale%"] }
         #paths:
         #    - '@KupelikeBundle/Resources/translations'
     secret:          "%secret%"
