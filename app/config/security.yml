@@ -25,7 +25,7 @@ security:
             provider: our_db_provider
             form_login: 
                 login_path: /es/login
-                check_path: /es/login_check
+                check_path: /login_check
                 username_parameter: _username
                 password_parameter: _password
                 
