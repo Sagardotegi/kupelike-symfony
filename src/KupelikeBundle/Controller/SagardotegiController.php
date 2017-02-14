@@ -33,7 +33,6 @@ class SagardotegiController extends Controller
         // carga el Entity Manager (manejamos los datos con Doctrine (ORM))
         $em = $this->getDoctrine()->getManager();
         // obtenemos la sagardotegi que queremos visualizar
-
         $sagardotegi = $em->getRepository('KupelikeBundle:Sagardotegi')->findOneBy(array("id" => $idSagardotegi));
         //$sagardotegi = $em->getRepository('KupelikeBundle:Sagardotegi')->find($idSagardotegi);
         // obtenemos los datos para la busqueda de sagardotegis
@@ -47,15 +46,42 @@ class SagardotegiController extends Controller
         // obtenemos las kupelas de la sagardotegi
         $kupelas = $em->getRepository('KupelikeBundle:Kupela')->findBy(array('idSagardotegi' => $idSagardotegi),['nombre' => 'ASC']);
         
+        foreach($kupelas as $kupela){
+            $idKupela = $kupela->getId();
+            $mujeres = $this->getNumMujeres($em, $idKupela);
+            $hombres = $this->getNumHombres($em, $idKupela);
+        }
+        
         //$kupelaN = $em->getRepository('KupelikeBundle:Voto')->sumKupelas();
         
         return $this->render('KupelikeBundle:Kupela:index.html.twig', array(
             'kupelas' => $kupelas,
-            'sagardotegi' => $sagardotegi//,
+            'sagardotegi' => $sagardotegi,
+            'hombres' =>$hombres, 
+            'mujeres' =>$mujeres//,
             //'kupelaN' => $kupelaN
         ));
         
         
+    }
+    
+      private function getNumHombres($em, $idKupela)
+    {
+       $query = $em->createQuery(
+            "SELECT count(v.kupelaId)as NumLike, v.kupelaId, c.sexo from KupelikeBundle:Voto v, KupelikeBundle:Cliente c where v.clienteId= c.id and c.sexo='male' 
+            and v.kupelaId = $idKupela group by v.kupelaId, c.sexo
+        ");
+       return $query->getResult(); 
+    }
+    
+    private function getNumMujeres($em, $idKupela)
+    {
+        $query = $em->createQuery(
+            "SELECT count(v.kupelaId)as NumLike, v.kupelaId, c.sexo from KupelikeBundle:Voto v, KupelikeBundle:Cliente c where v.clienteId= c.id and c.sexo='female' 
+            and v.kupelaId = $idKupela group by v.kupelaId, c.sexo
+            
+            ");
+        return $query->getResult();    
     }
     
     /**

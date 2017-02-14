@@ -130,9 +130,7 @@ class Voto
     public function getFecha()
     {
         return $this->fecha;
-<<<<<<<<< saved version
 
-=========
     }
     
     /**
@@ -157,7 +155,7 @@ class Voto
     public function getAviso()
     {
         return $this->aviso;
->>>>>>>>> local version
+
     }
 }
 

@@ -52,6 +52,7 @@ class KupelaController extends Controller
         $em = $this->getDoctrine()->getManager();
         // busca el id de facebook en la tabla Cliente
         $clienteExists = $em->getRepository('KupelikeBundle:Cliente')->find($idCliente);
+         
         
         // si el id de facebook existe
         if($clienteExists){
@@ -67,6 +68,10 @@ class KupelaController extends Controller
 
         return new Response();
     }
+    
+   
+    
+    
     
     //private function crearCliente($em, $id, $nombre, $fblocation, $fbemail, $fbbirthday, $fbgender)
     private function crearCliente($em, $id, $nombre, $fbemail, $fbgender)
