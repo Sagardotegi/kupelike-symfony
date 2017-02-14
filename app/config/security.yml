@@ -25,7 +25,7 @@ security:
             provider: our_db_provider
             form_login: 
                 login_path: /es/login
-                check_path: /login_check
+                check_path: /es/login_check
                 username_parameter: _username
                 password_parameter: _password
                 
@@ -61,3 +61,39 @@ security:
         - { path: ^/sidreria, roles: IS_AUTHENTICATED_FULLY }
         - { path: ^/kupelas/lista, roles: IS_AUTHENTICATED_FULLY }
         - { path: ^/kupelas/nuevo, roles: IS_AUTHENTICATED_FULLY }
+        #es
+        - { path: ^/es/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/es/usuarios, roles: [ROLE_SIDRERO, ROLE_ADMIN] }
+        - { path: ^/es/nuevo-usuario, roles: ROLE_ADMIN }
+        - { path: ^/es/panel-usuarios, roles: ROLE_ADMIN }
+        - { path: ^/es/registrar-usuario, roles: ROLE_ADMIN }
+        - { path: ^/es/usuarios/lista, roles: ROLE_ADMIN }
+        - { path: ^/es/usuarios, roles: ROLE_ADMIN }
+        - { path: ^/es/usuario/nuevo, roles: ROLE_ADMIN }
+        - { path: ^/es/sidreria, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/es/kupelas/lista, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/es/kupelas/nuevo, roles: IS_AUTHENTICATED_FULLY }
+        #en
+        - { path: ^/en/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/en/usuarios, roles: [ROLE_SIDRERO, ROLE_ADMIN] }
+        - { path: ^/en/nuevo-usuario, roles: ROLE_ADMIN }
+        - { path: ^/en/panel-usuarios, roles: ROLE_ADMIN }
+        - { path: ^/en/registrar-usuario, roles: ROLE_ADMIN }
+        - { path: ^/en/usuarios/lista, roles: ROLE_ADMIN }
+        - { path: ^/en/usuarios, roles: ROLE_ADMIN }
+        - { path: ^/en/usuario/nuevo, roles: ROLE_ADMIN }
+        - { path: ^/en/sidreria, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/en/kupelas/lista, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/en/kupelas/nuevo, roles: IS_AUTHENTICATED_FULLY }
+        #eus
+        - { path: ^/eus/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/eus/usuarios, roles: [ROLE_SIDRERO, ROLE_ADMIN] }
+        - { path: ^/eus/nuevo-usuario, roles: ROLE_ADMIN }
+        - { path: ^/eus/panel-usuarios, roles: ROLE_ADMIN }
+        - { path: ^/eus/registrar-usuario, roles: ROLE_ADMIN }
+        - { path: ^/eus/usuarios/lista, roles: ROLE_ADMIN }
+        - { path: ^/eus/usuarios, roles: ROLE_ADMIN }
+        - { path: ^/eus/usuario/nuevo, roles: ROLE_ADMIN }
+        - { path: ^/eus/sidreria, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/eus/kupelas/lista, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/eus/kupelas/nuevo, roles: IS_AUTHENTICATED_FULLY }
