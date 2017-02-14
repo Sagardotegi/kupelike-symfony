@@ -21,6 +21,7 @@ paginas_estaticas:
         buscar: "Search"
     landing:
         txotx: "A good conversation always starts with a Txotx!"
+        subtitulo: "With your help, we keep alive the most famous tradition of our culture."
         encuentra: "Find your cider house"
     footer:
         inicio: "Home"
@@ -51,7 +52,7 @@ labels:
         direccion: "Address:"
         coordenadas: "Coordinates:"
         acciones: "Actions:"
-        telefono: "PhoneNumber:"
+        telefono: "Phone number:"
         email: "Email:"
     registro:
         nombreyape: "Name and surnames:"
@@ -62,14 +63,17 @@ labels:
 boton:
     actualizar: "Update"
     acceder: "Log in"
-    enviar: "Send"
+    aviso: "Get notification"
+    cancelar: "Cancel"
     change_password: "Change my password"
+    crear: "Create"
     editar: "Update"
     eliminar: "Delete"
-    modificar: "Change"
+    embotellado: "Bottled"
+    enviar: "Send"
     guardar: "Save"
-    cancelar: "Cancel"
-    crear: "Create"
+    modificar: "Change"
+    selfoto: "Choose picture"
 titulos:
     mapa: "Map"
     sidrerias: "Cider Houses"

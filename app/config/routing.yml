@@ -30,6 +30,7 @@ kupelike:
     
 login_check:
     path: /login_check
+    prefix:   /{_locale}
     
 logout:
     path: /logout
