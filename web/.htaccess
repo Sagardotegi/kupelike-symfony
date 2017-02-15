@@ -27,7 +27,7 @@ DirectoryIndex app.php
     #Redirect to https (Those two lines)
     #
     RewriteCond %{HTTP:X-Forwarded-Proto} !https 
-    RewriteCond %{REQUEST_URI} !^/web/app.php/es/api
+    RewriteCond %{REQUEST_URI} !^/[a-zA-Z\/\.\-\_]+/api[a-zA-Z\/\.\-\_]+
     RewriteRule ^(.*)$ https://%{SERVER_NAME}%{REQUEST_URI} [L,R]
     #
     
