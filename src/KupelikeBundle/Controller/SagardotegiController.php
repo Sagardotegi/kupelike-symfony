@@ -57,23 +57,6 @@ class SagardotegiController extends Controller
         
         // obtenemos las kupelas de la sagardotegi
         $kupelas = $em->getRepository('KupelikeBundle:Kupela')->findBy(array('idSagardotegi' => $idSagardotegi),['nombre' => 'ASC']);
-        
-
-        $hombres = $em->createQuery(
-            "SELECT k.id as id, count(v.id) as votos 
-            FROM KupelikeBundle:Cliente c, KupelikeBundle:Voto v, KupelikeBundle:Kupela k
-            WHERE c.sexo = 'male' AND v.clienteId = c.id AND k.idSagardotegi = :sagardotegi 
-            GROUP BY k.id
-            ")->setParameter('sagardotegi',$idSagardotegi)
-                ->getResult();
-                
-            $mujeres = $em->createQuery(
-            "SELECT k.id as id, count(v.id) as votos 
-            FROM KupelikeBundle:Cliente c, KupelikeBundle:Voto v, KupelikeBundle:Kupela k
-            WHERE c.sexo = 'female' AND v.clienteId = c.id AND k.idSagardotegi = :sagardotegi 
-            GROUP BY k.id
-        ")->setParameter('sagardotegi',$idSagardotegi)
-                ->getResult();
 
         foreach($kupelas as $kupela){
             $idKupela = $kupela->getId();
@@ -98,19 +81,22 @@ class SagardotegiController extends Controller
       private function getNumHombres($em, $idKupela)
     {
        $query = $em->createQuery(
-            "SELECT count(v.kupelaId)as NumLike, v.kupelaId, c.sexo from KupelikeBundle:Voto v, KupelikeBundle:Cliente c where v.clienteId= c.id and c.sexo='male' 
-            and v.kupelaId = $idKupela group by v.kupelaId, c.sexo
-        ");
+            "SELECT c, k
+            FROM KupelikeBundle:Cliente c, KupelikeBundle:Kupela k
+            WHERE c.sexo = 'male' AND  k.id = :idKupela
+            ")->setParameter('idKupela',$idKupela);
+            
        return $query->getResult(); 
     }
     
     private function getNumMujeres($em, $idKupela)
     {
         $query = $em->createQuery(
-            "SELECT count(v.kupelaId)as NumLike, v.kupelaId, c.sexo from KupelikeBundle:Voto v, KupelikeBundle:Cliente c where v.clienteId= c.id and c.sexo='female' 
-            and v.kupelaId = $idKupela group by v.kupelaId, c.sexo
-            
-            ");
+            "SELECT c, k 
+            FROM KupelikeBundle:Cliente c, KupelikeBundle:Kupela k
+            WHERE c.sexo = 'female' AND  k.id = :idKupela
+            ")->setParameter('idKupela',$idKupela);
+        
         return $query->getResult();    
     }
     
