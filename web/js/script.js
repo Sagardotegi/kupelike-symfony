@@ -85,14 +85,60 @@ function cambiarActive(){
     if ( url.indexOf("/es/") > -1 ) {
         $('.idiomas').children('.es').addClass('idiomas-active');
         $('.idiomas-side').children('.es').addClass('idiomas-side-active');
+        /*//$('.idiomas').children('.eus').addClass('idiomas-non-active');
+        $('.idiomas-side').children('.eus').addClass('idiomas-side-non-active');
+        //$('.idiomas').children('.en').addClass('idiomas-non-active');
+        $('.idiomas-side').children('.en').addClass('idiomas-side-non-active');*/
     } else if( url.indexOf("/eus/") > -1 ){
         $('.idiomas').children('.eus').addClass('idiomas-active');
         $('.idiomas-side').children('.eus').addClass('idiomas-side-active');
+        /*//$('.idiomas').children('.es').addClass('idiomas-non-active');
+        $('.idiomas-side').children('.es').addClass('idiomas-side-non-active');
+        //$('.idiomas').children('.en').addClass('idiomas-non-active');
+        $('.idiomas-side').children('.en').addClass('idiomas-side-non-active');*/
     } else if( url.indexOf("/en/") > -1 ){
         $('.idiomas').children('.en').addClass('idiomas-active');
         $('.idiomas-side').children('.en').addClass('idiomas-side-active');
+        /*//$('.idiomas').children('.eus').addClass('idiomas-non-active');
+        $('.idiomas-side').children('.eus').addClass('idiomas-side-non-active');
+        //$('.idiomas').children('.es').addClass('idiomas-non-active');
+        $('.idiomas-side').children('.es').addClass('idiomas-side-non-active');*/
     }
 }
+
+/*function cambiarActive(){
+    var url = window.location.pathname;
+    
+    if ( url.indexOf("/es/") > -1 ) {
+        $('.es').removeClass('lang-non-active');
+        $('.es').addClass('lang-active');
+        $('.eus').removeClass('lang-active');
+        $('.en').removeClass('lang-active');
+        $('.eus').addClass('lang-non-active');
+        $('.en').addClass('lang-non-active');
+    } else if( url.indexOf("/eus/") > -1 ){
+        $('.eus').removeClass('lang-non-active');
+        $('.eus').addClass('lang-active');
+        $('.es').removeClass('lang-active');
+        $('.en').removeClass('lang-active');
+        $('.es').addClass('lang-non-active');
+        $('.en').addClass('lang-non-active');
+    } else if( url.indexOf("/en/") > -1 ){
+        $('.en').removeClass('lang-non-active');
+        $('.en').addClass('lang-active');
+        $('.eus').removeClass('lang-active');
+        $('.es').removeClass('lang-active');
+        $('.eus').addClass('lang-non-active');
+        $('.es').addClass('lang-non-active');
+    } else {
+        $('.es').removeClass('lang-active');
+        $('.eus').removeClass('lang-active');
+        $('.en').removeClass('lang-active');
+        $('.es').addClass('lang-non-active');
+        $('.eus').addClass('lang-non-active');
+        $('.en').addClass('lang-non-active');
+    }
+}*/
 
 var confirmar;
 function seguro(){

@@ -313,10 +313,12 @@ class KupelaController extends Controller
         $serializer = new Serializer($normalizers, $encoders);
         
         // Devolvemos el objeto en JSON
-        $json = $serializer->serialize($votos, 'json');
-        $response = new Response($json);
-        $response->headers->set('Access-Control-Allow-Origin', '*');
-        return $response;*/
+        //$json = $serializer->serialize($votos, 'json');
+        $response = new Response();
+        $response->headers->set('Content-Type', 'text/plain');
+        $response->sendHeaders();
+        
+        return $this->render($votos, array(), $response);*/
         
         $response = new JsonResponse();
         $response->setData(array(

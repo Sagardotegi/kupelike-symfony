@@ -286,9 +286,10 @@ body::-webkit-scrollbar-thumb {
     color: #232323;
 }
 
-/*.idiomas > li > a, a:focus, a:hover, a:visited, a:active {
+.idiomas > li > a, a:focus, a:hover, a:visited, a:active {
+    
     text-decoration: none;
-}*/
+}
 
 .idiomas-active, .idiomas-active:hover, .idiomas-active:active,
 .idiomas-active:focus, .idiomas-active:visited {
@@ -303,15 +304,33 @@ body::-webkit-scrollbar-thumb {
     cursor: pointer;
 }
 
-/*.idiomas-side > li > a, a:focus, a:hover, a:visited, a:active {
+.idiomas-side > li > a, a:focus, a:hover, a:visited, a:active {
+    
     text-decoration: none;
-}*/
+}
 
 .idiomas-side-active, .idiomas-side-active:hover, .idiomas-side-active:active,
 .idiomas-side-active:focus, .idiomas-side-active:visited {
     
     color: white !important;
 }
+
+/*.idiomas {
+    margin-bottom: -30px;
+}
+
+.lang-active {
+    color: #629c44;
+}
+
+.lang-non-active {
+    color: #515151;
+}*/
+
+/*.idiomas-side-non-active {
+    
+    color: red !important;
+}*/
 
 /* Fin Menu*/
 
