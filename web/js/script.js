@@ -199,6 +199,32 @@ $(document).ready(function() {
 });
 
 /* Swipe right para ir a la página anterior */
+// https://github.com/mattbryson/TouchSwipe-Jquery-Plugin
+/*global history*/
+/*$(function() {
+  $(document).swipe( {
+    //Generic swipe handler for all directions
+    swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
+      alert("You swiped " + direction );
+      history.back();
+    }
+  });
+});*/
+
+/*slides
+.on('swipeleft', function(e) {
+  slides.eq(i + 1).addClass('active');
+})
+.on('swiperight', function(e) {
+  slides.eq(i - 1).addClass('active');
+});*/
+
+/*$(document).ready(function() {
+$(document).on('swiperight', function (e) {
+    alert("aa");
+    //history.back();
+});
+});*/
 /*$(document).bind('swiperight', function () {
     history.back();
 });*/
