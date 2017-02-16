@@ -8,7 +8,7 @@ $(document).ready(function($) {
         $(this).toggleClass('active');
         $('.desktop-menu').toggleClass('col-md-7 col-lg-8 visible-md visible-lg').addClass('hidden');
         $('#navbar-search').parent().toggleClass('col-md-1 col-md-8 col-lg-9');
-        $('.searchBox').toggleClass('hidden').css('width', '350');
+        $('.searchBox').toggleClass('hidden').css('width', '345');
         $('.searchBox').focus();
         $('#searchIcon').toggleClass('fa-times');
         $('.searchResults').slideToggle(500);
@@ -83,22 +83,52 @@ function cambiarActive(){
     var url = window.location.pathname;
     
     if ( url.indexOf("/es/") > -1 ) {
+        $('.idiomas').children('.es').removeClass('idiomas-non-active');
+        $('.idiomas-side').children('.es').removeClass('idiomas-side-non-active');
         $('.idiomas').children('.es').addClass('idiomas-active');
         $('.idiomas-side').children('.es').addClass('idiomas-side-active');
+        $('.idiomas').children('.eus').removeClass('idiomas-active');
+        $('.idiomas-side').children('.eus').removeClass('idiomas-side-active');
+        $('.idiomas').children('.eus').addClass('idiomas-non-active');
+        $('.idiomas-side').children('.eus').addClass('idiomas-side-non-active');
+        $('.idiomas').children('.en').removeClass('idiomas-active');
+        $('.idiomas-side').children('.en').removeClass('idiomas-side-active');
+        $('.idiomas').children('.en').addClass('idiomas-non-active');
+        $('.idiomas-side').children('.en').addClass('idiomas-side-non-active');
         /*//$('.idiomas').children('.eus').addClass('idiomas-non-active');
         $('.idiomas-side').children('.eus').addClass('idiomas-side-non-active');
         //$('.idiomas').children('.en').addClass('idiomas-non-active');
         $('.idiomas-side').children('.en').addClass('idiomas-side-non-active');*/
     } else if( url.indexOf("/eus/") > -1 ){
+        $('.idiomas').children('.eus').removeClass('idiomas-non-active');
+        $('.idiomas-side').children('.eus').removeClass('idiomas-side-non-active');
         $('.idiomas').children('.eus').addClass('idiomas-active');
         $('.idiomas-side').children('.eus').addClass('idiomas-side-active');
+        $('.idiomas').children('.es').removeClass('idiomas-active');
+        $('.idiomas-side').children('.es').removeClass('idiomas-side-active');
+        $('.idiomas').children('.es').addClass('idiomas-non-active');
+        $('.idiomas-side').children('.es').addClass('idiomas-side-non-active');
+        $('.idiomas').children('.en').removeClass('idiomas-active');
+        $('.idiomas-side').children('.en').removeClass('idiomas-side-active');
+        $('.idiomas').children('.en').addClass('idiomas-non-active');
+        $('.idiomas-side').children('.en').addClass('idiomas-side-non-active');
         /*//$('.idiomas').children('.es').addClass('idiomas-non-active');
         $('.idiomas-side').children('.es').addClass('idiomas-side-non-active');
         //$('.idiomas').children('.en').addClass('idiomas-non-active');
         $('.idiomas-side').children('.en').addClass('idiomas-side-non-active');*/
     } else if( url.indexOf("/en/") > -1 ){
+        $('.idiomas').children('.en').removeClass('idiomas-non-active');
+        $('.idiomas-side').children('.en').removeClass('idiomas-side-non-active');
         $('.idiomas').children('.en').addClass('idiomas-active');
         $('.idiomas-side').children('.en').addClass('idiomas-side-active');
+        $('.idiomas').children('.eus').removeClass('idiomas-active');
+        $('.idiomas-side').children('.eus').removeClass('idiomas-side-active');
+        $('.idiomas').children('.eus').addClass('idiomas-non-active');
+        $('.idiomas-side').children('.eus').addClass('idiomas-side-non-active');
+        $('.idiomas').children('.es').removeClass('idiomas-active');
+        $('.idiomas-side').children('.es').removeClass('idiomas-side-active');
+        $('.idiomas').children('.es').addClass('idiomas-non-active');
+        $('.idiomas-side').children('.es').addClass('idiomas-side-non-active');
         /*//$('.idiomas').children('.eus').addClass('idiomas-non-active');
         $('.idiomas-side').children('.eus').addClass('idiomas-side-non-active');
         //$('.idiomas').children('.es').addClass('idiomas-non-active');
