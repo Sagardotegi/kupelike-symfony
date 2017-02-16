@@ -11,6 +11,7 @@ use KupelikeBundle\Entity\Cliente;
 use KupelikeBundle\Entity\Voto;
 use Lopi\Bundle\PusherBundle;
 
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Serializer\Serializer;
 use Symfony\Component\Serializer\Encoder\XmlEncoder;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
