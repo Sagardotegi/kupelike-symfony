@@ -33,7 +33,6 @@ class KupelaController extends Controller
         $fbemail = $datos['email'];
         $fbgender = $datos['gender'];
         //$fblocation = $datos['location'];
-        //$fblocation = $fblocation['name'];
         //$fbbirthday = $datos['birthday'];
         
         //$fbhometown = $datos['hometown'];
@@ -64,6 +63,7 @@ class KupelaController extends Controller
         } else {
             // crea un nuevo cliente
             //$this->crearCliente($em, $idCliente, $nombre, $fblocation, $fbemail, $fbbirthday, $fbgender);
+            //$this->crearCliente($em, $idCliente, $nombre, $fblocation, $fbemail, $fbgender);
             $this->crearCliente($em, $idCliente, $nombre, $fbemail, $fbgender);
             // añade un nuevo voto
             $this->nuevoVoto($em, $idCliente, $idKupela);
@@ -83,6 +83,8 @@ class KupelaController extends Controller
         $nombre = $datos['name'];
         $fbemail = $datos['email'];
         $fbgender = $datos['gender'];
+        //$fblocation = $datos['location'];
+        //$fbbirthday = $datos['birthday'];
         
         $idKupela = $request->request->get('idKupela');
         
@@ -97,6 +99,7 @@ class KupelaController extends Controller
         } else {
             // crea un nuevo cliente
             //$this->crearCliente($em, $idCliente, $nombre, $fblocation, $fbemail, $fbbirthday, $fbgender);
+            //$this->crearCliente($em, $idCliente, $nombre, $fblocation, $fbemail, $fbgender);
             $this->crearCliente($em, $idCliente, $nombre, $fbemail, $fbgender);
             // añade un nuevo voto
             $this->nuevoAviso($em, $idCliente, $idKupela);
@@ -160,6 +163,7 @@ class KupelaController extends Controller
     }
 
     //private function crearCliente($em, $id, $nombre, $fblocation, $fbemail, $fbbirthday, $fbgender)
+    //private function crearCliente($em, $id, $nombre, $fblocation, $fbemail, $fbgender)
     private function crearCliente($em, $id, $nombre, $fbemail, $fbgender)
     {
         // almacenamos en la tabla cliente

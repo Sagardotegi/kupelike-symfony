@@ -48,7 +48,7 @@ $(document).ready(function(){
                         var sfoto = sagardotegi.foto;
                         var route = "{{ path('sagardotegi_view', { 'idSagardotegi': "change" }) }}".replace("change", ida);
                         var llegar = "{{ path("sagardotegi_mapa", { 'idSagardotegi': "change" }) }}".replace("change", ida);
-                        var foto = "{{asset("change")}}".replace("change", sfoto);
+                        //var foto = "{{asset("change")}}".replace("change", sfoto);
                         
                         $("#searchResults").append(
     "<hr class='search-hr'><div class='row'>"+
@@ -65,7 +65,7 @@ $(document).ready(function(){
         "<a name='"+sagardotegi.nombre+"' href='"+route+"'>"+
             "<div class='col-xs-4'>"+
                 "<div class='card-sidreria'>"+
-                    "<img class='img-responsive img-search' src='"+foto+"'></img>"+
+                    "<img class='img-responsive img-search' src='"+sfoto+"'></img>"+
                 "</div>"+
             "</div>"+
         "</a>"+
