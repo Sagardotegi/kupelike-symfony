@@ -1,3 +1,5 @@
+/*global $*/
+
 /** Search open **/
 
 $(document).ready(function($) {
@@ -63,16 +65,20 @@ $(document).ready(function($) {
     
 //* Search zoom disable *//    
     
-$(".searchBox").mouseover(zoomDisable).mousedown(zoomEnable);
+$("#searchButton").on('click', zoomDisable);
 function zoomDisable(){
   $('head meta[name=viewport]').remove();
-  $('head').prepend('<meta name="viewport" content="user-scalable=0" />');
-}
-function zoomEnable(){
-  $('head meta[name=viewport]').remove();
-  $('head').prepend('<meta name="viewport" content="user-scalable=1" />');
+  $('head').prepend('<meta name="viewport" content="user-scalable=no" />');
+  setTimeout(zoomEnable, 1000);
 }
 
+function zoomEnable(){
+  $('head meta[name=viewport]').remove();
+  $('head').prepend('<meta name="viewport" content="user-scalable=yes" />');
+}
+
+
+/*cambiar idiomas*/
 function cambiarActive(){
     var url = window.location.pathname;
     
@@ -88,8 +94,9 @@ function cambiarActive(){
     }
 }
 
+var confirmar;
 function seguro(){
-confirmar=confirm("¿Seguro?"); 
+confirmar = confirm("¿Seguro?"); 
     if (confirmar) {
         // si pulsamos en aceptar
         return true;
@@ -99,6 +106,7 @@ confirmar=confirm("¿Seguro?");
     }           
 }
 
+/* global filepicker */
 /*filepicker de filestack*/
 $(document).ready(function($) {
     $("#foto2").click(function(){
@@ -143,6 +151,15 @@ $(document).ready(function() {
   
   
 });
+
+/* Swipe right para ir a la página anterior */
+/*$(document).bind('swiperight', function () {
+    history.back();
+});*/
+/*$.mobile.defaultPageTransition = 'slide';
+$( "body" ).on( 'swiperight', function() {history.back()}); 
+$( "body" ).on( 'swipeleft', function() {history.forward()});   
+$("a").attr("data-transition", "fade");*/
 
 
 /* eliminar archivos de filestack*/

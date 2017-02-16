@@ -286,10 +286,9 @@ body::-webkit-scrollbar-thumb {
     color: #232323;
 }
 
-.idiomas > li > a, a:focus, a:hover, a:visited, a:active {
-    
+/*.idiomas > li > a, a:focus, a:hover, a:visited, a:active {
     text-decoration: none;
-}
+}*/
 
 .idiomas-active, .idiomas-active:hover, .idiomas-active:active,
 .idiomas-active:focus, .idiomas-active:visited {
@@ -304,10 +303,9 @@ body::-webkit-scrollbar-thumb {
     cursor: pointer;
 }
 
-.idiomas-side > li > a, a:focus, a:hover, a:visited, a:active {
-    
+/*.idiomas-side > li > a, a:focus, a:hover, a:visited, a:active {
     text-decoration: none;
-}
+}*/
 
 .idiomas-side-active, .idiomas-side-active:hover, .idiomas-side-active:active,
 .idiomas-side-active:focus, .idiomas-side-active:visited {
