@@ -1352,15 +1352,21 @@ input:checked + .slider:before {
 }
 
 .error-logo {
-    width: 50px;
+    width: 66px;
 }
 
 .error-logo-text {
     height: inherit;
     padding: 25px;
-    /*font-size: 50px;*/
+    font-size: 50px;
     letter-spacing: 2px;
     color: #ffffff;
     font-family: 'Lobster', cursive;
     line-height: 120px;
+}
+
+.error-logo-text:hover, .error-logo-text:active, .error-logo-text:focus, .error-logo-text:visited {
+    
+    text-decoration: none !important;
+    color: #ffffff !important;
 }
