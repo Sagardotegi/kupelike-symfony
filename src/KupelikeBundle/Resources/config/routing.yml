@@ -58,6 +58,11 @@ kupela_aviso:
     defaults: { _controller: KupelikeBundle:Kupela:aviso }
     methods: [GET, POST]
     
+prueba:
+    path: /sagardotegi/{idKupela}/prueba
+    defaults: {_controller: KupelikeBundle:Sagardotegi:devolversexo }
+    methods: [GET]
+    
 kupela_avisar:
     path: /kupela_avisar/{id}
     defaults: { _controller: KupelikeBundle:Kupela:avisar }

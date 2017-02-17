@@ -78,13 +78,21 @@ class SagardotegiController extends Controller
         
     }
     
+    /**
+     * Para ver qué nos devuelven las consultas
+     */ 
+    public function devolversexoAction($idKupela){
+        $em = $this->getDoctrine()->getManager();
+        return new JsonResponse($this->getNumMujeres($em, $idKupela));
+        
+    }
+    
       private function getNumHombres($em, $idKupela)
     {
        $query = $em->createQuery(
-            "SELECT c, k
+            "SELECT  k.numVotos
             FROM KupelikeBundle:Cliente c, KupelikeBundle:Kupela k
-            WHERE c.sexo = 'male' AND  k.id = :idKupela
-            ")->setParameter('idKupela',$idKupela);
+            WHERE c.sexo = 'male' ");
             
        return $query->getResult(); 
     }
@@ -92,10 +100,10 @@ class SagardotegiController extends Controller
     private function getNumMujeres($em, $idKupela)
     {
         $query = $em->createQuery(
-            "SELECT c, k 
+            "SELECT k.numVotos
             FROM KupelikeBundle:Cliente c, KupelikeBundle:Kupela k
-            WHERE c.sexo = 'female' AND  k.id = :idKupela
-            ")->setParameter('idKupela',$idKupela);
+            WHERE c.sexo = 'female' AND k.id = :idKupela")
+            ->setParameter('idKupela', $idKupela);
         
         return $query->getResult();    
     }
