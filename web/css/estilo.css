@@ -1331,3 +1331,10 @@ input:checked + .slider:before {
         font-size: 30px;
     }
 }
+
+/* Error page */
+
+.error-back {
+    
+    background-color: #629c44;
+}
