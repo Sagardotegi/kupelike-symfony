@@ -2,7 +2,7 @@
 
 {% block body %}
    <div class="container">
-   
+       {{ include('KupelikeBundle:Kupela:_facebook.html.twig') }}
         <div class="row single-sagardotegi">
             <div class="col-xs-6">
                 <h1 class="card-title text-uppercase">{{ sagardotegi.nombre }}</h1>
@@ -74,7 +74,7 @@
       
     {% endfor %}
         </div>
-        {{ include('KupelikeBundle:Kupela:_facebook.html.twig') }}
+        
     </div>
     
      <script src={{asset("js/estadisticas.min.js")}}></script>

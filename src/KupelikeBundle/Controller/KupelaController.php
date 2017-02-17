@@ -33,20 +33,21 @@ class KupelaController extends Controller
         $nombre = $datos['name'];
         $fbemail = $datos['email'];
         $fbgender = $datos['gender'];
-        //$fblocation = $datos['location'];
-        //$fbbirthday = $datos['birthday'];
+        $fblocation = $datos['location']['name'];
+        $fbbirthday = $datos['birthday'];
         
         //$fbhometown = $datos['hometown'];
         //$fbagerange = $datos['age_range'];
         
-        /*$idCliente = $datos->get('id');
-        $nombre = $datos->get('name');
+        /*$idCliente = $datos->getProperty('id');
+        $nombre = $datos->getProperty('name');
         $fbemail = $datos->getProperty('email');
-        //$fbagerange = $datos->getProperty('age_range');
-        $fbbirthday = $datos->getProperty('birthday')->format('Y-m-d');
-        $fbgender = $datos->getProperty('gender');
+        $fbgender = $datos->getProperty('gender');*/
+        //$fblocation = $datos->getProperty('location');
+        //$fbbirthday = $datos->getProperty('birthday')->format('Y-m-d');
+        
         //$fbhometown = $datos->getProperty('hometown');
-        $fblocation = $datos->getProperty('location');*/
+        //$fbagerange = $datos->getProperty('age_range');
         
         $idKupela = $request->request->get('idKupela');
         
@@ -63,9 +64,9 @@ class KupelaController extends Controller
             $this->nuevoVoto($em, $idCliente, $idKupela);
         } else {
             // crea un nuevo cliente
-            //$this->crearCliente($em, $idCliente, $nombre, $fblocation, $fbemail, $fbbirthday, $fbgender);
+            $this->crearCliente($em, $idCliente, $nombre, $fblocation, $fbemail, $fbbirthday, $fbgender);
             //$this->crearCliente($em, $idCliente, $nombre, $fblocation, $fbemail, $fbgender);
-            $this->crearCliente($em, $idCliente, $nombre, $fbemail, $fbgender);
+            //$this->crearCliente($em, $idCliente, $nombre, $fbemail, $fbgender);
             // añade un nuevo voto
             $this->nuevoVoto($em, $idCliente, $idKupela);
         }
@@ -84,8 +85,8 @@ class KupelaController extends Controller
         $nombre = $datos['name'];
         $fbemail = $datos['email'];
         $fbgender = $datos['gender'];
-        //$fblocation = $datos['location'];
-        //$fbbirthday = $datos['birthday'];
+        $fblocation = $datos['location']['name'];
+        $fbbirthday = $datos['birthday'];
         
         $idKupela = $request->request->get('idKupela');
         
@@ -99,9 +100,9 @@ class KupelaController extends Controller
             $this->nuevoAviso($em, $idCliente, $idKupela);
         } else {
             // crea un nuevo cliente
-            //$this->crearCliente($em, $idCliente, $nombre, $fblocation, $fbemail, $fbbirthday, $fbgender);
+            $this->crearCliente($em, $idCliente, $nombre, $fblocation, $fbemail, $fbbirthday, $fbgender);
             //$this->crearCliente($em, $idCliente, $nombre, $fblocation, $fbemail, $fbgender);
-            $this->crearCliente($em, $idCliente, $nombre, $fbemail, $fbgender);
+            //$this->crearCliente($em, $idCliente, $nombre, $fbemail, $fbgender);
             // añade un nuevo voto
             $this->nuevoAviso($em, $idCliente, $idKupela);
         }
@@ -163,9 +164,9 @@ class KupelaController extends Controller
         
     }
 
-    //private function crearCliente($em, $id, $nombre, $fblocation, $fbemail, $fbbirthday, $fbgender)
+    private function crearCliente($em, $id, $nombre, $fblocation, $fbemail, $fbbirthday, $fbgender)
     //private function crearCliente($em, $id, $nombre, $fblocation, $fbemail, $fbgender)
-    private function crearCliente($em, $id, $nombre, $fbemail, $fbgender)
+    //private function crearCliente($em, $id, $nombre, $fbemail, $fbgender)
     {
         // almacenamos en la tabla cliente
             $cliente = new Cliente();
@@ -173,8 +174,8 @@ class KupelaController extends Controller
             $cliente->setId($id);
             $cliente->setEmail($fbemail);
             $cliente->setSexo($fbgender);
-            //$cliente->setDireccion($fblocation);
-            //$cliente->setFechaNacimiento($fbbirthday);
+            $cliente->setDireccion($fblocation);
+            $cliente->setFechaNacimiento($fbbirthday);
             
             
             $em->persist($cliente);
