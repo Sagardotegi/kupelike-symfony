@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+/*global $*/
+$(document).ready(function() {
+  $(document).bind("touchstart",empezar);
+  $(document).bind("touchend",terminar);
+});
+
+
+var eancho;
+var ealto;
+var sancho;
+var salto;
+var mancho;
+var malto;
+
+function empezar(event) {
+	var touch = event.originalEvent.changedTouches[0];
+	eancho = touch.pageX;
+	ealto = touch.pageY;
+}
+
+function terminar(event) {
+	var touch = event.originalEvent.changedTouches[0];
+	sancho = touch.pageX;
+	salto = touch.pageY;
+	mancho = sancho - eancho;
+	malto = salto - ealto;
+	if (malto < 0){
+	    malto = malto* -1;
+	}
+	malto = malto*2;
+	if (mancho > malto) {
+	    alert(mancho+"y"+malto);
+	    history.back();
+	}
+    
+}
+</script>
+</head>
+<body>
+
+</body>
+</html>

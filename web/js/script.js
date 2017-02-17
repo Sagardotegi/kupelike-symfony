@@ -136,40 +136,6 @@ function cambiarActive(){
     }
 }
 
-/*function cambiarActive(){
-    var url = window.location.pathname;
-    
-    if ( url.indexOf("/es/") > -1 ) {
-        $('.es').removeClass('lang-non-active');
-        $('.es').addClass('lang-active');
-        $('.eus').removeClass('lang-active');
-        $('.en').removeClass('lang-active');
-        $('.eus').addClass('lang-non-active');
-        $('.en').addClass('lang-non-active');
-    } else if( url.indexOf("/eus/") > -1 ){
-        $('.eus').removeClass('lang-non-active');
-        $('.eus').addClass('lang-active');
-        $('.es').removeClass('lang-active');
-        $('.en').removeClass('lang-active');
-        $('.es').addClass('lang-non-active');
-        $('.en').addClass('lang-non-active');
-    } else if( url.indexOf("/en/") > -1 ){
-        $('.en').removeClass('lang-non-active');
-        $('.en').addClass('lang-active');
-        $('.eus').removeClass('lang-active');
-        $('.es').removeClass('lang-active');
-        $('.eus').addClass('lang-non-active');
-        $('.es').addClass('lang-non-active');
-    } else {
-        $('.es').removeClass('lang-active');
-        $('.eus').removeClass('lang-active');
-        $('.en').removeClass('lang-active');
-        $('.es').addClass('lang-non-active');
-        $('.eus').addClass('lang-non-active');
-        $('.en').addClass('lang-non-active');
-    }
-}*/
-
 var confirmar;
 function seguro(){
 confirmar = confirm("¿Seguro?"); 
@@ -229,6 +195,50 @@ $(document).ready(function() {
 });
 
 /* Swipe right para ir a la página anterior */
+$(document).ready(function() {
+  if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
+    //var url = window.location.pathname;
+    
+    //if ( url.indexOf("/index") <= -1 ) {
+      $(document).bind("touchstart",empezar);
+      $(document).bind("touchend",terminar);
+    //}
+  }
+});
+
+
+var eancho;
+var ealto;
+var sancho;
+var salto;
+var mancho;
+var malto;
+
+function empezar(event) {
+	var touch = event.originalEvent.changedTouches[0];
+	eancho = touch.pageX;
+	ealto = touch.pageY;
+}
+
+function terminar(event) {
+	var touch = event.originalEvent.changedTouches[0];
+	sancho = touch.pageX;
+	salto = touch.pageY;
+	mancho = sancho - eancho;
+	malto = salto - ealto;
+	if (malto < 0){
+	    malto = malto* -1;
+	}
+	malto = malto*2;
+	if (mancho > malto) {
+	    //history.back();
+	    $('.menu').addClass('visible-menu');
+	}
+    
+}
+/* Swipe right end */
+
+
 // https://github.com/mattbryson/TouchSwipe-Jquery-Plugin
 /*global history*/
 /*$(function() {
