@@ -11,6 +11,7 @@ use KupelikeBundle\Entity\Cliente;
 use KupelikeBundle\Entity\Voto;
 use Lopi\Bundle\PusherBundle;
 
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Serializer\Serializer;
 use Symfony\Component\Serializer\Encoder\XmlEncoder;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
@@ -32,20 +33,21 @@ class KupelaController extends Controller
         $nombre = $datos['name'];
         $fbemail = $datos['email'];
         $fbgender = $datos['gender'];
-        //$fblocation = $datos['location'];
-        //$fbbirthday = $datos['birthday'];
+        $fblocation = $datos['location']['name'];
+        $fbbirthday = $datos['birthday'];
         
         //$fbhometown = $datos['hometown'];
         //$fbagerange = $datos['age_range'];
         
-        /*$idCliente = $datos->get('id');
-        $nombre = $datos->get('name');
+        /*$idCliente = $datos->getProperty('id');
+        $nombre = $datos->getProperty('name');
         $fbemail = $datos->getProperty('email');
-        //$fbagerange = $datos->getProperty('age_range');
-        $fbbirthday = $datos->getProperty('birthday')->format('Y-m-d');
-        $fbgender = $datos->getProperty('gender');
+        $fbgender = $datos->getProperty('gender');*/
+        //$fblocation = $datos->getProperty('location');
+        //$fbbirthday = $datos->getProperty('birthday')->format('Y-m-d');
+        
         //$fbhometown = $datos->getProperty('hometown');
-        $fblocation = $datos->getProperty('location');*/
+        //$fbagerange = $datos->getProperty('age_range');
         
         $idKupela = $request->request->get('idKupela');
         
@@ -62,9 +64,9 @@ class KupelaController extends Controller
             $this->nuevoVoto($em, $idCliente, $idKupela);
         } else {
             // crea un nuevo cliente
-            //$this->crearCliente($em, $idCliente, $nombre, $fblocation, $fbemail, $fbbirthday, $fbgender);
+            $this->crearCliente($em, $idCliente, $nombre, $fblocation, $fbemail, $fbbirthday, $fbgender);
             //$this->crearCliente($em, $idCliente, $nombre, $fblocation, $fbemail, $fbgender);
-            $this->crearCliente($em, $idCliente, $nombre, $fbemail, $fbgender);
+            //$this->crearCliente($em, $idCliente, $nombre, $fbemail, $fbgender);
             // añade un nuevo voto
             $this->nuevoVoto($em, $idCliente, $idKupela);
         }
@@ -83,8 +85,8 @@ class KupelaController extends Controller
         $nombre = $datos['name'];
         $fbemail = $datos['email'];
         $fbgender = $datos['gender'];
-        //$fblocation = $datos['location'];
-        //$fbbirthday = $datos['birthday'];
+        $fblocation = $datos['location']['name'];
+        $fbbirthday = $datos['birthday'];
         
         $idKupela = $request->request->get('idKupela');
         
@@ -98,9 +100,9 @@ class KupelaController extends Controller
             $this->nuevoAviso($em, $idCliente, $idKupela);
         } else {
             // crea un nuevo cliente
-            //$this->crearCliente($em, $idCliente, $nombre, $fblocation, $fbemail, $fbbirthday, $fbgender);
+            $this->crearCliente($em, $idCliente, $nombre, $fblocation, $fbemail, $fbbirthday, $fbgender);
             //$this->crearCliente($em, $idCliente, $nombre, $fblocation, $fbemail, $fbgender);
-            $this->crearCliente($em, $idCliente, $nombre, $fbemail, $fbgender);
+            //$this->crearCliente($em, $idCliente, $nombre, $fbemail, $fbgender);
             // añade un nuevo voto
             $this->nuevoAviso($em, $idCliente, $idKupela);
         }
@@ -162,9 +164,9 @@ class KupelaController extends Controller
         
     }
 
-    //private function crearCliente($em, $id, $nombre, $fblocation, $fbemail, $fbbirthday, $fbgender)
+    private function crearCliente($em, $id, $nombre, $fblocation, $fbemail, $fbbirthday, $fbgender)
     //private function crearCliente($em, $id, $nombre, $fblocation, $fbemail, $fbgender)
-    private function crearCliente($em, $id, $nombre, $fbemail, $fbgender)
+    //private function crearCliente($em, $id, $nombre, $fbemail, $fbgender)
     {
         // almacenamos en la tabla cliente
             $cliente = new Cliente();
@@ -172,8 +174,8 @@ class KupelaController extends Controller
             $cliente->setId($id);
             $cliente->setEmail($fbemail);
             $cliente->setSexo($fbgender);
-            //$cliente->setDireccion($fblocation);
-            //$cliente->setFechaNacimiento($fbbirthday);
+            $cliente->setDireccion($fblocation);
+            $cliente->setFechaNacimiento($fbbirthday);
             
             
             $em->persist($cliente);
@@ -306,15 +308,23 @@ class KupelaController extends Controller
         $votos = $numVotos;
         
         // Convertir el objeto en JSON
-        $encoders = array(new JsonEncoder());
+        /*$encoders = array(new JsonEncoder());
         $normalizers = array(new ObjectNormalizer());
         
         $serializer = new Serializer($normalizers, $encoders);
         
         // Devolvemos el objeto en JSON
-        $json = $serializer->serialize($votos, 'json');
-        $response = new Response($json);
-        $response->headers->set('Access-Control-Allow-Origin', '*');
+        //$json = $serializer->serialize($votos, 'json');
+        $response = new Response();
+        $response->headers->set('Content-Type', 'text/plain');
+        $response->sendHeaders();
+        
+        return $this->render($votos, array(), $response);*/
+        
+        $response = new JsonResponse();
+        $response->setData(array(
+            'Votos' => $votos
+        ));
         return $response;
     }
     

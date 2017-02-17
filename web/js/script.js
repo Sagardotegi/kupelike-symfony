@@ -1,3 +1,5 @@
+/*global $*/
+
 /** Search open **/
 
 $(document).ready(function($) {
@@ -6,7 +8,7 @@ $(document).ready(function($) {
         $(this).toggleClass('active');
         $('.desktop-menu').toggleClass('col-md-7 col-lg-8 visible-md visible-lg').addClass('hidden');
         $('#navbar-search').parent().toggleClass('col-md-1 col-md-8 col-lg-9');
-        $('.searchBox').toggleClass('hidden').css('width', '350');
+        $('.searchBox').toggleClass('hidden').css('width', '345');
         $('.searchBox').focus();
         $('#searchIcon').toggleClass('fa-times');
         $('.searchResults').slideToggle(500);
@@ -63,33 +65,80 @@ $(document).ready(function($) {
     
 //* Search zoom disable *//    
     
-$(".searchBox").mouseover(zoomDisable).mousedown(zoomEnable);
+$("#searchButton").on('click', zoomDisable);
 function zoomDisable(){
   $('head meta[name=viewport]').remove();
-  $('head').prepend('<meta name="viewport" content="user-scalable=0" />');
-}
-function zoomEnable(){
-  $('head meta[name=viewport]').remove();
-  $('head').prepend('<meta name="viewport" content="user-scalable=1" />');
+  $('head').prepend('<meta name="viewport" content="user-scalable=no" />');
+  setTimeout(zoomEnable, 1000);
 }
 
+function zoomEnable(){
+  $('head meta[name=viewport]').remove();
+  $('head').prepend('<meta name="viewport" content="user-scalable=yes" />');
+}
+
+
+/*cambiar idiomas*/
 function cambiarActive(){
     var url = window.location.pathname;
     
     if ( url.indexOf("/es/") > -1 ) {
+        $('.idiomas').children('.es').removeClass('idiomas-non-active');
+        $('.idiomas-side').children('.es').removeClass('idiomas-side-non-active');
         $('.idiomas').children('.es').addClass('idiomas-active');
         $('.idiomas-side').children('.es').addClass('idiomas-side-active');
+        $('.idiomas').children('.eus').removeClass('idiomas-active');
+        $('.idiomas-side').children('.eus').removeClass('idiomas-side-active');
+        $('.idiomas').children('.eus').addClass('idiomas-non-active');
+        $('.idiomas-side').children('.eus').addClass('idiomas-side-non-active');
+        $('.idiomas').children('.en').removeClass('idiomas-active');
+        $('.idiomas-side').children('.en').removeClass('idiomas-side-active');
+        $('.idiomas').children('.en').addClass('idiomas-non-active');
+        $('.idiomas-side').children('.en').addClass('idiomas-side-non-active');
+        /*//$('.idiomas').children('.eus').addClass('idiomas-non-active');
+        $('.idiomas-side').children('.eus').addClass('idiomas-side-non-active');
+        //$('.idiomas').children('.en').addClass('idiomas-non-active');
+        $('.idiomas-side').children('.en').addClass('idiomas-side-non-active');*/
     } else if( url.indexOf("/eus/") > -1 ){
+        $('.idiomas').children('.eus').removeClass('idiomas-non-active');
+        $('.idiomas-side').children('.eus').removeClass('idiomas-side-non-active');
         $('.idiomas').children('.eus').addClass('idiomas-active');
         $('.idiomas-side').children('.eus').addClass('idiomas-side-active');
+        $('.idiomas').children('.es').removeClass('idiomas-active');
+        $('.idiomas-side').children('.es').removeClass('idiomas-side-active');
+        $('.idiomas').children('.es').addClass('idiomas-non-active');
+        $('.idiomas-side').children('.es').addClass('idiomas-side-non-active');
+        $('.idiomas').children('.en').removeClass('idiomas-active');
+        $('.idiomas-side').children('.en').removeClass('idiomas-side-active');
+        $('.idiomas').children('.en').addClass('idiomas-non-active');
+        $('.idiomas-side').children('.en').addClass('idiomas-side-non-active');
+        /*//$('.idiomas').children('.es').addClass('idiomas-non-active');
+        $('.idiomas-side').children('.es').addClass('idiomas-side-non-active');
+        //$('.idiomas').children('.en').addClass('idiomas-non-active');
+        $('.idiomas-side').children('.en').addClass('idiomas-side-non-active');*/
     } else if( url.indexOf("/en/") > -1 ){
+        $('.idiomas').children('.en').removeClass('idiomas-non-active');
+        $('.idiomas-side').children('.en').removeClass('idiomas-side-non-active');
         $('.idiomas').children('.en').addClass('idiomas-active');
         $('.idiomas-side').children('.en').addClass('idiomas-side-active');
+        $('.idiomas').children('.eus').removeClass('idiomas-active');
+        $('.idiomas-side').children('.eus').removeClass('idiomas-side-active');
+        $('.idiomas').children('.eus').addClass('idiomas-non-active');
+        $('.idiomas-side').children('.eus').addClass('idiomas-side-non-active');
+        $('.idiomas').children('.es').removeClass('idiomas-active');
+        $('.idiomas-side').children('.es').removeClass('idiomas-side-active');
+        $('.idiomas').children('.es').addClass('idiomas-non-active');
+        $('.idiomas-side').children('.es').addClass('idiomas-side-non-active');
+        /*//$('.idiomas').children('.eus').addClass('idiomas-non-active');
+        $('.idiomas-side').children('.eus').addClass('idiomas-side-non-active');
+        //$('.idiomas').children('.es').addClass('idiomas-non-active');
+        $('.idiomas-side').children('.es').addClass('idiomas-side-non-active');*/
     }
 }
 
+var confirmar;
 function seguro(){
-confirmar=confirm("¿Seguro?"); 
+confirmar = confirm("¿Seguro?"); 
     if (confirmar) {
         // si pulsamos en aceptar
         return true;
@@ -99,6 +148,7 @@ confirmar=confirm("¿Seguro?");
     }           
 }
 
+/* global filepicker */
 /*filepicker de filestack*/
 $(document).ready(function($) {
     $("#foto2").click(function(){
@@ -143,6 +193,85 @@ $(document).ready(function() {
   
   
 });
+
+/* Swipe right para ir a la página anterior */
+$(document).ready(function() {
+  if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
+    //var url = window.location.pathname;
+    
+    //if ( url.indexOf("/index") <= -1 ) {
+      $(document).bind("touchstart",empezar);
+      $(document).bind("touchend",terminar);
+    //}
+  }
+});
+
+
+var eancho;
+var ealto;
+var sancho;
+var salto;
+var mancho;
+var malto;
+
+function empezar(event) {
+	var touch = event.originalEvent.changedTouches[0];
+	eancho = touch.pageX;
+	ealto = touch.pageY;
+}
+
+function terminar(event) {
+	var touch = event.originalEvent.changedTouches[0];
+	sancho = touch.pageX;
+	salto = touch.pageY;
+	mancho = sancho - eancho;
+	malto = salto - ealto;
+	if (malto < 0){
+	    malto = malto* -1;
+	}
+	malto = malto*2;
+	if (mancho > malto) {
+	    //history.back();
+	    $('.menu').addClass('visible-menu');
+	}
+    
+}
+/* Swipe right end */
+
+
+// https://github.com/mattbryson/TouchSwipe-Jquery-Plugin
+/*global history*/
+/*$(function() {
+  $(document).swipe( {
+    //Generic swipe handler for all directions
+    swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
+      alert("You swiped " + direction );
+      history.back();
+    }
+  });
+});*/
+
+/*slides
+.on('swipeleft', function(e) {
+  slides.eq(i + 1).addClass('active');
+})
+.on('swiperight', function(e) {
+  slides.eq(i - 1).addClass('active');
+});*/
+
+/*$(document).ready(function() {
+$(document).on('swiperight', function (e) {
+    alert("aa");
+    //history.back();
+});
+});*/
+/*$(document).bind('swiperight', function () {
+    history.back();
+});*/
+/*$.mobile.defaultPageTransition = 'slide';
+$( "body" ).on( 'swiperight', function() {history.back()}); 
+$( "body" ).on( 'swipeleft', function() {history.forward()});   
+$("a").attr("data-transition", "fade");*/
 
 
 /* eliminar archivos de filestack*/

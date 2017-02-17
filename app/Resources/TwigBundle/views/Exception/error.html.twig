@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="user-scalable=yes">
+        <title>{% block title %}KupeLike{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        <link rel="shortcut icon" href="{{ asset('img/favicon.ico') }}" type="image/ico"/>
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/estilo.css') }}" />
+        <!-- Estilos CSS para producción para solucionar errores de carga de imágenes -->
+            {% if app.environment == 'prod' %}
+                <link rel="stylesheet" type="text/css" href="{{ asset('css/estilo_prod.css') }}" />
+            {% endif %}
+        <link href="{{ asset('/css/font-awesome.min.css') }}" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Roboto|Lobster|Lato" rel="stylesheet">
+         
+    </head>
+    
+    <body>
+         <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12">
+                <h1 class="text-center">Error {{ status_code }}</h1>
+                <h3 class="text-center">El servidor ha devuelto un error. Por favor, vuelva a la <a href="{{ path('_index') }}">página principal</a>.</h3>
+                </div>
+            </div>
+            
+        
+        <!-- jQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    </body>
+</html>

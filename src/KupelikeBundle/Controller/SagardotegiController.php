@@ -58,22 +58,30 @@ class SagardotegiController extends Controller
         // obtenemos las kupelas de la sagardotegi
         $kupelas = $em->getRepository('KupelikeBundle:Kupela')->findBy(array('idSagardotegi' => $idSagardotegi),['nombre' => 'ASC']);
 
-        foreach($kupelas as $kupela){
-            $idKupela = $kupela->getId();
-            $mujeres = $this->getNumMujeres($em, $idKupela);
-            $hombres = $this->getNumHombres($em, $idKupela);
+        if(!empty($kupelas)) {
+            foreach($kupelas as $kupela){
+                $idKupela = $kupela->getId();
+                $mujeres = $this->getNumMujeres($em, $idKupela);
+                $hombres = $this->getNumHombres($em, $idKupela);
+            }
         }
 
         //$kupelaN = $em->getRepository('KupelikeBundle:Voto')->sumKupelas();
         
-        return $this->render('KupelikeBundle:Kupela:index.html.twig', array(
-            'kupelas' => $kupelas,
-            'sagardotegi' => $sagardotegi,
-            'hombres' =>$hombres, 
-            'mujeres' =>$mujeres,
-            //'kupelaN' => $kupelaN
-
-        ));
+        if(empty($hombres) || empty($mujeres)) {
+            return $this->render('KupelikeBundle:Kupela:index.html.twig', array(
+                'kupelas' => $kupelas,
+                'sagardotegi' => $sagardotegi
+                //'kupelaN' => $kupelaN
+            ));
+        } else {
+            return $this->render('KupelikeBundle:Kupela:index.html.twig', array(
+                'kupelas' => $kupelas,
+                'sagardotegi' => $sagardotegi,
+                'hombres' =>$hombres, 
+                'mujeres' =>$mujeres,
+            ));
+        }
         
         
     }
