@@ -1350,3 +1350,17 @@ input:checked + .slider:before {
     font-size: 15em !important;
     color: white !important;
 }
+
+.error-logo {
+    width: 50px;
+}
+
+.error-logo-text {
+    height: inherit;
+    padding: 25px;
+    /*font-size: 50px;*/
+    letter-spacing: 2px;
+    color: #ffffff;
+    font-family: 'Lobster', cursive;
+    line-height: 120px;
+}
