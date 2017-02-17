@@ -19,9 +19,10 @@
     <body>
          <div class="container-fluid">
             <div class="row">
-                <div class="col-xs-12">
-                <h1 class="text-center">Error {{ status_code }}</h1>
-                <h3 class="text-center">El servidor ha devuelto un error. Por favor, vuelva a la <a href="{{ path('_index') }}">página principal</a>.</h3>
+                <div class="col-xs-12 text-center">
+                <i class="fa fa-6 fa-exclamation-triangle" aria-hidden="true"></i>
+                <h1 class="welcome-text">Error {{ status_code }}</h1>
+                <blockquote><h3 class="footer-menu">El servidor ha devuelto un error. Por favor, vuelva a la <a class="access-link" href="{{ path('_index') }}">página principal</a>.</h3></blockquote>
                 </div>
             </div>
             
