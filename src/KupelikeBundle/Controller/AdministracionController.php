@@ -31,38 +31,53 @@ class AdministracionController extends Controller
             $sagardotegi = $em->getRepository('KupelikeBundle:Sagardotegi')->findOneBy(array('nombre'=>$nombreSidreria));
             //$sagardotegi = $em->getRepository('KupelikeBundle:Sagardotegi')->findOneBy(array('id'=>$idSidreria));
             $kupelas = $em->getRepository('KupelikeBundle:Kupela')->findBy(array('idSagardotegi'=>$sagardotegi->getId()),['nombre' => 'ASC']);
-            $hombres = $this->getNumHombres($em);
-            $mujeres = $this->getNumMujeres($em);
-            $fechas = $this->getNumXfecha($em);
+            $hombres = $this->getNumHombres($em, $sagardotegi->getId());
+            $mujeres = $this->getNumMujeres($em, $sagardotegi->getId());
+            $fechas = $this->getNumXfecha($em, $sagardotegi->getId());
             return $this->render('KupelikeBundle:Administracion:usuarios.html.twig', array('sidreria'=>$sagardotegi,'kupelas' =>$kupelas, 'hombres' =>$hombres, 'mujeres' =>$mujeres, 'fechas' =>$fechas));
         }
     }
-       private function getNumXfecha($em)
+       private function getNumXfecha($em, $id)
       
     {        
            $query = $em->createQuery(
-            "select v.fecha as fecha,count(k.numVotos) as NumVotos from KupelikeBundle:Voto v, KupelikeBundle:Kupela k where k.id=v.kupelaId group by v.fecha
-        ");
+            "SELECT v.fecha as fecha,count(v.id) as NumVotos 
+            FROM KupelikeBundle:Voto v, KupelikeBundle:Kupela k, KupelikeBundle:Sagardotegi s 
+            WHERE k.id=v.kupelaId 
+            AND k.idSagardotegi = s.id 
+            AND s.id = :id 
+            GROUP BY v.fecha 
+            ORDER BY v.fecha")
+            ->setParameter('id', $id);
        return $query->getResult(); 
     }
-    private function getNumHombres($em)
+    private function getNumHombres($em, $id)
     {
         $query = $em->createQuery(
-            "SELECT c
-            FROM KupelikeBundle:Cliente c
-            WHERE c.sexo = 'male'
-        ");
+            "SELECT  count(v.id) as hombres, s.id as id
+            FROM KupelikeBundle:Cliente c, KupelikeBundle:Kupela k, KupelikeBundle:Voto v, KupelikeBundle:Sagardotegi s
+            WHERE c.sexo = 'male' 
+            AND v.clienteId = c.id 
+            AND v.kupelaId = k.id 
+            AND k.idSagardotegi = s.id 
+            AND s.id = :id 
+            GROUP BY s.id")
+            ->setParameter('id', $id);
        return $query->getResult(); 
     }
     
-    private function getNumMujeres($em)
+    private function getNumMujeres($em, $id)
     {
         $query = $em->createQuery(
-            "SELECT c
-            FROM KupelikeBundle:Cliente c
-            WHERE c.sexo = 'female'
-            
-            ");
+            "SELECT  count(v.id) as mujeres, s.id as id
+            FROM KupelikeBundle:Cliente c, KupelikeBundle:Kupela k, KupelikeBundle:Voto v, KupelikeBundle:Sagardotegi s
+            WHERE c.sexo = 'female' 
+            AND v.clienteId = c.id 
+            AND v.kupelaId = k.id 
+            AND k.idSagardotegi = s.id 
+            AND s.id = :id 
+            GROUP BY s.id")
+            ->setParameter('id', $id);
         return $query->getResult();    
     }
     //funcion para editar las kupelas individualmente
