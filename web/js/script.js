@@ -68,13 +68,14 @@ $(document).ready(function($) {
 $(document).ready(function($) {
 
     $('.btn-stats').on('click', function(){
+      //id = event.target.id;
       $('.statsWrapper').fadeIn();
-      $("#statsWindow").css('display','block');
+      $("."+event.target.id).css('display','block');
     });
     
-    $('#closeStats').click(function(){
-	    $('.statsWrapper').fadeOut();		
-	    $('#statsWindow').fadeOut();
+    $('.closeStats').click(function(){
+	    $('.statsWrapper').fadeOut();
+	    $('.stats').fadeOut();
 	});
 	
 	$(document).mouseup(function (e) {

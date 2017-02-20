@@ -45,12 +45,12 @@
     <!-- Stats window -->
        
         <div class="statsWrapper">
-            <div id="statsWindow" class="row">
+            <div id="statsWindow" class="row stats{{kupela.id}} stats">
                 <div class="col-xs-12">
-                    <a id="closeStats" class="pull-right"><i class="fa fa-times fa-2x" aria-hidden="true"></i></a>
+                    <a class="pull-right closeStats"><i class="fa fa-times fa-2x" aria-hidden="true"></i></a>
                 </div>
                 <div class="col-xs-12">
-                    <h1 class="access-title text-center">Estadisticas</h1>
+                    <h1 class="access-title text-center">Estadisticas{{kupela.id}}</h1>
                 </div>
                 <div class="col-xs-12">
                     <div id="chartContainer-{{kupela.id}}" style="height: 100px; width: 100%;"></div>
@@ -85,7 +85,7 @@
                     <h3 class="card-title text-uppercase">{{kupela.nombre}}</h3>
                     <p class="single-description">{{kupela.descripcion}}</p>
                     <button class="btn btn-primary btn-aviso pull-right" numero="{{kupela.id}}">{{ 'boton.aviso' | trans }}</button>
-                    <button class="btn btn-primary btn-stats pull-right">{{ 'boton.stats' | trans }}</button>
+                    <button class="btn btn-primary btn-stats pull-right" id="stats{{kupela.id}}">{{ 'boton.stats' | trans }}</button>
                 </div>
             </div>
         </div>

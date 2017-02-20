@@ -1428,7 +1428,7 @@ input:checked + .slider:before {
     height: 500px;
 }
 
-#closeStats {
+.closeStats {
     
     color: #629c44;
     margin: 5px -5px;
