@@ -82,9 +82,52 @@
      <script type="text/javascript">
       
       window.onload = function () {
+         var kupelasid = [];
+         //var hombres2 = 0;
+         var kupelah = [];
+         var kupelam = [];
+         var ezh = 0;
+         var ezm = 0;
+         
         {% for kupela in kupelas %}
-
-          	chart = new CanvasJS.Chart("chartContainer-{{kupela.id}}", {
+        {% set breakLooph = false %}
+            {% for hombre in hombres if breakLooph == false %}
+                {% if kupela.id == hombre.id %}
+                    //hombres2++;
+                    kupelah.push({{hombre.hombres}});
+                    ezh = 1;
+                    {% set breakLooph = true %}
+                {% else %}
+              	    ezh = 0;
+              	{% endif %}
+          	{% endfor %}
+        {% set breakLoopm = false %}
+          	{% for mujer in mujeres if breakLoopm == false %}
+                {% if kupela.id == mujer.id %}
+                    //hombres2++;
+                    kupelam.push({{mujer.mujeres}});
+                    ezm = 1;
+                    {% set breakLoopm = true %}
+                {% else %}
+                  	ezm = 0;
+              	{% endif %}
+          	{% endfor %}
+          	if(ezh == 0){ 
+          	    kupelah.push(0);
+          	} else {
+          	    ezh = 0;
+          	}
+          	if(ezm == 0){ 
+          	    kupelam.push(0);
+          	} else {
+          	    ezm = 0;
+          	}
+          	kupelasid.push({{kupela.id}});
+        //hombres2 = 0;
+        {% endfor %}
+        var chart = [];
+        for (i = 0; i < kupelasid.length; i++) { 
+        chart[i] = new CanvasJS.Chart("chartContainer-"+kupelasid[i], {
           		theme: "theme2",//theme1
           		title:{
           			text: "Likes a la kupela por GENERO"              
@@ -96,16 +139,16 @@
           			type: "bar",
           			dataPoints: [
           			    
-          				{ label: "Mujeres",  y: {{mujeres|length}}},
-          				{ label: "Hombres", y: {{hombres|length}}}
+          				{ label: "Mujeres",  y: kupelam[i]},
+          				{ label: "Hombres", y: kupelah[i]}
           				
           			]
           		}
           		]
           	});
-          	chart.render();
- 
-        {% endfor %}
+          	chart[i].render();
+        }
+        
       }
       </script>
     

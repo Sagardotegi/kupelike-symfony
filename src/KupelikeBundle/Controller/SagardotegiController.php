@@ -59,16 +59,16 @@ class SagardotegiController extends Controller
         $kupelas = $em->getRepository('KupelikeBundle:Kupela')->findBy(array('idSagardotegi' => $idSagardotegi),['nombre' => 'ASC']);
 
         if(!empty($kupelas)) {
-            foreach($kupelas as $kupela){
-                $idKupela = $kupela->getId();
-                $mujeres = $this->getNumMujeres($em, $idKupela);
-                $hombres = $this->getNumHombres($em, $idKupela);
-            }
+            //foreach($kupelas as $kupela){
+                //$idKupela = $kupela->getId();
+                $mujeres = $this->getNumMujeres($em);
+                $hombres = $this->getNumHombres($em);
+            //}
         }
 
         //$kupelaN = $em->getRepository('KupelikeBundle:Voto')->sumKupelas();
         
-        if(empty($hombres) || empty($mujeres)) {
+        if(empty($kupelas)) {
             return $this->render('KupelikeBundle:Kupela:index.html.twig', array(
                 'kupelas' => $kupelas,
                 'sagardotegi' => $sagardotegi
@@ -91,28 +91,33 @@ class SagardotegiController extends Controller
      */ 
     public function devolversexoAction($idKupela){
         $em = $this->getDoctrine()->getManager();
-        return new JsonResponse($this->getNumMujeres($em, $idKupela));
+        return new JsonResponse($this->getNumMujeres($em));
         
     }
     
-      private function getNumHombres($em, $idKupela)
+      private function getNumHombres($em)
     {
        $query = $em->createQuery(
-            "SELECT  k.numVotos as hombres, k.id as id
+            "SELECT count(v.id) as hombres, k.id as id
             FROM KupelikeBundle:Cliente c, KupelikeBundle:Kupela k, KupelikeBundle:Voto v
-            WHERE c.sexo = 'male' AND v.clienteId = c.id AND v.kupelaId = k.id AND k.id = :idKupela")
-            ->setParameter('idKupela', $idKupela);
+            WHERE c.sexo = 'male' 
+            AND v.clienteId = c.id 
+            AND v.kupelaId = k.id
+            GROUP BY k.id
+            ORDER BY k.id");
             
        return $query->getResult(); 
     }
     
-    private function getNumMujeres($em, $idKupela)
+    private function getNumMujeres($em)
     {
         $query = $em->createQuery(
-            "SELECT  k.numVotos
+            "SELECT count(v.id) as mujeres, k.id as id
             FROM KupelikeBundle:Cliente c, KupelikeBundle:Kupela k, KupelikeBundle:Voto v
-            WHERE c.sexo = 'male' AND v.clienteId = c.id AND v.kupelaId = k.id AND k.id = :idKupela")
-            ->setParameter('idKupela', $idKupela);
+            WHERE c.sexo = 'female' 
+            AND v.clienteId = c.id 
+            AND v.kupelaId = k.id
+            GROUP BY k.id");
         
         return $query->getResult();    
     }
