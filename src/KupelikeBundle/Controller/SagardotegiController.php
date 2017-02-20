@@ -98,9 +98,10 @@ class SagardotegiController extends Controller
       private function getNumHombres($em, $idKupela)
     {
        $query = $em->createQuery(
-            "SELECT  k.numVotos
-            FROM KupelikeBundle:Cliente c, KupelikeBundle:Kupela k
-            WHERE c.sexo = 'male' ");
+            "SELECT  k.numVotos as hombres, k.id as id
+            FROM KupelikeBundle:Cliente c, KupelikeBundle:Kupela k, KupelikeBundle:Voto v
+            WHERE c.sexo = 'male' AND v.clienteId = c.id AND v.kupelaId = k.id AND k.id = :idKupela")
+            ->setParameter('idKupela', $idKupela);
             
        return $query->getResult(); 
     }
@@ -108,9 +109,9 @@ class SagardotegiController extends Controller
     private function getNumMujeres($em, $idKupela)
     {
         $query = $em->createQuery(
-            "SELECT k.numVotos
-            FROM KupelikeBundle:Cliente c, KupelikeBundle:Kupela k
-            WHERE c.sexo = 'female' AND k.id = :idKupela")
+            "SELECT  k.numVotos
+            FROM KupelikeBundle:Cliente c, KupelikeBundle:Kupela k, KupelikeBundle:Voto v
+            WHERE c.sexo = 'male' AND v.clienteId = c.id AND v.kupelaId = k.id AND k.id = :idKupela")
             ->setParameter('idKupela', $idKupela);
         
         return $query->getResult();    

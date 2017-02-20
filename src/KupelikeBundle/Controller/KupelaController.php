@@ -34,7 +34,8 @@ class KupelaController extends Controller
         $fbemail = $datos['email'];
         $fbgender = $datos['gender'];
         $fblocation = $datos['location']['name'];
-        $fbbirthday = $datos['birthday'];
+        $facebbirthday = $datos['birthday'];
+        $fbbirthday = date_format(date_create_from_format('m/d/Y', $facebbirthday), 'Y/m/d');
         
         //$fbhometown = $datos['hometown'];
         //$fbagerange = $datos['age_range'];
@@ -86,7 +87,8 @@ class KupelaController extends Controller
         $fbemail = $datos['email'];
         $fbgender = $datos['gender'];
         $fblocation = $datos['location']['name'];
-        $fbbirthday = $datos['birthday'];
+        $facebbirthday = $datos['birthday'];
+        $fbbirthday = date_format(date_create_from_format('m/d/Y', $facebbirthday), 'Y/m/d');
         
         $idKupela = $request->request->get('idKupela');
         

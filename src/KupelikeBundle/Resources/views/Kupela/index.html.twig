@@ -84,6 +84,10 @@
                 <div class="caption">
                     <h3 class="card-title text-uppercase">{{kupela.nombre}}</h3>
                     <p class="single-description">{{kupela.descripcion}}</p>
+<<<<<<< HEAD
+=======
+                    <div id="chartContainer-{{kupela.id}}" style="height: 100px; width: 100%;"></div>
+>>>>>>> 908f544a46343fc3da4310431d06eca7690a5242
                     <button class="btn btn-primary btn-aviso pull-right" numero="{{kupela.id}}">{{ 'boton.aviso' | trans }}</button>
                     <button class="btn btn-primary btn-stats pull-right">{{ 'boton.stats' | trans }}</button>
                 </div>
@@ -99,9 +103,9 @@
      <script type="text/javascript">
       
       window.onload = function () {
-        {% for i, kupela in kupelas %}
-        
-          	var chart = new CanvasJS.Chart("chartContainer-{{i}}", {
+        {% for kupela in kupelas %}
+
+          	chart = new CanvasJS.Chart("chartContainer-{{kupela.id}}", {
           		theme: "theme2",//theme1
           		title:{
           			text: "Likes a la kupela por GENERO"              
@@ -121,7 +125,7 @@
           		]
           	});
           	chart.render();
-          
+ 
         {% endfor %}
       }
       </script>

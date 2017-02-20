@@ -624,6 +624,14 @@ h1.a-sagar a:active {
      width: 5% !important;   
 }
 
+.carousel-caption {
+    color: #629c44 !important;
+}
+
+.carousel-caption > h3{
+    color: black !important;
+}
+
 .btn-primary {
     background-color: #4CAF50 !important; /* Green */
     border: none !important;
@@ -1375,6 +1383,26 @@ input:checked + .slider:before {
     
     font-size: 15em !important;
     color: white !important;
+}
+
+.error-logo {
+    width: 66px;
+}
+
+.error-logo-text {
+    height: inherit;
+    padding: 25px;
+    font-size: 60px;
+    letter-spacing: 2px;
+    color: #ffffff;
+    font-family: 'Lobster', cursive;
+    line-height: 120px;
+}
+
+.error-logo-text:hover, .error-logo-text:active, .error-logo-text:focus, .error-logo-text:visited {
+    
+    text-decoration: none !important;
+    color: #ffffff !important;
 }
 
 /** Stats window **/
