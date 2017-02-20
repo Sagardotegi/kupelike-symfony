@@ -200,12 +200,12 @@ $(document).ready(function() {
     //var url = window.location.pathname;
     
     //if ( url.indexOf("/index") <= -1 ) {
+    
       $(document).bind("touchstart",empezar);
       $(document).bind("touchend",terminar);
     //}
   }
 });
-
 
 var eancho;
 var ealto;
@@ -213,28 +213,39 @@ var sancho;
 var salto;
 var mancho;
 var malto;
-
+var stop = 0;
+var stop2;
+var mstop;
 function empezar(event) {
+  malto = 0;
 	var touch = event.originalEvent.changedTouches[0];
 	eancho = touch.pageX;
 	ealto = touch.pageY;
+	stop = $(this).scrollTop();
 }
 
 function terminar(event) {
 	var touch = event.originalEvent.changedTouches[0];
+	stop2 = $(this).scrollTop();
 	sancho = touch.pageX;
 	salto = touch.pageY;
 	mancho = sancho - eancho;
 	malto = salto - ealto;
+	mstop = stop - stop2;
+	if (mstop < 0){
+	    mstop = mstop* -1;
+	}
 	if (malto < 0){
 	    malto = malto* -1;
 	}
-	malto = malto*2;
+	malto = malto*3;
 	if (mancho > malto) {
+	  if (mancho > mstop) {
 	    //history.back();
 	    $('.menu').addClass('visible-menu');
+	  }
 	}
-    
+  console.log("Movido: "+mstop+" Desde: "+stop+" Hasta: "+stop2);
 }
 /* Swipe right end */
 
