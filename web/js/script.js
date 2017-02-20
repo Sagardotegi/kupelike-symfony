@@ -62,6 +62,28 @@ $(document).ready(function($) {
      }
  });
 });
+
+/** Stat window open **/
+
+$(document).ready(function($) {
+
+    $('.btn-stats').on('click', function(){
+      $('.statsWrapper').fadeIn();
+      $("#statsWindow").css('display','block');
+    });
+    
+    $('#closeStats').click(function(){
+	    $('.statsWrapper').fadeOut();		
+	    $('#statsWindow').fadeOut();
+	});
+	
+	$(document).mouseup(function (e) {
+     var access = $("#statsWindow");
+     if (!access.is(e.target) && access.has(e.target).length == 0) {
+         access.fadeOut(500);
+     }
+ });
+});
     
 //* Search zoom disable *//    
     

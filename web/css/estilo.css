@@ -1210,6 +1210,14 @@ input:checked + .slider:before {
         margin-left: -170px;
     }
     
+    #statsWindow {
+        top: 40%;
+        left: 50%;
+        width: 50%;
+        margin-top: -130px;
+        margin-left: -170px;
+    }
+    
     .navbar-title {
         font-size: 50px;
     }
@@ -1243,6 +1251,16 @@ input:checked + .slider:before {
 /*###Tablet(medium)###*/
 @media screen and (min-width : 768px) and (max-width : 1023px){
     #accessWindow {
+        
+        top: 40%;
+        left: 20%;
+        width: 80%;
+        margin-top: -130px;
+        margin-left: -10%;
+    }
+    
+    #statsWindow {
+        
         top: 40%;
         left: 20%;
         width: 80%;
@@ -1289,6 +1307,14 @@ input:checked + .slider:before {
 /*### Smartphones (portrait and landscape)(small)### */
 @media screen and (min-width : 0px) and (max-width : 767px){
     #accessWindow {
+        top: 40%;
+        left: 10%;
+        width: 90%;
+        margin-top: -130px;
+        margin-left: -5%;
+    }
+    
+    #statsWindow {
         top: 40%;
         left: 10%;
         width: 90%;
@@ -1349,4 +1375,34 @@ input:checked + .slider:before {
     
     font-size: 15em !important;
     color: white !important;
+}
+
+/** Stats window **/
+
+.statsWrapper {
+    
+    display: none;
+	left:0;right:0;
+	top:0;bottom:0;
+	z-index:100;
+	background-color:rgba(50,50,50,0.5);
+}
+
+#statsWindow {
+    
+    display: none;
+    position: fixed;
+    background-color: #F5F5F6;
+    z-index: 5;
+    border-radius: 3px;
+    border-bottom: 3px solid #629c44;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.3);
+    height: 500px;
+}
+
+#closeStats {
+    
+    color: #629c44;
+    margin: 5px -5px;
+    cursor: pointer;
 }
