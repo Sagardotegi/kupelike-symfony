@@ -245,7 +245,7 @@ function terminar(event) {
 	    $('.menu').addClass('visible-menu');
 	  }
 	}
-  console.log("Movido: "+mstop+" Desde: "+stop+" Hasta: "+stop2);
+  //console.log("Movido: "+mstop+" Desde: "+stop+" Hasta: "+stop2);
 }
 /* Swipe right end */
 
