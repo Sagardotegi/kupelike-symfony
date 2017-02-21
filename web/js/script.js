@@ -72,12 +72,17 @@ $(document).ready(function($) {
       $('.statsWrapper').fadeIn(150);
       $("."+event.target.id).css('display','block');
       //$(window).width($(document).width());
+      //window.dispatchEvent(new Event('resize'));
+      //setTimeout(toggleZoomScreen, 1000);
     });
     
     $('.closeStats').click(function(){
 	    $('.statsWrapper').fadeOut();
 	    $('.stats').fadeOut();
 	});
+	//function toggleZoomScreen() {
+    //document.body.style.zoom="100%";
+  //} 
 	
 	$(document).mouseup(function (e) {
      var stats = $(".stats");
