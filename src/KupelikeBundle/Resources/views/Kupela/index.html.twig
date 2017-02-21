@@ -53,7 +53,7 @@
                     <h1 class="access-title text-center">{{kupela.nombre}}</h1>
                 </div>
                 <div class="col-xs-12">
-                    <div id="chartContainer-{{kupela.id}}" style="height: 100px; width: 100%;"></div>
+                    <div id="chartContainer-{{kupela.id}}" style="height: 100%; width: 100%;"></div>
                 </div>
             </div>
         </div>
@@ -100,6 +100,7 @@
       
       window.onload = function () {
          var kupelasid = [];
+         var kupelaslikes = [];
          //var hombres2 = 0;
          var kupelah = [];
          var kupelam = [];
@@ -140,10 +141,14 @@
           	    ezm = 0;
           	}
           	kupelasid.push({{kupela.id}});
+          	kupelaslikes.push({{kupela.numVotos}});
         //hombres2 = 0;
         {% endfor %}
+
         var chart = [];
-        for (i = 0; i < kupelasid.length; i++) { 
+        //var anonimos;
+        for (i = 0; i < kupelasid.length; i++) {
+        anonimos = kupelaslikes[i] - kupelam[i] - kupelah[i];
         chart[i] = new CanvasJS.Chart("chartContainer-"+kupelasid[i], {
           		theme: "theme2",//theme1
           		title:{
@@ -157,7 +162,8 @@
           			dataPoints: [
           			    
           				{ label: "Mujeres",  y: kupelam[i]},
-          				{ label: "Hombres", y: kupelah[i]}
+          				{ label: "Hombres", y: kupelah[i]},
+          				{ label: "Anónimos", y: anonimos}
           				
           			]
           		}

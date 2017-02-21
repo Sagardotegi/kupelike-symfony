@@ -39,7 +39,8 @@
         		} else {
                     window.location.href = "{{ path('index') }}";
                 }
+                setTimeout(window.location.href = "{{ path('index') }}", 6000);
             }
         </script>
-        <script type="text/javascript" src="https://maps.google.com/maps/api/js?key=AIzaSyBWJ72A1ofzRbYd2NstWY3pHJBIfAVURUY&libraries=geometry&sensor=true"></script>
+        <script type="text/javascript" src="https://maps.google.com/maps/api/js?key=AIzaSyBWJ72A1ofzRbYd2NstWY3pHJBIfAVURUY&libraries=geometry"></script>
 {% endblock %}
