@@ -71,6 +71,7 @@ $(document).ready(function($) {
       //id = event.target.id;
       $('.statsWrapper').fadeIn(150);
       $("."+event.target.id).css('display','block');
+      //$(window).width($(document).width());
     });
     
     $('.closeStats').click(function(){
