@@ -60,10 +60,10 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-6">
-                            <div id="chartContainer-{{kupela.id}}" style="height: 100%; max-width: 100%"></div>
+                            <div id="chartContainer-{{kupela.id}}"></div>
                         </div>
                         <div class="col-xs-6">
-                            <div id="chartContainer2-{{kupela.id}}" style="height: 100%; max-width: 100%"></div>
+                            <div id="chartContainer2-{{kupela.id}}"></div>
                         </div>
                     </div>
                 </div>
@@ -167,7 +167,7 @@
         anonimos = kupelaslikes[i] - kupelam[i] - kupelah[i];
         chart[i] = new CanvasJS.Chart("chartContainer-"+kupelasid[i], {
           		theme: "theme2",//theme1
-          		//width: 350,
+          		//width: 50,
           		title:{
           			text: "Likes a la kupela por GENERO"              
           		},
@@ -191,7 +191,7 @@
         //anonimos = kupelaslikes[i] - kupelam[i] - kupelah[i];
         chart2[i] = new CanvasJS.Chart("chartContainer2-"+kupelasid[i], {
           		theme: "theme2",//theme1
-          		//width: 350,
+          		//width: 50,
           		title:{
           			text: "Likes a la kupela por FECHA"              
           		},
@@ -212,6 +212,7 @@
                 }
             {% endfor %}
           	chart2[i].render();
+          	
         }
         
       }
