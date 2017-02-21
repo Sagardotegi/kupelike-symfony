@@ -47,13 +47,25 @@
         <div class="statsWrapper">
             <div id="statsWindow" class="row stats{{kupela.id}} stats">
                 <div class="col-xs-12">
-                    <a class="pull-right closeStats"><i class="fa fa-times fa-2x" aria-hidden="true"></i></a>
-                </div>
-                <div class="col-xs-12">
-                    <h1 class="access-title text-center">{{kupela.nombre}}</h1>
-                </div>
-                <div class="col-xs-12">
-                    <div id="chartContainer-{{kupela.id}}" style="height: 100%; width: 100%;"></div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <a class="pull-right closeStats"><i class="fa fa-times fa-2x" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h1 class="access-title text-center">{{kupela.nombre}}</h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div id="chartContainer-{{kupela.id}}" style="height: 100%; max-width: 100%"></div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div id="chartContainer2-{{kupela.id}}" style="height: 100%; max-width: 100%"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -119,6 +131,7 @@
               	    ezh = 0;
               	{% endif %}
           	{% endfor %}
+          	
         {% set breakLoopm = false %}
           	{% for mujer in mujeres if breakLoopm == false %}
                 {% if kupela.id == mujer.id %}
@@ -130,6 +143,7 @@
                   	ezm = 0;
               	{% endif %}
           	{% endfor %}
+          	
           	if(ezh == 0){ 
           	    kupelah.push(0);
           	} else {
@@ -140,17 +154,20 @@
           	} else {
           	    ezm = 0;
           	}
+ 
           	kupelasid.push({{kupela.id}});
           	kupelaslikes.push({{kupela.numVotos}});
         //hombres2 = 0;
         {% endfor %}
 
         var chart = [];
+        var chart2 = [];
         //var anonimos;
         for (i = 0; i < kupelasid.length; i++) {
         anonimos = kupelaslikes[i] - kupelam[i] - kupelah[i];
         chart[i] = new CanvasJS.Chart("chartContainer-"+kupelasid[i], {
           		theme: "theme2",//theme1
+          		//width: 350,
           		title:{
           			text: "Likes a la kupela por GENERO"              
           		},
@@ -161,15 +178,40 @@
           			type: "bar",
           			dataPoints: [
           			    
-          				{ label: "Mujeres",  y: kupelam[i]},
-          				{ label: "Hombres", y: kupelah[i]},
-          				{ label: "Anónimos", y: anonimos}
+          				{ y: kupelam[i], label: "Mujeres" },
+          				{ y: kupelah[i], label: "Hombres" },
+          				{ y: anonimos, label: "Anónimos" }
           				
           			]
           		}
           		]
           	});
           	chart[i].render();
+          	
+        //anonimos = kupelaslikes[i] - kupelam[i] - kupelah[i];
+        chart2[i] = new CanvasJS.Chart("chartContainer2-"+kupelasid[i], {
+          		theme: "theme2",//theme1
+          		//width: 350,
+          		title:{
+          			text: "Likes a la kupela por GENERO"              
+          		},
+          		animationEnabled: false,   // change to true
+          		data: [              
+          		{
+          			// Change type to "bar", "area", "spline", "pie",etc.
+          			type: "column",
+          			dataPoints: [
+
+          			]
+          		}
+          		]
+          	});
+          	{% for fecha in fechas %}
+                if (kupelasid[i] == {{fecha.id}}){
+                    chart2[i].options.data[0].dataPoints.push({ label: "{{fecha.fecha}}",  y: {{fecha.NumVotos}} });
+                }
+            {% endfor %}
+          	chart2[i].render();
         }
         
       }

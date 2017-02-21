@@ -63,6 +63,7 @@ class SagardotegiController extends Controller
                 //$idKupela = $kupela->getId();
                 $mujeres = $this->getNumMujeres($em);
                 $hombres = $this->getNumHombres($em);
+                $fechas = $this->getNumXfecha($em);
             //}
         }
 
@@ -80,6 +81,7 @@ class SagardotegiController extends Controller
                 'sagardotegi' => $sagardotegi,
                 'hombres' =>$hombres, 
                 'mujeres' =>$mujeres,
+                'fechas' =>$fechas
             ));
         }
         
@@ -120,6 +122,17 @@ class SagardotegiController extends Controller
             GROUP BY k.id");
         
         return $query->getResult();    
+    }
+    
+    private function getNumXfecha($em)
+    {        
+        $query = $em->createQuery(
+            "SELECT v.fecha as fecha, count(v.id) as NumVotos, k.id as id
+            FROM KupelikeBundle:Voto v, KupelikeBundle:Kupela k 
+            WHERE k.id=v.kupelaId 
+            GROUP BY k.id, v.fecha
+            ORDER BY v.fecha");
+        return $query->getResult(); 
     }
     
     /**
