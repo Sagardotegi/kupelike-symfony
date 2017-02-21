@@ -74,6 +74,7 @@ boton:
     guardar: "Save"
     modificar: "Change"
     selfoto: "Choose picture"
+    stats: "Statistics"
 titulos:
     mapa: "Map"
     sidrerias: "Cider Houses"

@@ -74,6 +74,7 @@ boton:
     guardar: "Gorde"
     modificar: "Aldatu"
     selfoto: "Argazkia hautatu"
+    stats: "Estatistikak"
 titulos:
     mapa: "Mapa"
     sidrerias: "Sagardotegiak"

@@ -340,7 +340,7 @@ class SagardotegiController extends Controller
         $email = $sagardotegi->getEmail();
         $foto = $sagardotegi->getFoto();
         
-        $kupela = $em->getRepository('KupelikeBundle:Kupela')->findBy(array('idSagardotegi' => $idSagardotegi));
+        $kupela = $em->getRepository('KupelikeBundle:Kupela')->findBy(array('idSagardotegi' => $idSagardotegi),['nombre' => 'ASC']);
         foreach ($kupela as $kupel) {
             $kupelas[] = array(
                 'Nombre' => $kupel->getNombre(),

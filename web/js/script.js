@@ -60,7 +60,7 @@ $(document).ready(function($) {
      if (!access.is(e.target) && access.has(e.target).length == 0) {
          access.fadeOut(500);
      }
- });
+  });
 });
 
 /** Stat window open **/
@@ -69,7 +69,7 @@ $(document).ready(function($) {
 
     $('.btn-stats').on('click', function(){
       //id = event.target.id;
-      $('.statsWrapper').fadeIn();
+      $('.statsWrapper').fadeIn(150);
       $("."+event.target.id).css('display','block');
     });
     
@@ -79,11 +79,11 @@ $(document).ready(function($) {
 	});
 	
 	$(document).mouseup(function (e) {
-     var access = $("#statsWindow");
-     if (!access.is(e.target) && access.has(e.target).length == 0) {
-         access.fadeOut(500);
+     var stats = $(".stats");
+     if (!stats.is(e.target) && stats.has(e.target).length == 0) {
+         stats.fadeOut(500);
      }
- });
+  });
 });
     
 //* Search zoom disable *//    

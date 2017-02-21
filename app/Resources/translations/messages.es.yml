@@ -74,6 +74,7 @@ boton:
     guardar: "Guardar"
     modificar: "Modificar"
     selfoto: "Seleccionar foto"
+    stats: "Estadísticas"
 titulos:
     mapa: "Mapa"
     sidrerias: "Sidrerías"
