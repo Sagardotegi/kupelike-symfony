@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="user-scalable=yes">
+        <title>{% block title %}KupeLike{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        <link rel="shortcut icon" href="{{ asset('img/favicon.ico') }}" type="image/ico"/>
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/estilo.css') }}" />
+        <!-- Estilos CSS para producción para solucionar errores de carga de imágenes -->
+            {% if app.environment == 'prod' %}
+                <link rel="stylesheet" type="text/css" href="{{ asset('css/estilo_prod.css') }}" />
+            {% endif %}
+        <link href="{{ asset('/css/font-awesome.min.css') }}" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Roboto|Lobster|Lato" rel="stylesheet">
+         
+    </head>
+    
+    <body class="error-back">
+         <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                <i class="error-icon fa fa-exclamation-triangle" aria-hidden="true"></i>
+                <h1 class="welcome-text">Error {{ status_code }}</h1>
+                <blockquote><h3 class="footer-menu">Tenemos madres buscando lo que buscas, pero no consiguen encontrarlo. Si ellas no lo encuentran, es por que lo que buscas no existe. Por favor, vuelva a la <a class="error-link" href="{{ path('_index') }}">página principal</a>.</h3></blockquote>
+                <a class="error-logo-text" href="{{ path('index') }}">Kupe<img class="error-logo" src="{{ asset('/img/logo_reverse.jpg') }}"/>Like</a>
+                </div>
+            </div>
+            
+        
+        <!-- jQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    </body>
+</html>
