@@ -1434,3 +1434,7 @@ input:checked + .slider:before {
     margin: 5px -5px;
     cursor: pointer;
 }
+
+#username {
+    text-transform: lowercase;
+}
