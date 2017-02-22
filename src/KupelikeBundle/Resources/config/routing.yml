@@ -252,10 +252,10 @@ login:
     requirements:
         _locale: es|eus|en
         
-login_check:
-    path: /login_ckeck
-    requirements:
-        _locale: es|eus|en
+#login_check:
+#    path: /login_ckeck
+#    requirements:
+#        _locale: es|eus|en
     
 #acceder:
 #    path: /acceder

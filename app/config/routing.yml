@@ -27,6 +27,7 @@ kupelike:
 #login:
 #    path: /login
 #    defaults: { _controller: KupelikeBundle:Security:login }
+#    prefix:   /{_locale}
     
 login_check:
     path: /login_check
