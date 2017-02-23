@@ -1,9 +1,8 @@
 /*global $*/
-
-/** Search open **/
-
+/* global navigator */
 $(document).ready(function($) {
-
+/** Search open **/
+//$(document).ready(function($) {
     $('#searchButton').on('click', function(){
         $(this).toggleClass('active');
         $('.desktop-menu').toggleClass('col-md-7 col-lg-8 visible-md visible-lg').addClass('hidden');
@@ -19,7 +18,7 @@ $(document).ready(function($) {
     //$('#search').textinput('option','preventFocusZoom',false);
     
     
-});
+//});
 
 
 /** Menu Open **/
@@ -42,7 +41,7 @@ $(document).on('click','.btn-encuentra', function(event) {
 
 /** Access window open **/
 
-$(document).ready(function($) {
+//$(document).ready(function($) {
 
     $('.btn-access').on('click', function(){
       $('.accessWrapper').fadeIn();
@@ -61,11 +60,11 @@ $(document).ready(function($) {
          access.fadeOut(500);
      }
   });
-});
+//});
 
 /** Stat window open **/
 
-$(document).ready(function($) {
+//$(document).ready(function($) {
 
     $('.btn-stats').on('click', function(){
       //id = event.target.id;
@@ -90,9 +89,9 @@ $(document).ready(function($) {
          stats.fadeOut(500);
      }
   });
-});
+//});
     
-//* Search zoom disable *//    
+/* Search zoom disable */   
     
 $("#searchButton").on('click', zoomDisable);
 function zoomDisable(){
@@ -107,7 +106,7 @@ function zoomEnable(){
 }
 
 
-/*cambiar idiomas*/
+/* cambiar idiomas */
 function cambiarActive(){
     var url = window.location.pathname;
     
@@ -124,10 +123,6 @@ function cambiarActive(){
         $('.idiomas-side').children('.en').removeClass('idiomas-side-active');
         $('.idiomas').children('.en').addClass('idiomas-non-active');
         $('.idiomas-side').children('.en').addClass('idiomas-side-non-active');
-        /*//$('.idiomas').children('.eus').addClass('idiomas-non-active');
-        $('.idiomas-side').children('.eus').addClass('idiomas-side-non-active');
-        //$('.idiomas').children('.en').addClass('idiomas-non-active');
-        $('.idiomas-side').children('.en').addClass('idiomas-side-non-active');*/
     } else if( url.indexOf("/eus/") > -1 ){
         $('.idiomas').children('.eus').removeClass('idiomas-non-active');
         $('.idiomas-side').children('.eus').removeClass('idiomas-side-non-active');
@@ -141,10 +136,6 @@ function cambiarActive(){
         $('.idiomas-side').children('.en').removeClass('idiomas-side-active');
         $('.idiomas').children('.en').addClass('idiomas-non-active');
         $('.idiomas-side').children('.en').addClass('idiomas-side-non-active');
-        /*//$('.idiomas').children('.es').addClass('idiomas-non-active');
-        $('.idiomas-side').children('.es').addClass('idiomas-side-non-active');
-        //$('.idiomas').children('.en').addClass('idiomas-non-active');
-        $('.idiomas-side').children('.en').addClass('idiomas-side-non-active');*/
     } else if( url.indexOf("/en/") > -1 ){
         $('.idiomas').children('.en').removeClass('idiomas-non-active');
         $('.idiomas-side').children('.en').removeClass('idiomas-side-non-active');
@@ -158,10 +149,6 @@ function cambiarActive(){
         $('.idiomas-side').children('.es').removeClass('idiomas-side-active');
         $('.idiomas').children('.es').addClass('idiomas-non-active');
         $('.idiomas-side').children('.es').addClass('idiomas-side-non-active');
-        /*//$('.idiomas').children('.eus').addClass('idiomas-non-active');
-        $('.idiomas-side').children('.eus').addClass('idiomas-side-non-active');
-        //$('.idiomas').children('.es').addClass('idiomas-non-active');
-        $('.idiomas-side').children('.es').addClass('idiomas-side-non-active');*/
     }
 }
 
@@ -179,7 +166,7 @@ confirmar = confirm("¿Seguro?");
 
 /* global filepicker */
 /*filepicker de filestack*/
-$(document).ready(function($) {
+//$(document).ready(function($) {
     $("#foto2").click(function(){
         filepicker.setKey("AnjcKYi0oTomOZxBk7c7Ez");
         filepicker.pick(
@@ -200,11 +187,11 @@ $(document).ready(function($) {
          });
         
     });
-});
+//});
 
 
 /*contacto sidrerias*/
-$(document).ready(function() {
+//$(document).ready(function($) {
   
   var mostrado = false;
     
@@ -221,10 +208,11 @@ $(document).ready(function() {
   
   
   
-});
+//});
 
-/* Swipe right para ir a la página anterior */
-$(document).ready(function() {
+/* Swipe right para abrir menu */
+
+//$(document).ready(function($) {
   if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
     //var url = window.location.pathname;
     
@@ -234,7 +222,7 @@ $(document).ready(function() {
       $(document).bind("touchend",terminar);
     //}
   }
-});
+//});
 
 var eancho;
 var ealto;
@@ -267,80 +255,22 @@ function terminar(event) {
 	if (malto < 0){
 	    malto = malto* -1;
 	}
+	if (mancho < 0){
+	    mancho = mancho* -1;
+	}
 	malto = malto*3;
 	if (mancho > malto) {
 	  if (mancho > mstop) {
 	    //history.back();
-	    $('.menu').addClass('visible-menu');
+	    if (eancho > sancho){
+	      $('.menu').removeClass('visible-menu');
+	    } else if (sancho > eancho){
+	      $('.menu').addClass('visible-menu');
+	    }
+	    
 	  }
 	}
-  //console.log("Movido: "+mstop+" Desde: "+stop+" Hasta: "+stop2);
+  //console.log("Movido: "+mstop+" Desde: "+eancho+" Hasta: "+sancho);
 }
 /* Swipe right end */
-
-
-// https://github.com/mattbryson/TouchSwipe-Jquery-Plugin
-/*global history*/
-/*$(function() {
-  $(document).swipe( {
-    //Generic swipe handler for all directions
-    swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
-      alert("You swiped " + direction );
-      history.back();
-    }
-  });
-});*/
-
-/*slides
-.on('swipeleft', function(e) {
-  slides.eq(i + 1).addClass('active');
-})
-.on('swiperight', function(e) {
-  slides.eq(i - 1).addClass('active');
-});*/
-
-/*$(document).ready(function() {
-$(document).on('swiperight', function (e) {
-    alert("aa");
-    //history.back();
 });
-});*/
-/*$(document).bind('swiperight', function () {
-    history.back();
-});*/
-/*$.mobile.defaultPageTransition = 'slide';
-$( "body" ).on( 'swiperight', function() {history.back()}); 
-$( "body" ).on( 'swipeleft', function() {history.forward()});   
-$("a").attr("data-transition", "fade");*/
-
-
-/* eliminar archivos de filestack*/
-/*
-filepicker.setKey("AnjcKYi0oTomOZxBk7c7Ez");
-
-var blob = {
-  url: ''
-};
-    console.log(JSON.stringify(blob));
-    var cdn_url = blob.url;
-    console.log("Removing...");
-    filepicker.remove(
-      blob, {
-        policy: 'eyJleHBpcnkiOjE2ODgxMzkwNTJ9',
-        signature: '89b33aeb5bd917c9df3b5949396460bba8a3f4f41e2f6b7c9854e29b965ceed5'
-      },
-      function(blob) {
-        console.log("Removed");
-        filepicker.remove(
-          cdn_url,
-          function(FPError) {
-            console.log(FPError.toString());
-          },
-          function(metadata) {
-            console.log("removing file again (expected result: error 171)...");
-            console.log(JSON.stringify(metadata));
-          }
-        );
-      }
-    );
-    */
