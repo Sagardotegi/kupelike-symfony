@@ -352,6 +352,9 @@ class KupelaController extends Controller
             $em->persist($kupela);
             $em->flush();
             
+            $nuevoVoto = $numVotos + 1;
+            $this->hacerPusher($nuevoVoto, $idKupela);
+            
             $message = "Se ha agregado el voto correctamente";
             
             $json = $serializer->serialize($message, 'json');
