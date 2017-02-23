@@ -28,6 +28,7 @@ security:
                 check_path: /login_check
                 username_parameter: _username
                 password_parameter: _password
+                require_previous_session: false
                 
                 always_use_default_target_path: true
                 default_target_path: /es/index

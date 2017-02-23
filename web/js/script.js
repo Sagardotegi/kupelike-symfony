@@ -210,7 +210,7 @@ confirmar = confirm("¿Seguro?");
   
 //});
 
-/* Swipe right para abrir menu */
+/* Swipe para abrir menu */
 
 //$(document).ready(function($) {
   if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
@@ -272,5 +272,5 @@ function terminar(event) {
 	}
   //console.log("Movido: "+mstop+" Desde: "+eancho+" Hasta: "+sancho);
 }
-/* Swipe right end */
+/* Swipe end */
 });

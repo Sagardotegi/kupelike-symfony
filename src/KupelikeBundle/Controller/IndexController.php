@@ -170,7 +170,7 @@ class IndexController extends Controller
         
         return $this->render('KupelikeBundle:Security:login.html.twig', array(
             'last_username' => $lastUsername,
-            'error'         => $error,
+            'error'         => $error
         ));
     }
     
