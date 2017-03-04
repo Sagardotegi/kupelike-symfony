@@ -26,7 +26,6 @@ class KupelaController extends Controller
      */
     public function likeAction(Request $request)
     {
-        
         // obtenemos los datos enviados por ajax
         $datos = $request->request->get('response');
         $idCliente = $datos['id'];
@@ -40,16 +39,6 @@ class KupelaController extends Controller
         //$fbhometown = $datos['hometown'];
         //$fbagerange = $datos['age_range'];
         
-        /*$idCliente = $datos->getProperty('id');
-        $nombre = $datos->getProperty('name');
-        $fbemail = $datos->getProperty('email');
-        $fbgender = $datos->getProperty('gender');*/
-        //$fblocation = $datos->getProperty('location');
-        //$fbbirthday = $datos->getProperty('birthday')->format('Y-m-d');
-        
-        //$fbhometown = $datos->getProperty('hometown');
-        //$fbagerange = $datos->getProperty('age_range');
-        
         $idKupela = $request->request->get('idKupela');
         
         // Entity Manager
@@ -57,8 +46,6 @@ class KupelaController extends Controller
         // busca el id de facebook en la tabla Cliente
         $clienteExists = $em->getRepository('KupelikeBundle:Cliente')->find($idCliente);
          
-        
-        
         // si el id de facebook existe
         if($clienteExists){
             // añade un nuevo voto
@@ -71,7 +58,6 @@ class KupelaController extends Controller
             // añade un nuevo voto
             $this->nuevoVoto($em, $idCliente, $idKupela);
         }
-
         return new Response();
     }
 
@@ -114,10 +100,6 @@ class KupelaController extends Controller
     
     public function avisarAction($id){
         $em = $this->getDoctrine()->getManager();
-        /*$avisos = $em->getRepository('KupelikeBundle:Voto')->findBy(array('kupelaId' => $id, 'aviso' => 'si'));
-        $idcliente = $avisos->getClienteId();
-        $cliente = $em->getRepository('KupelikeBundle:Cliente')->find($idcliente);
-        $email = $cliente->getEmail();*/
         
         $emails = $em->createQuery('SELECT c.email FROM KupelikeBundle:Cliente c, KupelikeBundle:Voto v
                 WHERE v.aviso = :aviso AND v.kupelaId = :kupela AND v.clienteId = c.id')
@@ -134,12 +116,7 @@ class KupelaController extends Controller
          $mail = \Swift_Message::newInstance()
             ->setSubject('KupeLike - La kupela ha sido embotellada')
             ->setFrom("kupelikeproject@gmail.com")
-            //->setTo($emails)
             ->setBody('');
-            /*->addPart("<h1>".$datos."</h1>aaa<h2>Mensaje del cliente</h2>
-                <p>bbb</p>
-                <h2>Email Cliente</h2>
-                </br>" .$id);*/
             
             foreach($datos as $datos2)    {
 
@@ -171,19 +148,16 @@ class KupelaController extends Controller
     //private function crearCliente($em, $id, $nombre, $fbemail, $fbgender)
     {
         // almacenamos en la tabla cliente
-            $cliente = new Cliente();
-            $cliente->setNombre($nombre);
-            $cliente->setId($id);
-            $cliente->setEmail($fbemail);
-            $cliente->setSexo($fbgender);
-            $cliente->setDireccion($fblocation);
-            $cliente->setFechaNacimiento($fbbirthday);
-            
-            
-            $em->persist($cliente);
-            $em->flush();
-            
-            //return $cliente;
+        $cliente = new Cliente();
+        $cliente->setNombre($nombre);
+        $cliente->setId($id);
+        $cliente->setEmail($fbemail);
+        $cliente->setSexo($fbgender);
+        $cliente->setDireccion($fblocation);
+        $cliente->setFechaNacimiento($fbbirthday);
+        
+        $em->persist($cliente);
+        $em->flush();
     }
     
     private function nuevoVoto($em, $idCliente, $idKupela)
@@ -225,18 +199,17 @@ class KupelaController extends Controller
         }
     }
     
-    public function mostrarAction($id){
-        
-            $mostrarVotos = $this->getDoctrine()->getRepository('KupelikeBundle:Kupela')->find($id);
-            if(!$mostrarVotos){
-                throw $this->createNotFoundException('No se ha encontrado la kupela con el ID'+$id);
-            }
-            
-            $mostrarVotos=json_encode($mostrarVotos);
-            
-         return new Response($mostrarVotos);
-
+    public function mostrarAction($id)
+    {
+        $mostrarVotos = $this->getDoctrine()->getRepository('KupelikeBundle:Kupela')->find($id);
+        if(!$mostrarVotos){
+            throw $this->createNotFoundException('No se ha encontrado la kupela con el ID'+$id);
         }
+        
+        $mostrarVotos=json_encode($mostrarVotos);
+        
+        return new Response($mostrarVotos);
+    }
  
     public function updateVotos($id)
     {
@@ -249,27 +222,10 @@ class KupelaController extends Controller
         $em->flush();
         
         $this->hacerPusher($nuevoVoto, $id);
-        
-        
-        
-        /*$em = $this->getDoctrine()->getManager();
-        $mostrarVotos = $em->getRepository('KupelikeBundle:Kupela')->find($id);
-    
-        if(!$mostrarVotos) {
-            throw $this->createNotFoundException(
-              'No se ha encontrado la kupela con el ID'.$id
-            );
-        }
-    
-        $mostrarVotos->setName('');
-        $em->flush();*/
-    
-        
     }
     
-    public function votosUsuarios(){
-        
-                
+    public function votosUsuarios()
+    {
         $sql="SELECT COUNT(nick) from voto WHERE nick='".$_cookie[usuario]."'";
         $result=mysql_query($sql) or die (mysql_error());
          
@@ -285,8 +241,10 @@ class KupelaController extends Controller
          
          echo "Usted ya ha votado.";
         }
-}
-    public function hacerPusher($nuevoVoto, $id){
+    }
+    
+    public function hacerPusher($nuevoVoto, $id)
+    {
         $pusher = $this->container->get('lopi_pusher.pusher');
     
         $data['message'] = $nuevoVoto;
@@ -308,20 +266,6 @@ class KupelaController extends Controller
         $kupela = $em->getRepository('KupelikeBundle:Kupela')->find($idKupela);
         $numVotos = $kupela->getNumVotos();
         $votos = $numVotos;
-        
-        // Convertir el objeto en JSON
-        /*$encoders = array(new JsonEncoder());
-        $normalizers = array(new ObjectNormalizer());
-        
-        $serializer = new Serializer($normalizers, $encoders);
-        
-        // Devolvemos el objeto en JSON
-        //$json = $serializer->serialize($votos, 'json');
-        $response = new Response();
-        $response->headers->set('Content-Type', 'text/plain');
-        $response->sendHeaders();
-        
-        return $this->render($votos, array(), $response);*/
         
         $response = new JsonResponse();
         $response->setData(array(
@@ -363,6 +307,6 @@ class KupelaController extends Controller
             $response->headers->set('Access-Control-Allow-Origin', '*');
             return $response;
         }
-        
     }
+    
 }

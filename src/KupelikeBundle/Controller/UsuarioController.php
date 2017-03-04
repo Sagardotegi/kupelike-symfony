@@ -169,13 +169,6 @@ class UsuarioController extends Controller
         $latitud = $request->request->get('latitud');
         $longitud = $request->request->get('longitud');
         $foto = $request->request->get('foto');
-        /** @var Symfony\Component\HttpFoundation\File\UploadedFile $foto */
-        /*$foto = $request->files->get('foto');
-        if($foto != null){
-            // asignamos un nombre al archivo generado automáticamente
-            $nombreFoto = $this->get('app.sagardotegi_uploader')->upload($foto);
-            $sagardotegi->setFoto('uploads/sagardotegis/' . $nombreFoto);
-        }*/
         
         $sagardotegi->setNombre($nombre);
         $sagardotegi->setDescripcion($descripcion);
@@ -186,7 +179,6 @@ class UsuarioController extends Controller
         $sagardotegi->setPueblo($pueblo);
         $sagardotegi->setFoto($foto);
        
-        
         $em = $this->getDoctrine()->getManager();
         $em->persist($sagardotegi);
         $em->flush();
@@ -196,7 +188,6 @@ class UsuarioController extends Controller
         $this->addFlash('mensaje', $successMessage);
         
         return $this->redirectToRoute('panel_usuarios');
-        
     }
     
     /**
@@ -216,41 +207,30 @@ class UsuarioController extends Controller
     public function updateSagardotegiAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
-         $sagardotegi = $em->getRepository("KupelikeBundle:Sagardotegi")->find($id);
-         
-         $nombre = $request->request->get('nombre');
-         $descripcion = $request->request->get('descripcion');
-         $direccion = $request->request->get('direccion');
-         $horario = $request->request->get('horario');
-         $foto = $request->request->get('foto');
-         $pueblo = $request->request->get('pueblo');
-         $latitud = $request->request->get('latitud');
-         $longitud = $request->request->get('longitud');
-         
-         $sagardotegi->setNombre($nombre);
-         $sagardotegi->setDescripcion($descripcion);
-         $sagardotegi->setDireccion($direccion);
+        $sagardotegi = $em->getRepository("KupelikeBundle:Sagardotegi")->find($id);
+        
+        $nombre = $request->request->get('nombre');
+        $descripcion = $request->request->get('descripcion');
+        $direccion = $request->request->get('direccion');
+        $horario = $request->request->get('horario');
+        $foto = $request->request->get('foto');
+        $pueblo = $request->request->get('pueblo');
+        $latitud = $request->request->get('latitud');
+        $longitud = $request->request->get('longitud');
+        
+        $sagardotegi->setNombre($nombre);
+        $sagardotegi->setDescripcion($descripcion);
+        $sagardotegi->setDireccion($direccion);
+        
+        $sagardotegi->setHorario($horario);
+        
+        $sagardotegi->setLatitud($latitud);
+        $sagardotegi->setLongitud($longitud);
+        $sagardotegi->setPueblo($pueblo);
+        $sagardotegi->setFoto($foto);
 
-         $sagardotegi->setHorario($horario);
-
-         $sagardotegi->setLatitud($latitud);
-         $sagardotegi->setLongitud($longitud);
-         $sagardotegi->setPueblo($pueblo);
-         $sagardotegi->setFoto($foto);
-
-         
-         // Obtenemos el archivo de la foto
-         /** @var Symfony\Component\HttpFoundation\File\UploadedFile $foto */
-         /*$foto = $request->files->get('foto');
-         if($foto != null){
-          // asignamos un nombre al archivo generado automáticamente
-          $nombreFoto = $this->get('app.sagardotegi_uploader')->upload($foto);
-          $sagardotegi->setFoto('uploads/sagardotegis/' . $nombreFoto);
-         }*/
-          
-         
-          $em->persist($sagardotegi);
-          $em->flush();
+        $em->persist($sagardotegi);
+        $em->flush();
         
         return $this->redirectToRoute('panel_sagardotegis');
     }
@@ -268,12 +248,6 @@ class UsuarioController extends Controller
         foreach ($kupelas as $kupela) {
             $em->remove($kupela);
         }
-        //$em->remove($kupela);
-        
-        //$kupela = $em->getRepository('KupelikeBundle:Kupela');
-        //$query = $em->createQuery('DELETE FROM KupelikeBundle:Kupela e WHERE e.idSagardotegi = '.$id);
-        //$query->setParameter(1, $id);
-        //$query->execute();
         
         $em->flush();
         
@@ -332,7 +306,7 @@ class UsuarioController extends Controller
         
         $user = $this->get('security.token_storage')->getToken()->getUser();
         
-         return $this->redirectToRoute('administracion_usuarios', array('nombreSidreria'=>$user->getNombreSidreria()));
+        return $this->redirectToRoute('administracion_usuarios', array('nombreSidreria'=>$user->getNombreSidreria()));
     }
     
 }

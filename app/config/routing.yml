@@ -17,17 +17,7 @@ _index:
     
 kupelike:
     resource: "@KupelikeBundle/Resources/config/routing.yml"
-    #prefix:   /
     prefix:   /{_locale}
-#kupelike:
-#    resource: "@KupelikeBundle/Controller/"
-#    type:     annotation
-#    prefix:   /
-
-#login:
-#    path: /login
-#    defaults: { _controller: KupelikeBundle:Security:login }
-#    prefix:   /{_locale}
     
 login_check:
     path: /login_check

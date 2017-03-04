@@ -47,7 +47,6 @@ $(document).ready(function(){
                         var sfoto = sagardotegi.foto;
                         var route = "{{ path('sagardotegi_view', { 'idSagardotegi': "change" }) }}".replace("change", ida);
                         var llegar = "{{ path("sagardotegi_mapa", { 'idSagardotegi': "change" }) }}".replace("change", ida);
-                        //var foto = "{{asset("change")}}".replace("change", sfoto);
                         
                         $("#searchResults").append(
     "<hr class='search-hr'><div class='row'>"+
@@ -80,6 +79,8 @@ $(document).ready(function(){
     </head>
     <body>
         <div class="wrapper">
+            
+        <!-- Navbar start -->
         <nav class="navbar navbar-light bg-faded navbar-fixed-top">
             <div class="container-fluid">
                 <div class="row">
@@ -132,6 +133,7 @@ $(document).ready(function(){
                 </div>
             </div>
         </nav>
+        <!-- Navbar END -->
         
         <!-- Search erantzunak -->
         <div class="container-fluid">
@@ -140,6 +142,7 @@ $(document).ready(function(){
                 </div>
             </div>
         </div>
+        <!-- Search erantzunak END -->
 
         <!-- Menu desplegable izquierda -->
         <div class="menu">
@@ -171,10 +174,10 @@ $(document).ready(function(){
                     <a class="btn-access"><li>{{ 'paginas_estaticas.menu.accederr' | trans }}</li></a>
                 {% endif %}
             </ul>
-       </div>
+        </div>
+        <!-- Menu desplegable izquierda END -->
            
-       <!-- Access window -->
-       
+        <!-- Access window -->
         <div class="accesWrapper">
             <div id="accessWindow" class="row">
                 <div class="col-xs-12">
@@ -195,6 +198,7 @@ $(document).ready(function(){
                 </div>
             </div>
         </div>
+        <!-- Access window END -->
                
         
         <!-- IMPORTANTE -> Todos los ficheros que se cargen en el block body deben empezar con un div container-fluid!!!!
@@ -204,7 +208,7 @@ $(document).ready(function(){
         <div class="push"></div>
         </div>
         <div class="container-fluid">
-            
+            <!-- Footer start -->
             <div class="row footer text-center">
                 <div class="col-xs-12">
                     
@@ -257,8 +261,8 @@ $(document).ready(function(){
                     Copyright © 2017 KupeLike - All Rights Reserved - <a href="/privacy" class="">Privacy</a>
                 </div>
                 <hr class="fline"/>
-            </footer>
-        
+            </div>
+            <!-- Footer END -->
         </div><!-- .container-fluid -->
        
         <script src="{{ asset('js/bootstrap.min.js') }}"></script>

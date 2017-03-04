@@ -14,19 +14,16 @@ sagardotegi_view:
     path: /sagardotegiak/{idSagardotegi}
     defaults: { _controller: KupelikeBundle:Sagardotegi:view }
     methods: [GET]
-    #schemes:  [%httpProtocol%]
     
 sagardotegi_mapa:
     path: /sagardotegiak/{idSagardotegi}/mapa
     defaults: { _controller: KupelikeBundle:Sagardotegi:mapa }
     methods: [GET]
-    #schemes:  [https]
     
 sagardotegien_mapak:
     path: /mapak
     defaults: { _controller: KupelikeBundle:Sagardotegi:mapak }
     methods: [GET]
-    #schemes:  [https]
     
 gps:
     path: /
@@ -66,19 +63,11 @@ prueba:
 kupela_avisar:
     path: /kupela_avisar/{id}
     defaults: { _controller: KupelikeBundle:Kupela:avisar }
-    #methods: [GET, POST]
 
 pusher:
     path: /pusher/{msg}
-    #path: /pusher
     defaults: { _controller: KupelikeBundle:Kupela:pusher }
     methods: [GET]
-    
-#cargar_sagardotegis:
-#    path: /save-sagardotegis
-#    defaults: { _controller: KupelikeBundle:Sagardotegi:save }
-#    methods: [GET]
-
 
 cargar_sagardotegis:
     path: /save-sagardotegis
@@ -222,7 +211,6 @@ update_password:
     path: /update-password/{id}
     defaults: { _controller: KupelikeBundle:Administracion:updatePassword }  
     methods: [POST]
-    
 
 # API REST URL
 
@@ -241,25 +229,10 @@ obtener_datos_sidreria:
     defaults: { _controller: KupelikeBundle:Sagardotegi:getSagardotegi }
     methods: [GET]
 
-#login:
-#    path: /login
-#    defaults: { _controller: KupelikeBundle:Index:login }
-#    methods: [GET]
+# LOGIN
 
 login:
     path: /login
     defaults: { _controller: KupelikeBundle:Index:login }
     requirements:
         _locale: es|eus|en
-        
-#login_check:
-#    path: /login_ckeck
-#    requirements:
-#        _locale: es|eus|en
-    
-#acceder:
-#    path: /acceder
-#    defaults: { _controller: KupelikeBundle:Index:acceder }
-#    methods: [GET]
-#    requirements:
-#        _locale: es|eus|en
