@@ -35,11 +35,10 @@
                     function (error) { 
                       if (error.code == error.PERMISSION_DENIED)
                           window.location = "{{ path('index') }}";
-                    });
+                    },{timeout:6000});
         		} else {
                     window.location.href = "{{ path('index') }}";
                 }
-                setTimeout(window.location.href = "{{ path('index') }}", 6000);
             }
         </script>
         <script type="text/javascript" src="https://maps.google.com/maps/api/js?key=AIzaSyBWJ72A1ofzRbYd2NstWY3pHJBIfAVURUY&libraries=geometry"></script>
