@@ -8,12 +8,12 @@ html, body {
     min-height: 100%;
     height: auto !important;
     height: 100%;
-    margin: 0 auto -372px; /* the bottom margin is the negative value of the footer's height */
+    margin: 0 auto -439px; /* the bottom margin is the negative value of the footer's height */
 }
 
 .footer, .push {
     
-    height: 372px; /* .push must be the same height as .footer */
+    height: 439px; /* .push must be the same height as .footer */
 }
 
 /* Fonts
@@ -261,10 +261,10 @@ body::-webkit-scrollbar-thumb {
 
 .menu-links li {
     
-    padding-top: 40px;
+    /*padding-top: 40px;*/
     padding-left: 55px;
     list-style: none;
-    height: 140px;
+    height: 150px;
 }
     
 .menu-links>a>li {
@@ -462,7 +462,7 @@ body::-webkit-scrollbar-thumb {
 .footer {
     padding-top: 36px;
     background-color: #232323;
-    height: 372px;
+    height: 439px;
 }
 
 
@@ -498,6 +498,10 @@ body::-webkit-scrollbar-thumb {
 }
 
 .p-20 {
+    padding: 20px 0px;
+}
+
+.p-footer {
     padding: 20px 0px;
 }
 
@@ -1230,6 +1234,10 @@ input:checked + .slider:before {
         font-size: 50px;
     }
     
+    .img-logo{
+        height: 66px;
+    }
+    
     .searchBox {
         font-size: 14px;
     }
@@ -1276,39 +1284,129 @@ input:checked + .slider:before {
         /*margin-left: -10%;*/
     }
     
+    .btn-stats {
+        font-size: 2.5em;
+    }
+    
+    .btn-aviso {
+        font-size: 2.5em;
+    }
+    
     .btn-default {
         height: 80px;
-        width: 140px;
-        font-size: 22px;
-    } 
+        /*width: 140px;*/
+        /*font-size: 22px;*/
+        font-size: 1.7em;
+    }
+    
+    .formulario {
+        font-size: 3.5em;
+    }
     
     .navbar-title {
-        font-size: 40px;
+        /*font-size: 40px;*/
+        font-size: 4.5em;
+    }
+    
+    .img-logo{
+        height: 1.3em;
     }
     
     .searchBox {
-        font-size: 25px;
+        /*font-size: 25px;*/
+        font-size: 2.5em;
+    }
+    
+    .fa-search {
+        font-size: 4em !important;
+    }
+    
+    .navbar-search-btn, .navbar-search-btn:hover, .navbar-search-btn:active,
+    .navbar-search-btn:focus, .navbar-search-btn:visited {
+        padding-top: 8px;
+    }
+    
+    .idiomas-side {
+        font-size: 2.5em;
+    }
+    
+    .menu-links>a>li {
+        font-size: 5em;
+        display : flex;
+        align-items : center;
     }
     
     .welcome-text {
-        font-size: 55px;
+        font-size: 5.5em;
     }
 
     .welcome-subtext {
-        font-size: 35px;
+        font-size: 3.5em;
+    }
+    
+    .btn-encuentra {
+       font-size: 3.5em; 
+    }
+    
+    .mtitle {
+        font-size: 3.5em;
+    }
+    
+    .card-title {
+        font-size: 3em;
+    }
+    
+    .card-description {
+        font-size: 2em;
     }
     
     .single-description {
         letter-spacing: 1px;
-        font-size: 18px;
+        font-size: 2em;
     }
     
     .vote-count {
-        font-size: xx-large; /*=32px*/
+        font-size: 2.5em; /*=32px*/
     }
     
     .card-description.nosotros{
-        font-size: 25px;
+        font-size: 2.5em;
+    }
+    
+    .carousel-caption>h2 {
+        font-size: 3em;
+    }
+    
+    .carousel-caption>h3 {
+        font-size: 2.3em;
+    }
+    
+    .carousel-caption>a {
+        font-size: 4em;
+    }
+    
+    .ftitle {
+        font-size: 2em;
+    }
+    
+    .footer {
+        padding-top: 0px;
+    }
+    
+    .p-footer {
+        padding: 20px 0px 8px 0px;
+    }
+    
+    .footer-menu-site {
+        font-size: 1.5em;
+    }
+    
+    .footer-menu-contact {
+        font-size: 1.7em;
+    }
+    
+    .subfooter {
+        font-size: 1.5em;
     }
 }
 
@@ -1330,39 +1428,129 @@ input:checked + .slider:before {
         /*margin-left: -5%;*/
     }
     
+    .btn-stats {
+        font-size: 2.5em;
+    }
+    
+    .btn-aviso {
+        font-size: 2.5em;
+    }
+    
     .btn-default {
         height: 80px;
-        width: 140px;
-        font-size: 22px;
+        /*width: 140px;*/
+        /*font-size: 22px;*/
+        font-size: 1.7em;
+    }
+    
+    .formulario {
+        font-size: 3.5em;
     }
     
     .navbar-title {
-        font-size: 40px;
+        /*font-size: 40px;*/
+        font-size: 4.5em;
+    }
+    
+    .img-logo{
+        height: 1.3em;
     }
     
     .searchBox {
-        font-size: 30px;
+        /*font-size: 30px;*/
+        font-size: 2.5em;
+    }
+    
+    .fa-search {
+        font-size: 4em !important;
+    }
+    
+    .navbar-search-btn, .navbar-search-btn:hover, .navbar-search-btn:active,
+    .navbar-search-btn:focus, .navbar-search-btn:visited {
+        padding-top: 8px;
+    }
+    
+    .idiomas-side {
+        font-size: 2.5em;
+    }
+    
+    .menu-links>a>li {
+        font-size: 5em;
+        display : flex;
+        align-items : center;
     }
     
     .welcome-text {
-        font-size: 60px;
+        font-size: 6em;
     }
 
     .welcome-subtext {
-        font-size: 40px;
+        font-size: 4em;
+    }
+    
+    .btn-encuentra {
+       font-size: 4em; 
+    }
+    
+    .mtitle {
+        font-size: 4em;
+    }
+    
+    .card-title {
+        font-size: 3em;
+    }
+    
+    .card-description {
+        font-size: 2em;
     }
     
     .single-description {
         letter-spacing: 0px;
-        font-size: 20px;
+        font-size: 2em;
     }
     
     .vote-count {
-        font-size: 36px;
+        font-size: 2.5em;
     }
     
     .card-description.nosotros{
-        font-size: 30px;
+        font-size: 3em;
+    }
+    
+    .carousel-caption>h2 {
+        font-size: 3em;
+    }
+    
+    .carousel-caption>h3 {
+        font-size: 2.3em;
+    }
+    
+    .carousel-caption>a {
+        font-size: 4em;
+    }
+    
+    .ftitle {
+        font-size: 2em;
+    }
+    
+    .footer {
+        padding-top: 0px;
+    }
+    
+    .p-footer {
+        padding: 20px 0px 8px 0px;
+    }
+    
+    .footer-menu-site {
+        font-size: 2em;
+    }
+    
+    .footer-menu-contact {
+        font-size: 1.9em;
+    }
+    
+    .subfooter {
+        font-size: 2em;
     }
 }
 
