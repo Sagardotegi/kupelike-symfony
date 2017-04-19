@@ -8,12 +8,12 @@ html, body {
     min-height: 100%;
     height: auto !important;
     height: 100%;
-    margin: 0 auto -439px; /* the bottom margin is the negative value of the footer's height */
+    margin: 0 auto -368px; /* the bottom margin is the negative value of the footer's height */
 }
 
 .footer, .push {
     
-    height: 439px; /* .push must be the same height as .footer */
+    height: 368px; /* .push must be the same height as .footer */
 }
 
 /* Fonts
@@ -462,7 +462,7 @@ body::-webkit-scrollbar-thumb {
 .footer {
     padding-top: 36px;
     background-color: #232323;
-    height: 439px;
+    height: 368px;
 }
 
 
